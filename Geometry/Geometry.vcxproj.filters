@@ -1,0 +1,362 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="Bezier.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Ellipse.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Fuction.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Geom.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Global.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Group.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Imager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LBezier.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Doughnut.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LLine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Mark.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OleItem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Oleobj.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Pole.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Poly.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PolyF.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PRect.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RRect.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RRectDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TextEditDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TextPoly.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TextPolyDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DynamicTag.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Text.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="VectorTile.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Widget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Path.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TagDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Tag.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TiledPoly.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PropertyDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Clip.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Mask.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TextGaped.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TiledBezier.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Compound.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Cluster.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Ellipse.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Fuction.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Geom.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Global.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Group.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Imager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LBezier.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Doughnut.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LLine.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Mark.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Name.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OleItem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Oleobj.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Poly.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PolyF.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PRect.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RRect.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RRectDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StdAfx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TextPoly.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TextEditDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TextPolyDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicTag.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Text.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Pole.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Bezier.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="VectorTile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Widget.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StraightLine.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Path.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Collection.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TagDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Tag.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TiledPoly.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PropertyDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Clip.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Mask.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TextGaped.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TiledBezier.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Compound.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Cluster.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Holder.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Geometry.def">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\zoomzero.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Geometry.rc2">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\text.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Tool.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\toolbar1.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\vbottom1.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\vtop1.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\zoomin.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\zoomout.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\aligncen.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\cursor1.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\alignlef.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\anchor2.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\anchor3.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\anchor4.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\anchor5.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\anchor6.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\anchor7.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\anchor8.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\anchor9.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bitmap1.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00001.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00002.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00003.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\cross.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="ReadMe.txt" />
+    <None Include="res\Pin.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00004.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\lock.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{158537aa-4730-4af9-a960-4f8c08ec3b90}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4c31e1b1-1a2e-4d1e-9cf7-8549dac83e35}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{a642a40f-4b32-466c-a5ac-1285a57f872c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Geometry.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

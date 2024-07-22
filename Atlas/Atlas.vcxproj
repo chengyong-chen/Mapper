@@ -1,0 +1,233 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{4668D10A-4530-4B55-8273-98D59B36A80C}</ProjectGuid>
+    <RootNamespace>Atlas</RootNamespace>
+    <Keyword>MFCProj</Keyword>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>..\..\Thirdparty\boost\1.83.0;..\..\ThirdParty\libharu\2.4.4\win32\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>..\..\Thirdparty\boost\1.83.0;..\..\ThirdParty\libharu\2.4.4\win32\include;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+    </Midl>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;_USRDLL;JSON_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <BrowseInformation>true</BrowseInformation>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <BuildStlModules>false</BuildStlModules>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>Gdiplus.lib;..\Public\Debug\Public.lib;..\Projection\Debug\Projection.lib;..\Dataview\Debug\Dataview.lib;..\Geometry\Debug\Geometry.lib;..\Database\Debug\Database.lib;..\Style\Debug\Style.lib;..\Information\Debug\Information.lib;..\Layer\Debug\Layer.lib</AdditionalDependencies>
+      <ModuleDefinitionFile>.\Atlas.def</ModuleDefinitionFile>
+      <SubSystem>Windows</SubSystem>
+      <ImportLibrary>$(ProjectDir)$(Configuration)\$(TargetName).lib</ImportLibrary>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <Profile>true</Profile>
+      <OptimizeReferences>false</OptimizeReferences>
+      <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
+      <AdditionalLibraryDirectories>D:\Workshop\ThirdParty\boost\1.83.0\lib32-msvc-14.3</AdditionalLibraryDirectories>
+    </Link>
+    <ResourceCompile>
+      <Culture>0x0009</Culture>
+    </ResourceCompile>
+    <Bscmake>
+      <PreserveSbr>true</PreserveSbr>
+    </Bscmake>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+    </Midl>
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <BuildStlModules>false</BuildStlModules>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>Gdiplus.lib;..\Public\Release\Public.lib;..\Projection\Release\Projection.lib;..\Dataview\Release\Dataview.lib;..\Geometry\Release\Geometry.lib;..\Database\Release\Database.lib;..\Style\Release\Style.lib;..\Information\Release\Information.lib;..\Layer\Release\Layer.lib</AdditionalDependencies>
+      <ModuleDefinitionFile>.\Atlas.def</ModuleDefinitionFile>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <ImportLibrary>$(ProjectDir)$(Configuration)\$(TargetName).lib</ImportLibrary>
+      <Profile>false</Profile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>D:\Workshop\ThirdParty\boost\1.83.0\lib32-msvc-14.3</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="Atlas.cpp" />
+    <ClCompile Include="Atlas1.cpp" />
+    <ClCompile Include="AtlasDlg.cpp" />
+    <ClCompile Include="AtlasPane.cpp" />
+    <ClCompile Include="Catalog.cpp" />
+    <ClCompile Include="CatalogTree.cpp" />
+    <ClCompile Include="Deck.cpp" />
+    <ClCompile Include="DeckDlg.cpp" />
+    <ClCompile Include="Global.cpp" />
+    <ClCompile Include="LegendDlg.cpp" />
+    <ClCompile Include="MapItem.cpp" />
+    <ClCompile Include="Page.cpp" />
+    <ClCompile Include="PageDlg.cpp" />
+    <ClCompile Include="Pyramid.cpp" />
+    <ClCompile Include="PyramidTree.cpp" />
+    <ClCompile Include="Ruler.cpp" />
+    <ClCompile Include="Security.cpp" />
+    <ClCompile Include="TransformDlg.cpp" />
+    <ClCompile Include="Tree.cpp" />
+    <ClCompile Include="TreeNode.cpp" />
+    <ClCompile Include="webbrowser.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Atlas.def" />
+    <None Include="res\Atlas.bmp" />
+    <None Include="res\Atlas.ico" />
+    <None Include="res\Atlas.rc2" />
+    <None Include="res\Atlas_ToolBar.bmp" />
+    <None Include="res\Atlas_ToolBar24.bmp" />
+    <None Include="res\AtlasPane.ico" />
+    <None Include="res\cur00001.cur" />
+    <None Include="res\icon1.ico" />
+    <None Include="res\layermov.cur" />
+    <None Include="res\Mark.bmp" />
+    <None Include="res\MenuArrow.bmp" />
+    <None Include="res\MenuEdit.bmp" />
+    <None Include="res\MenuGPS.bmp" />
+    <None Include="res\menugps1.bmp" />
+    <None Include="res\MenuMain.bmp" />
+    <None Include="res\MenuNavi.bmp" />
+    <None Include="res\MenuQuery.bmp" />
+    <None Include="res\NodeType.bmp" />
+    <None Include="res\Output.bmp" />
+    <None Include="res\properties.bmp" />
+    <None Include="res\properties24.bmp" />
+    <None Include="res\properties_wnd24.ico" />
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Atlas.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Atlas.h" />
+    <ClInclude Include="Atlas1.h" />
+    <ClInclude Include="AtlasDlg.h" />
+    <ClInclude Include="AtlasPane.h" />
+    <ClInclude Include="Catalog.h" />
+    <ClInclude Include="CatalogTree.h" />
+    <ClInclude Include="Deck.h" />
+    <ClInclude Include="DeckDlg.h" />
+    <ClInclude Include="Global.h" />
+    <ClInclude Include="LegendDlg.h" />
+    <ClInclude Include="MapItem.h" />
+    <ClInclude Include="Page.h" />
+    <ClInclude Include="PageDlg.h" />
+    <ClInclude Include="Pyramid.h" />
+    <ClInclude Include="PyramidTree.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="Ruler.h" />
+    <ClInclude Include="Security.h" />
+    <ClInclude Include="StdAfx.h" />
+    <ClInclude Include="TransformDlg.h" />
+    <ClInclude Include="Tree.h" />
+    <ClInclude Include="TreeNode.h" />
+    <ClInclude Include="webbrowser.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Database\Database.vcxproj">
+      <Project>{34538817-80f0-4640-8eb2-521eb0de007c}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Dataview\Dataview.vcxproj">
+      <Project>{c2b3c401-48dc-46f8-ae2c-e6a9e7f602d6}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Geometry\Geometry.vcxproj">
+      <Project>{e077340a-cc20-4ab3-8317-de65020bae49}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Information\Information.vcxproj">
+      <Project>{d739337b-3ee0-4e3e-95bc-e19bd31e88ca}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Layer\Layer.vcxproj">
+      <Project>{00905832-76ff-40a9-91e2-91e40d0f5ead}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Projection\Projection.vcxproj">
+      <Project>{8ef6dfc8-e191-4344-a763-044fc95699c3}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Public\Public.vcxproj">
+      <Project>{4939c318-2298-4178-843e-25acf119ddd6}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Style\Style.vcxproj">
+      <Project>{06562e7d-4456-4133-af94-c88f48fd8f9f}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties RESOURCE_FILE="Atlas.rc" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

@@ -1,0 +1,33 @@
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Fast", "Fast.vcproj", "{7943BF6C-9409-4B4F-9F6E-F00C9BB06105}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Image", "..\Image\Image.vcproj", "{6D930E05-C3C0-475D-9816-92F917A33983}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7943BF6C-9409-4B4F-9F6E-F00C9BB06105}.Debug Unicode|Win32.ActiveCfg = Debug|Win32
+		{7943BF6C-9409-4B4F-9F6E-F00C9BB06105}.Debug Unicode|Win32.Build.0 = Debug|Win32
+		{7943BF6C-9409-4B4F-9F6E-F00C9BB06105}.Debug|Win32.ActiveCfg = Debug|Win32
+		{7943BF6C-9409-4B4F-9F6E-F00C9BB06105}.Debug|Win32.Build.0 = Debug|Win32
+
+
+
+
+		{6D930E05-C3C0-475D-9816-92F917A33983}.Debug Unicode|Win32.ActiveCfg = Debug Unicode|Win32
+		{6D930E05-C3C0-475D-9816-92F917A33983}.Debug Unicode|Win32.Build.0 = Debug Unicode|Win32
+		{6D930E05-C3C0-475D-9816-92F917A33983}.Debug|Win32.ActiveCfg = Debug|Win32
+		{6D930E05-C3C0-475D-9816-92F917A33983}.Debug|Win32.Build.0 = Debug|Win32
+		{6D930E05-C3C0-475D-9816-92F917A33983}.Release Unicode|Win32.ActiveCfg = Release Unicode|Win32
+		{6D930E05-C3C0-475D-9816-92F917A33983}.Release Unicode|Win32.Build.0 = Release Unicode|Win32
+
+
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

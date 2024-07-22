@@ -1,0 +1,7 @@
+; Dataview.def : Declares the module parameters for the DLL.
+
+LIBRARY      "DATAVIEW"
+DESCRIPTION  'DATAVIEW Windows Dynamic Link Library'
+
+EXPORTS
+    ; Explicit exports can go here

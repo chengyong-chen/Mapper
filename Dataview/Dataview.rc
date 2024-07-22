@@ -1,0 +1,458 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Chinese (Simplified) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+LANGUAGE LANG_CHINESE, SUBLANG_NEUTRAL
+#pragma code_page(936)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif\r\n"
+    "#include ""res\\Dataview.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#endif\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_PAGE DIALOGEX 0, 0, 135, 164
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "页面设置"
+FONT 8, "MS Shell Dlg", 400, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,38,150,35,11
+    PUSHBUTTON      "Cancel",IDCANCEL,80,150,35,11
+    EDITTEXT        IDC_TOP,57,14,27,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_LEFT,3,54,27,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_BOTTOM,58,105,27,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_RIGHT,105,54,27,12,ES_AUTOHSCROLL
+    CONTROL         "水平居中",IDC_HCENTER,"Button",BS_AUTOCHECKBOX | WS_GROUP | WS_TABSTOP,19,132,48,10
+    CONTROL         "垂直居中",IDC_VCENTER,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,76,133,48,10
+    GROUPBOX        "居中方式",IDC_STATIC,3,119,129,28,WS_GROUP
+    LTEXT           "上边界:",IDC_STATIC,57,3,31,8
+    LTEXT           "下边界:",IDC_STATIC,58,95,27,8
+    LTEXT           "左边界:",IDC_STATIC,3,43,26,8
+    LTEXT           "右边界:",IDC_STATIC,105,43,27,8
+    LTEXT           "单位：cm",IDC_STATIC,3,3,35,8
+    PUSHBUTTON      "",IDC_BUTTON2,38,29,62,62,BS_FLAT
+END
+
+IDD_PRINTDLG DIALOGEX 36, 52, 249, 140
+STYLE DS_SETFONT | DS_MODALFRAME | DS_3DLOOK | DS_FIXEDSYS | DS_CONTEXTHELP | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Print"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,211,3,35,14,WS_GROUP
+    PUSHBUTTON      "Cancel",IDCANCEL,211,21,35,14,WS_GROUP
+    PUSHBUTTON      "页面设置",IDC_PAGE,3,124,43,13
+    EDITTEXT        IDC_SCALE,164,107,50,12,ES_RIGHT | ES_AUTOHSCROLL
+    RADIOBUTTON     "全部",1056,10,49,29,8,WS_GROUP
+    RADIOBUTTON     "选择的范围",1057,10,65,51,8
+    RADIOBUTTON     "页",1058,10,81,20,8
+    EDITTEXT        1152,36,79,20,12,ES_RIGHT
+    EDITTEXT        1153,73,79,26,12,ES_RIGHT
+    EDITTEXT        1154,153,48,26,12,ES_RIGHT
+    CONTROL         "逐份打印",1041,"Button",BS_AUTOCHECKBOX | WS_GROUP | WS_TABSTOP,160,67,45,8
+    LTEXT           "System Default",1088,36,16,92,8
+    PUSHBUTTON      "设置...",1024,131,13,32,14,WS_GROUP
+    COMBOBOX        1136,45,107,54,36,CBS_DROPDOWNLIST | WS_BORDER | WS_VSCROLL | WS_GROUP | WS_TABSTOP
+    EDITTEXT        IDC_OVERLAP,152,87,25,12,ES_AUTOHSCROLL
+    GROUPBOX        "打印范围",1072,3,36,100,60
+    LTEXT           "名称:",IDC_STATIC,8,15,25,8
+    LTEXT           "打印质量:",1091,3,109,37,8
+    LTEXT           "打印份数：",1092,110,47,41,9
+    GROUPBOX        "份数",IDC_STATIC,146,36,100,45
+    GROUPBOX        "打印机",IDC_STATIC,3,3,198,29
+    LTEXT           "重叠区域：",IDC_STATIC,110,88,40,10
+    LTEXT           "mm",IDC_STATIC,179,88,15,10
+    RTEXT           "To",1090,61,81,8,8
+    LTEXT           "打印比例尺:  1:",IDC_STATIC,104,109,55,8
+END
+
+IDD_DATAINFO DIALOGEX 0, 0, 170, 274
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "地图数据信息"
+FONT 8, "MS Shell Dlg", 400, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,46,257,34,14
+    PUSHBUTTON      "Cancel",IDCANCEL,93,257,34,14
+    EDITTEXT        IDC_MAXIMUMSCALE,103,29,53,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_NAME,56,3,111,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_YORIGIN,20,195,50,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_XORIGIN,20,177,51,12,ES_AUTOHSCROLL
+    LTEXT           "最大显示比例尺:",IDC_STATIC,16,31,58,8
+    LTEXT           "地图名称:",IDC_STATIC,3,5,39,8
+    GROUPBOX        "坐标原点",IDC_STATIC,3,163,164,48
+    LTEXT           "X:",IDC_STATIC,10,179,8,8
+    LTEXT           "Y:",IDC_STATIC,10,197,9,8
+    RTEXT           "1:",IDC_STATIC,81,31,8,8
+    EDITTEXT        IDC_SOURCESCALE,103,46,53,12,ES_AUTOHSCROLL
+    LTEXT           "数据精度比例尺:",IDC_STATIC,16,48,58,8
+    RTEXT           "1:",IDC_STATIC,81,48,8,8
+    EDITTEXT        IDC_MINIMUMSCALE,103,63,53,12,ES_AUTOHSCROLL
+    LTEXT           "最小显示比例尺:",IDC_STATIC,16,65,58,8
+    RTEXT           "1:",IDC_STATIC,81,65,8,8
+    EDITTEXT        IDC_CXCANVAS,36,110,50,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_CYCANVAS,36,127,50,12,ES_AUTOHSCROLL
+    GROUPBOX        "地图幅面",IDC_STATIC,3,81,164,80
+    LTEXT           "宽度:",IDC_STATIC,10,112,22,8
+    LTEXT           "高度:",IDC_STATIC,10,129,24,8
+    LTEXT           "XXXXXXX",IDC_UNIT1,91,112,34,8
+    CONTROL         "纵向",IDC_PORTRAITRADIO,"Button",BS_AUTORADIOBUTTON | WS_GROUP,51,144,30,9
+    CONTROL         "横向",IDC_LANDSCAPERADIO,"Button",BS_AUTORADIOBUTTON,94,144,32,9
+    LTEXT           "方向:",IDC_STATIC,10,145,26,9
+    COMBOBOX        IDC_PAPERCOMBO,10,92,73,89,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "XXXXXXX",IDC_UNIT2,91,129,34,8
+    LTEXT           "XXXXXXX",IDC_UNIT3,77,197,26,10
+    LTEXT           "XXXXXXX",IDC_UNIT4,77,178,26,10
+    COMBOBOX        IDC_PROJECTIONTYPECOMBO,33,222,79,170,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "类型:",IDC_STATIC,10,225,21,11
+    COMBOBOX        IDC_GCSCOMBO,71,238,91,88,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "请选择坐标系:",IDC_STATIC,10,241,50,12
+    GROUPBOX        "投影",IDC_STATIC,3,212,164,45
+    PUSHBUTTON      "设定参数",IDC_SETUPPROJECTION,115,220,40,14
+    GROUPBOX        "比例尺",IDC_STATIC,3,17,164,63
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_PAGE, DIALOG
+    BEGIN
+        LEFTMARGIN, 3
+        RIGHTMARGIN, 132
+        TOPMARGIN, 3
+        BOTTOMMARGIN, 161
+    END
+
+    IDD_PRINTDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 3
+        RIGHTMARGIN, 246
+        TOPMARGIN, 3
+        BOTTOMMARGIN, 137
+    END
+
+    IDD_DATAINFO, DIALOG
+    BEGIN
+        LEFTMARGIN, 3
+        RIGHTMARGIN, 167
+        TOPMARGIN, 3
+        BOTTOMMARGIN, 271
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// AFX_DIALOG_LAYOUT
+//
+
+IDD_PRINTDLG AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_PRINTRESTRICTION    "你打印的幅面最大为1个A4纸张大小。若想取消打印限制，请跟软件提供商联系。"
+    IDS_EXPORTDIBRESTRICTION "位图输出的最大幅面为1024*1024像素。若想取消输出限制，请跟软件供应商联系。"
+END
+
+#endif    // Chinese (Simplified) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (Neutral) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_NEUTRAL
+#pragma code_page(1252)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_PAGE DIALOGEX 0, 0, 135, 172
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Page layout"
+FONT 8, "Microsoft Sans Serif", 400, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,37,158,35,11
+    PUSHBUTTON      "Cancel",IDCANCEL,79,158,35,11
+    EDITTEXT        IDC_TOP,57,18,27,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_LEFT,7,58,27,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_BOTTOM,58,109,27,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_RIGHT,104,58,27,12,ES_AUTOHSCROLL
+    CONTROL         "horizontal",IDC_HCENTER,"Button",BS_AUTOCHECKBOX | WS_GROUP | WS_TABSTOP,19,141,48,10
+    CONTROL         "vertical",IDC_VCENTER,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,76,142,48,10
+    GROUPBOX        "center",IDC_STATIC,7,128,124,28,WS_GROUP
+    LTEXT           "Top:",IDC_STATIC,57,7,31,8
+    LTEXT           "Bottom:",IDC_STATIC,58,99,27,8
+    LTEXT           "Left:",IDC_STATIC,7,47,26,8
+    LTEXT           "Right:",IDC_STATIC,104,47,27,8
+    LTEXT           "Unit:cm",IDC_STATIC,7,7,35,8
+    PUSHBUTTON      "",IDC_BUTTON2,38,33,62,62,BS_FLAT
+END
+
+IDD_PRINTDLG DIALOGEX 36, 52, 251, 140
+STYLE DS_SETFONT | DS_MODALFRAME | DS_3DLOOK | DS_FIXEDSYS | DS_CONTEXTHELP | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Print"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,213,3,35,14,WS_GROUP
+    PUSHBUTTON      "Cancel",IDCANCEL,213,21,35,14,WS_GROUP
+    PUSHBUTTON      "Page setup",IDC_PAGE,3,124,43,13
+    EDITTEXT        IDC_SCALE,176,108,50,12,ES_RIGHT | ES_AUTOHSCROLL
+    RADIOBUTTON     "All",1056,10,49,29,8,WS_GROUP
+    RADIOBUTTON     "Selected",1057,10,65,51,8
+    RADIOBUTTON     "Page",1058,10,81,25,8
+    EDITTEXT        1152,40,79,20,12,ES_RIGHT
+    EDITTEXT        1153,73,79,25,12,ES_RIGHT
+    EDITTEXT        1154,153,48,26,12,ES_RIGHT
+    CONTROL         "Collection",1041,"Button",BS_AUTOCHECKBOX | WS_GROUP | WS_TABSTOP,160,67,45,8
+    LTEXT           "System Default",1088,36,15,92,8
+    PUSHBUTTON      "Setup...",1024,131,12,32,14,WS_GROUP
+    COMBOBOX        1136,44,108,54,36,CBS_DROPDOWNLIST | WS_BORDER | WS_VSCROLL | WS_GROUP | WS_TABSTOP
+    EDITTEXT        IDC_OVERLAP,152,87,25,12,ES_AUTOHSCROLL
+    GROUPBOX        "range",1072,3,36,100,60
+    LTEXT           "Name:",IDC_STATIC,8,14,25,8
+    LTEXT           "Qualty:",1091,3,110,33,9
+    LTEXT           "Copies:",1092,110,47,41,9
+    GROUPBOX        "Copies",IDC_STATIC,148,36,100,45
+    GROUPBOX        "Printer",IDC_STATIC,3,3,189,29
+    LTEXT           "Overlay:",IDC_STATIC,110,88,40,10
+    LTEXT           "mm",IDC_STATIC,179,88,15,10
+    RTEXT           "To",1090,62,81,8,8
+    LTEXT           "Printting Scale:  1:",IDC_STATIC,106,110,62,8
+END
+
+IDD_DATAINFO DIALOGEX 0, 0, 170, 274
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Map's Data Information"
+FONT 8, "MS Shell Dlg", 400, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,47,257,34,14
+    PUSHBUTTON      "Cancel",IDCANCEL,94,257,34,14
+    EDITTEXT        IDC_MAXIMUMSCALE,102,29,53,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_NAME,56,3,111,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_YORIGIN,20,195,50,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_XORIGIN,20,177,51,12,ES_AUTOHSCROLL
+    LTEXT           "Maximum on Display:",IDC_STATIC,16,31,70,8
+    LTEXT           "Name:",IDC_STATIC,3,5,39,8
+    GROUPBOX        "Left Bottom's Map Coordinate",IDC_STATIC,3,163,164,48
+    LTEXT           "X:",IDC_STATIC,10,179,8,8
+    LTEXT           "Y:",IDC_STATIC,10,197,9,8
+    EDITTEXT        IDC_SOURCESCALE,102,46,53,12,ES_AUTOHSCROLL
+    LTEXT           "Data Source:",IDC_STATIC,16,48,81,8
+    RTEXT           "1:",IDC_STATIC,91,48,8,8
+    EDITTEXT        IDC_MINIMUMSCALE,102,63,53,12,ES_AUTOHSCROLL
+    LTEXT           "Minimum on Display:",IDC_STATIC,16,65,69,8
+    RTEXT           "1:",IDC_STATIC,91,65,8,8
+    EDITTEXT        IDC_CXCANVAS,36,110,50,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_CYCANVAS,36,127,50,12,ES_AUTOHSCROLL
+    GROUPBOX        "Paper",IDC_STATIC,3,81,164,80
+    LTEXT           "Width:",IDC_STATIC,10,112,22,8
+    LTEXT           "Height:",IDC_STATIC,10,129,24,8
+    LTEXT           "XXXXXXX",IDC_UNIT1,91,112,34,8
+    CONTROL         "Portait",IDC_PORTRAITRADIO,"Button",BS_AUTORADIOBUTTON | WS_GROUP,51,144,37,9
+    CONTROL         "Landscape",IDC_LANDSCAPERADIO,"Button",BS_AUTORADIOBUTTON,94,144,48,9
+    LTEXT           "Orientation:",IDC_STATIC,10,145,35,9
+    COMBOBOX        IDC_PAPERCOMBO,10,92,73,89,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "XXXXXXX",IDC_UNIT2,91,129,34,8
+    LTEXT           "XXXXXXX",IDC_UNIT3,77,197,26,10
+    LTEXT           "XXXXXXX",IDC_UNIT4,77,178,26,10
+    COMBOBOX        IDC_PROJECTIONTYPECOMBO,37,222,75,170,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Type:",IDC_STATIC,10,225,21,8
+    COMBOBOX        IDC_GCSCOMBO,83,238,79,88,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Coordinate System:",IDC_STATIC,10,241,67,8
+    GROUPBOX        "Projection",IDC_STATIC,3,212,164,45
+    PUSHBUTTON      "Parameters",IDC_SETUPPROJECTION,115,220,52,14
+    GROUPBOX        "Scale",IDC_STATIC,3,17,164,63
+    RTEXT           "1:",IDC_STATIC,91,31,8,8
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_PAGE, DIALOG
+    BEGIN
+        LEFTMARGIN, 3
+        RIGHTMARGIN, 131
+        TOPMARGIN, 3
+        BOTTOMMARGIN, 169
+    END
+
+    IDD_PRINTDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 3
+        RIGHTMARGIN, 248
+        TOPMARGIN, 3
+        BOTTOMMARGIN, 137
+    END
+
+    IDD_DATAINFO, DIALOG
+    BEGIN
+        LEFTMARGIN, 3
+        RIGHTMARGIN, 167
+        TOPMARGIN, 3
+        BOTTOMMARGIN, 271
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 13,1,0,0
+ PRODUCTVERSION 13,1,0,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x2L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904B0"
+        BEGIN
+            VALUE "FileDescription", "PRINT DLL"
+            VALUE "FileVersion", "13.01.00.0"
+            VALUE "InternalName", "PRINT"
+            VALUE "LegalCopyright", "Copyright ?Diwatu Software Ltd. 2012"
+            VALUE "OriginalFilename", "PRINT.DLL"
+            VALUE "ProductName", "PRINT Dynamic Link Library"
+            VALUE "ProductVersion", "13.01.00.0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// AFX_DIALOG_LAYOUT
+//
+
+IDD_PRINTDLG AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_PRINTRESTRICTION    "Restriction of printing with A4 paper. Please contact with Sinomaps to get the permission."
+    IDS_EXPORTDIBRESTRICTION 
+                            "Restriction of exporting bitmap with 1024*1024 pixels. Please contact with Sinomaps to get the permission."
+END
+
+#endif    // English (Neutral) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#endif
+#include "res\Dataview.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#endif
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

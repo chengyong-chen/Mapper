@@ -1,0 +1,30 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.168
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Fast", "Fast.vcxproj", "{7943BF6C-9409-4B4F-9F6E-F00C9BB06105}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Image", "..\Image\Image.vcxproj", "{6D930E05-C3C0-475D-9816-92F917A33983}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7943BF6C-9409-4B4F-9F6E-F00C9BB06105}.Debug|Win32.ActiveCfg = Debug|Win32
+		{7943BF6C-9409-4B4F-9F6E-F00C9BB06105}.Debug|Win32.Build.0 = Debug|Win32
+
+
+		{6D930E05-C3C0-475D-9816-92F917A33983}.Debug|Win32.ActiveCfg = Debug|Win32
+		{6D930E05-C3C0-475D-9816-92F917A33983}.Debug|Win32.Build.0 = Debug|Win32
+
+
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {26808959-0690-4C38-A6E0-DB01A13425AF}
+	EndGlobalSection
+EndGlobal

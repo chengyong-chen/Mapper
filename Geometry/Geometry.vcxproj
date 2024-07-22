@@ -1,0 +1,317 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{E077340A-CC20-4AB3-8317-DE65020BAE49}</ProjectGuid>
+    <RootNamespace>Geometry</RootNamespace>
+    <Keyword>MFCProj</Keyword>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>..\..\ThirdParty\CGAL\5.6.0\include;..\..\ThirdParty\ICU\65.1\include;..\..\Thirdparty\boost\1.83.0;..\..\ThirdParty\libharu\2.4.4\win32\include;D:\Workshop\ThirdParty\clipper\2.0\CPP\Clipper2Lib\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>..\..\ThirdParty\CGAL\5.6.0\include;..\..\Thirdparty\boost\1.83.0;..\..\ThirdParty\libharu\2.4.4\win32\include;..\..\ThirdParty\clipper\2.0\CPP\Clipper2Lib\include;$(IncludePath)</IncludePath>
+    <ExternalIncludePath>$(ExternalIncludePath)</ExternalIncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+    </Midl>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;_AFXEXT;JSON_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <BrowseInformation>true</BrowseInformation>
+      <BuildStlModules>false</BuildStlModules>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>Gdiplus.lib;..\Public\Debug\Public.lib;..\Database\Debug\Database.lib;..\Projection\Debug\Projection.lib;..\Dataview\Debug\Dataview.lib;..\Image\Debug\Image.lib;..\Filter\Debug\Filter.lib;..\Style\Debug\Style.lib;..\Rectify\Debug\Rectify.lib;..\..\Thirdparty\ZLib\1.2.11\zlib.lib;..\..\Thirdparty\libharu\2.4.4\libhpdf.lib;..\..\Thirdparty\clipper\2.0\CPP\build\Debug\Clipper2.lib;..\..\Thirdparty\CGAL\5.6.0\auxiliary\gmp\lib\libgmp-10.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ModuleDefinitionFile>.\Geometry.def</ModuleDefinitionFile>
+      <SubSystem>Windows</SubSystem>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+      <ImportLibrary>$(ProjectDir)$(Configuration)\$(TargetName).lib</ImportLibrary>
+      <IgnoreSpecificDefaultLibraries>Libcmt.lib</IgnoreSpecificDefaultLibraries>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <Profile>true</Profile>
+      <OptimizeReferences>false</OptimizeReferences>
+      <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
+      <AdditionalLibraryDirectories>D:\Workshop\ThirdParty\boost\1.83.0\lib32-msvc-14.3</AdditionalLibraryDirectories>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <Bscmake>
+      <PreserveSbr>true</PreserveSbr>
+    </Bscmake>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+    </Midl>
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_AFXEXT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <BuildStlModules>false</BuildStlModules>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>Gdiplus.lib;..\Public\Release\Public.lib;..\Database\Release\Database.lib;..\Projection\Release\Projection.lib;..\Dataview\Release\Dataview.lib;..\Image\Release\Image.lib;..\Filter\Release\Filter.lib;..\Style\Release\Style.lib;..\Rectify\Release\Rectify.lib;..\..\Thirdparty\ZLib\1.2.11\zlib.lib;..\..\Thirdparty\libharu\2.4.4\libhpdf.lib;..\..\Thirdparty\clipper\2.0\CPP\build\Release\Clipper2.lib</AdditionalDependencies>
+      <ModuleDefinitionFile>.\Geometry.def</ModuleDefinitionFile>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <ImportLibrary>$(ProjectDir)$(Configuration)\$(TargetName).lib</ImportLibrary>
+      <IgnoreSpecificDefaultLibraries>
+      </IgnoreSpecificDefaultLibraries>
+      <Profile>false</Profile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <AdditionalOptions>/SAFESEH:NO %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalLibraryDirectories>D:\Workshop\ThirdParty\boost\1.83.0\lib32-msvc-14.3</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="Clip.cpp">
+    </ClCompile>
+    <ClCompile Include="Cluster.cpp">
+    </ClCompile>
+    <ClCompile Include="Mask.cpp">
+    </ClCompile>
+    <ClCompile Include="Compound.cpp">
+    </ClCompile>
+    <ClCompile Include="PropertyDlg.cpp">
+    </ClCompile>
+    <ClCompile Include="TagDlg.cpp">
+    </ClCompile>
+    <ClCompile Include="Bezier.cpp">
+    </ClCompile>
+    <ClCompile Include="Ellipse.cpp">
+    </ClCompile>
+    <ClCompile Include="Fuction.cpp">
+    </ClCompile>
+    <ClCompile Include="Geom.cpp">
+    </ClCompile>
+    <ClCompile Include="Global.cpp">
+    </ClCompile>
+    <ClCompile Include="Group.cpp">
+    </ClCompile>
+    <ClCompile Include="Imager.cpp">
+    </ClCompile>
+    <ClCompile Include="LBezier.cpp">
+    </ClCompile>
+    <ClCompile Include="Doughnut.cpp">
+    </ClCompile>
+    <ClCompile Include="LLine.cpp">
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+    </ClCompile>
+    <ClCompile Include="Mark.cpp">
+    </ClCompile>
+    <ClCompile Include="Tag.cpp">
+    </ClCompile>
+    <ClCompile Include="OleItem.cpp">
+    </ClCompile>
+    <ClCompile Include="Oleobj.cpp">
+    </ClCompile>
+    <ClCompile Include="Path.cpp">
+    </ClCompile>
+    <ClCompile Include="Pole.cpp">
+    </ClCompile>
+    <ClCompile Include="Poly.cpp">
+    </ClCompile>
+    <ClCompile Include="PolyF.cpp">
+    </ClCompile>
+    <ClCompile Include="PRect.cpp">
+    </ClCompile>
+    <ClCompile Include="RRect.cpp">
+    </ClCompile>
+    <ClCompile Include="RRectDlg.cpp">
+    </ClCompile>
+    <ClCompile Include="Text.cpp">
+    </ClCompile>
+    <ClCompile Include="TextEditDlg.cpp">
+    </ClCompile>
+    <ClCompile Include="TextGaped.cpp">
+    </ClCompile>
+    <ClCompile Include="TextPoly.cpp">
+    </ClCompile>
+    <ClCompile Include="TextPolyDlg.cpp">
+    </ClCompile>
+    <ClCompile Include="TiledBezier.cpp">
+    </ClCompile>
+    <ClCompile Include="TiledPoly.cpp">
+    </ClCompile>
+    <ClCompile Include="DynamicTag.cpp">
+    </ClCompile>
+    <ClCompile Include="VectorTile.cpp">
+    </ClCompile>
+    <ClCompile Include="Widget.cpp">
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Geometry.def" />
+    <None Include="res\aligncen.bmp" />
+    <None Include="res\alignlef.bmp" />
+    <None Include="res\anchor2.bmp" />
+    <None Include="res\anchor3.bmp" />
+    <None Include="res\anchor4.bmp" />
+    <None Include="res\anchor5.bmp" />
+    <None Include="res\anchor6.bmp" />
+    <None Include="res\anchor7.bmp" />
+    <None Include="res\anchor8.bmp" />
+    <None Include="res\anchor9.bmp" />
+    <None Include="res\bitmap1.bmp" />
+    <None Include="res\bmp00001.bmp" />
+    <None Include="res\bmp00002.bmp" />
+    <None Include="res\bmp00003.bmp" />
+    <None Include="res\bmp00004.bmp" />
+    <None Include="res\cross.cur" />
+    <None Include="res\cursor1.cur" />
+    <None Include="res\Geometry.rc2" />
+    <None Include="res\lock.bmp" />
+    <None Include="res\Pin.bmp" />
+    <None Include="res\text.cur" />
+    <None Include="res\Tool.bmp" />
+    <None Include="res\toolbar1.bmp" />
+    <None Include="res\vbottom1.bmp" />
+    <None Include="res\vtop1.bmp" />
+    <None Include="res\zoomin.cur" />
+    <None Include="res\zoomout.cur" />
+    <None Include="res\zoomzero.cur" />
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Geometry.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Clip.h" />
+    <ClInclude Include="Cluster.h" />
+    <ClInclude Include="Holder.h" />
+    <ClInclude Include="Mask.h" />
+    <ClInclude Include="Compound.h" />
+    <ClInclude Include="PropertyDlg.h" />
+    <ClInclude Include="TagDlg.h" />
+    <ClInclude Include="Bezier.h" />
+    <ClInclude Include="Collection.h" />
+    <ClInclude Include="Ellipse.h" />
+    <ClInclude Include="Fuction.h" />
+    <ClInclude Include="Geom.h" />
+    <ClInclude Include="Global.h" />
+    <ClInclude Include="Group.h" />
+    <ClInclude Include="Imager.h" />
+    <ClInclude Include="LBezier.h" />
+    <ClInclude Include="Doughnut.h" />
+    <ClInclude Include="LLine.h" />
+    <ClInclude Include="Mark.h" />
+    <ClInclude Include="Name.h" />
+    <ClInclude Include="Tag.h" />
+    <ClInclude Include="OleItem.h" />
+    <ClInclude Include="Oleobj.h" />
+    <ClInclude Include="Path.h" />
+    <ClInclude Include="Pole.h" />
+    <ClInclude Include="Poly.h" />
+    <ClInclude Include="PolyF.h" />
+    <ClInclude Include="PRect.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="RRect.h" />
+    <ClInclude Include="RRectDlg.h" />
+    <ClInclude Include="StdAfx.h" />
+    <ClInclude Include="StraightLine.hpp" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="Text.h" />
+    <ClInclude Include="TextEditDlg.h" />
+    <ClInclude Include="TextGaped.h" />
+    <ClInclude Include="TextPoly.h" />
+    <ClInclude Include="TextPolyDlg.h" />
+    <ClInclude Include="TiledBezier.h" />
+    <ClInclude Include="TiledPoly.h" />
+    <ClInclude Include="DynamicTag.h" />
+    <ClInclude Include="VectorTile.h" />
+    <ClInclude Include="Widget.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Database\Database.vcxproj">
+      <Project>{34538817-80f0-4640-8eb2-521eb0de007c}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Dataview\Dataview.vcxproj">
+      <Project>{c2b3c401-48dc-46f8-ae2c-e6a9e7f602d6}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Filter\Filter.vcxproj">
+      <Project>{3abac686-6307-402f-888e-77706d33e6e7}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Image\Image.vcxproj">
+      <Project>{6d930e05-c3c0-475d-9816-92f917a33983}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Projection\Projection.vcxproj">
+      <Project>{8ef6dfc8-e191-4344-a763-044fc95699c3}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Public\Public.vcxproj">
+      <Project>{4939c318-2298-4178-843e-25acf119ddd6}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Rectify\Rectify.vcxproj">
+      <Project>{eaaead0f-224f-411b-b09b-b5022f1f9b38}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties RESOURCE_FILE="Geometry.rc" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

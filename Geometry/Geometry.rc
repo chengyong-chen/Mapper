@@ -1,0 +1,503 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Chinese (Simplified) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+LANGUAGE LANG_CHINESE, SUBLANG_NEUTRAL
+#pragma code_page(936)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif\r\n"
+    "#include ""res\\Geometry.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#endif\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_LOCK                BITMAP                  "res\\lock.bmp"
+
+IDB_HLEFT               BITMAP                  "res\\alignlef.bmp"
+
+IDB_HRIGHT              BITMAP                  "res\\bmp00002.bmp"
+
+IDB_VTOP                BITMAP                  "res\\bmp00003.bmp"
+
+IDB_VBOTTOM             BITMAP                  "res\\vtop1.bmp"
+
+IDB_VCENTER             BITMAP                  "res\\vbottom1.bmp"
+
+IDB_RECT                BITMAP                  "res\\bitmap1.bmp"
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_TEXTPOLY DIALOGEX 0, 0, 152, 86
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Text along a path:"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,108,50,41,14
+    PUSHBUTTON      "Cancel",IDCANCEL,108,69,41,14
+    CONTROL         "文字基线",IDC_BASELINE,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP,13,15,42,8
+    CONTROL         "文字底部",IDC_DECENT,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP,59,15,42,8
+    CONTROL         "文字中间",IDC_CENTER,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP,103,15,43,8
+    CONTROL         "水平",IDC_PARALLEL,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP,13,42,38,8
+    CONTROL         "垂直",IDC_VERTICAL,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP,56,42,37,8
+    CONTROL         "控制点",IDC_ANCHOR,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP,13,69,37,8
+    CONTROL         "距离平均",IDC_AVERAGE,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP,56,69,45,8
+    GROUPBOX        "排列",IDC_STATIC,3,3,146,25,WS_GROUP
+    GROUPBOX        "方向",IDC_STATIC,3,30,102,25,WS_GROUP
+    GROUPBOX        "散列方式",IDC_STATIC,3,58,102,25,WS_GROUP
+END
+
+IDD_RRECT DIALOGEX 0, 0, 123, 46
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Round rectangle"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "确定",IDOK,7,25,50,14
+    PUSHBUTTON      "取消",IDCANCEL,61,25,50,14
+    EDITTEXT        IDC_RADIUS,58,7,32,12,ES_AUTOHSCROLL
+    LTEXT           "拐角半径:",IDC_STATIC,7,8,52,9
+    LTEXT           "CPoint",IDC_UNITSHOW,92,10,24,8
+END
+
+IDD_TAG DIALOGEX 0, 0, 188, 93
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Tag Style"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "确定",IDOK,80,76,50,14
+    PUSHBUTTON      "取消",IDCANCEL,135,76,50,14
+    CONTROL         "Radio3",IDC_ANCHOR3,"Button",BS_AUTORADIOBUTTON | WS_GROUP,64,19,8,8
+    CONTROL         "Radio3",IDC_ANCHOR6,"Button",BS_AUTORADIOBUTTON,64,40,8,8
+    CONTROL         "Radio3",IDC_ANCHOR9,"Button",BS_AUTORADIOBUTTON,64,62,8,8
+    CONTROL         "Radio3",IDC_ANCHOR2,"Button",BS_AUTORADIOBUTTON,37,19,8,8
+    CONTROL         "Radio3",IDC_ANCHOR5,"Button",BS_AUTORADIOBUTTON,37,40,8,8
+    CONTROL         "Radio3",IDC_ANCHOR8,"Button",BS_AUTORADIOBUTTON,37,62,8,8
+    CONTROL         "Radio3",IDC_ANCHOR1,"Button",BS_AUTORADIOBUTTON,10,19,8,8
+    CONTROL         "Radio3",IDC_ANCHOR4,"Button",BS_AUTORADIOBUTTON,10,40,8,8
+    CONTROL         "Radio3",IDC_ANCHOR7,"Button",BS_AUTORADIOBUTTON,10,62,8,8
+    CONTROL         "HLeft",IDC_HLEFT,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,83,25,8,9
+    CONTROL         "HCenter",IDC_HCENTER,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP,118,25,8,9
+    CONTROL         "HRight",IDC_HRIGHT,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP,151,25,8,9
+    CONTROL         "VBOTTOM",IDC_VBOTTOM,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP,83,54,8,9
+    CONTROL         "VCenter",IDC_VCENTER,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP,118,54,8,9
+    CONTROL         "VTOP",IDC_VTOP,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP,151,54,9,9
+    CONTROL         IDB_HLEFT,IDC_STATIC,"Static",SS_BITMAP | WS_GROUP,91,24,21,10
+    CONTROL         IDB_HCENTER,IDC_STATIC,"Static",SS_BITMAP,126,24,21,10
+    CONTROL         IDB_HRIGHT,IDC_STATIC,"Static",SS_BITMAP,160,24,21,10
+    CONTROL         IDB_VBOTTOM,IDC_STATIC,"Static",SS_BITMAP,91,53,21,10
+    CONTROL         IDB_VTOP,IDC_STATIC,"Static",SS_BITMAP,160,53,21,10
+    GROUPBOX        "显示位置",IDC_STATIC,7,5,70,68
+    GROUPBOX        "排列方式",IDC_STATIC,79,5,106,68
+    CONTROL         IDB_VCENTER,IDC_STATIC,"Static",SS_BITMAP,126,53,21,10
+END
+
+IDD_TEXTEDIT DIALOGEX 0, 0, 169, 83
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Text Edit"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    EDITTEXT        IDC_TEXT,0,15,168,68,ES_MULTILINE | ES_AUTOVSCROLL | ES_NOHIDESEL | ES_WANTRETURN
+    DEFPUSHBUTTON   "确定",IDOK,108,3,28,10
+    PUSHBUTTON      "取消",IDCANCEL,139,3,28,10
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_TEXTPOLY, DIALOG
+    BEGIN
+        LEFTMARGIN, 3
+        RIGHTMARGIN, 149
+        TOPMARGIN, 3
+        BOTTOMMARGIN, 83
+    END
+
+    IDD_RRECT, DIALOG
+    BEGIN
+        LEFTMARGIN, 3
+        RIGHTMARGIN, 116
+        TOPMARGIN, 3
+        BOTTOMMARGIN, 39
+    END
+
+    IDD_TAG, DIALOG
+    BEGIN
+        LEFTMARGIN, 3
+        RIGHTMARGIN, 185
+        TOPMARGIN, 3
+        BOTTOMMARGIN, 90
+    END
+
+    IDD_TEXTEDIT, DIALOG
+    BEGIN
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_NOTFINDIMAGE        "图片文件 %s 在原来的目录内没有被发现,是否重新定位!"
+END
+
+#endif    // Chinese (Simplified) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (Neutral) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_NEUTRAL
+#pragma code_page(1252)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_ANCHOR1             BITMAP                  "res\\anchor3.bmp"
+
+IDB_ANCHOR2             BITMAP                  "res\\anchor2.bmp"
+
+IDB_ANCHOR3             BITMAP                  "res\\bmp00001.bmp"
+
+IDB_ANCHOR4             BITMAP                  "res\\anchor4.bmp"
+
+IDB_ANCHOR5             BITMAP                  "res\\anchor5.bmp"
+
+IDB_ANCHOR6             BITMAP                  "res\\anchor6.bmp"
+
+IDB_ANCHOR7             BITMAP                  "res\\anchor7.bmp"
+
+IDB_ANCHOR8             BITMAP                  "res\\anchor8.bmp"
+
+IDB_ANCHOR9             BITMAP                  "res\\anchor9.bmp"
+
+IDB_HCENTER             BITMAP                  "res\\aligncen.bmp"
+
+IDB_PIN                 BITMAP                  "res\\Pin.bmp"
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_IMAGE DIALOGEX 0, 0, 160, 161
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Image Property"
+FONT 8, "Microsoft Sans Serif", 400, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,127,145,30,14
+    LTEXT           "File:",IDC_STATIC,29,91,14,8
+    EDITTEXT        IDC_FILENAME,50,89,104,14,ES_AUTOHSCROLL | ES_READONLY | WS_GROUP
+    LTEXT           "Width:",IDC_STATIC,13,16,22,8
+    LTEXT           "Height:",IDC_STATIC,13,31,24,8
+    LTEXT           "Pixels",IDC_STATIC,67,31,19,8
+    LTEXT           "Pixels",IDC_STATIC,67,16,19,8
+    LTEXT           "DPI:",IDC_STATIC,109,31,15,8
+    LTEXT           "0",IDC_WIDTH,44,16,17,8
+    LTEXT           "0",IDC_DPI,140,31,17,8
+    LTEXT           "0",IDC_HEIGHT,44,31,17,8
+    LTEXT           "Transparency:",IDC_STATIC,3,113,48,8
+    EDITTEXT        IDC_EDIT,63,111,26,12,ES_AUTOHSCROLL
+    SCROLLBAR       IDC_SCROLL,3,127,154,12
+    PUSHBUTTON      "Cancel",IDCANCEL,87,145,28,14
+    CONTROL         "Embeded in map file",IDC_EMBEDED,"Button",BS_AUTORADIOBUTTON | WS_GROUP,14,59,79,10
+    CONTROL         "Linked from external file",IDC_LINKED,"Button",BS_AUTORADIOBUTTON,14,74,90,10
+    GROUPBOX        "Size",IDC_STATIC,3,3,154,40
+    GROUPBOX        "Link",IDC_STATIC,3,47,154,60
+END
+
+IDD_TEXTEDIT DIALOGEX 0, 0, 169, 83
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Text Edit"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    EDITTEXT        IDC_TEXT,3,17,163,63,ES_MULTILINE | ES_AUTOVSCROLL | ES_NOHIDESEL | ES_WANTRETURN
+    DEFPUSHBUTTON   "OK",IDOK,105,3,28,10
+    PUSHBUTTON      "Cancel",IDCANCEL,138,3,28,10
+END
+
+IDD_TAG DIALOGEX 0, 0, 188, 93
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Tag Style"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,83,76,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,135,76,50,14
+    CONTROL         "Radio3",IDC_ANCHOR3,"Button",BS_AUTORADIOBUTTON | WS_GROUP,64,19,8,8
+    CONTROL         "Radio3",IDC_ANCHOR6,"Button",BS_AUTORADIOBUTTON,64,40,8,8
+    CONTROL         "Radio3",IDC_ANCHOR9,"Button",BS_AUTORADIOBUTTON,64,62,8,8
+    CONTROL         "Radio3",IDC_ANCHOR2,"Button",BS_AUTORADIOBUTTON,37,19,8,8
+    CONTROL         "Radio3",IDC_ANCHOR5,"Button",BS_AUTORADIOBUTTON,37,40,8,8
+    CONTROL         "Radio3",IDC_ANCHOR8,"Button",BS_AUTORADIOBUTTON,37,62,8,8
+    CONTROL         "Radio3",IDC_ANCHOR1,"Button",BS_AUTORADIOBUTTON,10,19,8,8
+    CONTROL         "Radio3",IDC_ANCHOR4,"Button",BS_AUTORADIOBUTTON,10,40,8,8
+    CONTROL         "Radio3",IDC_ANCHOR7,"Button",BS_AUTORADIOBUTTON,10,62,8,8
+    CONTROL         "HLeft",IDC_HLEFT,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,83,25,8,9
+    CONTROL         "HCenter",IDC_HCENTER,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP,117,25,8,9
+    CONTROL         "HRight",IDC_HRIGHT,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP,150,25,8,9
+    CONTROL         "VBOTTOM",IDC_VBOTTOM,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP,83,54,8,9
+    CONTROL         "VCenter",IDC_VCENTER,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP,117,54,8,9
+    CONTROL         "VTOP",IDC_VTOP,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP,150,54,9,9
+    CONTROL         IDB_RECT,IDC_STATIC,"Static",SS_BITMAP | SS_CENTERIMAGE | WS_DISABLED,13,22,56,45,WS_EX_TRANSPARENT | WS_EX_STATICEDGE
+    CONTROL         IDB_HLEFT,IDC_STATIC,"Static",SS_BITMAP | WS_GROUP,91,24,21,10
+    CONTROL         IDB_HCENTER,IDC_STATIC,"Static",SS_BITMAP,125,24,21,10
+    CONTROL         IDB_HRIGHT,IDC_STATIC,"Static",SS_BITMAP,159,24,21,10
+    CONTROL         IDB_VBOTTOM,IDC_STATIC,"Static",SS_BITMAP,91,53,21,10
+    CONTROL         IDB_VTOP,IDC_STATIC,"Static",SS_BITMAP,159,53,21,10
+    GROUPBOX        "Position",IDC_STATIC,7,5,70,68
+    GROUPBOX        "Alignment",IDC_STATIC,79,5,106,68
+    CONTROL         IDB_VCENTER,IDC_STATIC,"Static",SS_BITMAP,125,53,21,10
+END
+
+IDD_TEXTPOLY DIALOGEX 0, 0, 150, 86
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Text along a path:"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,108,50,39,14
+    PUSHBUTTON      "Cancel",IDCANCEL,108,69,39,14
+    CONTROL         "Baseline",IDC_BASELINE,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP,13,15,42,8
+    CONTROL         "Descent",IDC_DECENT,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP,59,15,39,8
+    CONTROL         "Center",IDC_CENTER,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP,102,15,39,8
+    CONTROL         "Parallel",IDC_PARALLEL,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP,13,42,38,8
+    CONTROL         "Vertical",IDC_VERTICAL,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP,59,42,37,8
+    CONTROL         "Handle",IDC_ANCHOR,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP,13,69,37,8
+    CONTROL         "Average",IDC_AVERAGE,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP,59,69,41,8
+    GROUPBOX        "Align",IDC_STATIC,3,3,142,25,WS_GROUP
+    GROUPBOX        "Orientation",IDC_STATIC,3,30,102,25,WS_GROUP
+    GROUPBOX        "Space",IDC_STATIC,3,58,102,25,WS_GROUP
+END
+
+IDD_RRECT DIALOGEX 0, 0, 123, 46
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Round rectangle"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,7,25,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,60,25,50,14
+    EDITTEXT        IDC_RADIUS,60,7,30,12,ES_AUTOHSCROLL
+    LTEXT           "Corner radius:",IDC_STATIC,7,8,52,9
+    LTEXT           "Points",IDC_UNITSHOW,92,9,24,10
+END
+
+IDD_GEOMPROPERTY DIALOGEX 0, 0, 129, 117
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Geometry's Propterty"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,7,103,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,65,103,50,14
+    LTEXT           "ID:",IDC_STATIC,3,5,11,8
+    EDITTEXT        IDC_GEOMID,51,3,75,12,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Geo Code:",IDC_STATIC,3,41,35,8
+    EDITTEXT        IDC_GEOCODE,51,39,75,12,ES_AUTOHSCROLL
+    LTEXT           "Attribute ID:",IDC_STATIC,3,23,42,8
+    EDITTEXT        IDC_ATTID,51,21,75,12,ES_AUTOHSCROLL
+    LTEXT           "Polygon:",IDC_STATIC,1,63,29,8
+    LTEXT           "Static",IDC_CLOCKWISE,49,63,76,8
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_IMAGE, DIALOG
+    BEGIN
+        LEFTMARGIN, 3
+        RIGHTMARGIN, 157
+        TOPMARGIN, 3
+        BOTTOMMARGIN, 159
+    END
+
+    IDD_TEXTEDIT, DIALOG
+    BEGIN
+        LEFTMARGIN, 3
+        RIGHTMARGIN, 166
+        TOPMARGIN, 3
+        BOTTOMMARGIN, 80
+    END
+
+    IDD_TAG, DIALOG
+    BEGIN
+        RIGHTMARGIN, 185
+        BOTTOMMARGIN, 90
+    END
+
+    IDD_TEXTPOLY, DIALOG
+    BEGIN
+        LEFTMARGIN, 3
+        RIGHTMARGIN, 147
+        TOPMARGIN, 3
+        BOTTOMMARGIN, 83
+    END
+
+    IDD_RRECT, DIALOG
+    BEGIN
+    END
+
+    IDD_GEOMPROPERTY, DIALOG
+    BEGIN
+        BOTTOMMARGIN, 85
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 13,1,0,0
+ PRODUCTVERSION 13,1,0,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x2L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904B0"
+        BEGIN
+            VALUE "FileDescription", "Geometry DLL"
+            VALUE "FileVersion", "13.01.00.0"
+            VALUE "InternalName", "Geometry"
+            VALUE "LegalCopyright", "Copyright ?Diwatu Software Ltd. 2012"
+            VALUE "OriginalFilename", "Geometry.DLL"
+            VALUE "ProductName", "Geometry Dynamic Link Library"
+            VALUE "ProductVersion", "13.01.00.0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// AFX_DIALOG_LAYOUT
+//
+
+IDD_GEOMPROPERTY AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_NOTFINDIMAGE        "The image file %s wasn't found in the original fold. Relocate please!"
+END
+
+#endif    // English (Neutral) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#endif
+#include "res\Geometry.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#endif
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

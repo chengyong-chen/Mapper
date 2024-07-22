@@ -1,0 +1,586 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Chinese (Simplified) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+LANGUAGE LANG_CHINESE, SUBLANG_NEUTRAL
+#pragma code_page(936)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE
+BEGIN
+"resource.h\0"
+END
+
+2 TEXTINCLUDE
+BEGIN
+"#include ""afxres.h""\r\n"
+"\0"
+END
+
+3 TEXTINCLUDE
+BEGIN
+"#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+"#define _AFX_NO_OLE_RESOURCES\r\n"
+"#define _AFX_NO_TRACKER_RESOURCES\r\n"
+"#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+"\r\n"
+"#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)\r\n"
+"#ifdef _WIN32\r\n"
+"LANGUAGE 4, 2\r\n"
+"#pragma code_page(936)\r\n"
+"#endif //_WIN32\r\n"
+"#include ""res\\Atlas.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+"#include ""l.chs\\afxres.rc""          // Standard components\r\n"
+"#endif\r\n"
+"\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_LEGEND DIALOG 0, 0, 187, 252
+STYLE DS_SETFONT|DS_CENTER|WS_POPUP|WS_CAPTION|WS_SYSMENU|WS_THICKFRAME
+CAPTION "图例"
+FONT 8, "MS Shell Dlg"
+BEGIN
+DEFPUSHBUTTON   "退出", IDOK, 150, 238, 37, 14
+CONTROL         "", IDC_EXPLORER, "{8856F961-340A-11D0-A96B-00C04FD705A2}", WS_TABSTOP, 0, 0, 187, 234
+END
+
+IDD_ATLAS DIALOGEX 0, 0, 175, 115
+STYLE DS_SETFONT|WS_POPUP|WS_CAPTION|WS_SYSMENU
+CAPTION "工程属性"
+FONT 8, "Microsoft Sans Serif", 400, 0, 0x0
+BEGIN
+DEFPUSHBUTTON   "确定", IDOK, 132, 76, 40, 14
+PUSHBUTTON      "取消", IDCANCEL, 132, 95, 40, 14
+EDITTEXT        IDC_NAME, 47, 4, 125, 12, ES_AUTOHSCROLL
+EDITTEXT        IDC_TITLE, 47, 23, 125, 12, ES_AUTOHSCROLL
+EDITTEXT        IDC_INDEXHTML, 46, 39, 102, 12, ES_AUTOHSCROLL
+PUSHBUTTON      "....", IDC_FIND, 153, 38, 15, 11
+EDITTEXT        IDC_HOMEPAGE, 46, 55, 102, 12, ES_AUTOHSCROLL
+PUSHBUTTON      "....", IDC_FIND2, 153, 57, 15, 11
+CONTROL         "无需保密限制", IDC_OPEN, "Button", BS_AUTOCHECKBOX|WS_TABSTOP, 2, 76, 61, 10
+CONTROL         "支持导航", IDC_NAVIGATE, "Button", BS_AUTOCHECKBOX|WS_TABSTOP, 2, 89, 46, 10
+CONTROL         "支持交通查询", IDC_TRAFFIC, "Button", BS_AUTOCHECKBOX|WS_TABSTOP, 2, 102, 61, 10
+CONTROL         "支持网页浏览", IDC_HTML, "Button", BS_AUTOCHECKBOX|WS_TABSTOP, 70, 76, 61, 10
+LTEXT           "工程名称:", IDC_STATIC, 2, 8, 39, 8
+LTEXT           "显示标题:", IDC_STATIC, 2, 24, 39, 8
+LTEXT           "索引网页:", IDC_STATIC, 2, 40, 39, 8
+LTEXT           "首页文件:", IDC_STATIC, 2, 56, 39, 8
+CONTROL         "支持数据库", IDC_DATABASE, "Button", BS_AUTOCHECKBOX|WS_TABSTOP, 70, 102, 53, 10
+CONTROL         "支持编辑", IDC_EDIT, "Button", BS_AUTOCHECKBOX|WS_TABSTOP, 70, 89, 58, 10
+END
+
+IDD_PAGE DIALOGEX 0, 0, 139, 91
+STYLE DS_SETFONT|WS_POPUP|WS_CAPTION|WS_SYSMENU
+CAPTION "图幅属性"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+EDITTEXT        IDC_TARGET, 22, 3, 98, 12, ES_AUTOHSCROLL
+PUSHBUTTON      "....", IDC_FINDFILE, 122, 4, 15, 11
+CONTROL         "目录", IDC_FOLDER, "Button", BS_AUTORADIOBUTTON|WS_TABSTOP, 4, 31, 26, 10
+CONTROL         "地图", IDC_MAP, "Button", BS_AUTORADIOBUTTON|WS_TABSTOP, 4, 45, 27, 10
+CONTROL         "网页", IDC_HTML, "Button", BS_AUTORADIOBUTTON|WS_TABSTOP, 4, 58, 26, 10
+GROUPBOX        "中心点坐标", IDC_STATIC, 47, 21, 53, 49
+EDITTEXT        IDC_X, 61, 31, 34, 14, ES_AUTOHSCROLL
+EDITTEXT        IDC_Y, 61, 50, 34, 14, ES_AUTOHSCROLL
+DEFPUSHBUTTON   "确定", IDOK, 86, 74, 50, 14
+PUSHBUTTON      "取消", IDCANCEL, 27, 74, 50, 14
+GROUPBOX        "类型", IDC_STATIC, 2, 21, 31, 49
+LTEXT           "文件:", IDC_STATIC, 2, 5, 19, 8
+LTEXT           "X:", IDC_STATIC, 51, 34, 9, 8
+LTEXT           "Y:", IDC_STATIC, 51, 53, 9, 8
+END
+
+IDD_TRANSFORM DIALOGEX 0, 0, 225, 38
+STYLE DS_SETFONT|DS_FIXEDSYS|WS_POPUP|WS_CAPTION|WS_SYSMENU
+CAPTION "目标变换参数"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+DEFPUSHBUTTON   "确定", IDOK, 188, 3, 34, 14
+PUSHBUTTON      "取消", IDCANCEL, 188, 22, 34, 14
+EDITTEXT        IDC_A11, 25, 3, 37, 12, ES_AUTOHSCROLL
+EDITTEXT        IDC_A21, 84, 3, 37, 12, ES_AUTOHSCROLL
+EDITTEXT        IDC_A31, 143, 3, 37, 12, ES_AUTOHSCROLL
+EDITTEXT        IDC_A12, 25, 23, 37, 12, ES_AUTOHSCROLL
+EDITTEXT        IDC_A22, 84, 23, 37, 12, ES_AUTOHSCROLL
+EDITTEXT        IDC_A32, 143, 23, 37, 12, ES_AUTOHSCROLL
+LTEXT           "*X + ", IDC_STATIC, 64, 6, 20, 8
+LTEXT           "*Y + ", IDC_STATIC, 123, 6, 18, 8
+LTEXT           "X' = ", IDC_STATIC, 3, 5, 22, 8
+LTEXT           "*X + ", IDC_STATIC, 64, 24, 20, 8
+LTEXT           "*Y + ", IDC_STATIC, 123, 24, 18, 8
+LTEXT           "Y' = ", IDC_STATIC, 3, 24, 22, 8
+END
+
+IDD_DECK DIALOGEX 0, 0, 139, 92
+STYLE DS_SETFONT|WS_POPUP|WS_CAPTION|WS_SYSMENU
+CAPTION "图幅属性"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+EDITTEXT        IDC_FILE, 22, 3, 98, 12, ES_AUTOHSCROLL
+PUSHBUTTON      "....", IDC_FIND1, 122, 4, 15, 11
+EDITTEXT        IDC_HTMLFILE, 22, 20, 98, 12, ES_AUTOHSCROLL
+PUSHBUTTON      "....", IDC_FIND2, 122, 21, 15, 11
+EDITTEXT        IDC_LEGEND, 22, 39, 98, 12, ES_AUTOHSCROLL
+PUSHBUTTON      "....", IDC_FIND3, 122, 40, 15, 11
+CONTROL         "地图查询", IDC_QUERY, "Button", BS_AUTOCHECKBOX|WS_TABSTOP, 13, 76, 46, 10
+DEFPUSHBUTTON   "确定", IDOK, 86, 75, 50, 14
+PUSHBUTTON      "取消", IDCANCEL, 86, 57, 50, 14
+LTEXT           "文件:", -1, 2, 5, 19, 8
+LTEXT           "图例:", -1, 3, 41, 19, 8
+LTEXT           "网页:", -1, 3, 23, 19, 8
+CONTROL         "地图导航", IDC_NAVIGATE, "Button", BS_AUTOCHECKBOX|WS_TABSTOP, 13, 61, 46, 10
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+IDD_LEGEND, DIALOG
+BEGIN
+END
+
+IDD_ATLAS, DIALOG
+BEGIN
+LEFTMARGIN, 3
+RIGHTMARGIN, 172
+TOPMARGIN, 3
+BOTTOMMARGIN, 112
+END
+
+IDD_PAGE, DIALOG
+BEGIN
+LEFTMARGIN, 3
+RIGHTMARGIN, 136
+TOPMARGIN, 3
+BOTTOMMARGIN, 88
+END
+
+IDD_TRANSFORM, DIALOG
+BEGIN
+LEFTMARGIN, 3
+RIGHTMARGIN, 222
+TOPMARGIN, 3
+BOTTOMMARGIN, 36
+END
+
+IDD_DECK, DIALOG
+BEGIN
+LEFTMARGIN, 3
+RIGHTMARGIN, 136
+TOPMARGIN, 3
+BOTTOMMARGIN, 89
+END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_ITEMIMAGE           BITMAP                  "res\\Mark.bmp"
+IDB_MENUARROW           BITMAP                  "res\\MenuArrow.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_ATLAS MENU
+BEGIN
+POPUP "Atlas"
+BEGIN
+MENUITEM "Create Pyramid", ID_ATLAS_CREATEPYRAMID
+MENUITEM SEPARATOR
+MENUITEM "Publish to PC", ID_ATLAS_PUBLISHPC
+MENUITEM "Publish to CE", ID_ATLAS_PUBLISHCE
+MENUITEM "Publish to WEB", ID_ATLAS_PUBLISHWEB
+MENUITEM SEPARATOR
+MENUITEM "Attach LAB Database", ID_PROJECTION_LABDATABASE
+MENUITEM "Attach POU Database", ID_PROJECTION_POUDATABASE
+MENUITEM SEPARATOR
+MENUITEM "Attribute", ID_ATLAS_ATTRIBUTE
+END
+POPUP "Node"
+BEGIN
+POPUP "新建"
+BEGIN
+MENUITEM "在上", ID_ITEM_ADDBEFORE
+MENUITEM "在里", ID_ITEM_ADDIN
+MENUITEM "在下", ID_ITEM_ADDAFTER
+END
+MENUITEM "删除", ID_ITEM_DELETE
+MENUITEM "属性", ID_ITEM_ATTRIBUTE
+END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_LEGEND DLGINIT
+BEGIN
+IDC_EXPLORER, 0x376, 160, 0
+0x0000, 0x0000, 0x004c, 0x0000, 0x26a7, 0x0000, 0x305f, 0x0000, 0x0000,
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,
+0x0000, 0x0000, 0x004c, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0001,
+0x0000, 0xd0e0, 0x0057, 0x3573, 0x11cf, 0x69ae, 0x0008, 0x2e2b, 0x6212,
+0x0008, 0x0000, 0x0000, 0x0000, 0x004c, 0x0000, 0x1401, 0x0002, 0x0000,
+0x0000, 0x00c0, 0x0000, 0x0000, 0x4600, 0x0080, 0x0000, 0x0000, 0x0000,
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0001, 0x0000,
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,
+0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Cursor
+//
+
+IDC_ITEMMOVETO          CURSOR                  "res\\layermov.cur"
+IDC_ITEMMOVEIN          CURSOR                  "res\\cur00001.cur"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+IDS_PANE_ATLAS          "图集"
+IDS_FORBAR_RECORDFORM   "要素"
+IDS_EMAP                "电子地图"
+IDS_CANNOTOPENATLAS     "工程文件不存在或不能读，不能运行！"
+IDS_CANNOTOPENDB        "原数据库无法打开。"
+IDS_CANNOTCREATEORSAVEATLAS "无法创建或保存工程文件!"
+IDS_NOMATCHEDFILE       "无对应的文件!"""
+END
+
+#endif    // Chinese (Simplified) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_NEUTRAL
+#pragma code_page(1252)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ATLAS DIALOGEX 0, 0, 202, 115
+STYLE DS_SETFONT|DS_FIXEDSYS|WS_POPUP|WS_CAPTION|WS_SYSMENU
+CAPTION "Atlas Attribute"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+DEFPUSHBUTTON   "OK", IDOK, 159, 79, 40, 14
+PUSHBUTTON      "Cancel", IDCANCEL, 159, 96, 40, 14
+EDITTEXT        IDC_NAME, 48, 7, 151, 12, ES_AUTOHSCROLL
+EDITTEXT        IDC_TITLE, 48, 23, 151, 12, ES_AUTOHSCROLL
+EDITTEXT        IDC_INDEXHTML, 43, 39, 133, 12, ES_AUTOHSCROLL
+PUSHBUTTON      "....", IDC_FIND, 184, 38, 15, 11
+EDITTEXT        IDC_HOMEPAGE, 43, 55, 133, 12, ES_AUTOHSCROLL
+PUSHBUTTON      "....", IDC_FIND2, 184, 57, 15, 11
+CONTROL         "Need no password", IDC_OPEN, "Button", BS_AUTOCHECKBOX|WS_TABSTOP, 3, 76, 70, 10
+CONTROL         "Support Navigation", IDC_NAVIGATE, "Button", BS_AUTOCHECKBOX|WS_TABSTOP, 3, 89, 77, 10
+CONTROL         "Support html view", IDC_HTML, "Button", BS_AUTOCHECKBOX|WS_TABSTOP, 86, 76, 70, 10
+LTEXT           "Atlas name:", IDC_STATIC, 3, 8, 39, 8
+LTEXT           "Ttitle:", IDC_STATIC, 3, 24, 39, 8
+LTEXT           "Index Html:", IDC_STATIC, 3, 40, 39, 8
+LTEXT           "Home page:", IDC_STATIC, 3, 56, 39, 8
+CONTROL         "Support database", IDC_DATABASE, "Button", BS_AUTOCHECKBOX|WS_TABSTOP, 86, 102, 68, 10
+CONTROL         "Support region Query ", IDC_REGIONQUERY, "Button", BS_AUTOCHECKBOX|WS_TABSTOP, 3, 102, 78, 10
+CONTROL         "Support edit", IDC_EDIT, "Button", BS_AUTOCHECKBOX|WS_TABSTOP, 86, 89, 68, 10
+END
+
+IDD_LEGEND DIALOG 0, 0, 187, 252
+STYLE DS_SETFONT|DS_CENTER|WS_POPUP|WS_CAPTION|WS_SYSMENU|WS_THICKFRAME
+CAPTION "Legend"
+FONT 8, "MS Shell Dlg"
+BEGIN
+DEFPUSHBUTTON   "Exit", IDOK, 150, 238, 37, 14
+CONTROL         "", IDC_EXPLORER, "{8856F961-340A-11D0-A96B-00C04FD705A2}", WS_TABSTOP, 0, 0, 187, 236
+END
+
+IDD_TRANSFORM DIALOGEX 0, 0, 235, 38
+STYLE DS_SETFONT|DS_FIXEDSYS|WS_POPUP|WS_CAPTION|WS_SYSMENU
+CAPTION "Transform Geometries"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+DEFPUSHBUTTON   "OK", IDOK, 198, 3, 34, 14
+PUSHBUTTON      "Cancel", IDCANCEL, 198, 22, 34, 14
+EDITTEXT        IDC_A11, 25, 3, 37, 12, ES_AUTOHSCROLL
+EDITTEXT        IDC_A21, 84, 3, 37, 12, ES_AUTOHSCROLL
+EDITTEXT        IDC_A31, 143, 3, 37, 12, ES_AUTOHSCROLL
+EDITTEXT        IDC_A12, 25, 23, 37, 12, ES_AUTOHSCROLL
+EDITTEXT        IDC_A22, 84, 23, 37, 12, ES_AUTOHSCROLL
+EDITTEXT        IDC_A32, 143, 23, 37, 12, ES_AUTOHSCROLL
+LTEXT           "*X + ", IDC_STATIC, 64, 5, 20, 8
+LTEXT           "*Y + ", IDC_STATIC, 123, 5, 18, 8
+LTEXT           "X' = ", IDC_STATIC, 3, 5, 22, 8
+LTEXT           "*X + ", IDC_STATIC, 64, 25, 20, 8
+LTEXT           "*Y + ", IDC_STATIC, 123, 25, 18, 8
+LTEXT           "Y' = ", IDC_STATIC, 3, 25, 22, 8
+END
+
+IDD_PAGE DIALOGEX 0, 0, 139, 91
+STYLE DS_SETFONT|WS_POPUP|WS_CAPTION|WS_SYSMENU
+CAPTION "Map Attribute"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+EDITTEXT        IDC_TARGET, 22, 3, 98, 12, ES_AUTOHSCROLL
+PUSHBUTTON      "....", IDC_FINDFILE, 122, 4, 15, 11
+PUSHBUTTON      "....", IDC_FIND2, 122, 21, 15, 11
+CONTROL         "Folder", IDC_FOLDER, "Button", BS_AUTORADIOBUTTON|WS_TABSTOP, 4, 31, 26, 10
+CONTROL         "Map", IDC_MAP, "Button", BS_AUTORADIOBUTTON|WS_TABSTOP, 4, 45, 27, 10
+CONTROL         "Html", IDC_HTML, "Button", BS_AUTORADIOBUTTON|WS_TABSTOP, 4, 58, 26, 10
+GROUPBOX        "Centeral point", IDC_STATIC, 47, 21, 67, 49
+EDITTEXT        IDC_X, 61, 31, 34, 14, ES_AUTOHSCROLL
+EDITTEXT        IDC_Y, 61, 50, 34, 14, ES_AUTOHSCROLL
+DEFPUSHBUTTON   "OK", IDOK, 86, 74, 50, 14
+PUSHBUTTON      "Cance", IDCANCEL, 27, 74, 50, 14
+GROUPBOX        "Style", IDC_STATIC, 2, 21, 31, 49
+LTEXT           "File:", IDC_STATIC, 2, 5, 19, 8
+LTEXT           "X:", IDC_STATIC, 51, 34, 9, 8
+LTEXT           "Y:", IDC_STATIC, 51, 53, 9, 8
+END
+
+IDD_DECK DIALOGEX 0, 0, 175, 110
+STYLE DS_SETFONT|DS_FIXEDSYS|WS_POPUP|WS_CAPTION|WS_SYSMENU
+CAPTION "Map Attribute"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+EDITTEXT        IDC_FILE, 31, 6, 115, 12, ES_AUTOHSCROLL
+PUSHBUTTON      "....", IDC_FIND1, 157, 5, 15, 11
+EDITTEXT        IDC_HTMLFILE, 56, 24, 90, 12, ES_AUTOHSCROLL
+PUSHBUTTON      "....", IDC_FIND2, 157, 24, 15, 11
+EDITTEXT        IDC_LEGEND, 56, 43, 90, 12, ES_AUTOHSCROLL
+PUSHBUTTON      "....", IDC_FIND3, 157, 43, 15, 11
+CONTROL         "Querable", IDC_QUERY, "Button", BS_AUTOCHECKBOX|WS_TABSTOP, 3, 88, 46, 10
+DEFPUSHBUTTON   "OK", IDOK, 122, 92, 50, 14
+PUSHBUTTON      "Cancel", IDCANCEL, 122, 73, 50, 14
+LTEXT           "File:", -1, 3, 8, 19, 8
+LTEXT           "Legend file:", -1, 3, 45, 51, 8
+LTEXT           "Html file:", -1, 3, 27, 49, 8
+CONTROL         "Navigatable", IDC_NAVIGATE, "Button", BS_AUTOCHECKBOX|WS_TABSTOP, 3, 71, 60, 10
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+IDD_ATLAS, DIALOG
+BEGIN
+LEFTMARGIN, 3
+RIGHTMARGIN, 199
+TOPMARGIN, 3
+BOTTOMMARGIN, 112
+END
+
+IDD_LEGEND, DIALOG
+BEGIN
+END
+
+IDD_TRANSFORM, DIALOG
+BEGIN
+LEFTMARGIN, 3
+RIGHTMARGIN, 232
+TOPMARGIN, 3
+BOTTOMMARGIN, 36
+END
+
+IDD_PAGE, DIALOG
+BEGIN
+LEFTMARGIN, 3
+RIGHTMARGIN, 136
+TOPMARGIN, 3
+BOTTOMMARGIN, 88
+END
+
+IDD_DECK, DIALOG
+BEGIN
+LEFTMARGIN, 3
+RIGHTMARGIN, 172
+TOPMARGIN, 3
+BOTTOMMARGIN, 107
+END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDR_PANE_ATLAS          BITMAP                  "res\\Atlas_ToolBar.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_LEGEND DLGINIT
+BEGIN
+IDC_EXPLORER, 0x376, 160, 0
+0x0000, 0x0000, 0x004c, 0x0000, 0x26a7, 0x0000, 0x30c8, 0x0000, 0x0000,
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,
+0x0000, 0x0000, 0x004c, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0001,
+0x0000, 0xd0e0, 0x0057, 0x3573, 0x11cf, 0x69ae, 0x0008, 0x2e2b, 0x6212,
+0x0008, 0x0000, 0x0000, 0x0000, 0x004c, 0x0000, 0x1401, 0x0002, 0x0000,
+0x0000, 0x00c0, 0x0000, 0x0000, 0x4600, 0x0080, 0x0000, 0x0000, 0x0000,
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0001, 0x0000,
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,
+0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+FILEVERSION 13, 1, 0, 0
+PRODUCTVERSION 13, 1, 0, 0
+FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+FILEFLAGS 0x1L
+#else
+FILEFLAGS 0x0L
+#endif
+FILEOS 0x4L
+FILETYPE 0x2L
+FILESUBTYPE 0x0L
+BEGIN
+BLOCK "StringFileInfo"
+BEGIN
+BLOCK "080404b0"
+BEGIN
+VALUE "FileDescription", "Atlas DLL"
+VALUE "FileVersion", "13.01.00.0"
+VALUE "InternalName", "Atlas"
+VALUE "LegalCopyright", "Copyright ?Diwatu Software Ltd. 2012"
+VALUE "OriginalFilename", "Atlas.DLL"
+VALUE "ProductName", "Atlas Dynamic Link Library"
+VALUE "ProductVersion", "13.01.00.0"
+END
+END
+BLOCK "VarFileInfo"
+BEGIN
+VALUE "Translation", 0x804, 1200
+END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_ATLAS               ICON                    "res\\Atlas.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Toolbar
+//
+
+IDR_PANE_ATLAS TOOLBAR 16, 16
+BEGIN
+BUTTON      ID_ATLAS_MAINMENU
+BUTTON      ID_ITEM_ADD
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+IDS_PANE_ATLAS          "Atlas"
+IDS_FORBAR_RECORDFORM   "Record"
+IDS_EMAP                "Electronic Map"
+IDS_CANNOTOPENATLAS     "The  atlas file cann't be opened! "
+IDS_CANNOTOPENDB        "Database cann't be opened!"
+IDS_CANNOTCREATEORSAVEATLAS "The atlas file cann't be created or opened!"
+IDS_NOMATCHEDFILE       "No matched file!"
+END
+
+#endif    // English resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE 4, 2
+#pragma code_page(936)
+#endif //_WIN32
+#include "res\Atlas.rc2"  // non-Microsoft Visual C++ edited resources
+#include "l.chs\afxres.rc"          // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

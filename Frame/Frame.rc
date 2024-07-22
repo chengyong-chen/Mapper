@@ -1,0 +1,202 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#ifndef APSTUDIO_INVOKED
+#include "targetver.h"
+#endif
+#include "afxres.h"
+#include "verrsrc.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (Neutral) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_NEUTRAL
+#pragma code_page(1252)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_FRAME DIALOGEX 0, 0, 159, 216
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Sphere"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,3,199,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,106,199,50,14
+    CONTROL         "Enabled",IDC_SPHEREENABLED,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,14,41,10
+    CONTROL         "",IDC_SPHERECOLOR1,"Button",BS_OWNERDRAW | WS_TABSTOP,66,30,89,13
+    EDITTEXT        IDC_SPHEREWIDTH,41,51,25,12,ES_AUTOHSCROLL
+    LTEXT           "Width:",IDC_STATIC,14,52,22,9
+    LTEXT           "Stroker Color:",IDC_STATIC,14,33,48,9
+    LTEXT           "Point",IDC_UNITSHOW1,72,53,19,10
+    GROUPBOX        "Sphere",IDC_STATIC,3,1,153,82
+    GROUPBOX        "Graticule",IDC_STATIC,3,88,153,105
+    LTEXT           "Longitude Interval:",IDC_STATIC,13,158,62,8
+    EDITTEXT        IDC_LNGINTERVAL,79,155,40,14,ES_AUTOHSCROLL
+    LTEXT           "o",IDC_STATIC,123,152,8,8
+    CONTROL         "Enabled",IDC_GRARTICULEENABLED,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,12,102,41,10
+    LTEXT           "Latitude Interval:",IDC_STATIC,13,177,57,8
+    EDITTEXT        IDC_LATINTERVAL,79,174,40,14,ES_AUTOHSCROLL
+    LTEXT           "o",IDC_STATIC,123,171,8,8
+    CONTROL         "",IDC_GRATICULECOLOR,"Button",BS_OWNERDRAW | WS_TABSTOP,42,115,89,13
+    EDITTEXT        IDC_GRATICULEWIDTH,42,136,25,12,ES_AUTOHSCROLL
+    LTEXT           "Width:",IDC_STATIC,14,136,22,9
+    LTEXT           "Color:",IDC_STATIC,14,118,22,9
+    LTEXT           "Point",IDC_UNITSHOW2,72,138,19,10
+    CONTROL         "",IDC_SPHERECOLOR2,"Button",BS_OWNERDRAW | WS_TABSTOP,67,67,89,13
+    LTEXT           "Fill Color:",IDC_STATIC,15,70,48,9
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_FRAME, DIALOG
+    BEGIN
+        LEFTMARGIN, 3
+        RIGHTMARGIN, 156
+        BOTTOMMARGIN, 213
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// AFX_DIALOG_LAYOUT
+//
+
+IDD_FRAME AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+#endif    // English (Neutral) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#ifndef APSTUDIO_INVOKED\r\n"
+    "#include ""targetver.h""\r\n"
+    "#endif\r\n"
+    "#include ""afxres.h""\r\n"
+    "#include ""verrsrc.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#include ""res\\Frame.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""      // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x40004L
+ FILETYPE 0x2L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904B0"
+        BEGIN
+            VALUE "CompanyName", "TODO: <Company name>"
+            VALUE "FileDescription", "TODO: <File description>"
+            VALUE "FileVersion", "1.0.0.1"
+            VALUE "InternalName", "Frame.dll"
+            VALUE "LegalCopyright", "TODO: (c) <Company name>.  All rights reserved."
+            VALUE "OriginalFilename", "Frame.dll"
+            VALUE "ProductName", "TODO: <Product name>"
+            VALUE "ProductVersion", "1.0.0.1"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE 9, 1
+#include "res\Frame.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"      // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

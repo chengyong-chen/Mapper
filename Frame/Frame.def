@@ -1,0 +1,7 @@
+; Frame.def : Declares the module parameters for the DLL.
+
+LIBRARY      "Frame"
+
+EXPORTS
+    ; Explicit exports can go here
+	
