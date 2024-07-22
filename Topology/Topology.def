@@ -1,0 +1,6 @@
+; Topology.def : Declares the module parameters for the DLL.
+
+LIBRARY      "Topology"
+
+EXPORTS
+    ; Explicit exports can go here

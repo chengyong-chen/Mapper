@@ -1,0 +1,38 @@
+<html>
+<head>
+    <title>Untitled Document</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+
+<script>
+    //document.write(location.href);
+
+    function getUrlParam(){
+        var url = unescape(window.location.href);
+        var pBegin = url.indexOf("#") + 1;
+        var pEnd = url.length;
+        if(pBegin <= 1)
+            return null;
+        var sub_str = url.substring(pBegin, pEnd);
+
+        var pos1 = 0;
+        var pos2 = sub_str.indexOf(";", pos1);
+        while(pos2 > 1){
+            var sub_str1 = sub_str.substring(pos1, pos2);
+            document.writeln(sub_str1);
+            document.writeln("<br>");
+            sub_str = sub_str.substring(pos2 + 1, sub_str.length);
+            pos2 = sub_str.indexOf(";", pos1);
+        }
+        document.writeln(sub_str);
+        return null;
+    }
+
+    //
+    getUrlParam();
+</script>
+
+</body>
+</html>

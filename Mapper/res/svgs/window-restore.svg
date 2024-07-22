@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+
+<svg
+   width="749.61407"
+   height="703.125"
+   viewBox="0 0 479.75301 450"
+   version="1.1"
+   id="svg16"
+   sodipodi:docname="window-restore.svg"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs20" />
+  <sodipodi:namedview
+     id="namedview18"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="1.04625"
+     inkscape:cx="272.87933"
+     inkscape:cy="350.77658"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg16" />
+  <path
+     fill="var(--ci-primary-color, #000000)"
+     d="M 335.753,121 H 24 A 24.028,24.028 0 0 0 0,145 v 281 a 24.028,24.028 0 0 0 24,24 h 311.753 a 24.028,24.028 0 0 0 24,-24 V 145 a 24.028,24.028 0 0 0 -24,-24 z m -8,32 v 45.22 H 32 V 153 Z M 32,418 V 230.22 H 327.753 V 418 Z"
+     class="ci-primary"
+     id="path12" />
+  <path
+     fill="var(--ci-primary-color, #000000)"
+     d="m 455.753,0 h -320 a 24.028,24.028 0 0 0 -24,24 v 65 h 32 V 32 h 304 v 275.143 h -56 v 32 h 64 a 24.028,24.028 0 0 0 24,-24 V 24 a 24.028,24.028 0 0 0 -24,-24 z"
+     class="ci-primary"
+     id="path14" />
+</svg>

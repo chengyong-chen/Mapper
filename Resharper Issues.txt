@@ -1,0 +1,8 @@
+1.
+	case a:
+	case b:
+        ->
+        case a;case b:
+2: 	for(             -> for(typename
+3:      DECLARE_SERIAL not indexted
+4:      ON_ message map not line broken

@@ -1,0 +1,6 @@
+; Smcom.def : Declares the module parameters for the DLL.
+
+LIBRARY      "Smcom"
+
+EXPORTS
+    ; Explicit exports can go here

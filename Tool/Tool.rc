@@ -1,0 +1,706 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Chinese (Simplified) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+LANGUAGE LANG_CHINESE, SUBLANG_NEUTRAL
+#pragma code_page(936)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 4, 2\r\n"
+    "#pragma code_page(936)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\Tool.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""l.chs\\afxres.rc""          // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_EXTENT DIALOGEX 0, 0, 144, 42
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Entent"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    EDITTEXT        IDC_EXTENT,44,7,42,12,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "确定",IDOK,91,7,50,14
+    PUSHBUTTON      "取消",IDCANCEL,91,25,50,14
+    LTEXT           "半径:",IDC_STATIC,7,9,29,8
+END
+
+IDD_REFLECT DIALOGEX 0, 0, 177, 88
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Reflect"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    CONTROL         "水平",IDC_HORIZONTAL,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,39,10,47,10
+    CONTROL         "垂直",IDC_VERTICAL,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP,88,10,38,10
+    CONTROL         "角度:",IDC_ANGLED,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP,39,24,36,10
+    EDITTEXT        IDC_ANGLE,82,22,18,12,ES_AUTOHSCROLL
+    CONTROL         "鼠标点",IDC_MOUSE,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,39,39,68,8
+    CONTROL         "选择区中心",IDC_SELECTION,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP,39,51,72,8
+    CONTROL         "填充",IDC_FILL,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,62,76,25,9
+    CONTROL         "线",IDC_LINE,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,91,76,19,9
+    CONTROL         "规则",IDC_REGULAR,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,143,58,26,9
+    DEFPUSHBUTTON   "确定",IDOK,133,7,41,14
+    PUSHBUTTON      "取消",IDCANCEL,133,24,41,14
+    LTEXT           "坐标轴:",IDC_STATIC,7,10,30,8
+    LTEXT           "o",IDC_STATIC,103,18,8,8
+    LTEXT           "中心:",IDC_STATIC,7,38,29,10
+    LTEXT           "反射选项:",IDC_STATIC,7,76,52,9
+    CONTROL         "点符号",IDC_SPOT,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,114,76,25,9
+    CONTROL         "字体",IDC_TYPE,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,143,76,25,9
+END
+
+IDD_ROTATE DIALOGEX 0, 0, 165, 83
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Rotate"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    EDITTEXT        IDC_ANGLE,46,13,18,12,ES_AUTOHSCROLL
+    CONTROL         "鼠标点",IDC_MOUSE,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,46,32,63,8
+    CONTROL         "选择区中心点",IDC_SELECTION,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP,46,44,72,8
+    CONTROL         "规则",IDC_REGULAR,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,127,54,28,9
+    DEFPUSHBUTTON   "确定",IDOK,121,7,41,14
+    PUSHBUTTON      "取消",IDCANCEL,121,24,41,14
+    LTEXT           "角度:",IDC_STATIC,7,14,29,10
+    LTEXT           "中心点:",IDC_STATIC,7,31,29,10
+    LTEXT           "o",IDC_STATIC,65,10,8,8
+    LTEXT           "旋转选项:",IDC_STATIC,7,71,52,9
+    CONTROL         "填充",IDC_FILL,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,52,71,25,9
+    CONTROL         "线",IDC_LINE,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,82,71,19,9
+    CONTROL         "点符号",IDC_SPOT,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,106,71,25,9
+    CONTROL         "字体",IDC_TYPE,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,137,71,25,9
+END
+
+IDD_SCALE DIALOGEX 0, 0, 188, 95
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Scale:"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    CONTROL         "规则比例缩放:",IDC_UNIFORM,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,36,9,65,8
+    EDITTEXT        IDC_USCALE,115,7,20,12,ES_AUTOHSCROLL
+    CONTROL         "其他:",IDC_OTHERS,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP,36,23,36,8
+    EDITTEXT        IDC_VSCALE,115,21,20,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_HSCALE,115,38,20,12,ES_AUTOHSCROLL
+    CONTROL         "鼠标点",IDC_MOUSE,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,36,53,68,8
+    CONTROL         "选择区中心点",IDC_SELECTION,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP,36,65,72,8
+    CONTROL         "规则",IDC_REGULAR,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,150,66,35,9
+    DEFPUSHBUTTON   "OK",IDOK,151,7,34,14
+    PUSHBUTTON      "Cancel",IDCANCEL,151,24,34,14
+    LTEXT           "比例:",IDC_STATIC,7,8,25,10
+    LTEXT           "水平比例",IDC_STATIC,75,40,33,8
+    LTEXT           "垂直比例",IDC_STATIC,75,23,35,8
+    LTEXT           "%",IDC_STATIC,138,9,8,8
+    LTEXT           "%",IDC_STATIC,138,23,8,8
+    LTEXT           "%",IDC_STATIC,138,40,8,8
+    LTEXT           "中心:",IDC_STATIC,7,52,27,10
+    LTEXT           "缩放选项:",IDC_STATIC,7,84,52,8
+    CONTROL         "填充",IDC_FILL,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,75,83,25,9
+    CONTROL         "线",IDC_LINE,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,105,83,19,9
+    CONTROL         "点符号",IDC_SPOT,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,129,83,25,9
+    CONTROL         "字体",IDC_TYPE,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,160,83,25,9
+END
+
+IDD_SKEW DIALOGEX 0, 0, 169, 86
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Skew"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    EDITTEXT        IDC_VANGLE,82,6,19,12,ES_AUTOHSCROLL | ES_WANTRETURN
+    EDITTEXT        IDC_HANGLE,82,23,19,12,ES_AUTOHSCROLL
+    CONTROL         "鼠标点",IDC_MOUSE,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP,41,41,68,8
+    CONTROL         "选择区中心点",IDC_SELECTION,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP,41,53,72,8
+    CONTROL         "规则",IDC_REGULAR,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,131,58,35,9
+    DEFPUSHBUTTON   "OK",IDOK,132,7,34,14
+    PUSHBUTTON      "Cancel",IDCANCEL,132,24,34,14
+    LTEXT           "歪斜:",IDC_STATIC,7,7,25,10
+    LTEXT           "水平角度",IDC_STATIC,41,25,33,8
+    LTEXT           "垂直角度",IDC_STATIC,41,8,35,8
+    LTEXT           "o",IDC_STATIC,103,4,8,8
+    LTEXT           "o",IDC_STATIC,103,20,8,8
+    LTEXT           "中心:",IDC_STATIC,7,40,27,10
+    LTEXT           "歪斜选项:",IDC_STATIC,7,74,48,9
+    CONTROL         "填充",IDC_FILL,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,56,74,25,9
+    CONTROL         "线",IDC_LINE,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,85,74,19,9
+    CONTROL         "点符号",IDC_SPOT,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,108,74,25,9
+    CONTROL         "字体",IDC_TYPE,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,141,74,25,9
+END
+
+IDD_RECT DIALOG 0, 0, 166, 93
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Print Rectangle Dialog"
+FONT 8, "MS Shell Dlg"
+BEGIN
+    EDITTEXT        IDC_BOTTOM,88,3,32,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_LEFT,3,55,27,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_RIGHT,125,33,38,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_TOP,48,72,31,13,ES_AUTOHSCROLL
+    CONTROL         "打印",IDC_PRINT,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,91,72,27,8
+    CONTROL         "预览",IDC_PREVIEW,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP,91,82,34,8
+    DEFPUSHBUTTON   "确定",IDOK,129,58,34,14
+    PUSHBUTTON      "取消",IDCANCEL,129,76,34,14
+    LTEXT           "左边:",IDC_STATIC,9,43,20,8
+    LTEXT           "顶部:",IDC_STATIC,26,74,21,8
+    LTEXT           "右部:",IDC_STATIC,122,20,21,8
+    LTEXT           "底部:",IDC_STATIC,58,6,19,8
+    CONTROL         "",IDC_STATIC,"Static",SS_WHITERECT,32,18,88,51
+END
+
+IDD_POINT DIALOGEX 0, 0, 87, 44
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_CONTROL | WS_CHILD | WS_CAPTION | WS_SYSMENU
+CAPTION "Point Dialog"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    EDITTEXT        IDC_X,22,7,37,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_Y,22,26,37,13,ES_AUTOHSCROLL
+    LTEXT           "X:",IDC_STATIC,7,9,13,8
+    LTEXT           "Y:",IDC_STATIC,7,28,8,8
+    LTEXT           "Point",IDC_STATIC,63,9,21,8
+    LTEXT           "Point",IDC_STATIC,63,28,21,8
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_EXTENT, DIALOG
+    BEGIN
+        LEFTMARGIN, 3
+        RIGHTMARGIN, 141
+        TOPMARGIN, 3
+        BOTTOMMARGIN, 39
+    END
+
+    IDD_REFLECT, DIALOG
+    BEGIN
+        LEFTMARGIN, 3
+        RIGHTMARGIN, 174
+        TOPMARGIN, 3
+        BOTTOMMARGIN, 85
+    END
+
+    IDD_ROTATE, DIALOG
+    BEGIN
+        LEFTMARGIN, 3
+        RIGHTMARGIN, 162
+        TOPMARGIN, 3
+        BOTTOMMARGIN, 80
+    END
+
+    IDD_SCALE, DIALOG
+    BEGIN
+        LEFTMARGIN, 3
+        RIGHTMARGIN, 185
+        TOPMARGIN, 3
+        BOTTOMMARGIN, 92
+    END
+
+    IDD_SKEW, DIALOG
+    BEGIN
+        LEFTMARGIN, 3
+        RIGHTMARGIN, 166
+        TOPMARGIN, 3
+        BOTTOMMARGIN, 83
+    END
+
+    IDD_RECT, DIALOG
+    BEGIN
+        LEFTMARGIN, 3
+        RIGHTMARGIN, 163
+        TOPMARGIN, 3
+        BOTTOMMARGIN, 90
+    END
+
+    IDD_POINT, DIALOG
+    BEGIN
+        LEFTMARGIN, 3
+        RIGHTMARGIN, 84
+        TOPMARGIN, 3
+        BOTTOMMARGIN, 41
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_ROUTE MENU
+BEGIN
+    POPUP "Route"
+    BEGIN
+        MENUITEM "设定起始点",                       ID_ROUTE_START
+        MENUITEM "设定经过点",                       ID_ROUTE_PASS, INACTIVE
+        MENUITEM "设定终止点",                       ID_ROUTE_END
+        MENUITEM SEPARATOR
+        MENUITEM "搜索最佳路径",                      ID_ROUTE_SEARCH
+        MENUITEM SEPARATOR
+        MENUITEM "清除设定",                        ID_ROUTE_CLEAR
+    END
+END
+
+IDR_TRAFFIC MENU
+BEGIN
+    POPUP "Traffic"
+    BEGIN
+        MENUITEM "设定起点",                        ID_TRAFFIC_START
+        MENUITEM "设定终点",                        ID_TRAFFIC_END
+        MENUITEM SEPARATOR
+        MENUITEM "清除设定",                        ID_TRAFFIC_CLEAR
+        MENUITEM SEPARATOR
+        MENUITEM "搜索乘车线路",                      ID_TRAFFIC_SEARCH
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_AREA1               "面积: %s 平方千米"
+    IDS_AREA2               "面积: %s 平方米"
+    IDS_LENGTH1             "长度: %s 千米"
+    IDS_LENGTH2             "长度: %s 米"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_EXPORTBMP           "要输出到位图文件吗?"
+    IDS_PREVIEWPRINT        "要预览打印结果吗?"
+END
+
+#endif    // Chinese (Simplified) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_NEUTRAL
+#pragma code_page(1252)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_EXPORTDIB DIALOGEX 0, 0, 95, 58
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Export to Bitmap File"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,7,41,33,14
+    PUSHBUTTON      "Cancel",IDCANCEL,55,41,37,14
+    EDITTEXT        IDC_SCALE,25,23,48,12,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "The Exportation Scale:",IDC_STATIC,7,7,79,8
+    LTEXT           "1 : ",IDC_STATIC,13,25,11,8
+END
+
+IDD_EXTENT DIALOGEX 0, 0, 144, 42
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Entent"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    EDITTEXT        IDC_EXTENT,44,7,42,12,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,91,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,91,25,50,14
+    LTEXT           "Radius:",IDC_STATIC,7,9,29,8
+END
+
+IDD_REFLECT DIALOGEX 0, 0, 177, 88
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Reflect"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    CONTROL         "Horizontal",IDC_HORIZONTAL,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,39,10,47,10
+    CONTROL         "Vertical",IDC_VERTICAL,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP,88,10,38,10
+    CONTROL         "Angled:",IDC_ANGLED,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP,39,24,36,10
+    EDITTEXT        IDC_ANGLE,82,22,18,12,ES_AUTOHSCROLL
+    CONTROL         "Mouse location",IDC_MOUSE,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,39,39,68,8
+    CONTROL         "Center of selection",IDC_SELECTION,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP,39,51,72,8
+    CONTROL         "Regular",IDC_REGULAR,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,132,58,35,9
+    DEFPUSHBUTTON   "OK",IDOK,133,7,41,14
+    PUSHBUTTON      "Cancel",IDCANCEL,133,24,41,14
+    LTEXT           "Axis:",IDC_STATIC,7,10,21,8
+    LTEXT           "o",IDC_STATIC,103,18,8,8
+    LTEXT           "Center:",IDC_STATIC,7,38,29,10
+    LTEXT           "Reflect options:",IDC_STATIC,7,76,52,9
+    CONTROL         "Fill",IDC_FILL,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,65,76,21,9
+    CONTROL         "Line",IDC_LINE,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,90,76,25,9
+    CONTROL         "Spot",IDC_SPOT,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,119,76,25,9
+    CONTROL         "Type",IDC_TYPE,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,149,76,25,9
+END
+
+IDD_ROTATE DIALOGEX 0, 0, 172, 84
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Rotate"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    EDITTEXT        IDC_ANGLE,46,13,18,12,ES_AUTOHSCROLL
+    CONTROL         "Mouse location",IDC_MOUSE,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,46,32,63,8
+    CONTROL         "Center of selection",IDC_SELECTION,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP,46,44,72,8
+    CONTROL         "Regular",IDC_REGULAR,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,134,54,35,9
+    DEFPUSHBUTTON   "OK",IDOK,128,7,41,14
+    PUSHBUTTON      "Cancel",IDCANCEL,128,24,41,14
+    LTEXT           "Angle:",IDC_STATIC,7,14,29,10
+    LTEXT           "Center:",IDC_STATIC,7,31,29,10
+    LTEXT           "o",IDC_STATIC,65,10,8,8
+    LTEXT           "Rotate options:",IDC_STATIC,7,72,52,9
+    CONTROL         "Fill",IDC_FILL,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,58,72,21,9
+    CONTROL         "Line",IDC_LINE,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,82,72,25,9
+    CONTROL         "Spot",IDC_SPOT,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,110,72,25,9
+    CONTROL         "Type",IDC_TYPE,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,138,72,25,9
+END
+
+IDD_SCALE DIALOGEX 0, 0, 188, 95
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Scale:"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    CONTROL         "Uniform scaling:",IDC_UNIFORM,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,36,9,65,8
+    EDITTEXT        IDC_USCALE,115,7,20,12,ES_AUTOHSCROLL
+    CONTROL         "Others:",IDC_OTHERS,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP,36,23,36,8
+    EDITTEXT        IDC_VSCALE,115,21,20,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_HSCALE,115,38,20,12,ES_AUTOHSCROLL
+    CONTROL         "Mouse location",IDC_MOUSE,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,36,53,68,8
+    CONTROL         "Center of selection",IDC_SELECTION,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP,36,65,72,8
+    CONTROL         "Regular",IDC_REGULAR,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,150,66,35,9
+    DEFPUSHBUTTON   "OK",IDOK,151,7,34,14
+    PUSHBUTTON      "Cancel",IDCANCEL,151,24,34,14
+    LTEXT           "Scale:",IDC_STATIC,7,8,25,10
+    LTEXT           "Horizontal",IDC_STATIC,75,40,35,8
+    LTEXT           "Vertical",IDC_STATIC,75,23,35,8
+    LTEXT           "%",IDC_STATIC,138,9,8,8
+    LTEXT           "%",IDC_STATIC,138,23,8,8
+    LTEXT           "%",IDC_STATIC,138,40,8,8
+    LTEXT           "Center:",IDC_STATIC,7,52,27,10
+    LTEXT           "Scale options:",IDC_STATIC,3,83,52,8
+    CONTROL         "Fill",IDC_FILL,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,76,83,21,9
+    CONTROL         "Line",IDC_LINE,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,101,83,25,9
+    CONTROL         "Spot",IDC_SPOT,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,130,83,25,9
+    CONTROL         "Type",IDC_TYPE,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,160,83,25,9
+END
+
+IDD_SKEW DIALOGEX 0, 0, 169, 86
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Skew"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    EDITTEXT        IDC_VANGLE,82,6,19,12,ES_AUTOHSCROLL | ES_WANTRETURN
+    EDITTEXT        IDC_HANGLE,82,23,19,12,ES_AUTOHSCROLL
+    CONTROL         "Mouse location",IDC_MOUSE,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP,41,41,68,8
+    CONTROL         "Center of selection",IDC_SELECTION,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP,41,53,72,8
+    CONTROL         "Regular",IDC_REGULAR,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,131,58,35,9
+    DEFPUSHBUTTON   "OK",IDOK,132,7,34,14
+    PUSHBUTTON      "Cancel",IDCANCEL,132,24,34,14
+    LTEXT           "Skew:",IDC_STATIC,7,7,25,10
+    LTEXT           "Horizontal",IDC_STATIC,41,25,35,8
+    LTEXT           "Vertical",IDC_STATIC,41,8,35,8
+    LTEXT           "o",IDC_STATIC,103,4,8,8
+    LTEXT           "o",IDC_STATIC,103,20,8,8
+    LTEXT           "Center:",IDC_STATIC,7,40,27,10
+    LTEXT           "Skew options:",IDC_STATIC,7,74,48,9
+    CONTROL         "Fill",IDC_FILL,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,57,74,21,9
+    CONTROL         "Line",IDC_LINE,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,81,74,25,9
+    CONTROL         "Spot",IDC_SPOT,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,109,74,25,9
+    CONTROL         "Type",IDC_TYPE,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,141,74,25,9
+END
+
+IDD_RECT DIALOG 0, 0, 166, 93
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Print Rectangle Dialog"
+FONT 8, "MS Shell Dlg"
+BEGIN
+    EDITTEXT        IDC_BOTTOM,88,3,32,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_LEFT,3,55,27,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_RIGHT,125,33,38,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_TOP,48,72,31,13,ES_AUTOHSCROLL
+    CONTROL         "Print",IDC_PRINT,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,91,72,27,8
+    CONTROL         "Prevew",IDC_PREVIEW,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP,91,82,34,8
+    DEFPUSHBUTTON   "OK",IDOK,129,58,34,14
+    PUSHBUTTON      "Cancel",IDCANCEL,129,76,34,14
+    LTEXT           "Left:",IDC_STATIC,9,43,13,8
+    LTEXT           "Top:",IDC_STATIC,31,74,16,8
+    LTEXT           "Right:",IDC_STATIC,122,20,21,8
+    LTEXT           "Bottom:",IDC_STATIC,58,6,26,8
+    CONTROL         "",IDC_STATIC,"Static",SS_WHITERECT,32,18,88,51
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_EXPORTDIB, DIALOG
+    BEGIN
+        LEFTMARGIN, 3
+        RIGHTMARGIN, 92
+        TOPMARGIN, 3
+        BOTTOMMARGIN, 55
+    END
+
+    IDD_EXTENT, DIALOG
+    BEGIN
+        LEFTMARGIN, 3
+        RIGHTMARGIN, 141
+        TOPMARGIN, 3
+        BOTTOMMARGIN, 39
+    END
+
+    IDD_REFLECT, DIALOG
+    BEGIN
+        LEFTMARGIN, 3
+        RIGHTMARGIN, 174
+        TOPMARGIN, 3
+        BOTTOMMARGIN, 85
+    END
+
+    IDD_ROTATE, DIALOG
+    BEGIN
+        LEFTMARGIN, 3
+        RIGHTMARGIN, 169
+        TOPMARGIN, 3
+        BOTTOMMARGIN, 81
+    END
+
+    IDD_SCALE, DIALOG
+    BEGIN
+        LEFTMARGIN, 3
+        RIGHTMARGIN, 185
+        TOPMARGIN, 3
+        BOTTOMMARGIN, 92
+    END
+
+    IDD_SKEW, DIALOG
+    BEGIN
+        LEFTMARGIN, 3
+        RIGHTMARGIN, 166
+        TOPMARGIN, 3
+        BOTTOMMARGIN, 83
+    END
+
+    IDD_RECT, DIALOG
+    BEGIN
+        LEFTMARGIN, 3
+        RIGHTMARGIN, 163
+        TOPMARGIN, 3
+        BOTTOMMARGIN, 90
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_DATUM MENU
+BEGIN
+    POPUP "Datum"
+    BEGIN
+        MENUITEM "Add Datum",                   ID_DATUM_ADD
+        MENUITEM "Delete Datum",                ID_DATUM_DELETE
+        MENUITEM "Clear",                       ID_DATUM_CLEAR
+        MENUITEM SEPARATOR
+        MENUITEM "Create Tins",                 ID_DATUM_CREATETINS
+        MENUITEM "Clear Tins",                  ID_DATUM_CLEARTINS
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 13,01,00,0
+ PRODUCTVERSION 13,01,00,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x2L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "080404B0"
+        BEGIN
+            VALUE "FileDescription", "Tool DLL"
+            VALUE "FileVersion", "13.01.00.0"
+            VALUE "InternalName", "Tool"
+            VALUE "LegalCopyright", "Copyright ?Diwatu Software Ltd. 2012"
+            VALUE "OriginalFilename", "Tool.DLL"
+            VALUE "ProductName", "Tool Dynamic Link Library"
+            VALUE "ProductVersion", "13.01.00.0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x804, 1200
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_DRAWTOOL            BITMAP                  "res\\DrawTool.bmp"
+IDB_INFOTOOL            BITMAP                  "res\\InfoTool.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Cursor
+//
+IDC_ROTATE              CURSOR                  "res\\Rotate.cur"
+IDC_PAN                 CURSOR                  "res\\Grabber.cur"
+IDC_HORIZON             CURSOR                  "res\\horzguid.cur"
+IDC_HOT                 CURSOR                  "res\\Hot.cur"
+IDC_IMAGE               CURSOR                  "res\\Image.cur"
+IDC_POSITION            CURSOR                  "res\\Position.cur"
+IDC_INJECT              CURSOR                  "res\\Inject.cur"
+IDC_MARK                CURSOR                  "res\\Mark.cur"
+IDC_MOVE                CURSOR                  "res\\Move.cur"
+IDC_MYCROSS             CURSOR                  "res\\Cross.cur"
+IDC_ROUND               CURSOR                  "res\\Round.cur"
+IDC_RULER               CURSOR                  "res\\Ruler.cur"
+IDC_SELECT              CURSOR                  "res\\select.cur"
+IDC_INFO                CURSOR                  "res\\Info.cur"
+IDC_STAR                CURSOR                  "res\\Star.cur"
+IDC_TEXT                CURSOR                  "res\\text.cur"
+IDC_VERTICAL            CURSOR                  "res\\vertguid.cur"
+IDC_ZOOMIN              CURSOR                  "res\\zoomin.cur"
+IDC_ZOOMOUT             CURSOR                  "res\\zoomout.cur"
+IDC_ZOOMZERO            CURSOR                  "res\\zoomzero.cur"
+IDC_STALEMATE           CURSOR                  "res\\Stalemate.cur"
+IDC_INSERT              CURSOR                  "res\\Insert.cur"
+IDC_LENGTH              CURSOR                  "res\\Length.cur"
+IDC_ROUTE               CURSOR                  "res\\Route.cur"
+IDC_UP                  CURSOR                  "res\\Up.cur"
+IDC_WAYPOINT            CURSOR                  "res\\waypoint.cur"
+IDC_TOPO_CROSS          CURSOR                  "res\\TopoCross.cur"
+IDC_TOPO_PICK           CURSOR                  "res\\TopoPick.cur"
+IDC_TOPO_SPLIT          CURSOR                  "res\\TopoSplit.cur"
+IDC_DATUM               CURSOR                  "res\\Datum.cur"
+IDC_AREA                CURSOR                  "res\\Area.cur"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_AREA1               "Area: %s square KM"
+    IDS_AREA2               "Area: %s square M"
+    IDS_LENGTH1             "Length: %s KM"
+    IDS_LENGTH2             "Length: %s M"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_EXPORTBMP           "Do you want to export bmp file?"
+    IDS_PREVIEWPRINT        "Do you prefer to preview?"
+END
+
+STRINGTABLE
+BEGIN
+    ID_DATUM_CREATETIN      "Create Triangulated irreugular network for data's rectification"
+    ID_DATUM_CLEARTINS      "Delete all triangles"
+END
+
+#endif    // English resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE 4, 2
+#pragma code_page(936)
+#endif //_WIN32
+#include "res\Tool.rc2"  // non-Microsoft Visual C++ edited resources
+#include "l.chs\afxres.rc"          // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

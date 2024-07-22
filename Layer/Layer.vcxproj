@@ -1,0 +1,225 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{00905832-76FF-40A9-91E2-91E40D0F5EAD}</ProjectGuid>
+    <RootNamespace>Layer</RootNamespace>
+    <Keyword>MFCProj</Keyword>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>..\..\Thirdparty\boost\1.83.0;..\..\ThirdParty\libharu\2.4.4\win32\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>..\..\Thirdparty\boost\1.83.0;..\..\ThirdParty\libharu\2.4.4\win32\include;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+    </Midl>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;_AFXEXT;JSON_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <BrowseInformation>true</BrowseInformation>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <BuildStlModules>false</BuildStlModules>
+    </ClCompile>
+    <Link>
+      <ModuleDefinitionFile>.\Layer.def</ModuleDefinitionFile>
+      <SubSystem>Windows</SubSystem>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+      <ImportLibrary>$(ProjectDir)$(Configuration)\$(TargetName).lib</ImportLibrary>
+      <IgnoreSpecificDefaultLibraries>Libcmt.lib</IgnoreSpecificDefaultLibraries>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>Gdiplus.lib;..\..\Thirdparty\ZLib\1.2.11\zlib.lib;..\Public\Debug\Public.lib;..\Projection\Debug\Projection.lib;..\Dataview\Debug\Dataview.lib;..\Database\Debug\Database.lib;..\Image\Debug\Image.lib;..\Geometry\Debug\Geometry.lib;..\Style\Debug\Style.lib;..\Rectify\Debug\Rectify.lib;..\Thematics\Debug\Thematics.lib;..\Information\Debug\Information.lib</AdditionalDependencies>
+      <Profile>true</Profile>
+      <OptimizeReferences>false</OptimizeReferences>
+      <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
+      <AdditionalLibraryDirectories>D:\Workshop\ThirdParty\boost\1.83.0\lib32-msvc-14.3</AdditionalLibraryDirectories>
+    </Link>
+    <Bscmake>
+      <PreserveSbr>true</PreserveSbr>
+    </Bscmake>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+    </Midl>
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_AFXEXT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <BuildStlModules>false</BuildStlModules>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>Gdiplus.lib;..\..\Thirdparty\ZLib\1.2.11\zlib.lib;..\Public\Release\Public.lib;..\Projection\Release\Projection.lib;..\Dataview\Release\Dataview.lib;..\Database\Release\Database.lib;..\Image\Release\Image.lib;..\Geometry\Release\Geometry.lib;..\Style\Release\Style.lib;..\Rectify\Release\Rectify.lib;..\Thematics\Release\Thematics.lib;..\Information\Release\Information.lib</AdditionalDependencies>
+      <ModuleDefinitionFile>.\Layer.def</ModuleDefinitionFile>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <ImportLibrary>$(ProjectDir)$(Configuration)\$(TargetName).lib</ImportLibrary>
+      <IgnoreSpecificDefaultLibraries>
+      </IgnoreSpecificDefaultLibraries>
+      <Profile>false</Profile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>D:\Workshop\ThirdParty\boost\1.83.0\lib32-msvc-14.3</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <None Include="ReadMe.txt" />
+    <None Include="res\cur00001.cur" />
+    <None Include="res\Layer.bmp" />
+    <None Include="res\Layer.ico" />
+    <None Include="res\Layer.rc2" />
+    <None Include="res\layermov.cur" />
+    <None Include="res\LayerType.bmp" />
+    <None Include="res\Layer_Pane.bmp" />
+    <None Include="res\Menuitems.bmp" />
+    <None Include="res\Menuitems24.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\ThirdParty\tinyxml\tinyxml2\tinyxml2.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="BackgroundBar.cpp" />
+    <ClCompile Include="GeomMapFile.cpp" />
+    <ClCompile Include="GeomMemFile.cpp" />
+    <ClCompile Include="GridMapFile.cpp" />
+    <ClCompile Include="GridMemFile.cpp" />
+    <ClCompile Include="Laydb.cpp" />
+    <ClCompile Include="Layer.cpp" />
+    <ClCompile Include="LayerAttrDlg.cpp" />
+    <ClCompile Include="LayerPane.cpp" />
+    <ClCompile Include="LayerTree.cpp" />
+    <ClCompile Include="LayerTreeCtrl.cpp" />
+    <ClCompile Include="Layif.cpp" />
+    <ClCompile Include="Laylg.cpp" />
+    <ClCompile Include="Laypp.cpp" />
+    <ClCompile Include="Laypt.cpp" />
+    <ClCompile Include="Laypy.cpp" />
+    <ClCompile Include="LayTableDlg.cpp" />
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="PickLayDlg.cpp" />
+    <ClCompile Include="SetIfDlg.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Layer.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\ThirdParty\tinyxml\tinyxml2\tinyxml2.h" />
+    <ClInclude Include="BackgroundBar.h" />
+    <ClInclude Include="GeomMapFile.h" />
+    <ClInclude Include="GeomMemFile.h" />
+    <ClInclude Include="GridMapFile.h" />
+    <ClInclude Include="GridMemFile.h" />
+    <ClInclude Include="Holder.h" />
+    <ClInclude Include="Laydb.h" />
+    <ClInclude Include="Layer.h" />
+    <ClInclude Include="LayerAttrDlg.h" />
+    <ClInclude Include="LayerPane.h" />
+    <ClInclude Include="LayerTree.h" />
+    <ClInclude Include="LayerTreeCtrl.h" />
+    <ClInclude Include="Layif.h" />
+    <ClInclude Include="Laylg.h" />
+    <ClInclude Include="Laypp.h" />
+    <ClInclude Include="Laypt.h" />
+    <ClInclude Include="Laypy.h" />
+    <ClInclude Include="LayTableDlg.h" />
+    <ClInclude Include="PickLayDlg.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="SetIfDlg.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\LayerState.bmp" />
+    <Image Include="res\layertypes.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Database\Database.vcxproj">
+      <Project>{34538817-80f0-4640-8eb2-521eb0de007c}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Dataview\Dataview.vcxproj">
+      <Project>{c2b3c401-48dc-46f8-ae2c-e6a9e7f602d6}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Geometry\Geometry.vcxproj">
+      <Project>{e077340a-cc20-4ab3-8317-de65020bae49}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Information\Information.vcxproj">
+      <Project>{d739337b-3ee0-4e3e-95bc-e19bd31e88ca}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Projection\Projection.vcxproj">
+      <Project>{8ef6dfc8-e191-4344-a763-044fc95699c3}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Public\Public.vcxproj">
+      <Project>{4939c318-2298-4178-843e-25acf119ddd6}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Rectify\Rectify.vcxproj">
+      <Project>{eaaead0f-224f-411b-b09b-b5022f1f9b38}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Style\Style.vcxproj">
+      <Project>{06562e7d-4456-4133-af94-c88f48fd8f9f}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Thematics\Thematics.vcxproj">
+      <Project>{ee6fabe8-4e60-4ac4-973b-f9177273e5c3}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

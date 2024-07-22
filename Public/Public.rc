@@ -1,0 +1,405 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#ifndef APSTUDIO_INVOKED
+#include "targetver.h"
+#endif
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Chinese (Simplified) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+LANGUAGE LANG_CHINESE, SUBLANG_NEUTRAL
+#pragma code_page(936)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#ifndef APSTUDIO_INVOKED\r\n"
+    "#include ""targetver.h""\r\n"
+    "#endif\r\n"
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(936)\r\n"
+    "#include ""res\\Public.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""     // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_KEYNAME             "名称"
+    IDS_FORMBAR_RECORD      "记录"
+    IDS_NOTAUTHORIZED       "本功能不在此版本的授权之列,详情请浏览公司网站:"
+    IDS_KEYMAP              "地图"
+    IDS_KEYLAYER            "图层"
+    IDS_FIELD               "项目"
+    IDS_VALUE               "值"
+    IDS_FORMBAR_ATTRIBUTE   "属性"
+    IDS_PANE_PROPERTY       "属性"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_FORMBAR_NODEFORM    "节点"
+    IDS_FORMBAR_EDGEFORM    "边"
+END
+
+#endif    // Chinese (Simplified) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (Neutral) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_NEUTRAL
+#pragma code_page(1252)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_ITEMSMALL           BITMAP                  "res\\ItemImage.bmp"
+
+IDB_PANE_PROPERTY       BITMAP                  "res\\Property24.bmp"
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_PICKTABLE DIALOG 0, 0, 181, 210
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Select Table"
+FONT 8, "MS Shell Dlg"
+BEGIN
+    CONTROL         "List1",IDC_TABLELIST,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_NOSORTHEADER | WS_BORDER | WS_TABSTOP,2,2,178,188
+    DEFPUSHBUTTON   "OK",IDOK,70,194,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,130,194,50,14
+END
+
+IDD_LICENCE DIALOGEX 0, 0, 246, 43
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Licence"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,189,22,50,14
+    CONTROL         "www.diwatu.com",IDC_MFCLINK,"MfcLink",WS_TABSTOP,70,22,60,14
+    LTEXT           "",IDC_NOTAUTHORIZED,7,7,201,8
+END
+
+IDD_FIELDPICKER DIALOGEX 0, 0, 107, 82
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Select Field"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    LTEXT           "Select field:",IDC_STATIC,3,2,65,10
+    COMBOBOX        IDC_FIELDCOMBO,3,16,101,333,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
+    DEFPUSHBUTTON   "OK",IDOK,73,50,30,14
+    PUSHBUTTON      "Cancel",IDCANCEL,75,66,29,14
+    EDITTEXT        IDC_MINIMUMSCALE,33,49,22,12
+    EDITTEXT        IDC_MAXIMUMSCALE,33,65,22,12
+    LTEXT           "%",IDC_STATIC,59,52,8,8
+    LTEXT           "%",IDC_STATIC,59,68,8,8
+    GROUPBOX        "tip switch",IDC_STATIC,3,37,66,43
+    LTEXT           "Lower:",IDC_STATIC,9,52,21,9
+    LTEXT           "Upper:",IDC_STATIC,9,66,21,9
+END
+
+IDD_AUTOUPDATE DIALOGEX 0, 0, 273, 228
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,153,207,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,216,207,50,14
+    LTEXT           "???????,??????,??????:",IDC_STATIC,7,7,177,8
+    CONTROL         "",IDC_EXPLORER1,"{8856F961-340A-11D0-A96B-00C04FD705A2}",WS_TABSTOP,7,17,259,180
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_PICKTABLE, DIALOG
+    BEGIN
+        LEFTMARGIN, 3
+        RIGHTMARGIN, 180
+        TOPMARGIN, 3
+        BOTTOMMARGIN, 208
+    END
+
+    IDD_LICENCE, DIALOG
+    BEGIN
+        LEFTMARGIN, 3
+        RIGHTMARGIN, 239
+        TOPMARGIN, 3
+        BOTTOMMARGIN, 36
+    END
+
+    IDD_FIELDPICKER, DIALOG
+    BEGIN
+        LEFTMARGIN, 3
+        RIGHTMARGIN, 104
+        TOPMARGIN, 3
+        BOTTOMMARGIN, 80
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_LICENCE DLGINIT
+BEGIN
+    IDC_MFCLINK, 0x37c, 171, 0
+0x4d3c, 0x4346, 0x694c, 0x6b6e, 0x555f, 0x6c72, 0x773e, 0x7777, 0x672e, 
+0x7369, 0x6977, 0x2e6e, 0x6f63, 0x3c6d, 0x4d2f, 0x4346, 0x694c, 0x6b6e, 
+0x555f, 0x6c72, 0x3c3e, 0x464d, 0x4c43, 0x6e69, 0x5f6b, 0x7255, 0x506c, 
+0x6572, 0x6966, 0x3e78, 0x2f3c, 0x464d, 0x4c43, 0x6e69, 0x5f6b, 0x7255, 
+0x506c, 0x6572, 0x6966, 0x3e78, 0x4d3c, 0x4346, 0x694c, 0x6b6e, 0x545f, 
+0x6f6f, 0x746c, 0x7069, 0x3c3e, 0x4d2f, 0x4346, 0x694c, 0x6b6e, 0x545f, 
+0x6f6f, 0x746c, 0x7069, 0x3c3e, 0x464d, 0x4c43, 0x6e69, 0x5f6b, 0x7546, 
+0x6c6c, 0x6554, 0x7478, 0x6f54, 0x6c6f, 0x6974, 0x3e70, 0x4146, 0x534c, 
+0x3c45, 0x4d2f, 0x4346, 0x694c, 0x6b6e, 0x465f, 0x6c75, 0x546c, 0x7865, 
+0x5474, 0x6f6f, 0x746c, 0x7069, "\076" 
+    0
+END
+
+IDD_AUTOUPDATE DLGINIT
+BEGIN
+    IDC_EXPLORER1, 0x376, 160, 0
+0x0000, 0x0000, 0x004c, 0x0000, 0x2834, 0x0000, 0x1e48, 0x0000, 0x0000, 
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 
+0x0000, 0x0000, 0x004c, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0001, 
+0x0000, 0xd0e0, 0x0057, 0x3573, 0x11cf, 0x69ae, 0x0008, 0x2e2b, 0x6212, 
+0x0008, 0x0000, 0x0000, 0x0000, 0x004c, 0x0000, 0x1401, 0x0002, 0x0000, 
+0x0000, 0x00c0, 0x0000, 0x0000, 0x4600, 0x0080, 0x0000, 0x0000, 0x0000, 
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0001, 0x0000, 
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 13,1,0,0
+ PRODUCTVERSION 13,1,0,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x2L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904e4"
+        BEGIN
+            VALUE "CompanyName", "TODO: <Company name>"
+            VALUE "FileDescription", "TODO: <File description>"
+            VALUE "FileVersion", "13.01.00.0"
+            VALUE "InternalName", "Public.dll"
+            VALUE "LegalCopyright", "Copyright ?Diwatu Software Ltd. 2012"
+            VALUE "OriginalFilename", "Public.dll"
+            VALUE "ProductName", "TODO: <Product name>"
+            VALUE "ProductVersion", "13.01.00.0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1252
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_PROPERTY            ICON                    "res\\property.ico"
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_KEYNAME             "Name"
+    IDS_FORMBAR_RECORD      "Record"
+    IDS_NOTAUTHORIZED       "This function is not authorized, get more details from website:"
+    IDS_KEYMAP              "Map"
+    IDS_KEYLAYER            "Layer"
+    IDS_FIELD               "Item"
+    IDS_VALUE               "Value"
+    IDS_FORMBAR_ATTRIBUTE   "Attribute"
+    IDS_PANE_PROPERTY       "Attribute"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_FORMBAR_NODEFORM    "Node"
+    IDS_FORMBAR_EDGEFORM    "Edge"
+END
+
+#endif    // English (Neutral) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_PROGRESSBAR DIALOGEX 0, 0, 387, 72
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_CONTROL | DS_CENTER | WS_POPUP
+EXSTYLE WS_EX_TOPMOST | WS_EX_TRANSPARENT | WS_EX_NOACTIVATE
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_PROGRESSCTRL,"msctls_progress32",WS_BORDER,7,27,373,14
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_PROGRESSBAR, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 380
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 65
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// AFX_DIALOG_LAYOUT
+//
+
+IDD_PROGRESSBAR AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (New Zealand) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENZ)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_NZ
+#pragma code_page(1252)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_FILE_TYPES          BITMAP                  "res\\filetypes.bmp"
+
+#endif    // English (New Zealand) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE 9, 1
+#pragma code_page(936)
+#include "res\Public.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"     // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

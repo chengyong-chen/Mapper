@@ -1,0 +1,144 @@
+//Microsoft Visual C++ 生成的资源脚本。
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// 从 TEXTINCLUDE 2 资源生成。
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+	"resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+	"#include ""afxres.h""\r\n"
+	"\0"
+END
+
+3 TEXTINCLUDE  
+BEGIN
+	"1 TYPELIB ""Mapseed.tlb""\r\n"
+    "\0"
+END
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// 版本
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 13,01,00,0
+ PRODUCTVERSION 13,01,00,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x2L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "080403a8"
+        BEGIN
+            VALUE "CompanyName", "TODO: <公司名>"
+            VALUE "FileDescription", "TODO: <文件说明>"
+            VALUE "FileVersion", "13.01.00.0"
+            VALUE "InternalName", "Mapseed.ocx"
+            VALUE "LegalCopyright", "Copyright ?Diwatu Software Ltd. 2012"
+            VALUE "OriginalFilename", "Mapseed.ocx"
+            VALUE "ProductName", "TODO: <产品名>"
+            VALUE "ProductVersion", "13.01.00.0"
+            VALUE "OLESelfRegister", ""
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+		VALUE "Translation", 0x0804, 936
+    END
+END
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// 位图
+//
+
+IDB_MAPSEED   BITMAP   "MapseedCtrl.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// 对话框
+//
+
+
+IDD_PROPPAGE_MAPSEED DIALOG   0, 0, 250, 62
+STYLE WS_CHILD
+FONT 9, "MS Shell Dlg"
+BEGIN
+    LTEXT           "TODO: 将用于操作 Mapseed Control 的属性的控件放置在此对话框上。",
+                    IDC_STATIC,7,25,229,16
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO  
+BEGIN
+    IDD_PROPPAGE_MAPSEED, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 243
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 55
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// 字符串表
+//
+
+STRINGTABLE 
+BEGIN
+	IDS_MAPSEED               "Mapseed Control"
+	IDS_MAPSEED_PPG           "Mapseed Property Page"
+	IDS_MAPSEED_PPG_CAPTION   "常规"
+
+END
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// 从 TEXTINCLUDE 3 资源生成。
+//
+1 TYPELIB "Mapseed.tlb"
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // 不是 APSTUDIO_INVOKED
+

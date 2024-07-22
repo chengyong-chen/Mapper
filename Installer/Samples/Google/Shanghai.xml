@@ -1,0 +1,26 @@
+﻿<Map>
+  <GeoFeature Webservice="http://www.diwatu.com/Webservice/Mapinfo.asmx?wsdl" />
+  <Pou PinWebservice="http://www.diwatu.com/Webservice/Poupins.asmx?wsdl" />
+  <Backgrounds>
+    <Background ID="1" Name="Goolge Seatlite Map" Visible="1" minLevel="0" maxLevel="20">
+      <Projection Type="Mercator" minX="-180" minY="-85.05112877980659" maxX="180" maxY="85.05112877980659"/>
+      <Servers>
+        <server value="http://khm0.google.com/"/>
+        <server value="http://khm1.google.com/"/>
+        <server value="http://khm2.google.com/"/>
+        <server value="http://khm3.google.com/"/>
+      </Servers>
+      <Path value="kh/v=105&x=$nx&y=$ny&z=$id"/>
+    </Background>
+    <Background ID="2" Name="Goolge Street Map" Visible="0" minLevel="0" maxLevel="20">
+      <Projection Type="Mercator" minX="-180" minY="-85.05112877980659" maxX="180" maxY="85.05112877980659"/>
+      <Servers>
+        <Server value="http://mt0.google.com/"/>
+        <Server value="http://mt1.google.com/"/>
+        <Server value="http://mt2.google.com/"/>
+        <Server value="http://mt3.google.com/"/>
+      </Servers>
+      <Path value="vt/lyrs=m@164000000&x=$nx&y=$ny&z=$id"/>
+    </Background>
+  </Backgrounds>
+</Map>

@@ -1,0 +1,45 @@
+// Mapsvr.idl : IDL source for Mapsvr.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (Mapsvr.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+	[
+		object,
+		uuid(EF327845-40A8-4AE0-9050-EA7FAD0275EA),
+		dual,
+		helpstring("IMapdcom Interface"),
+		pointer_default(unique)
+	]
+	interface IMapdcom : IDispatch
+	{
+		[id(1), helpstring("方法OpenAtlas")] HRESULT OpenAtlas(BSTR bstrAtlas);
+		[id(2), helpstring("方法OpenMap")] HRESULT OpenMap(USHORT wMapID, [out] VARIANT* varHead);
+		[id(3), helpstring("方法GetMapData")] HRESULT GetMapData(USHORT wMapID, USHORT nZoom, LONG left, LONG top, LONG right, LONG bottom, [out] VARIANT* varData);
+		[id(4), helpstring("方法GetMapID")] HRESULT GetMapID(BSTR bstrMap, [out] USHORT* wMapID);
+		[id(5), helpstring("方法GetParentMap")] HRESULT GetParentMap(USHORT wMapID, [out] USHORT* wParentMapID);
+		[id(6), helpstring("方法GetSubMap")] HRESULT GetSubMap(USHORT wMapID, DOUBLE X, DOUBLE Y, [out] USHORT* wSubMapID);
+		[id(7), helpstring("方法MatchMap")] HRESULT MatchMap(DOUBLE fLongitude, DOUBLE fLatitude, [out] USHORT* wMapID);
+	};
+
+[
+	uuid(98ECF356-06EF-4F72-A3A0-6ECA3725509E),
+	version(1.0),
+	helpstring("Mapsvr 1.0 Type Library")
+]
+library MAPSVRLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(EB914BA1-3C9C-4321-BB87-D2F8E3EFEB09),
+		helpstring("Mapdcom Class")
+	]
+	coclass CMapdcom
+	{
+		[default] interface IMapdcom;
+	};
+};

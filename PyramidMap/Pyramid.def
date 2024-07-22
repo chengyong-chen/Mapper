@@ -1,0 +1,6 @@
+; PyramidMap.def : Declares the module parameters for the DLL.
+
+LIBRARY      "PyramidMap"
+
+EXPORTS
+    ; Explicit exports can go here

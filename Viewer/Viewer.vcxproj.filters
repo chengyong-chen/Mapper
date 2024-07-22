@@ -1,0 +1,257 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="Viewer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ChildFrm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GisDoc.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GisView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Global.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HtmlView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MainFrm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GrfDoc.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GrfView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="POIBar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RibbonBar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Splash.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Viewer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ChildFrm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GisDoc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GisView.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Global.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HtmlView.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MainFrm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GrfDoc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GrfView.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="POIBar.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RibbonBar.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Splash.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ReadMe.txt" />
+    <None Include="res\bitmap1.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Viewer.rc2">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00001.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00002.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00003.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00004.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00005.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00006.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00007.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00008.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\broadcas.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\BrowserDoc.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\cur00001.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\cur00002.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\FileLarge.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\filelarge.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\FileSmall.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\filesmall.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\footbar2.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\footbar3.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\footbar4.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\footbar5.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\footbar6.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\ghtidc_r.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Gis.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\GPSLarge.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Icons.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Infobar.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\left1cur.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\leftup1.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\leftupcu.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Main.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\MainFrame.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Grf.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\MapLarge.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\MapSmall.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\RecMark.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\ribbon.mfcribbon-ms">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\rightup1.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\rightupc.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Toolbar.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\toolbar1.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\ToolBar24.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Toolbar256.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Traffic.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="UserImages.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\View_Large.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\viewbar.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Viewer.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{718cc143-8bd0-4b50-80d0-f993800e0fa9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{6d7bbdb5-e665-41f0-8626-65d76e6b35cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{8ac08146-a63a-4003-90e4-27de9e7aaf8f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Viewer.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

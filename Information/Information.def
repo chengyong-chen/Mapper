@@ -1,0 +1,6 @@
+; Information.def : Declares the module parameters for the DLL.
+
+LIBRARY      "Information"
+
+EXPORTS
+    ; Explicit exports can go here

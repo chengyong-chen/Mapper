@@ -1,0 +1,60 @@
+// Mapseed.idl : ActiveX 控件项目的类型库源。
+
+// 此文件将由 MIDL 编译器工具处理以
+//产生类型库(Mapseed.tlb)，该类型库将成为 
+// Mapseed.ocx 中的资源。
+
+#include <olectl.h>
+#include <idispids.h>
+
+[ uuid(8DFA0DD8-D9EE-4868-AEC8-0DF0ADA10433), version(1.0),
+  helpfile("Mapseed.hlp"),
+  helpstring("Mapseed ActiveX 控件模块"),
+  control ]
+library MapseedLib
+{
+	importlib(STDOLE_TLB);
+
+	//  CMapseedCtrl 的主调度接口
+
+	[ uuid(B917C841-4C11-41A6-8C5B-9345D75C8C4F),
+	  helpstring("Mapseed Control 的调度接口")]
+	dispinterface _DMapseed
+	{
+		properties:
+		methods:
+		[id(1), helpstring("方法OpenAtlas")] VARIANT_BOOL OpenAtlas(BSTR bstrAtlas);
+		[id(2), helpstring("方法OpenMap")] VARIANT_BOOL OpenMap(USHORT wMapID, USHORT nZoom);
+		[id(3), helpstring("方法OpenMapByName")] VARIANT_BOOL OpenMapByName(BSTR bstrMap);
+		[id(4), helpstring("方法OpenMatchMap")] VARIANT_BOOL OpenMatchMap(DOUBLE longitude, DOUBLE latitude);
+		[id(5), helpstring("方法CloseAtlas")] VARIANT_BOOL CloseAtlas(void);
+		[id(6), helpstring("方法CloseMap")] VARIANT_BOOL CloseMap(void);
+		[id(7), helpstring("方法ScrollView")] void ScrollView(LONG cx, LONG cy, VARIANT_BOOL bUpdate);
+		[id(8), helpstring("方法AimatView")] void AimatView(LONG docX, LONG docY, LONG cliX, LONG cliY);
+		[id(9), helpstring("方法SetTool")] void SetTool(BYTE bType);
+		[id(10), helpstring("方法GetTool")] BYTE GetTool(void);
+	};
+
+	//  CMapseedCtrl 的事件调度接口
+
+	[ uuid(EFECF2B1-3F7A-4674-8CB1-79EF14219C2D),
+	  helpstring("Mapseed Control 的事件接口") ]
+	dispinterface _DMapseedEvents
+	{
+		properties:
+			//  事件接口没有任何属性
+
+		methods:
+	};
+
+	//  CMapseedCtrl 的类信息
+
+	[ uuid(B61D8175-3AC4-4071-A3AF-CD45172A5C1C),
+	  helpstring("Mapseed Control"), control ]
+	coclass Mapseed
+	{
+		[default] dispinterface _DMapseed;
+		[default, source] dispinterface _DMapseedEvents;
+	};
+
+};

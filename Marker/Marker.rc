@@ -1,0 +1,662 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Chinese (Simplified) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+LANGUAGE LANG_CHINESE, SUBLANG_NEUTRAL
+#pragma code_page(936)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 4, 2\r\n"
+    "#pragma code_page(936)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\Marker.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""l.chs\\afxres.rc""          // Standard components\r\n"
+    "#include ""l.chs\\afxolecl.rc""        // OLE container resources\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+#endif    // Chinese (Simplified) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (Neutral) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_NEUTRAL
+#pragma code_page(1252)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDI_MAINFRAME ACCELERATORS
+BEGIN
+    "A",            ID_SELECTALL_ALL,       VIRTKEY, CONTROL, NOINVERT
+    "B",            ID_ARRANGE_TOBACK,      VIRTKEY, CONTROL, NOINVERT
+    "B",            ID_ARRANGE_BACKWARD,    VIRTKEY, SHIFT, CONTROL, NOINVERT
+    "C",            ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    "C",            ID_EDIT_CLONE,          VIRTKEY, SHIFT, CONTROL, NOINVERT
+    "D",            ID_EDIT_DUBLICATE,      VIRTKEY, CONTROL, NOINVERT
+    "F",            ID_ARRANGE_TOFRONT,     VIRTKEY, CONTROL, NOINVERT
+    "F",            ID_ARRANGE_FORWARD,     VIRTKEY, SHIFT, CONTROL, NOINVERT
+    "K",            ID_VIEW_PREVIEW,        VIRTKEY, CONTROL, NOINVERT
+    "M",            ID_EDIT_MOVE,           VIRTKEY, CONTROL, NOINVERT
+    "N",            ID_FILE_NEW,            VIRTKEY, CONTROL, NOINVERT
+    "O",            ID_FILE_OPEN,           VIRTKEY, CONTROL, NOINVERT
+    "P",            ID_FILE_PRINT,          VIRTKEY, CONTROL, NOINVERT
+    "S",            ID_FILE_SAVE,           VIRTKEY, CONTROL, NOINVERT
+    "V",            ID_EDIT_PASTE,          VIRTKEY, CONTROL, NOINVERT
+    VK_BACK,        ID_EDIT_CLEAR,          VIRTKEY, NOINVERT
+    VK_DELETE,      ID_EDIT_CLEAR,          VIRTKEY, NOINVERT
+    VK_F4,          ID_FILE_CLOSE,          VIRTKEY, CONTROL, NOINVERT
+    "X",            ID_EDIT_CUT,            VIRTKEY, CONTROL, NOINVERT
+    "Y",            ID_EDIT_REDO,           VIRTKEY, CONTROL, NOINVERT
+    "Z",            ID_EDIT_UNDO,           VIRTKEY, CONTROL, NOINVERT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 13,1,0,0
+ PRODUCTVERSION 13,1,0,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "080404B0"
+        BEGIN
+            VALUE "FileDescription", "Marker Microsoft ???????"
+            VALUE "FileVersion", "13.01.00.0"
+            VALUE "InternalName", "Marker"
+            VALUE "LegalCopyright", "Copyright ?Diwatu Software Ltd. 2012"
+            VALUE "OriginalFilename", "Marker.EXE"
+            VALUE "ProductName", "Marker ????"
+            VALUE "ProductVersion", "13.01.00.0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x804, 1200
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOG 0, 0, 235, 55
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "?? Marker"
+FONT 8, "MS Shell Dlg"
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
+    LTEXT           "Marker 1.0 ?",IDC_STATIC,40,10,119,8,SS_NOPREFIX
+    LTEXT           "???? (C) 2000",IDC_STATIC,40,25,119,8
+    DEFPUSHBUTTON   "MS Shell Dlg",IDOK,178,7,50,14,WS_GROUP
+END
+
+IDD_STEP DIALOGEX 0, 0, 123, 41
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Symbol Setup"
+FONT 8, "MS Shell Dlg", 700, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,84,7,36,14
+    PUSHBUTTON      "Cancel",IDCANCEL,84,24,36,14
+    LTEXT           "Step:",IDC_STATIC,7,9,24,9
+    EDITTEXT        IDC_STEP,36,7,44,12,ES_AUTOHSCROLL
+END
+
+IDD_POLE DIALOGEX 0, 0, 133, 75
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Setup Pole"
+FONT 8, "MS Shell Dlg", 700, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,94,7,36,14
+    PUSHBUTTON      "Cancel",IDCANCEL,94,24,36,14
+    LTEXT           "X:",IDC_STATIC,18,22,11,9
+    EDITTEXT        IDC_X,36,19,44,12,ES_AUTOHSCROLL
+    CONTROL         "Have direction",IDC_DIRECTION,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,63,59,9
+    LTEXT           "Y:",IDC_STATIC,18,41,11,9
+    EDITTEXT        IDC_Y,36,38,44,12,ES_AUTOHSCROLL
+    GROUPBOX        "Related point",IDC_STATIC,7,7,84,48
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 3
+        RIGHTMARGIN, 228
+        TOPMARGIN, 3
+        BOTTOMMARGIN, 48
+    END
+
+    IDD_STEP, DIALOG
+    BEGIN
+        LEFTMARGIN, 3
+        RIGHTMARGIN, 120
+        TOPMARGIN, 3
+        BOTTOMMARGIN, 38
+    END
+
+    IDD_POLE, DIALOG
+    BEGIN
+        LEFTMARGIN, 3
+        RIGHTMARGIN, 130
+        TOPMARGIN, 3
+        BOTTOMMARGIN, 72
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Toolbar
+//
+
+IDR_TOOLBAR_MAIN TOOLBAR 16, 16
+BEGIN
+    BUTTON      ID_FILE_NEW
+    BUTTON      ID_FILE_OPEN
+    BUTTON      ID_FILE_SAVE
+    BUTTON      ID_FILE_SAVE_ALL
+    SEPARATOR
+    BUTTON      ID_EDIT_CUT
+    BUTTON      ID_EDIT_COPY
+    BUTTON      ID_EDIT_PASTE
+    SEPARATOR
+    BUTTON      ID_EDIT_UNDO
+    SEPARATOR
+    BUTTON      ID_EDIT_REDO
+    SEPARATOR
+    BUTTON      ID_EDIT_FIND
+    SEPARATOR
+    BUTTON      ID_FILE_PRINT
+END
+
+IDR_TOOLBAR_MAGNIFY TOOLBAR 16, 16
+BEGIN
+    BUTTON      ID_MAGNIFY_ACTUAL
+    BUTTON      ID_MAGNIFY_FITACTIVE
+    BUTTON      ID_MAGNIFY_FITINPAGE
+END
+
+IDR_TOOLBAR_GEOMALIGN TOOLBAR 16, 16
+BEGIN
+    BUTTON      ID_ALIGN_LEFT
+    BUTTON      ID_ALIGN_HCENTER
+    BUTTON      ID_ALIGN_RIGHT
+    BUTTON      ID_ALIGN_BOTTOM
+    BUTTON      ID_ALIGN_VCENTER
+    BUTTON      ID_ALIGN_TOP
+    BUTTON      ID_ALIGN_CENTER
+END
+
+IDR_TOOLBAR_AXISALIGN TOOLBAR 16, 16
+BEGIN
+    BUTTON      ID_ALIGN_YRIGHT
+    BUTTON      ID_ALIGN_YCENTER
+    BUTTON      ID_ALIGN_YLEFT
+    BUTTON      ID_ALIGN_XOVER
+    BUTTON      ID_ALIGN_XCENTER
+    BUTTON      ID_ALIGN_XUNDER
+    BUTTON      ID_ALIGN_ORIGIN
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_SPOT                ICON                    "res\\Marker.ico"
+
+IDR_MAINFRAME           ICON                    "res\\Marker.ico"
+
+IDR_LINE                ICON                    "res\\Marker.ico"
+
+IDR_FILL                ICON                    "res\\Marker.ico"
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDR_TOOLBAR_MAIN        BITMAP                  "res\\Main.bmp"
+
+IDR_TOOLBAR_MAGNIFY     BITMAP                  "res\\Magnify.bmp"
+
+IDB_TOOLBAR_MAIN        BITMAP                  "res\\Main24.bmp"
+
+IDB_TOOLBAR_MAGNIFY     BITMAP                  "res\\Magnify24.bmp"
+
+IDR_TOOLBAR_GEOMALIGN   BITMAP                  "res\\Align.bmp"
+
+IDB_TOOLBAR_GEOMALIGN   BITMAP                  "res\\Align24.bmp"
+
+IDB_TOOLBAR_AXISALIGN   BITMAP                  "res\\AxisAlign24.bmp"
+
+IDR_TOOLBAR_AXISALIGN   BITMAP                  "res\\Axisalign.bmp"
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_FILL MENU
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&New\tCtrl+N",                ID_FILE_NEW
+        MENUITEM "&Open...\tCtrl+O",            ID_FILE_OPEN
+        MENUITEM "&Save\tCtrl+S",               ID_FILE_SAVE
+        MENUITEM "Save &As...",                 57604
+        MENUITEM "Export To CE",                ID_FILE_EXPORTCE
+        MENUITEM SEPARATOR
+        MENUITEM "Pre&ferences...",             ID_FILE_PREFERENCES
+        MENUITEM SEPARATOR
+        MENUITEM "Prin&t Setup...",             ID_FILE_PRINT_SETUP
+        MENUITEM "Print Pre&view",              ID_FILE_PRINT_PREVIEW
+        MENUITEM "&Print...\tCtrl+P",           ID_FILE_PRINT
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit\tAlt+F4",               ID_APP_EXIT
+    END
+    POPUP "&Edit"
+    BEGIN
+        MENUITEM "&Undo\tCtrl+Z",               ID_EDIT_UNDO
+        MENUITEM "&Redo\tCtrl+Y",               ID_EDIT_REDO
+        MENUITEM SEPARATOR
+        MENUITEM "Cu&t\tCtrl+X",                ID_EDIT_CUT
+        MENUITEM "&Copy\tCtrl+C",               ID_EDIT_COPY
+        MENUITEM "&Paste\tCtrl+V",              ID_EDIT_PASTE
+        MENUITEM "C&lear\tDel",                 ID_EDIT_CLEAR
+        MENUITEM SEPARATOR
+        MENUITEM "Select &All\tCtrl+A",         ID_SELECTALL_ALL
+        MENUITEM "&Dublicate\tCtrl+D",          ID_EDIT_DUBLICATE
+        MENUITEM "&Clone\tCtrl+Shift+C",        ID_EDIT_CLONE
+    END
+    POPUP "&Geometry"
+    BEGIN
+        MENUITEM "Bring forward\tCtrl+Shift+F", ID_ARRANGE_FORWARD
+        MENUITEM "Send  backward\tCtrl+Shift+B", ID_ARRANGE_BACKWARD
+        MENUITEM "Bring to &front\tCtrl+F",     ID_ARRANGE_TOFRONT
+        MENUITEM "Send  to &back\tCtrl+B",      ID_ARRANGE_TOBACK
+        MENUITEM SEPARATOR
+        MENUITEM "&Set Style",                  ID_GEOM_SETSTYLE
+        MENUITEM SEPARATOR
+        MENUITEM "Make Pole",                   ID_POLE_MAKE
+        MENUITEM "UnMake Pole",                 ID_POLE_UNDO
+        MENUITEM "Setup Pole",                  ID_POLE_SETUP
+    END
+    POPUP "&View"
+    BEGIN
+        MENUITEM "100% View",                   ID_VIEW_MAGNIFICATION_ACTUAL
+    END
+    POPUP "Symbol"
+    BEGIN
+        MENUITEM "&New",                        ID_SYMBOL_NEW
+        MENUITEM "&Delete",                     ID_SYMBOL_DELETE
+        MENUITEM SEPARATOR
+        MENUITEM "Ste&p",                       ID_SYMBOL_STEP
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&About Marker...",            ID_APP_ABOUT
+    END
+END
+
+IDR_LINE MENU
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&New\tCtrl+N",                ID_FILE_NEW
+        MENUITEM "&Open...\tCtrl+O",            ID_FILE_OPEN
+        MENUITEM "&Save\tCtrl+S",               ID_FILE_SAVE
+        MENUITEM "Save &As...",                 57604
+        MENUITEM "Export To CE",                ID_FILE_EXPORTCE
+        MENUITEM SEPARATOR
+        MENUITEM "Pre&ferences...",             ID_FILE_PREFERENCES
+        MENUITEM SEPARATOR
+        MENUITEM "Prin&t Setup...",             ID_FILE_PRINT_SETUP
+        MENUITEM "Print Pre&view",              ID_FILE_PRINT_PREVIEW
+        MENUITEM "&Print...\tCtrl+P",           ID_FILE_PRINT
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit\tAlt+F4",               ID_APP_EXIT
+    END
+    POPUP "&Edit"
+    BEGIN
+        MENUITEM "&Undo\tCtrl+Z",               ID_EDIT_UNDO
+        MENUITEM "&Redo\tCtrl+Y",               ID_EDIT_REDO
+        MENUITEM SEPARATOR
+        MENUITEM "Cu&t\tCtrl+X",                ID_EDIT_CUT
+        MENUITEM "&Copy\tCtrl+C",               ID_EDIT_COPY
+        MENUITEM "&Paste\tCtrl+V",              ID_EDIT_PASTE
+        MENUITEM "C&lear\tDel",                 ID_EDIT_CLEAR
+        MENUITEM SEPARATOR
+        MENUITEM "Select &All\tCtrl+A",         ID_SELECTALL_ALL
+        MENUITEM "&Dublicate\tCtrl+D",          ID_EDIT_DUBLICATE
+        MENUITEM "&Clone\tCtrl+Shift+C",        ID_EDIT_CLONE
+        MENUITEM "Snap to Point",               ID_EDIT_SNAPTOPOINT
+    END
+    POPUP "&Geometry"
+    BEGIN
+        MENUITEM "Bring forward\tCtrl+Shift+F", ID_ARRANGE_FORWARD
+        MENUITEM "Send  backward\tCtrl+Shift+B", ID_ARRANGE_BACKWARD
+        MENUITEM "Bring to &front\tCtrl+F",     ID_ARRANGE_TOFRONT
+        MENUITEM "Send  to &back\tCtrl+B",      ID_ARRANGE_TOBACK
+        MENUITEM SEPARATOR
+        MENUITEM "&Set Style",                  ID_GEOM_SETSTYLE
+        MENUITEM SEPARATOR
+        MENUITEM "Make Pole",                   ID_POLE_MAKE
+        MENUITEM "UnMake Pole",                 ID_POLE_UNDO
+        MENUITEM "Setup Pole",                  ID_POLE_SETUP
+    END
+    POPUP "&View"
+    BEGIN
+        MENUITEM "100% View",                   ID_VIEW_MAGNIFICATION_ACTUAL
+    END
+    POPUP "Symbol"
+    BEGIN
+        MENUITEM "&New",                        ID_SYMBOL_NEW
+        MENUITEM "&Delete",                     ID_SYMBOL_DELETE
+        MENUITEM SEPARATOR
+        MENUITEM "Ste&p",                       ID_SYMBOL_STEP
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&About Marker...",            ID_APP_ABOUT
+    END
+END
+
+IDR_SPOT MENU
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&New\tCtrl+N",                ID_FILE_NEW
+        MENUITEM "&Open...\tCtrl+O",            ID_FILE_OPEN
+        MENUITEM "&Save\tCtrl+S",               ID_FILE_SAVE
+        MENUITEM "Save &As...",                 57604
+        MENUITEM "Export To CE",                ID_FILE_EXPORTCE
+        MENUITEM "Prin&t Setup...",             ID_FILE_PRINT_SETUP
+        MENUITEM SEPARATOR
+        MENUITEM "Pre&ferences...",             ID_FILE_PREFERENCES
+        MENUITEM SEPARATOR
+        MENUITEM "Print Pre&view",              ID_FILE_PRINT_PREVIEW
+        MENUITEM "&Print...\tCtrl+P",           ID_FILE_PRINT
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit\tAlt+F4",               ID_APP_EXIT
+    END
+    POPUP "&Edit"
+    BEGIN
+        MENUITEM "&Undo\tCtrl+Z",               ID_EDIT_UNDO
+        MENUITEM "&Redo\tCtrl+Y",               ID_EDIT_REDO
+        MENUITEM SEPARATOR
+        MENUITEM "Cu&t\tCtrl+X",                ID_EDIT_CUT
+        MENUITEM "&Copy\tCtrl+C",               ID_EDIT_COPY
+        MENUITEM "&Paste\tCtrl+V",              ID_EDIT_PASTE
+        MENUITEM "C&lear\tDel",                 ID_EDIT_CLEAR
+        MENUITEM SEPARATOR
+        MENUITEM "Select &All\tCtrl+A",         ID_SELECTALL_ALL
+        MENUITEM "&Dublicate\tCtrl+D",          ID_EDIT_DUBLICATE
+        MENUITEM "&Clone\tCtrl+Shift+C",        ID_EDIT_CLONE
+    END
+    POPUP "&Geometry"
+    BEGIN
+        MENUITEM "Bring forward\tCtrl+Shift+F", ID_ARRANGE_FORWARD
+        MENUITEM "Send  backward\tCtrl+Shift+B", ID_ARRANGE_BACKWARD
+        MENUITEM "Bring to &front\tCtrl+F",     ID_ARRANGE_TOFRONT
+        MENUITEM "Send  to &back\tCtrl+B",      ID_ARRANGE_TOBACK
+        MENUITEM SEPARATOR
+        MENUITEM "&Set Style",                  ID_GEOM_SETSTYLE
+        MENUITEM SEPARATOR
+        MENUITEM "Make Pole",                   ID_POLE_MAKE
+        MENUITEM "UnMake Pole",                 ID_POLE_UNDO
+        MENUITEM "Setup Pole",                  ID_POLE_SETUP
+    END
+    POPUP "&View"
+    BEGIN
+        MENUITEM "100% View",                   ID_VIEW_MAGNIFICATION_ACTUAL
+    END
+    POPUP "Symbol"
+    BEGIN
+        MENUITEM "&New",                        ID_SYMBOL_NEW
+        MENUITEM "&Delete",                     ID_SYMBOL_DELETE
+        MENUITEM SEPARATOR
+        MENUITEM "Ste&p",                       ID_SYMBOL_STEP
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&About Marker...",            ID_APP_ABOUT
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDP_OLE_INIT_FAILED     "OLE ??????????? OLE ??????????"
+    IDP_FAILED_TO_CREATE    "?????????????????????"
+    IDR_SPOT                "Spot Symbol\nSpot Symbol\nSpot Symbol\nSpot Symbol file (*.mym)\n.mym\nMyCalcSheet\n MyCalc Worksheet\n"
+    IDR_LINE                "Line Symbol\nLine Symbol\nLine Symbol\nLine Symbol file (*.lym)\n.lym\nMyCalcSheet\n MyCalc Worksheet\n"
+    IDR_FILL                "Fill Symbol\nFill Symbol\nFill Symbol\nFill Symbol file (*.fym)\n.fym\nMyCalcSheet\n MyCalc Worksheet\n"
+END
+
+STRINGTABLE
+BEGIN
+    AFX_IDS_APP_TITLE       "Marker"
+    AFX_IDS_IDLEMESSAGE     "MS Shell Dlg"
+END
+
+STRINGTABLE
+BEGIN
+    ID_INDICATOR_EXT        "???"
+    ID_INDICATOR_CAPS       "MS Shell Dlg"
+    ID_INDICATOR_NUM        "MS Shell Dlg"
+    ID_INDICATOR_SCRL       "MS Shell Dlg"
+    ID_INDICATOR_OVR        "MS Shell Dlg"
+    ID_INDICATOR_REC        "MS Shell Dlg"
+END
+
+STRINGTABLE
+BEGIN
+    ID_FILE_NEW             "?????\n??"
+    ID_FILE_OPEN            "????????\n??"
+    ID_FILE_CLOSE           "??????\n??"
+    ID_FILE_SAVE            "??????\n??"
+    ID_FILE_SAVE_AS         "??????????????\n???"
+END
+
+STRINGTABLE
+BEGIN
+    ID_APP_ABOUT            "??????,??????\n??"
+    ID_APP_EXIT             "??????;??????\n??"
+END
+
+STRINGTABLE
+BEGIN
+    ID_FILE_MRU_FILE1       "?????"
+    ID_FILE_MRU_FILE2       "?????"
+    ID_FILE_MRU_FILE3       "?????"
+    ID_FILE_MRU_FILE4       "?????"
+    ID_FILE_MRU_FILE5       "?????"
+    ID_FILE_MRU_FILE6       "?????"
+    ID_FILE_MRU_FILE7       "?????"
+    ID_FILE_MRU_FILE8       "?????"
+    ID_FILE_MRU_FILE9       "?????"
+    ID_FILE_MRU_FILE10      "?????"
+    ID_FILE_MRU_FILE11      "?????"
+    ID_FILE_MRU_FILE12      "?????"
+    ID_FILE_MRU_FILE13      "?????"
+    ID_FILE_MRU_FILE14      "?????"
+    ID_FILE_MRU_FILE15      "?????"
+    ID_FILE_MRU_FILE16      "?????"
+END
+
+STRINGTABLE
+BEGIN
+    ID_NEXT_PANE            "????????\n????"
+    ID_PREV_PANE            "????????\n????"
+END
+
+STRINGTABLE
+BEGIN
+    ID_WINDOW_SPLIT         "???????????\n??"
+END
+
+STRINGTABLE
+BEGIN
+    ID_EDIT_CLEAR           "??????\n??"
+    ID_EDIT_CLEAR_ALL       "????\n????"
+    ID_EDIT_COPY            "???????????????\n??"
+    ID_EDIT_CUT             "???????????????\n??"
+    ID_EDIT_FIND            "???????\n??"
+    ID_EDIT_PASTE           "???????\n??"
+    ID_EDIT_PASTE_LINK      "??????????????????\n????"
+    ID_EDIT_PASTE_SPECIAL   "??????????\n?????"
+    ID_EDIT_REPEAT          "???????\n??"
+    ID_EDIT_UNDO            "????????\n??"
+    ID_EDIT_REDO            "????????????\n????"
+END
+
+STRINGTABLE
+BEGIN
+    ID_SELECTALL_ALL        "??????\n????"
+END
+
+STRINGTABLE
+BEGIN
+    ID_VIEW_STATUS_BAR      "????????\n?????"
+END
+
+STRINGTABLE
+BEGIN
+    ID_OLE_INSERT_NEW       "????????\n???"
+    ID_OLE_EDIT_LINKS       "??????\n????"
+    ID_OLE_EDIT_CONVERT     "???????????\n????"
+END
+
+STRINGTABLE
+BEGIN
+    ID_OLE_VERB_FIRST       "??????????"
+END
+
+STRINGTABLE
+BEGIN
+    AFX_IDS_SCSIZE          "??????"
+    AFX_IDS_SCMOVE          "??????"
+    AFX_IDS_SCMINIMIZE      "????????"
+    AFX_IDS_SCMAXIMIZE      "??????????"
+    AFX_IDS_SCNEXTWINDOW    "??????????"
+    AFX_IDS_SCPREVWINDOW    "??????????"
+    AFX_IDS_SCCLOSE         "????????????????"
+END
+
+STRINGTABLE
+BEGIN
+    AFX_IDS_SCRESTORE       "??????????"
+    AFX_IDS_SCTASKLIST      "?????"
+END
+
+STRINGTABLE
+BEGIN
+    IDR_MAINFRAME           "Symbol\nSymbol\nSymbol\nSymbol file (*.*)\n.*\nMyCalcSheet\n MyCalc Worksheet\n"
+END
+
+#endif    // English (Neutral) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE 4, 2
+#pragma code_page(936)
+#endif //_WIN32
+#include "res\Marker.rc2"  // non-Microsoft Visual C++ edited resources
+#include "l.chs\afxres.rc"          // Standard components
+#include "l.chs\afxolecl.rc"        // OLE container resources
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

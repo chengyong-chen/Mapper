@@ -1,0 +1,4 @@
+online svg to bmp:
+	https://image.online-convert.com/convert/svg-to-bmp
+icnos:
+https://www.svgrepo.com/

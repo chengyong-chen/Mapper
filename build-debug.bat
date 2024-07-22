@@ -1,0 +1,1 @@
+msbuild Geometry/Geometry.vcxproj /p:configuration=debug /t:clean

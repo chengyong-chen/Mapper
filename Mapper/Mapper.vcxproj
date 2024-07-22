@@ -1,0 +1,448 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{E3C7C04C-47AC-4A34-AB36-16472D1AC470}</ProjectGuid>
+    <RootNamespace>Mapper</RootNamespace>
+    <Keyword>MFCProj</Keyword>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>..\..\Thirdparty\boost\1.83.0;..\..\ThirdParty\libharu\2.4.4\win32\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <IncludePath>D:\Workshop\ThirdParty\poppler;..\..\Thirdparty\boost\1.83.0;..\..\ThirdParty\libharu\2.4.4\win32\include;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>true</ValidateAllParameters>
+    </Midl>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;JSON_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <BrowseInformation>true</BrowseInformation>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <AdditionalIncludeDirectories>D:\Workshop\ThirdParty\poppler;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <BuildStlModules>false</BuildStlModules>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>msdasc.lib;Version.lib;Wininet.lib;Sensapi.lib;Gdiplus.lib;htmlhelp.lib;..\Public\Debug\Public.lib;..\Database\Debug\Database.lib;..\Projection\Debug\Projection.lib;..\Dataview\Debug\Dataview.lib;..\Framework\Debug\Framework.lib;..\Frame\Debug\Frame.lib;..\Geometry\Debug\Geometry.lib;..\Style\Debug\Style.lib;..\Layer\Debug\Layer.lib;..\Port\Debug\Port.lib;..\Topology\Debug\Topology.lib;..\Information\Debug\Information.lib;..\Hyperlink\Debug\Hyperlink.lib;..\Tool\Debug\Tool.lib;..\Rectify\Debug\Rectify.lib;..\Atlas\Debug\Atlas.lib;..\Thematics\Debug\Thematics.lib;..\Logger\Debug\Logger.lib;..\..\Thirdparty\libharu\2.4.4\libhpdf.lib;..\..\Thirdparty\clipper\2.0\CPP\build\Debug\Clipper2.lib</AdditionalDependencies>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>libcmt.lib</IgnoreSpecificDefaultLibraries>
+      <Profile>false</Profile>
+      <UACExecutionLevel>RequireAdministrator</UACExecutionLevel>
+      <OptimizeReferences>false</OptimizeReferences>
+      <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
+      <AdditionalLibraryDirectories>D:\Workshop\ThirdParty\boost\1.83.0\lib32-msvc-14.3</AdditionalLibraryDirectories>
+    </Link>
+    <Bscmake>
+      <PreserveSbr>true</PreserveSbr>
+    </Bscmake>
+    <PostBuildEvent>
+      <Command>xcopy /R /Y /F "..\debug\*.dll" "..\..\Analyzer\FOL\FOL.Web\Mapper\"
+xcopy /R /Y /F "..\debug\*.exe" "..\..\Analyzer\FOL\FOL.Web\Mapper\"
+xcopy /S /Y "..\Installer\Color\" "..\debug\Color\"
+xcopy /S /Y "..\Installer\Assistant\" "..\debug\Assistant\"
+xcopy /S /y /F "..\Installer\Controls\" "..\debug\Controls\"
+xcopy /S /y /F "..\Installer\Fonts\" "..\debug\Fonts\"
+xcopy /S /Y "..\Installer\Color\" "..\..\Analyzer\FOL\FOL.Web\Mapper\Color\"
+xcopy /S /y /F "..\..\ThirdParty\poppler\3rdparty\openjpeg-v2.3.0-windows-x86 \bin\openjp2.dll" "..\Debug\"
+      </Command>
+    </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>xcopy /R /Y /F "..\..\ThirdParty\SQLite\3.31.1\sqlite3.dll" "..\Debug\"
+xcopy /R /Y /F "..\..\ThirdParty\FreeImage\Dist\FreeImage.dll" "..\Debug\"
+
+      </Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+    </Midl>
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <BuildStlModules>false</BuildStlModules>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>msdasc.lib;Version.lib;Wininet.lib;Sensapi.lib;Gdiplus.lib;htmlhelp.lib;..\Public\Release\Public.lib;..\Database\Release\Database.lib;..\Projection\Release\Projection.lib;..\Dataview\Release\Dataview.lib;..\Framework\Release\Framework.lib;..\Frame\Release\Frame.lib;..\Geometry\Release\Geometry.lib;..\Style\Release\Style.lib;..\Layer\Release\Layer.lib;..\Port\Release\Port.lib;..\Topology\Release\Topology.lib;..\Information\Release\Information.lib;..\Hyperlink\Release\Hyperlink.lib;..\Tool\Release\Tool.lib;..\Rectify\Release\Rectify.lib;..\Atlas\Release\Atlas.lib;..\Thematics\Release\Thematics.lib;..\Logger\Release\Logger.lib;..\..\Thirdparty\libharu\2.4.4\libhpdf.lib;..\..\Thirdparty\clipper\2.0\CPP\build\Release\Clipper2.lib</AdditionalDependencies>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <IgnoreSpecificDefaultLibraries>libcmt.lib</IgnoreSpecificDefaultLibraries>
+      <Profile>false</Profile>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <UACExecutionLevel>RequireAdministrator</UACExecutionLevel>
+      <AdditionalLibraryDirectories>D:\Workshop\ThirdParty\boost\1.83.0\lib32-msvc-14.3</AdditionalLibraryDirectories>
+    </Link>
+    <PostBuildEvent>
+      <Command>        xcopy /R /y /F "..\Release\*.dll" "..\..\Analyzer\FOL\FOL.Web\Mapper\"
+        xcopy /R /y /F "..\Release\*.exe" "..\..\Analyzer\FOL\FOL.Web\Mapper\"
+        xcopy /S /y /F "..\..\ThirdParty\SQLite\3.31.1\sqlite3.dll" "..\Release\"
+        xcopy /S /y /F "..\..\ThirdParty\FreeImage\Dist\FreeImage.dll" "..\Release\"
+        xcopy /S /y /F "..\..\ThirdParty\poppler\3rdparty\openjpeg-v2.3.0-windows-x86\bin\openjp2.dll" "..\Release\"
+        xcopy /S /y /F "..\Installer\Color\" "..\Release\Color\"
+        xcopy /S /y /F "..\Installer\Assistant\" "..\Release\Assistant\"
+        xcopy /S /y /F "..\Installer\Controls\" "..\Release\Controls\"
+        xcopy /S /y /F "..\Installer\Fonts\" "..\Release\Fonts\"
+        xcopy /S /y /F "..\Installer\Color\" "..\..\Analyzer\FOL\FOL.Web\Mapper\Color\"
+
+        del "..\Release\*.pdb"
+        del "..\Release\*.exp"
+        del "..\Release\*.lib"
+        del "..\Release\*.bsc"
+        del "..\Release\*.iobj"
+        del "..\Release\*.ipdb"
+        del "..\Release\*.metagen"
+
+        powershell Compress-Archive -Path ..\Release\* -DestinationPath ..\..\Diwatu\Diwatu.Web\download\mapper.zip -Force
+
+      </Command>
+    </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>
+        xcopy /R /Y /F "..\..\ThirdParty\SQLite\3.31.1\sqlite3.dll" "..\Release\"
+        xcopy /R /Y /F "..\..\ThirdParty\FreeImage\Dist\FreeImage.dll" "..\Release\"
+</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Thirdparty\tinyxml\tinyxml2\tinyxml2.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <OmitDefaultLibName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</OmitDefaultLibName>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <OmitDefaultLibName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</OmitDefaultLibName>
+    </ClCompile>
+    <ClCompile Include="AtlasNewDlg.cpp" />
+    <ClCompile Include="DynamicDlg.cpp" />
+    <ClCompile Include="ChildFrm.cpp" />
+    <ClCompile Include="EagleWnd.cpp" />
+    <ClCompile Include="GeoDoc.cpp" />
+    <ClCompile Include="GeoView.cpp" />
+    <ClCompile Include="GisDoc.cpp" />
+    <ClCompile Include="GisView.cpp" />
+    <ClCompile Include="Global.cpp" />
+    <ClCompile Include="LevelBar.cpp" />
+    <ClCompile Include="MainFrm.cpp" />
+    <ClCompile Include="GrfDoc.cpp" />
+    <ClCompile Include="PathBufferDlg.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Submap.cpp" />
+    <ClCompile Include="Mapper.cpp" />
+    <ClCompile Include="GrfView.cpp" />
+    <ClCompile Include="MoveDlg.cpp" />
+    <ClCompile Include="PreferDlg.cpp" />
+    <ClCompile Include="DynamicPane.cpp" />
+    <ClCompile Include="PublishToWebDlg.cpp" />
+    <ClCompile Include="ReplaceDlg.cpp" />
+    <ClCompile Include="ScaleBar.cpp" />
+    <ClCompile Include="StatusBarEx.CPP" />
+    <ClCompile Include="StatusCombo.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Mapper.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ReadMe.txt" />
+    <None Include="res\Align.bmp" />
+    <None Include="res\Align24.bmp" />
+    <None Include="res\alignmen.bmp" />
+    <None Include="res\bitmap1.bmp" />
+    <None Include="res\bitmap2.bmp" />
+    <None Include="res\Blk.ico" />
+    <None Include="res\bmp00001.bmp" />
+    <None Include="res\CapInfo.bmp" />
+    <None Include="res\class_view.ico" />
+    <None Include="res\class_view24.ico" />
+    <None Include="res\classview.bmp" />
+    <None Include="res\classview24.bmp" />
+    <None Include="res\Combine.bmp" />
+    <None Include="res\Combine24.bmp" />
+    <None Include="res\cross.cur" />
+    <None Include="res\cur00001.cur" />
+    <None Include="res\Database.bmp" />
+    <None Include="res\Edit.bmp" />
+    <None Include="res\explorer.bmp" />
+    <None Include="res\explorer24.bmp" />
+    <None Include="res\file_view.ico" />
+    <None Include="res\file_view24.ico" />
+    <None Include="res\fileview.bmp" />
+    <None Include="res\fileview24.bmp" />
+    <None Include="res\Geo.ico" />
+    <None Include="res\GeoType.ico" />
+    <None Include="res\Gis.ico" />
+    <None Include="res\GisType.ico" />
+    <None Include="res\Horizontal.bmp" />
+    <None Include="res\horzguid.cur" />
+    <None Include="res\ico00001.ico" />
+    <None Include="res\Icon.ico" />
+    <None Include="res\idr_gist.ico" />
+    <None Include="res\idr_main.ico" />
+    <None Include="res\idr_mapt.ico" />
+    <None Include="res\idr_sams.ico" />
+    <None Include="res\layerhid.bmp" />
+    <None Include="res\layermov.cur" />
+    <None Include="res\layersho.bmp" />
+    <None Include="res\layersta.bmp" />
+    <None Include="res\Magnify.bmp" />
+    <None Include="res\Magnify24.bmp" />
+    <None Include="res\Main.bmp" />
+    <None Include="res\Main24.bmp" />
+    <None Include="res\mainfram.bmp" />
+    <None Include="res\MainFrame.ico" />
+    <None Include="res\mainfrm.ico" />
+    <None Include="res\Grf.ico" />
+    <None Include="res\Mapper.rc2" />
+    <None Include="res\GrfType.ico" />
+    <None Include="res\Mark.bmp" />
+    <None Include="res\menuarro.bmp" />
+    <None Include="res\MenuArrow.bmp" />
+    <None Include="res\menuimages.bmp" />
+    <None Include="res\menuimages24.bmp" />
+    <None Include="res\Name.bmp" />
+    <None Include="res\Name24.bmp" />
+    <None Include="res\Namote.bmp" />
+    <None Include="res\Namote24.bmp" />
+    <None Include="res\navigati.bmp" />
+    <None Include="res\output_wnd.ico" />
+    <None Include="res\output_wnd24.ico" />
+    <None Include="res\properties.bmp" />
+    <None Include="res\properties.ico" />
+    <None Include="res\properties24.bmp" />
+    <None Include="res\properties_wnd.ico" />
+    <None Include="res\properties_wnd24.ico" />
+    <None Include="res\RecMark.bmp" />
+    <None Include="res\Rectify.bmp" />
+    <None Include="res\Rectify24.bmp" />
+    <None Include="res\ribbon-en.mfcribbon-ms" />
+    <None Include="res\ribbon.mfcribbon-ms" />
+    <None Include="res\Single.bmp" />
+    <None Include="res\Single24.bmp" />
+    <None Include="res\smallico.bmp" />
+    <None Include="res\sort.bmp" />
+    <None Include="res\sort24.bmp" />
+    <None Include="res\splash.bmp" />
+    <None Include="res\stateico.bmp" />
+    <None Include="res\Style.bmp" />
+    <None Include="res\Style24.bmp" />
+    <None Include="res\Toolbar.bmp" />
+    <None Include="res\toolbar1.bmp" />
+    <None Include="res\Toolbar256.bmp" />
+    <None Include="res\ToolbarDatabase24.bmp" />
+    <None Include="res\ToolbarDatabase8.bmp" />
+    <None Include="res\ToolbarMagn24.bmp" />
+    <None Include="res\ToolbarMagnify24.bmp" />
+    <None Include="res\ToolbarMagnify256.bmp" />
+    <None Include="res\ToolbarTopo.bmp" />
+    <None Include="res\ToolbarTopo24.bmp" />
+    <None Include="res\toolbar_.bmp" />
+    <None Include="res\ToolBar_Edit.bmp" />
+    <None Include="res\ToolbarMain.bmp" />
+    <None Include="res\ToolbarMain24.bmp" />
+    <None Include="res\ToolTip.ico" />
+    <None Include="res\Topo.bmp" />
+    <None Include="res\treebar.bmp" />
+    <None Include="res\Vertical.bmp" />
+    <None Include="treebar.bmp" />
+    <None Include="res\UpArrow.bmp" />
+    <None Include="res\vertguid.cur" />
+    <None Include="res\vertical.cur" />
+    <None Include="res\view.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Thirdparty\tinyxml\tinyxml2\tinyxml2.h" />
+    <ClInclude Include="AtlasNewDlg.h" />
+    <ClInclude Include="DynamicDlg.h" />
+    <ClInclude Include="ChildFrm.h" />
+    <ClInclude Include="EagleWnd.h" />
+    <ClInclude Include="Frame.h" />
+    <ClInclude Include="GeoDoc.h" />
+    <ClInclude Include="GeoView.h" />
+    <ClInclude Include="GisDoc.h" />
+    <ClInclude Include="GisView.h" />
+    <ClInclude Include="Global.h" />
+    <ClInclude Include="LevelBar.h" />
+    <ClInclude Include="MainFrm.h" />
+    <ClInclude Include="GrfDoc.h" />
+    <ClInclude Include="PathBufferDlg.h" />
+    <ClInclude Include="Submap.h" />
+    <ClInclude Include="Mapper.h" />
+    <ClInclude Include="GrfView.h" />
+    <ClInclude Include="MoveDlg.h" />
+    <ClInclude Include="PreferDlg.h" />
+    <ClInclude Include="Preference.h" />
+    <ClInclude Include="DynamicPane.h" />
+    <ClInclude Include="PublishToWebDlg.h" />
+    <ClInclude Include="ReplaceDlg.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="ScaleBar.h" />
+    <ClInclude Include="StatusBarEx.H" />
+    <ClInclude Include="StatusCombo.h" />
+    <ClInclude Include="StdAfx.h" />
+    <ClInclude Include="targetver.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\alignment_small.bmp" />
+    <Image Include="res\AnnoTag.bmp" />
+    <Image Include="res\AnnoTag24.bmp" />
+    <Image Include="res\arrange_small.bmp" />
+    <Image Include="res\bitmap3.bmp" />
+    <Image Include="res\buttons.bmp" />
+    <Image Include="res\Cflat.bmp" />
+    <Image Include="res\combination_small.bmp" />
+    <Image Include="res\Cround.bmp" />
+    <Image Include="res\Csquare.bmp" />
+    <Image Include="res\database_large.bmp" />
+    <Image Include="res\database_small.bmp" />
+    <Image Include="res\endbutt.bmp" />
+    <Image Include="res\endround.bmp" />
+    <Image Include="res\endsquare.bmp" />
+    <Image Include="res\file_large.bmp" />
+    <Image Include="res\file_small.bmp" />
+    <Image Include="res\geograph_large.bmp" />
+    <Image Include="res\geograph_large.png" />
+    <Image Include="res\geograph_small.bmp" />
+    <Image Include="res\geometry_large.bmp" />
+    <Image Include="res\geometry_small.bmp" />
+    <Image Include="res\home_large.bmp" />
+    <Image Include="res\home_small.bmp" />
+    <Image Include="res\Jbevel.bmp" />
+    <Image Include="res\Jmiter.bmp" />
+    <Image Include="res\joinbevel.bmp" />
+    <Image Include="res\joinround.bmp" />
+    <Image Include="res\joinsquare.bmp" />
+    <Image Include="res\Jround.bmp" />
+    <Image Include="res\Jsquare.bmp" />
+    <Image Include="res\logo.bmp" />
+    <Image Include="res\magnify_small.bmp" />
+    <Image Include="res\menuitem.bmp" />
+    <Image Include="res\panels_large.bmp" />
+    <Image Include="res\panels_small.bmp" />
+    <Image Include="res\process_large.bmp" />
+    <Image Include="res\topology_large.bmp" />
+    <Image Include="res\topology_small.bmp" />
+    <Image Include="res\view_large.bmp" />
+    <Image Include="res\view_small.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Atlas\Atlas.vcxproj">
+      <Project>{4668d10a-4530-4b55-8273-98d59b36a80c}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Database\Database.vcxproj">
+      <Project>{34538817-80f0-4640-8eb2-521eb0de007c}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Dataview\Dataview.vcxproj">
+      <Project>{c2b3c401-48dc-46f8-ae2c-e6a9e7f602d6}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Framework\Framework.vcxproj">
+      <Project>{230e0b6e-0678-4974-be80-a5f1b506eb4c}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Geometry\Geometry.vcxproj">
+      <Project>{e077340a-cc20-4ab3-8317-de65020bae49}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Hyperlink\Hyperlink.vcxproj">
+      <Project>{fe74d3b1-8dd3-4808-b90c-c20e79e78094}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Information\Information.vcxproj">
+      <Project>{d739337b-3ee0-4e3e-95bc-e19bd31e88ca}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Layer\Layer.vcxproj">
+      <Project>{00905832-76ff-40a9-91e2-91e40d0f5ead}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Logger\Logger.vcxproj">
+      <Project>{c96d2966-1a21-43c2-b02d-2eb177a96564}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Port\Port.vcxproj">
+      <Project>{93d6919b-0fcc-4a3c-b592-e19085fa50b2}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Projection\Projection.vcxproj">
+      <Project>{8ef6dfc8-e191-4344-a763-044fc95699c3}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Public\Public.vcxproj">
+      <Project>{4939c318-2298-4178-843e-25acf119ddd6}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Rectify\Rectify.vcxproj">
+      <Project>{eaaead0f-224f-411b-b09b-b5022f1f9b38}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Style\Style.vcxproj">
+      <Project>{06562e7d-4456-4133-af94-c88f48fd8f9f}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Thematics\Thematics.vcxproj">
+      <Project>{ee6fabe8-4e60-4ac4-973b-f9177273e5c3}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Tool\Tool.vcxproj">
+      <Project>{46bd1799-d44d-4bf2-a30c-40bb6d82f2ef}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Topology\Topology.vcxproj">
+      <Project>{2da0393b-70ff-4d58-b59a-37e2a774dd3e}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties _x007B_D27CDB6E-AE6D-11CF-96B8-444553540000_x007D_="CShockwaveflash" RESOURCE_FILE="Mapper.rc" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

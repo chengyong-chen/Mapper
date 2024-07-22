@@ -1,0 +1,7 @@
+; Project.def : Declares the module parameters for the DLL.
+
+LIBRARY      "Projection"
+DESCRIPTION  'Projection Windows Dynamic Link Library'
+
+EXPORTS
+    ; Explicit exports can go here

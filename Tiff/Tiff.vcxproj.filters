@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="tif_aux.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tif_zip.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tif_close.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tif_codec.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tif_compress.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tif_dir.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tif_dirinfo.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tif_dirread.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tif_dirwrite.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tif_dumpmode.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tif_error.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tif_flush.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tif_getimage.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tif_luv.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tif_lzw.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tif_next.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tif_open.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tif_packbits.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tif_predict.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tif_print.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tif_read.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tif_strip.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tif_swab.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tif_thunder.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tif_tile.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tif_version.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tif_warning.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tif_write.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{2d24795b-208e-4131-ac9d-a2928c41e2fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{ac30fc7c-304c-4932-aed7-b77dd52b48cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{ea5f7651-5bea-4e70-8acb-dc8b717429b9}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Tiff.def">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+</Project>

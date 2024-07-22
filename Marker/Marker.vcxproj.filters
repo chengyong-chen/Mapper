@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="..\Mapper\Global.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MainFrm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Marker.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PoleDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StepDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Atlas\TransformDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Mapper\Global.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MainFrm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Marker.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PoleDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StdAfx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StepDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Atlas\TransformDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SymbolDoc.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SymbolView.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TabletView.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ReadMe.txt" />
+    <None Include="res\Marker.rc2">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\MainFrm.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\MakerDoc.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Marker.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Align.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Style24.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Align24.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Magnify.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Magnify24.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Main.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Main24.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Style.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\toolbar_.bmp" />
+    <None Include="res\bitmap1.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\AxisAlign.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\AxisAlign24.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{d0409d6f-bb42-4afc-9e83-e4c9c85cc6cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{2878883f-a54f-4fa9-afaf-d3923ce1a6e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{72aa95cd-cd27-45ef-87d6-460a6987b59d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Marker.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,7 @@
+; Rectify.def : Declares the module parameters for the DLL.
+
+LIBRARY      "Rectify"
+DESCRIPTION  'Rectify Windows Dynamic Link Library'
+
+EXPORTS
+    ; Explicit exports can go here

@@ -1,0 +1,66 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <title>mapping app example</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="css/compiled-smart.css" />
+    <link rel="stylesheet" type="text/css" href="css/leaflet.css" />
+    <link rel="stylesheet" type="text/css" href="css/leaflet.ie.css" />
+
+    <script type="text/javascript" src="lib/third.js"></script>
+    <script type="text/javascript" src="lib/leaflet-src.js"></script>
+    <script type="text/javascript" src="lib/proj4js/lib/proj4js.js"></script>
+    <script type="text/javascript" src="lib/proj4js/lib/projCode/merc.js"></script>
+    <script type="text/javascript" src="lib/proj4js/lib/projCode/tmerc.js"></script>
+    <script type="text/javascript" src="Giscake.js"></script>
+    <script type="text/javascript" src="Basic/Basic.js"></script>
+    <script type="text/javascript" src="Basic/Rect.js"></script>
+    <script type="text/javascript" src="Basic/Coord.js"></script>
+    <script type="text/javascript" src="Basic/Size.js"></script>
+    <script type="text/javascript" src="Basic/Datatypes.js"></script>
+    <script type="text/javascript" src="MapLayer\BlankLayer.js"></script>
+    <script type="text/javascript" src="MapLayer\RasterLayer.js"></script>
+    <script type="text/javascript" src="MapLayer\TileLayer.js"></script>
+    <script type="text/javascript" src="MapLayer\RasterTileLayer.js"></script>
+    <script type="text/javascript" src="Holder.js"></script>
+    <script type="text/javascript" src="Map.js"></script>
+    <script type="text/javascript" src="Provider/Provider.js"></script>
+    <script type="text/javascript" src="Projection/gcs.js"></script>
+    <script type="text/javascript" src="Projection/Projection.js"></script>
+    <script type="text/javascript" src="Projection/Geographic.js"></script>
+    <script type="text/javascript" src="Projection/Geocentric.js"></script>
+    <script type="text/javascript" src="Provider/TileProvider.js"></script>
+    <script type="text/javascript" src="Provider/RasterTileProvider.js"></script>
+    <script type="text/javascript" src="Tile/Queue.js"></script>
+    <script type="text/javascript" src="Tile/Tile.js"></script>
+    <script type="text/javascript" src="Tile/Pooling.js"></script>
+    <script type="text/javascript" src="Tile/ImgLoading.js"></script>
+    <script type="text/javascript" src="Tile/Waiting.js"></script>
+    <script type="text/javascript" src="Tile/Caching.js"></script>
+
+    <script type="text/javascript">
+        giscloud.ready(function() {
+            var params = {
+                server: "",
+                path: "1/{Z}/{Y}/{X}.png",
+                sourcelevel: 3,
+                minlevel: [minLevel],
+                maxlevel: [maxLevel],
+                cx: [cx],
+                cy: [cy],
+                square: [square],
+                centerx: [centerx],
+                centery: [centery]
+            };
+            var holder = new giscloud.Holder("mappanel", params, {slider: true});
+
+            giscloud.holder = holder;
+        });
+
+    </script>
+</head>
+<body>
+<div id="mappanel" style="height: 100%; width: 100%;"/>
+</body>
+</html>

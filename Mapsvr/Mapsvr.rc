@@ -1,0 +1,213 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// 中文(中华人民共和国) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE LANG_CHINESE, SUBLANG_NEUTRAL
+#pragma code_page(936)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)\r\n"
+    "LANGUAGE 4, 2\r\n"
+    "#pragma code_page(936)\r\n"
+    "#include ""res\\Mapsvr.rc2""  // 非 Microsoft Visual C++ 编辑过的资源\r\n"
+    "#include ""afxres.rc""         // 标准组件\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\Mapsvr.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_CLIENT DIALOG  0, 0, 203, 162
+STYLE DS_SETFONT | DS_MODALFRAME | DS_CONTROL | WS_CHILD | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "Client"
+FONT 10, "System"
+BEGIN
+    CONTROL         "",IDC_CLIENTGRID,"{6262D3A0-531B-11CF-91F6-C2863C385E30}",
+                    WS_TABSTOP,0,0,203,160
+END
+
+IDD_MAPSVR DIALOGEX 0, 0, 348, 257
+STYLE DS_SETFONT | DS_MODALFRAME | WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | 
+    WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "地图服务器程序"
+FONT 9, "宋体", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "运行",IDC_START,291,7,50,14,WS_GROUP
+    PUSHBUTTON      "关闭",IDCANCEL,292,235,50,14,WS_GROUP
+    LTEXT           "",IDC_IPADDRESS,57,7,89,14,SS_SUNKEN | NOT WS_GROUP
+    LTEXT           "服务器地址：",IDC_STATIC,5,10,48,8,NOT WS_GROUP
+    LTEXT           "端口：",IDC_STATIC,168,10,26,8,NOT WS_GROUP
+    LTEXT           "",IDC_PORT,194,7,39,14,SS_SUNKEN | NOT WS_GROUP
+    LTEXT           "用户列表：",IDC_STATIC,5,30,48,8,NOT WS_GROUP
+    LTEXT           "当前在线用户数为:",IDC_STATIC,59,30,68,8,NOT WS_GROUP
+    LTEXT           "静态",IDC_USERCOUNT,129,30,41,8
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 13,01,00,0
+ PRODUCTVERSION 13,01,00,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "080403a8"
+        BEGIN
+            VALUE "CompanyName", "TODO: <公司名>"
+            VALUE "FileDescription", "TODO: <文件说明>"
+            VALUE "FileVersion", "13.01.00.0"
+            VALUE "InternalName", "Mapsvr.exe"
+            VALUE "LegalCopyright", "Copyright ?Diwatu Software Ltd. 2012"
+            VALUE "OriginalFilename", "Mapsvr.exe"
+            VALUE "ProductName", "TODO: <产品名>"
+            VALUE "ProductVersion", "13.01.00.0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "翻译", 0x804, 936
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_MAPSVR, DIALOG
+    BEGIN
+        TOPMARGIN, 7
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_CLIENT DLGINIT
+BEGIN
+    IDC_CLIENTGRID, 0x37a, 359, 0
+0x0024, 0x0000, 0x0037, 0x0032, 0x0045, 0x0036, 0x0037, 0x0031, 0x0032, 
+0x0030, 0x002d, 0x0035, 0x0039, 0x0035, 0x0039, 0x002d, 0x0031, 0x0031, 
+0x0063, 0x0066, 0x002d, 0x0039, 0x0031, 0x0046, 0x0036, 0x002d, 0x0043, 
+0x0032, 0x0038, 0x0036, 0x0033, 0x0043, 0x0033, 0x0038, 0x0035, 0x0045, 
+0x0033, 0x0030, 0x0012, 0x0000, 0x0001, 0x0000, 0x000a, 0x0000, 0x004c, 
+0x0000, 0x0000, 0x4321, 0x1234, 0x0008, 0x0000, 0x29f6, 0x0000, 0x2113, 
+0x0000, 0x6f42, 0x506f, 0x0000, 0x0006, 0x0080, 0x0000, 0x0002, 0x0000, 
+0x0003, 0x0000, 0x0001, 0x0000, 0x0001, 0x0000, 0x0000, 0x0000, 0x0018, 
+0x8000, 0x0008, 0x8000, 0x8000, 0x0080, 0x0012, 0x8000, 0x000d, 0x8000, 
+0x000e, 0x8000, 0x0018, 0x8000, 0xc0c0, 0x00c0, 0x0000, 0x0000, 0x0000, 
+0x0000, 0x0001, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0001, 0x0000, 
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0001, 0x0000, 0x0003, 0x0002, 
+0x0003, 0x0001, 0x0000, 0x0000, 0x0000, 0x0001, 0x0001, 0x0000, 0x0001, 
+0x0000, 0x0000, 0x003e, 0x0000, 0x0000, 0x0069, 0x0000, 0x0067, 0x0068, 
+0x0074, 0x0000, 0x0000, 0x0001, 0x0000, 0x0004, 0x0000, 0x0000, 0x0000, 
+0x0000, 0xffff, 0x0000, 0x0000, 0x0004, 0x0000, 0x0000, 0x0000, 0x0000, 
+0x0002, 0x0000, 0x0000, 0x0004, 0x0000, 0x0000, 0x0000, 0x0000, 0x5203, 
+0x0be3, 0x8f91, 0x11ce, 0xe39d, 0xaa00, 0x4b00, 0x51b8, 0x8601, 0x0000, 
+0x0190, 0x7cdc, 0x0001, 0xcb04, 0xccce, 0x04e5, 0xe352, 0x910b, 0xce8f, 
+0x9d11, 0x00e3, 0x00aa, 0xb84b, 0x6c51, 0x0074, 0x0000, 0x0000, "\000" 
+    0
+END
+
+#endif    // 中文(中华人民共和国) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+LANGUAGE 4, 2
+#pragma code_page(936)
+#include "res\Mapsvr.rc2"  // 非 Microsoft Visual C++ 编辑过的资源
+#include "afxres.rc"         // 标准组件
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

@@ -1,0 +1,555 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="AreaTool.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BezierTool.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BoundTool.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BufferTool.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DatumTool.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DispatchTool.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DrawToolWnd.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EllipseTool.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EroseTool.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ExportDIBDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ExtentDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HyperlinkStatic.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageTool.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="InfoTool.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="InfoToolWnd.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="InjectTool.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="InsertTool.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LengthTool.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LinkTool.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MarkTool.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MarqueeTool.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PanTool.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PointCtrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PolyTool.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PositionTool.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PRectTool.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PrintTool.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RadiusTool.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RectDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ReflectDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ReflectTool.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RegionTool.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RotateDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RotateTool.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RoundTool.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RouteTool.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RRectTool.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RulerTool.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ScaleDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ScaleTool.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SelectTool.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SkewDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SkewTool.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SmearTool.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SplitTool.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TextPolyTool.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TextTool.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Tool.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TopoCrossTool.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TopoPickTool.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ZoomTool.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EditGeom.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ToolApp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="SpinTool.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AreaTool.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BezierTool.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BoundTool.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BufferTool.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DatumTool.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DispatchTool.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DrawToolWnd.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EllipseTool.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EroseTool.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ExportDIBDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ExtentDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Global.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HyperlinkStatic.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageTool.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="InfoTool.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="InfoToolWnd.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="InjectTool.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="InsertTool.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LengthTool.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LinkTool.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MarkTool.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MarqueeTool.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PanTool.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PointCtrl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PolyTool.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PositionTool.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PRectTool.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PrintTool.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RadiusTool.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RectDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ReflectDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ReflectTool.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RegionTool.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RotateDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RotateTool.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RoundTool.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RouteTool.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RRectTool.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RulerTool.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ScaleDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ScaleTool.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SelectTool.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SkewDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SkewTool.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SmearTool.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SplitTool.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StdAfx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TextPolyTool.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TextTool.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Tool.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TopoCrossTool.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TopoPickTool.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ZoomTool.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EditGeom.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ToolApp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SpinTool.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ReadMe.txt" />
+    <None Include="res\Area.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\zoomzero.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bottom.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bottom1.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Cross.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\cur00001.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="cur151.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="cur159.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="cur160.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Down.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\DrawTool.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\ghtidc_r.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Grabber.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\horzguid.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Hot.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\hot1.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\idc_.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Image.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Info.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\info1.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\informat.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\InfoTool.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Insert.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\left.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\left1cur.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Length.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Mark.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\measure.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Move.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\nodeCross.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\NodeDisjoin.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\NodeInsert.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\nodeRemove.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\pincurso.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Pitch.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\placetif.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\rea.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Right.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Round.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Route.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Ruler.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\select.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\select1.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Stalemate.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Star.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\text.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Tool.def">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Tool.rc2">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Top.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\topo_Split.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\TopoCross.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\TopoDisjoin.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\TopoPick.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\TopoSplit.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Up.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\UpArrow.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\vertguid.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\waypoint.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\zoomin.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\zoomout.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\cursor1.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Position.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Inject.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Datum.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4a809ba5-57d2-4f52-8163-da69e7bb14fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{3d32f660-d7a3-4815-ac17-9df0fc59609c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{bf6c6b4b-fa00-4578-960a-971c06cc9284}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Tool.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,212 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{2DA0393B-70FF-4D58-B59A-37E2A774DD3E}</ProjectGuid>
+    <RootNamespace>Topology</RootNamespace>
+    <Keyword>MFCProj</Keyword>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>..\..\Thirdparty\boost\1.83.0;..\..\ThirdParty\libharu\2.4.4\win32\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>..\..\Thirdparty\boost\1.83.0;..\..\ThirdParty\libharu\2.4.4\win32\include;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+    </Midl>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;_USRDLL;JSON_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <BrowseInformation>true</BrowseInformation>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <BuildStlModules>false</BuildStlModules>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>..\Public\Debug\Public.lib;..\Database\Debug\Database.lib;..\Projection\Debug\Projection.lib;..\Dataview\Debug\Dataview.lib;..\Geometry\Debug\Geometry.lib;..\Style\Debug\Style.lib;..\Layer\Debug\Layer.lib;</AdditionalDependencies>
+      <ModuleDefinitionFile>.\Topology.def</ModuleDefinitionFile>
+      <SubSystem>Windows</SubSystem>
+      <ImportLibrary>$(ProjectDir)$(Configuration)\$(TargetName).lib</ImportLibrary>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <Profile>false</Profile>
+      <OptimizeReferences>false</OptimizeReferences>
+      <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
+      <AdditionalLibraryDirectories>D:\Workshop\ThirdParty\boost\1.83.0\lib32-msvc-14.3</AdditionalLibraryDirectories>
+    </Link>
+    <Bscmake>
+      <PreserveSbr>true</PreserveSbr>
+    </Bscmake>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+    </Midl>
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <BuildStlModules>false</BuildStlModules>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>..\Public\Release\Public.lib;..\Database\Release\Database.lib;..\Projection\Release\Projection.lib;..\Dataview\Release\Dataview.lib;..\Geometry\Release\Geometry.lib;..\Style\Release\Style.lib;..\Layer\Release\Layer.lib</AdditionalDependencies>
+      <ModuleDefinitionFile>.\Topology.def</ModuleDefinitionFile>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <ImportLibrary>$(ProjectDir)$(Configuration)\$(TargetName).lib</ImportLibrary>
+      <Profile>false</Profile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>D:\Workshop\ThirdParty\boost\1.83.0\lib32-msvc-14.3</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="Edge.cpp" />
+    <ClCompile Include="EdgeForm.cpp" />
+    <ClCompile Include="EditFlexGrid.cpp" />
+    <ClCompile Include="Global.cpp" />
+    <ClCompile Include="Layon.cpp" />
+    <ClCompile Include="Matrix.cpp" />
+    <ClCompile Include="MatrixCtrl.cpp" />
+    <ClCompile Include="msflexgrid.cpp" />
+    <ClCompile Include="Node.cpp" />
+    <ClCompile Include="NodeForm.cpp" />
+    <ClCompile Include="Polying.cpp" />
+    <ClCompile Include="RegionTopoer.cpp" />
+    <ClCompile Include="RoadEdge.cpp" />
+    <ClCompile Include="RoadEdgeForm.cpp" />
+    <ClCompile Include="RoadNode.cpp" />
+    <ClCompile Include="RoadNodeForm.cpp" />
+    <ClCompile Include="RoadTopodb.cpp" />
+    <ClCompile Include="RoadTopoer.cpp" />
+    <ClCompile Include="StyleDlg.cpp" />
+    <ClCompile Include="Topo.cpp" />
+    <ClCompile Include="TopoCtrl.cpp" />
+    <ClCompile Include="Topodb.cpp" />
+    <ClCompile Include="TopodbCtrl.cpp" />
+    <ClCompile Include="Topoer.cpp" />
+    <ClCompile Include="TopoerCtrl.cpp" />
+    <ClCompile Include="Polygon.cpp" />
+    <ClCompile Include="Topology.cpp" />
+    <ClCompile Include="TopoPane.cpp" />
+    <ClCompile Include="TopoTableDlg.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\pane_new.bmp" />
+    <None Include="Topology.def" />
+    <None Include="res\Forbid.bmp" />
+    <None Include="res\icon1.ico" />
+    <None Include="res\MenuArrow.bmp" />
+    <None Include="res\Permit.bmp" />
+    <None Include="res\properties.bmp" />
+    <None Include="res\Properties24.bmp" />
+    <None Include="res\properties_wnd24.ico" />
+    <None Include="res\property.ico" />
+    <None Include="res\Refuse.bmp" />
+    <None Include="res\route.bmp" />
+    <None Include="res\route1.bmp" />
+    <None Include="res\toolbar1.bmp" />
+    <None Include="res\toolbar2.bmp" />
+    <None Include="res\Topo.bmp" />
+    <None Include="res\Topo.ico" />
+    <None Include="res\Topo_Pane.bmp" />
+    <None Include="res\TopoImage.bmp" />
+    <None Include="res\Topology.rc2" />
+    <None Include="res\TopoPane.ico" />
+    <None Include="res\TopoState.bmp" />
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Topology.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Edge.h" />
+    <ClInclude Include="EdgeForm.h" />
+    <ClInclude Include="EditFlexGrid.h" />
+    <ClInclude Include="Global.h" />
+    <ClInclude Include="Layon.h" />
+    <ClInclude Include="Matrix.h" />
+    <ClInclude Include="MatrixCtrl.h" />
+    <ClInclude Include="msflexgrid.h" />
+    <ClInclude Include="Node.h" />
+    <ClInclude Include="NodeForm.h" />
+    <ClInclude Include="Polying.h" />
+    <ClInclude Include="RegionTopoer.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="RoadEdge.h" />
+    <ClInclude Include="RoadEdgeForm.h" />
+    <ClInclude Include="RoadNode.h" />
+    <ClInclude Include="RoadNodeForm.h" />
+    <ClInclude Include="RoadTopodb.h" />
+    <ClInclude Include="RoadTopoer.h" />
+    <ClInclude Include="StdAfx.h" />
+    <ClInclude Include="StyleDlg.h" />
+    <ClInclude Include="Topo.h" />
+    <ClInclude Include="TopoCtrl.h" />
+    <ClInclude Include="Topodb.h" />
+    <ClInclude Include="TopodbCtrl.h" />
+    <ClInclude Include="Topoer.h" />
+    <ClInclude Include="TopoerCtrl.h" />
+    <ClInclude Include="Polygon.h" />
+    <ClInclude Include="Topology.h" />
+    <ClInclude Include="TopoPane.h" />
+    <ClInclude Include="TopoTableDlg.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

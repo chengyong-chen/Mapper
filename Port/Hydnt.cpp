@@ -1,0 +1,330 @@
+#include "stdafx.h"
+
+#include "..\Layer\LayerTree.h"
+#include "../Geometry/Geom.h"
+
+#include "Coverage.h"
+#include "Hydnt.h"
+#include "SelectDlg.h"
+
+#ifdef _DEBUG
+#define new DEBUG_NEW
+#undef THIS_FILE
+static char THIS_FILE[] = __FILE__;
+#endif
+
+CHydnt::CHydnt(CDatainfo& datainfo,LPCTSTR lpszCoveragePath) 
+	   :CCoverage(datainfo,lpszCoveragePath)
+{ 
+	m_strCoveragePath += _T("\\Hydnt");
+}
+
+CHydnt::~CHydnt() 
+{	
+	patlakelist.RemoveAll();
+
+	POSITION Pos4 = rathydmap.GetStartPosition();
+	while(Pos4 != nullptr)
+	{
+		WORD rkey;
+		CHydnt::RAT* rat;
+
+		rathydmap.GetNextAssoc(Pos4, rkey, rat);
+		delete rat;
+	}
+	rathydmap.RemoveAll();
+}
+
+long CHydnt::ReadPAT()	// ��ȡ������뻡������
+{
+	CString strFilePath = m_strCoveragePath + _T("\\pat.adf");
+		
+	CFile file;
+	if(file.Open(strFilePath,CFile::modeRead | CFile::shareDenyWrite) == FALSE)	
+		return -1;
+
+	long filelength = file.GetLength();
+	long filepoint = 0;
+
+	while(filepoint < filelength)	
+	{
+		PAT pat;
+		pat.Code[3]   = 0X00;
+		pat.GB[5]     = 0X00;
+		pat.HYDC[6]   = 0X00;
+		pat.TN[6]     = 0X00;
+		pat.Name[20]  = 0X00;
+		pat.MapTN[11] = 0X00;
+
+
+		file.Seek(8,CFile::current);
+
+		revType buff;
+		file.Read(buff.str,4);
+		Reverse(buff);
+		pat.Id = buff.valLong;
+
+		file.Read(buff.str,4);
+		Reverse(buff);
+		pat.UserId = buff.valLong;
+		if(true)//25��
+		{
+			file.Read(pat.Code,  3);
+			file.Read(pat.GB,    5);
+			file.Read(pat.HYDC,  6);
+			file.Read(pat.TN,    6);
+			file.Read(pat.Name, 20);
+			file.Read(pat.MapTN,11);
+
+			file.Seek(1,CFile::current);
+			 
+			filepoint += 68;
+		}
+		else
+		{
+			file.Read(pat.Code,  5);
+
+			file.Seek(1,CFile::current);
+			 
+			filepoint += 22;
+		}
+
+		pat_list.AddTail(pat);
+	}
+
+	file.Close();
+	return 2;
+}
+
+long CHydnt::ReadAAT()	// ��ȡ������뻡������
+{
+	CString strFilePath = m_strCoveragePath + _T("\\Aat.adf");
+		
+	CFile file;
+	if(file.Open(strFilePath,CFile::modeRead | CFile::shareDenyWrite) == FALSE)	
+		return -1;
+
+	long filelength = file.GetLength();
+	long filepoint = 0;
+
+	while(filepoint < filelength)	
+	{
+		AAT aat;
+		aat.Code[3]   = 0X00;
+		aat.GB[5]     = 0X00;
+		aat.HYDC[6]   = 0X00;
+		aat.TN[6]     = 0X00;
+		aat.Name[20]  = 0X00;
+		aat.MapTN[11] = 0X00;
+	
+		file.Seek(20,CFile::current);
+
+		revType buff;
+		
+		file.Read(buff.str,4);
+		Reverse(buff);
+		aat.Id = buff.valLong;
+
+		file.Read(buff.str,4);
+		Reverse(buff);
+		aat.UserId = buff.valLong;
+		if(true)
+		{		
+			file.Read(aat.Code,  3);
+			file.Read(aat.GB,    5);
+			file.Read(aat.HYDC,  6);
+			file.Read(aat.TN,    6);
+			file.Read(aat.Name, 20);
+			file.Read(aat.MapTN,11);
+
+			file.Seek(1,CFile::current);
+			 
+			filepoint +=80;
+		}
+		else
+		{
+			file.Read(aat.Code,  5);
+			
+			file.Seek(1,CFile::current);
+			 
+			filepoint +=30;
+		}
+
+		aat_list.AddTail(aat);
+	}
+	
+	file.Close();
+	return 2;
+}
+
+long CHydnt::ReadPATLAKE()	// ��ȡ������뻡������
+{
+	CString strFilePath = m_strCoveragePath + _T("\\Lake.Pat");
+		
+	CFile file;
+	if(file.Open(strFilePath,CFile::modeRead | CFile::shareDenyWrite) == FALSE)	
+		return -1;
+	
+	long filelength = file.GetLength();
+	long filepoint = 0;
+
+	while(filepoint < filelength)	
+	{
+		PAT pat;
+		pat.Code[3]  = 0X00;
+		pat.Name[20] = 0X00;
+		
+		file.Seek(8,CFile::current);	
+
+		revType buff;
+		file.Read(buff.str,4);
+		Reverse(buff);
+		pat.Id = buff.valLong;
+
+		file.Read(buff.str,4);
+		Reverse(buff);
+		pat.UserId = buff.valLong;
+
+		file.Read(pat.Code, 6);
+		file.Read(pat.Name,20);
+		
+		file.Seek(8,CFile::current);
+		 
+		filepoint +=42;
+
+		patlakelist.AddTail(pat);
+	}
+
+	file.Close();	
+	return 2;
+}
+
+long CHydnt::ReadRAT(CHydnt::CMapRat& ratmap, LPCTSTR lpszFile)
+{
+	CString strFilePath = m_strCoveragePath + _T("\\")+lpszFile+_T(".rat";)
+		
+	CFile file;
+	if(file.Open(strFilePath,CFile::modeRead | CFile::shareDenyWrite) == FALSE)	
+		return -1;
+		
+	long filelength = file.GetLength();
+	long filepoint = 0;
+	
+	while(filepoint < filelength)	
+	{
+		CHydnt::RAT* rat = new RAT;
+		rat->Code[3]   = 0X00;
+		rat->Name[30]  = 0X00;
+		
+		file.Seek(4,CFile::current);
+
+		revType buff;
+		file.Read(buff.str,4);
+		Reverse(buff);
+		rat->Id = buff.valLong;
+		
+		file.Read(rat->Code, 6);
+		file.Read(rat->Name,30);
+ 
+		filepoint +=44;
+
+		RAT* del;
+		if(ratmap.Lookup(rat->Id,del) == TRUE)
+			delete del;
+
+		ratmap.SetAt(rat->Id,rat);
+	}
+
+	file.Close();
+	return 2;
+}
+
+BOOL CHydnt::Import(CLayerTree& layertree)
+{
+	CMapLayer layermap;
+	
+	CLayer* layer = CreateLayers(layertree,layermap,_T("Hydnt"));
+	if(layer == nullptr)
+		return false;
+/*	
+	CLayer* delLab= new CLayer(m_datainfo.m_levelMinimum,m_datainfo.m_levelMaximum);	
+	DWORD Id = layertree.ApplyId();
+	delLab->m_dwId       = Id;
+	delLab->m_dwParentId = layer->m_dwId;
+	delLab->m_bVisible   = false;
+	layertree.AddTail(delLab);			
+	delLab->m_strName=_T("delLab");
+
+	ImportLab(library,layermap,delLab);
+*/
+	CLayer* delArc = layertree.GetByName(_T("delArc"));
+	if(delArc == nullptr)
+	{
+		delArc= new CLayer(m_datainfo.m_levelMinimum,m_datainfo.m_levelMaximum);	
+		delArc->m_wId = layertree.ApplyId();
+		delArc->m_wParent = layer->m_wId;
+		delArc->m_bVisible = false;
+		delArc->m_strName = _T("delArc");
+		layertree.AddTail(delArc);			
+	}
+	ImportArc(layermap,delArc);
+
+	CLayer* delPoly = layertree.GetByName(_T("delPoly"));
+	if(delPoly == nullptr)
+	{
+		delPoly= new CLayer(m_datainfo.m_levelMinimum,m_datainfo.m_levelMaximum);	
+		delPoly->m_wId     = layertree.ApplyId();
+		delPoly->m_wParent = layer->m_wId;
+		delPoly->m_bVisible   = false;
+		delPoly->m_strName = _T("delPoly");
+		layertree.AddTail(delPoly);			
+	}
+	ImportPolygon(layermap,delPoly);
+/*	
+	CLayer* HydRat= new CLayer(m_datainfo.m_levelMinimum,m_datainfo.m_levelMaximum);	
+	Id = layertree.ApplyId();
+	HydRat->m_dwId       = Id;
+	HydRat->m_dwParentId = layer->m_dwId;
+	HydRat->m_bVisible   = false;
+	layertree.AddTail(HydRat);			
+	HydRat->m_strName=_T("HydRat");	
+
+	CLayer* delHyd= new CLayer(m_datainfo.m_levelMinimum,m_datainfo.m_levelMaximum);	
+	Id = layertree.ApplyId();
+	delHyd->m_dwId       = Id;
+	delHyd->m_dwParentId = HydRat->m_dwId;
+	delHyd->m_bVisible   = false;
+	layertree.AddTail(delHyd);			
+	delHyd->m_strName=_T("delHyd");	
+
+	ImportSec(arclist,sechyd_list);
+
+	pos = arclist.GetHeadPosition();
+	while(pos != nullptr)
+	{
+		CPoly* poly = (CPoly*)arclist.GetNext(pos);
+	
+		RAT* rat = nullptr;
+		rathydmap.Lookup(poly->m_dwId,rat);
+		if(rat == nullptr)
+		{
+			delHyd->m_geomlist.AddTail(poly);					
+			continue;
+		}	
+		
+		HydRat->m_geomlist.AddTail(poly);
+		
+		LAB* lab;
+		labmap.Lookup(poly->m_dwId, lab);
+		if(lab!=nullptr)
+		{
+			CPoint point = Change(lab->points[0]);
+			CTag* pTag = new CTag(point,rat->Name);			
+		}
+	}
+	arclist.RemoveAll();
+*/
+	layermap.RemoveAll();
+	return TRUE;
+}
+

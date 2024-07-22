@@ -1,0 +1,629 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="AtlasNewDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ChildFrm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeoDoc.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeoView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GisDoc.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GisView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Global.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MainFrm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GrfDoc.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Mapper.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GrfView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MoveDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ReplaceDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StatusBarEx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StatusCombo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PreferDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ScaleBar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PublishToWebDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DynamicPane.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EagleWnd.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DynamicDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Submap.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LevelBar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PathBufferDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Thirdparty\tinyxml\tinyxml2\tinyxml2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AtlasNewDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ChildFrm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GeoDoc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GeoView.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GisDoc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GisView.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Global.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MainFrm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GrfDoc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Mapper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GrfView.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MoveDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ReplaceDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StatusBarEx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StatusCombo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StdAfx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PreferDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ScaleBar.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PublishToWebDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Preference.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicPane.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EagleWnd.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Submap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Frame.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LevelBar.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PathBufferDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Thirdparty\tinyxml\tinyxml2\tinyxml2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\Align.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\view.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Align24.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\alignmen.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bitmap1.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bitmap2.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Blk.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00001.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\CapInfo.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\class_view.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\class_view24.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\classview.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\classview24.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Combine.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Combine24.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\cross.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\cur00001.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Database.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Edit.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\explorer.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\explorer24.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\file_view.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\file_view24.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\fileview.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\fileview24.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Geo.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\GeoType.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Gis.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\GisType.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Horizontal.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\horzguid.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\ico00001.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Icon.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\idr_gist.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\idr_main.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\idr_mapt.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\idr_sams.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\layerhid.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\layermov.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\layersho.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\layersta.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Magnify.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Magnify24.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Main.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Main24.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\mainfram.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\MainFrame.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\mainfrm.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Grf.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Mapper.rc2">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\GrfType.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Mark.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\menuarro.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\MenuArrow.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\menuimages.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\menuimages24.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Name.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Name24.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Namote.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Namote24.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\navigati.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\output_wnd.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\output_wnd24.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\properties.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\properties.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\properties24.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\properties_wnd.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\properties_wnd24.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\RecMark.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Single.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Single24.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\smallico.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\sort.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\sort24.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\splash.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\stateico.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Style.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Style24.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Toolbar.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\toolbar1.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Toolbar256.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\toolbar_.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\ToolBar_Edit.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\ToolbarDatabase24.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\ToolbarDatabase8.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\ToolbarMagn24.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\ToolbarMagnify24.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\ToolbarMagnify256.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\ToolbarMain.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\ToolbarMain24.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\ToolbarTopo.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\ToolbarTopo24.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\ToolTip.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Topo.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="treebar.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\treebar.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\UpArrow.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\vertguid.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Vertical.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\vertical.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="ReadMe.txt" />
+    <None Include="res\Rectify24.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Rectify.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\ribbon.mfcribbon-ms">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\ribbon-en.mfcribbon-ms" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{8166c0f9-6cc7-49a3-ae57-144faf280b55}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{149c0e7c-e665-4cf9-900b-b1b1bc7db286}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{9e62c6b3-a4ed-403d-b4d1-de9bcdf5547d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Mapper.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\AnnoTag.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\AnnoTag24.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\alignment_small.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\arrange_small.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\bitmap3.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\buttons.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\Cflat.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\combination_small.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\Cround.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\Csquare.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\database_large.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\database_small.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\endbutt.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\endround.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\endsquare.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\file_large.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\file_small.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\geograph_large.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\geograph_large.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\geograph_small.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\geometry_large.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\geometry_small.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\home_large.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\home_small.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\Jbevel.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\Jmiter.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\joinbevel.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\joinround.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\joinsquare.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\Jround.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\Jsquare.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\logo.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\magnify_small.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\menuitem.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\panels_large.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\panels_small.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\process_large.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\topology_large.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\topology_small.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\view_large.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\view_small.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <ProjectGuid>{4939C318-2298-4178-843E-25ACF119DDD6}</ProjectGuid>
+    <RootNamespace>Public</RootNamespace>
+    <Keyword>MFCDLLProj</Keyword>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>..\..\Thirdparty\boost\1.83.0;$(IncludePath)</IncludePath>
+    <LibraryPath>$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>..\..\Thirdparty\boost\1.83.0;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+    </Midl>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;_USRDLL;JSON_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <BrowseInformation>true</BrowseInformation>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <BuildStlModules>false</BuildStlModules>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>VFW32.lib;WINMM.lib;mpr.lib;version.lib;legacy_stdio_definitions.lib;..\..\Thirdparty\ZLib\1.2.11\zlib.lib</AdditionalDependencies>
+      <ModuleDefinitionFile>.\Public.def</ModuleDefinitionFile>
+      <SubSystem>Windows</SubSystem>
+      <ImportLibrary>$(ProjectDir)$(Configuration)\$(TargetName).lib</ImportLibrary>
+      <IgnoreSpecificDefaultLibraries>libcmt.lib</IgnoreSpecificDefaultLibraries>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <Profile>true</Profile>
+      <OptimizeReferences>false</OptimizeReferences>
+      <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
+      <AdditionalLibraryDirectories>D:\Workshop\ThirdParty\boost\1.83.0\lib32-msvc-14.3</AdditionalLibraryDirectories>
+    </Link>
+    <Bscmake>
+      <PreserveSbr>true</PreserveSbr>
+    </Bscmake>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+    </Midl>
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <BuildStlModules>false</BuildStlModules>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>VFW32.lib;WINMM.lib;mpr.lib;version.lib;legacy_stdio_definitions.lib;..\..\Thirdparty\ZLib\1.2.11\zlib.lib</AdditionalDependencies>
+      <ModuleDefinitionFile>.\Public.def</ModuleDefinitionFile>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <ImportLibrary>$(ProjectDir)$(Configuration)\$(TargetName).lib</ImportLibrary>
+      <Profile>false</Profile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>D:\Workshop\ThirdParty\boost\1.83.0\lib32-msvc-14.3</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Thirdparty\tinyxml\tinyxml2\tinyxml2.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <OmitDefaultLibName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</OmitDefaultLibName>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <OmitDefaultLibName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</OmitDefaultLibName>
+    </ClCompile>
+    <ClCompile Include="AttributeCtrl.cpp" />
+    <ClCompile Include="AutoUpdater.cpp" />
+    <ClCompile Include="BinaryStream.cpp" />
+    <ClCompile Include="CellEdit.cpp" />
+    <ClCompile Include="CellList.cpp" />
+    <ClCompile Include="Databaseconnection.cpp" />
+    <ClCompile Include="EndianSwap.cpp" />
+    <ClCompile Include="Fieldset.cpp" />
+    <ClCompile Include="Function.cpp" />
+    <ClCompile Include="Global.cpp" />
+    <ClCompile Include="Hashtable.cpp" />
+    <ClCompile Include="HttpSession.cpp" />
+    <ClCompile Include="LicenceDlg.cpp" />
+    <ClCompile Include="ListCtrlEx.cpp" />
+    <ClCompile Include="Equation.cpp" />
+    <ClCompile Include="ODBCDatabase.cpp" />
+    <ClCompile Include="PaneMenuButton.cpp" />
+    <ClCompile Include="ProgressDlg.cpp" />
+    <ClCompile Include="PropertyPane.cpp" />
+    <ClCompile Include="Public.cpp" />
+    <ClCompile Include="RecordCtrl.cpp" />
+    <ClCompile Include="RecordsetEx.cpp" />
+    <ClCompile Include="TablePicker.cpp" />
+    <ClCompile Include="Tableset.cpp" />
+    <ClCompile Include="TimeWatcher.cpp" />
+    <ClCompile Include="WebService.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Public.def" />
+    <None Include="res\filetypes.bmp" />
+    <None Include="res\ItemImage.bmp" />
+    <None Include="res\property.ico" />
+    <None Include="res\Property24.bmp" />
+    <None Include="res\Public.rc2" />
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Thirdparty\tinyxml\tinyxml2\tinyxml2.h" />
+    <ClInclude Include="AttributeCtrl.h" />
+    <ClInclude Include="AutoUpdater.h" />
+    <ClInclude Include="Base64.h" />
+    <ClInclude Include="BinaryStream.h" />
+    <ClInclude Include="CellEdit.h" />
+    <ClInclude Include="CellList.h" />
+    <ClInclude Include="Databaseconnection.h" />
+    <ClInclude Include="EndianSwap.h" />
+    <ClInclude Include="Enumeration.h" />
+    <ClInclude Include="FavorListCtrl.h" />
+    <ClInclude Include="Fieldset.h" />
+    <ClInclude Include="Function.h" />
+    <ClInclude Include="Global.h" />
+    <ClInclude Include="Hashtable.h" />
+    <ClInclude Include="HttpSession.h" />
+    <ClInclude Include="HttpUrlParser.hpp" />
+    <ClInclude Include="Infostructure.hpp" />
+    <ClInclude Include="IPlugin.h" />
+    <ClInclude Include="LicenceDlg.h" />
+    <ClInclude Include="ListCtrlEx.h" />
+    <ClInclude Include="Equation.h" />
+    <ClInclude Include="ODBCDatabase.h" />
+    <ClInclude Include="PaneMenuButton.h" />
+    <ClInclude Include="PaneToolBar.h" />
+    <ClInclude Include="ProgressDlg.h" />
+    <ClInclude Include="PropertyPane.h" />
+    <ClInclude Include="Public.h" />
+    <ClInclude Include="RecordCtrl.h" />
+    <ClInclude Include="RecordsetEx.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="TablePicker.h" />
+    <ClInclude Include="Tableset.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="TimeWatcher.h" />
+    <ClInclude Include="TreeNode.h" />
+    <ClInclude Include="ValueCounter.h" />
+    <ClInclude Include="WebService.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Public.rc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

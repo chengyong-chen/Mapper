@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE refactor PUBLIC "-//Borland Software Corporation//Refactor 1.0//EN" "http://www.borland.com/devsupport/jbuilder/dtds/refactor_1_0.dtd">
+
+<refactor>
+  <rename-class id="7AP0XVDGKYQEZL3RGFYEFAN0" creation-time="Thu Aug 17 11:20:44.752 CST 2006">
+    <old-class-name>Mapeasy.Applet1</old-class-name>
+    <new-class-name>Mapeasy.AppletSwing</new-class-name>
+  </rename-class>
+  <rename-class id="7AP0RKQC3HREKDC1JFYEFAN0" creation-time="Wed Aug 30 10:29:38.556 CST 2006">
+    <old-class-name>Mapeasy.Obj.Boundary</old-class-name>
+    <new-class-name>Mapeasy.Obj.Rect</new-class-name>
+  </rename-class>
+  <rename-class id="7AP0KCDWJORE0U7C2FYEFAN0" creation-time="Mon Sep 04 15:47:11.589 CST 2006">
+    <old-class-name>Mapeasy.Tool.ZoomTool</old-class-name>
+    <new-class-name>Mapeasy.Tool.ZoomInTool</new-class-name>
+  </rename-class>
+  <rename-class id="7AP0O72YTSRE6CIUCFYEFAN0" creation-time="Thu Sep 07 15:39:31.365 CST 2006">
+    <old-class-name>Mapeasy.Tool.Tool</old-class-name>
+    <new-class-name>Mapeasy.Tool.ToolFactory</new-class-name>
+  </rename-class>
+  <rename-class id="7AP0LX8V62TEW2UZ1FYEFAN0" creation-time="Mon Oct 09 09:30:53.049 CST 2006">
+    <old-class-name>Mapeasy.Obj.Image</old-class-name>
+    <new-class-name>Mapeasy.Obj.GeoImage</new-class-name>
+  </rename-class>
+  <rename-class id="6AP0LX8V62TEW2UZ1FYEFAN0" creation-time="Mon Oct 09 09:38:13.048 CST 2006">
+    <old-class-name>Mapeasy.Obj.Mark</old-class-name>
+    <new-class-name>Mapeasy.Obj.GeoMark</new-class-name>
+  </rename-class>
+  <rename-class id="7AP069J8EDVE7Q96IFYEFAN0" creation-time="Wed Dec 06 15:02:02.780 CST 2006">
+    <old-class-name>Mapeasy.Tool.DatabaseTool</old-class-name>
+    <new-class-name>Mapeasy.Tool.QueryTool</new-class-name>
+  </rename-class>
+</refactor>
+

@@ -1,0 +1,207 @@
+<?xml version="1.0"?>
+<svg
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:cc="http://creativecommons.org/ns#"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+    xmlns:ns1="http://sozi.baierouge.fr"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    id="svg2"
+    viewBox="0 0 512 512"
+    version="1.1"
+  >
+  <g
+      id="layer1"
+      transform="translate(0 -540.36)"
+    >
+    <g
+        id="g2997"
+        transform="matrix(.75 0 0 .75 63.828 174.79)"
+        fill="#4d4d4d"
+      >
+      <g
+          id="g3836"
+          transform="matrix(.46183 .58713 -.58938 .46006 340.8 391.41)"
+        >
+        <path
+            id="rect2985"
+            fill-rule="evenodd"
+            d="m204.29 398.08h320c80.354 0 46.601-5.6044 59.292 50.633l19.656 87.102c14.355 63.611 20.458 44.582-78.948 53.694l-385.71 35.357c-30.737 2.8176-46.662 3.5565-36.52-25.595l51.491-148c20.885-60.03-4.6584-53.189 50.743-53.189z"
+        />
+        <path
+            id="rect3774"
+            d="m225.8 284.69c-33.288 0-60.076 33.663-60.076 75.446v23.449h415.04v-23.449c0-41.783-26.788-75.446-60.076-75.446h-294.88z"
+        />
+        <rect
+            id="rect3779"
+            ry="37.5"
+            height="343.7"
+            width="74.999"
+            y="11.781"
+            x="335.74"
+        />
+      </g
+      >
+      <g
+          id="g3832"
+          transform="matrix(.46183 .58713 -.58938 .46006 340.8 391.41)"
+        >
+        <path
+            id="path3781"
+            transform="translate(745.49 460.63)"
+            d="m-278.8 371.52c0 21.2-28.04 38.386-62.629 38.386s-62.629-17.186-62.629-38.386 28.04-38.386 62.629-38.386 62.629 17.186 62.629 38.386z"
+        />
+        <path
+            id="path3783"
+            transform="translate(743.47 462.65)"
+            d="m-256.58 314.95c0 33.474-24.874 60.609-55.558 60.609s-55.558-27.136-55.558-60.609c0-33.474 24.874-60.609 55.558-60.609s55.558 27.136 55.558 60.609z"
+        />
+      </g
+      >
+      <path
+          id="path3797"
+          transform="matrix(.46183 .58713 -.58938 .46006 365.85 1043.8)"
+          d="m-343.45 173.53c0 22.316-13.568 40.406-30.305 40.406s-30.305-18.09-30.305-40.406 13.568-40.406 30.305-40.406 30.305 18.09 30.305 40.406z"
+      />
+      <path
+          id="path3799"
+          transform="matrix(.46183 .58713 -.58938 .46006 413.6 1041)"
+          d="m-499.02 237.17c0 11.716-14.02 21.213-31.315 21.213s-31.315-9.4975-31.315-21.213 14.02-21.213 31.315-21.213 31.315 9.4975 31.315 21.213z"
+      />
+    </g
+    >
+    <flowRoot
+        id="flowRoot3824"
+        style="word-spacing:0px;letter-spacing:0px"
+        xml:space="preserve"
+        font-size="40px"
+        line-height="125%"
+        font-family="Sans"
+        fill="#000000"
+      >
+      <flowRegion
+          id="flowRegion3826"
+        >
+        <rect
+            id="rect3828"
+            y="-135.58"
+            width="610.13"
+            height="183.85"
+            x="-666.7"
+        />
+      </flowRegion
+      >
+      <flowPara
+          id="flowPara3830"
+      />
+    </flowRoot
+    >
+  </g
+  >
+  <metadata
+    >
+    <rdf:RDF
+      >
+      <cc:Work
+        >
+        <dc:format
+          >image/svg+xml</dc:format
+        >
+        <dc:type
+            rdf:resource="http://purl.org/dc/dcmitype/StillImage"
+        />
+        <cc:license
+            rdf:resource="http://creativecommons.org/licenses/publicdomain/"
+        />
+        <dc:publisher
+          >
+          <cc:Agent
+              rdf:about="http://openclipart.org/"
+            >
+            <dc:title
+              >Openclipart</dc:title
+            >
+          </cc:Agent
+          >
+        </dc:publisher
+        >
+        <dc:title
+          >Sweep</dc:title
+        >
+        <dc:date
+          >2013-08-30T05:23:31</dc:date
+        >
+        <dc:description
+          >A sweep icon originally created to be used as "clear" icon in Android applications.</dc:description
+        >
+        <dc:source
+          >https://openclipart.org/detail/182731/sweep-by-michelinux-182731</dc:source
+        >
+        <dc:creator
+          >
+          <cc:Agent
+            >
+            <dc:title
+              >michelinux</dc:title
+            >
+          </cc:Agent
+          >
+        </dc:creator
+        >
+        <dc:subject
+          >
+          <rdf:Bag
+            >
+            <rdf:li
+              >broom</rdf:li
+            >
+            <rdf:li
+              >clean</rdf:li
+            >
+            <rdf:li
+              >clear</rdf:li
+            >
+            <rdf:li
+              >icon</rdf:li
+            >
+            <rdf:li
+              >minimal</rdf:li
+            >
+            <rdf:li
+              >monocolor</rdf:li
+            >
+            <rdf:li
+              >sweep</rdf:li
+            >
+            <rdf:li
+              >swipe</rdf:li
+            >
+          </rdf:Bag
+          >
+        </dc:subject
+        >
+      </cc:Work
+      >
+      <cc:License
+          rdf:about="http://creativecommons.org/licenses/publicdomain/"
+        >
+        <cc:permits
+            rdf:resource="http://creativecommons.org/ns#Reproduction"
+        />
+        <cc:permits
+            rdf:resource="http://creativecommons.org/ns#Distribution"
+        />
+        <cc:permits
+            rdf:resource="http://creativecommons.org/ns#DerivativeWorks"
+        />
+      </cc:License
+      >
+    </rdf:RDF
+    >
+  </metadata
+  >
+</svg
+>

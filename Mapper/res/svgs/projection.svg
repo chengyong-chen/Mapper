@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+
+<svg
+   width="613.32501"
+   height="720.02502"
+   viewBox="-3.5 0 24.533 28.801001"
+   version="1.1"
+   id="svg3554"
+   sodipodi:docname="projection.svg"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs3558" />
+  <sodipodi:namedview
+     id="namedview3556"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="1.04625"
+     inkscape:cx="209.319"
+     inkscape:cy="360.33453"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg3554" />
+  <g
+     id="icomoon-ignore"
+     transform="translate(-3.501,-1.6)" />
+  <path
+     d="M 12.499,15.733 9.299,13.92 V 7.413 c 1.813,-0.267 3.2,-1.813 3.2,-3.68 C 12.499,1.653 10.846,0 8.766,0 6.686,0 5.033,1.653 5.033,3.733 c 0,1.867 1.387,3.413 3.2,3.68 v 5.867 l -3.2,-1.813 -8.533,3.467 v 13.067 l 8.533,-3.467 7.467,4.267 8.533,-4.267 V 11.467 L 12.5,15.734 Z m -8.533,8.107 -6.4,2.56 V 15.627 l 6.4,-2.613 V 23.841 Z M 6.099,3.733 c 0,-1.493 1.173,-2.667 2.667,-2.667 1.494,0 2.667,1.173 2.667,2.667 C 11.433,5.226 10.26,6.4 8.766,6.4 7.272,6.4 6.099,5.227 6.099,3.733 Z m 6.4,23.894 L 5.032,23.36 V 12.693 l 3.2,1.813 v 4.693 h 1.067 v -4.107 l 3.2,1.813 v 10.72 z m 7.467,-3.734 -6.4,3.2 V 16.426 l 6.4,-3.2 z"
+     fill="#000000"
+     id="path3552"
+     style="fill:#2e3436;fill-opacity:1" />
+</svg>

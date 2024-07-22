@@ -1,0 +1,278 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#ifndef APSTUDIO_INVOKED
+#include "targetver.h"
+#endif
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (Neutral) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_NEUTRAL
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#ifndef APSTUDIO_INVOKED\r\n"
+    "#include ""targetver.h""\r\n"
+    "#endif\r\n"
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#include ""res\\Projection.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""     // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 13,1,0,0
+ PRODUCTVERSION 13,1,0,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904e4"
+        BEGIN
+            VALUE "FileDescription", "Projection DLL"
+            VALUE "FileVersion", "13.01.00.0"
+            VALUE "InternalName", "Projection"
+            VALUE "LegalCopyright", "Copyright ?Diwatu Software Ltd. 2012"
+            VALUE "OriginalFilename", "Projection.DLL"
+            VALUE "ProductName", "Projection Dynamic Link Library"
+            VALUE "ProductVersion", "13.01.00.0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1252
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_PARAMETER DIALOGEX 0, 0, 171, 147
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_CONTROL | WS_CHILD | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_TOOLWINDOW
+CAPTION "Parameters"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    LTEXT           "Central meridian:",IDC_STATICLON0,3,5,62,8
+    EDITTEXT        IDC_LNG0,114,1,53,12,ES_AUTOHSCROLL
+    LTEXT           "Latitude of origin:",IDC_STATICLAT0,3,33,62,8
+    EDITTEXT        IDC_LAT0,114,31,53,12,ES_AUTOHSCROLL
+    LTEXT           "Latitude of true scale:",IDC_STATICLATS,3,47,75,8
+    EDITTEXT        IDC_LATS,114,45,53,12,ES_AUTOHSCROLL
+    LTEXT           "Latitude of 1st standard parallel:",IDC_STATICLAT1,3,75,107,8
+    EDITTEXT        IDC_LAT1,114,73,53,12,ES_AUTOHSCROLL
+    LTEXT           "Latitude of 2nd standard parallel:",IDC_STATICLAT2,3,89,109,8
+    EDITTEXT        IDC_LAT2,114,87,53,12,ES_AUTOHSCROLL
+    COMBOBOX        IDC_POLECOMBO,114,59,53,30,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Latitude of 1st standard parallel:",IDC_STATICPOLECOMBO,3,61,106,8
+    LTEXT           "Longitude of the 1st point:",IDC_STATICLON1,3,103,89,8
+    EDITTEXT        IDC_LNG1,114,101,53,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_LNG2,114,115,53,12,ES_AUTOHSCROLL
+    LTEXT           "Longitude of the 2nd point:",IDC_STATICLON2,3,117,87,8
+    LTEXT           "k0:",IDC_STATICK0,3,131,108,8
+    EDITTEXT        IDC_K0,114,129,53,12,ES_AUTOHSCROLL
+    LTEXT           "Longitude of origin:",IDC_STATICLONC,3,19,81,8
+    EDITTEXT        IDC_LNGC,114,17,53,12,ES_AUTOHSCROLL
+END
+
+IDD_PROJECT DIALOGEX 0, 0, 201, 194
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_CAPTION
+CAPTION "Projection"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    COMBOBOX        IDC_TYPE,15,14,146,170,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
+    DEFPUSHBUTTON   "OK",IDOK,167,3,31,13
+    PUSHBUTTON      "Cancel",IDCANCEL,167,19,31,13
+    LTEXT           "Projection Type:",IDC_STATIC,3,3,55,8
+    COMBOBOX        IDC_GCS,15,39,183,30,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Global Coordinate System:",IDC_STATIC,3,28,91,10
+    CONTROL         "Interpolate to avoid line distortion",IDC_INTERPOLATE,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,3,57,195,10
+END
+
+IDD_ROTATE DIALOGEX 0, 0, 173, 80
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,20,59,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,116,59,50,14
+    LTEXT           "Longitude:",IDC_STATIC,7,7,35,8
+    LTEXT           "Latitude:",IDC_STATIC,8,30,30,8
+    EDITTEXT        IDC_LNGDELTA,55,7,61,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_LATDELTA,55,28,61,14,ES_AUTOHSCROLL
+END
+
+IDD_HOLDER DIALOGEX 0, 0, 191, 242
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,7,221,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,77,221,50,14
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_PARAMETER DLGINIT
+BEGIN
+    IDC_POLECOMBO, 0x403, 11, 0
+0x6f4e, 0x7472, 0x2068, 0x6f50, 0x656c, "\000" 
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_PARAMETER, DIALOG
+    BEGIN
+        LEFTMARGIN, 3
+        RIGHTMARGIN, 168
+        TOPMARGIN, 1
+        BOTTOMMARGIN, 143
+    END
+
+    IDD_PROJECT, DIALOG
+    BEGIN
+        LEFTMARGIN, 3
+        RIGHTMARGIN, 198
+        TOPMARGIN, 3
+        BOTTOMMARGIN, 191
+    END
+
+    IDD_ROTATE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 166
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 73
+    END
+
+    IDD_HOLDER, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 184
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 235
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// AFX_DIALOG_LAYOUT
+//
+
+IDD_PARAMETER AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_PROJECT AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_ROTATE AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_HOLDER AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+#endif    // English (Neutral) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#include "res\Projection.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"     // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

@@ -1,0 +1,217 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Chinese (P.R.C.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE LANG_CHINESE, SUBLANG_NEUTRAL
+#pragma code_page(936)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 4, 2\r\n"
+    "#pragma code_page(936)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\Setup.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""l.chs\\afxres.rc""          // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res//setup.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_SETUP DIALOGEX 0, 0, 261, 177
+STYLE DS_SETFONT | DS_MODALFRAME | WS_MINIMIZEBOX | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "安装"
+CLASS "Setup:400000:b:0:6"
+FONT 9, "宋体", 0, 0, 0x1
+BEGIN
+    CONTROL         "卸载",IDC_SETUP_UNINSTALL,"Button",BS_OWNERDRAW | WS_TABSTOP,5,52,42,18
+    CONTROL         "运行",IDC_SETUP_RUN,"Button",BS_OWNERDRAW | WS_TABSTOP,5,30,42,18
+    CONTROL         "安装",IDC_SETUP_SETUP,"Button",BS_OWNERDRAW | WS_TABSTOP,5,8,42,18,WS_EX_TRANSPARENT
+    CONTROL         "",IDC_SETUP_CREDIT,"Static",SS_BLACKRECT,173,0,83,145
+    CONTROL         "退出",IDC_SETUP_EXIT,"Button",BS_OWNERDRAW | WS_TABSTOP,5,74,42,18
+    CONTROL         "说明",IDC_SETUP_README,"Button",BS_OWNERDRAW | WS_TABSTOP,5,97,42,18
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 13,01,00,0
+ PRODUCTVERSION 13,01,00,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "080404b0"
+        BEGIN
+            VALUE "Comments", "Setup ToolKit"
+            VALUE "CompanyName", "Samson Chen - Personalsoft"
+            VALUE "FileDescription", "Setup ToolKit Program"
+            VALUE "FileVersion", "13.01.00.0"
+            VALUE "InternalName", "Setup"
+            VALUE "LegalCopyright", "Copyright ?Diwatu Software Ltd. 2012"
+            VALUE "LegalTrademarks", "Setup ToolKits is a Private Product. All rights reserved by Samson Chen"
+            VALUE "OriginalFilename", "Setup.exe"
+            VALUE "ProductName", "安装程序"
+            VALUE "ProductVersion", "13.01.00.0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x804, 1200
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDS_INSTALL             "安装"
+    IDS_REINSTALL           "重新安装"
+    IDS_NOSETUPFILE         "安装程序没有找到安装信息文件 setup.inf!"
+END
+
+#endif    // Chinese (P.R.C.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_NEUTRAL
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_SETUP DIALOGEX 0, 0, 261, 177
+STYLE DS_SETFONT | DS_MODALFRAME | WS_MINIMIZEBOX | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "Install"
+CLASS "Setup:400000:b:0:6"
+FONT 9, "??", 0, 0, 0x1
+BEGIN
+    CONTROL         "Uninstall",IDC_SETUP_UNINSTALL,"Button",BS_OWNERDRAW | WS_TABSTOP,5,52,42,18
+    CONTROL         "Run",IDC_SETUP_RUN,"Button",BS_OWNERDRAW | WS_TABSTOP,5,30,42,18
+    CONTROL         "Install",IDC_SETUP_SETUP,"Button",BS_OWNERDRAW | WS_TABSTOP,5,8,42,18,WS_EX_TRANSPARENT
+    CONTROL         "",IDC_SETUP_CREDIT,"Static",SS_BLACKRECT,173,0,83,145
+    CONTROL         "Exit",IDC_SETUP_EXIT,"Button",BS_OWNERDRAW | WS_TABSTOP,5,74,42,18
+    CONTROL         "About",IDC_SETUP_README,"Button",BS_OWNERDRAW | WS_TABSTOP,5,97,42,18
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDS_INSTALL             "Install"
+    IDS_REINSTALL           "Reinstall"
+    IDS_NOSETUPFILE         "Setup.inf is missing!"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE 4, 2
+#pragma code_page(936)
+#endif //_WIN32
+#include "res\Setup.rc2"  // non-Microsoft Visual C++ edited resources
+#include "l.chs\afxres.rc"          // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

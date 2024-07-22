@@ -1,0 +1,45 @@
+﻿<map name="Webmap" type="Blank" Default="Google-Road">
+  <GeoFeature Webservice="http://www.yourdomainname.com/Webservice/Mapinfo.asmx?wsdl" />
+  <Pou PinWebservice="http://www.yourdomainname.com/Webservice/Poupins.asmx?wsdl" />
+  <background>
+    <provider name="Google" minBalancer="0" maxBalancer="3">
+      <projection type="Mercator" minX="-180" minY="-85.05112877980659" maxX="180" maxY="85.05112877980659"/>
+      <varieties>
+        <variety name="Road" minLevel="0" maxLevel="19" server="http://mt{Balancer}.google.com/" path="vt/lyrs=m@{version1}&amp;src=app&amp;x={X}{secure1}&amp;y={Y}&amp;z={Z}&amp;s={secure2}"/>
+        <variety name="Satellite" minLevel="0" maxLevel="19"  server="https://khms{Balancer}.google.com/" path="kh/v={version1}&amp;src=app&amp;x={X}{secure1}&amp;y={Y}&amp;z={Z}&amp;s={secure2}"/>
+        <variety name="Hybrid"  minLevel="0" maxLevel="19" server="http://mt{Balancer}.google.com/" path="vt/lyrs=h@{version1}&amp;src=app&amp;x={X}{secure1}&amp;y={Y}&amp;z={Z}&amp;s={secure2}"/>
+        <variety name="Terrian"  minLevel="0" maxLevel="15" server="http://mt{Balancer}.google.com/" path="vt/lyrs=t@{version1},r@{version2}&amp;x={X}{secure1}&amp;y={Y}&amp;z={Z}&amp;s={secure2}"/>
+      </varieties>
+    </provider>
+    <!--
+     <provider name="Tianditu" minBalancer="1"  maxBalancer="4">
+      <projection type="Mercator" minX="-180" minY="-85.05112877980659" maxX="180" maxY="85.05112877980659"/>
+      <varieties>
+        <variety name="Road" minLevel="0" maxLevel="18" server="http://tile{Balancer}.tianditu.com/" path="DataServer?T=siwei0608&amp;X={X}&amp;Y={Y}&amp;L={Z}"/>
+        <variety name="Hybrid" minLevel="0" maxLevel="18" server="http://tile{Balancer}.tianditu.com/" path="DataServer?T=siwei0608&amp;X={X}&amp;Y={Y}&amp;L={Z}"/>
+        <variety name="Satellite" minLevel="0" maxLevel="18" server="http://tile{Balancer}.tianditu.com/" path="DataServer?T=siwei0608&amp;X={X}&amp;Y={Y}&amp;L={Z}"/>
+      </varieties>
+    </provider>
+    -->
+    <provider name="Openstreet" minBalancer="a"  maxBalancer="c">
+      <projection type="Mercator" minX="-180" minY="-85.05112877980659" maxX="180" maxY="85.05112877980659"/>
+      <varieties>
+        <variety name="osm" minLevel="0" maxLevel="18" server="https://{Balancer}.tile.openstreetmap.org/" path="{Z}/{X}/{Y}.png"/>
+      </varieties>
+    </provider>
+    <provider name="Esri" minBalancer="1"  maxBalancer="4">
+      <projection type="Mercator" minX="-180" minY="-85.05112877980659" maxX="180" maxY="85.05112877980659"/>
+      <varieties>
+        <variety name="WorldStreet" minLevel="0" maxLevel="18" server="http://server.arcgisonline.com/" path="ArcGIS/rest/services/World_Street_Map/MapServer/tile/{Z}/{Y}/{X}"/>
+        <variety name="DeLorme" minLevel="0" maxLevel="18" server="http://server.arcgisonline.com/" path="ArcGIS/rest/services/Specialty/DeLorme_World_Base_Map/MapServer/tile/{Z}/{Y}/{X}"/>
+        <variety name="WorldTopo" minLevel="0" maxLevel="18" server="http://server.arcgisonline.com/" path="ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{Z}/{Y}/{X}"/>
+        <variety name="WorldImagery" minLevel="0" maxLevel="18" server="http://server.arcgisonline.com/" path="ArcGIS/rest/services/World_Imagery/MapServer/tile/{Z}/{Y}/{X}"/>
+        <variety name="WorldTerrain" minLevel="0" maxLevel="18" server="http://server.arcgisonline.com/" path="ArcGIS/rest/services/World_Terrain_Base/MapServer/tile/{Z}/{Y}/{X}"/>
+        <variety name="WorldShadedRelief" minLevel="0" maxLevel="18" server="http://server.arcgisonline.com/" path="ArcGIS/rest/services/World_Shaded_Relief/MapServer/tile/{Z}/{Y}/{X}"/>
+        <variety name="WorldPhysical" minLevel="0" maxLevel="18" server="http://server.arcgisonline.com/" path="ArcGIS/rest/services/World_Physical_Map/MapServer/tile/{Z}/{Y}/{X}"/>
+        <variety name="OceanBasemap" minLevel="0" maxLevel="18" server="http://server.arcgisonline.com/" path="ArcGIS/rest/services/Ocean_Basemap/MapServer/tile/{Z}/{Y}/{X}"/>
+        <variety name="WorldGrayCanvas" minLevel="0" maxLevel="18" server="http://server.arcgisonline.com/" path="ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{Z}/{Y}/{X}"/>
+      </varieties>
+    </provider>
+  </background>
+</map>

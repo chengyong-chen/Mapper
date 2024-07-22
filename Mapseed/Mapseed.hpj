@@ -1,0 +1,20 @@
+[OPTIONS]
+CONTENTS=main_index
+TITLE=Mapseed Control Help
+COMPRESS=true
+WARNING=2
+HLP=Mapseed.hlp
+ERRORLOG=Mapseed.log
+
+[FILES]
+hlp\Mapseed.rtf
+
+[BITMAPS]
+; miscellaneous
+hlp\Bullet.bmp
+
+[ALIAS]
+HIDD_ABOUTBOX_MAPSEED = HID_APP_ABOUT_MAPSEED
+
+[MAP]
+#include <hlp\Mapseed.hm>

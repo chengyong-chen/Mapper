@@ -1,0 +1,235 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{93D6919B-0FCC-4A3C-B592-E19085FA50B2}</ProjectGuid>
+    <RootNamespace>Port</RootNamespace>
+    <Keyword>MFCProj</Keyword>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>..\..\Thirdparty\boost\1.83.0;..\..\Thirdparty\GDAL\3.3.3\port;..\..\Thirdparty\GDAL\3.3.3\gcore;..\..\Thirdparty\GDAL\3.3.3\ogr;..\..\Thirdparty\StyleSheet\include;..\..\ThirdParty\libharu\2.4.4\win32\include;..\..\ThirdParty\poppler;D:\Workshop\ThirdParty\ZLib\1.2.11;$(IncludePath)</IncludePath>
+    <LibraryPath>$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>..\..\Thirdparty\boost\1.83.0;..\..\Thirdparty\GDAL\3.3.3\gcore;..\..\Thirdparty\GDAL\3.3.3\ogr;..\..\Thirdparty\GDAL\3.3.3\port;..\..\ThirdParty\libharu\2.4.4\win32\include;..\..\ThirdParty\poppler;D:\Workshop\ThirdParty\ZLib\1.2.11;$(IncludePath)</IncludePath>
+    <IgnoreImportLibrary>false</IgnoreImportLibrary>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+    </Midl>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;_USRDLL;JSON_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <BrowseInformation>true</BrowseInformation>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <BuildStlModules>false</BuildStlModules>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>Gdiplus.lib;..\Public\Debug\Public.lib;..\Projection\Debug\Projection.lib;..\Dataview\Debug\Dataview.lib;..\Database\Debug\Database.lib;..\Geometry\Debug\Geometry.lib;..\Image\Debug\Image.lib;..\Style\Debug\Style.lib;..\Layer\Debug\Layer.lib;..\GridCtrl\Debug\GridCtrl.lib;..\Topology\Debug\Topology.lib;..\..\Thirdparty\GDAL\3.3.3\Debug\gdal_d.lib;..\..\Thirdparty\libharu\2.4.4\libhpdf.lib;..\..\Thirdparty\ZLib\1.2.11\zlib.lib;..\..\ThirdParty\poppler\Debug\poppler.lib</AdditionalDependencies>
+      <ModuleDefinitionFile>.\Port.def</ModuleDefinitionFile>
+      <SubSystem>Windows</SubSystem>
+      <ImportLibrary>$(ProjectDir)$(Configuration)\$(TargetName).lib</ImportLibrary>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>libcmt.lib;</IgnoreSpecificDefaultLibraries>
+      <Profile>false</Profile>
+      <OptimizeReferences>false</OptimizeReferences>
+      <AddModuleNamesToAssembly>
+      </AddModuleNamesToAssembly>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
+      <AdditionalLibraryDirectories>D:\Workshop\ThirdParty\boost\1.83.0\lib32-msvc-14.3</AdditionalLibraryDirectories>
+      <ForceFileOutput>
+      </ForceFileOutput>
+    </Link>
+    <ResourceCompile>
+      <Culture>0x0009</Culture>
+    </ResourceCompile>
+    <Bscmake>
+      <PreserveSbr>true</PreserveSbr>
+    </Bscmake>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+    </Midl>
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <BuildStlModules>false</BuildStlModules>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>Gdiplus.lib;..\Public\Release\Public.lib;..\Projection\Release\Projection.lib;..\Dataview\Release\Dataview.lib;..\Database\Release\Database.lib;..\Geometry\Release\Geometry.lib;..\Image\Release\Image.lib;..\Style\Release\Style.lib;..\Layer\Release\Layer.lib;..\GridCtrl\Release\GridCtrl.lib;..\Topology\Release\Topology.lib;..\..\Thirdparty\GDAL\3.3.3\Release\gdal.lib;..\..\Thirdparty\libharu\2.4.4\libhpdf.lib;..\..\Thirdparty\ZLib\1.2.11\zlib.lib;..\..\ThirdParty\poppler\Release\poppler.lib</AdditionalDependencies>
+      <ModuleDefinitionFile>.\Port.def</ModuleDefinitionFile>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <ImportLibrary>$(ProjectDir)$(Configuration)\$(TargetName).lib</ImportLibrary>
+      <Profile>false</Profile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>libcmt.lib;</IgnoreSpecificDefaultLibraries>
+      <AdditionalOptions>/SAFESEH:NO %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalLibraryDirectories>D:\Workshop\ThirdParty\boost\1.83.0\lib32-msvc-14.3</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Thirdparty\tinyxml\tinyxml2\tinyxml2.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </PrecompiledHeaderFile>
+      <OmitDefaultLibName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</OmitDefaultLibName>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <OmitDefaultLibName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</OmitDefaultLibName>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </PrecompiledHeaderFile>
+      <RuntimeLibrary Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeLibrary Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MultiThreadedDLL</RuntimeLibrary>
+    </ClCompile>
+    <ClCompile Include="FieldsPickerDlg.cpp" />
+    <ClCompile Include="PostscriptHandler.cpp" />
+    <ClCompile Include="DataHandler.cpp" />
+    <ClCompile Include="ExportAI.cpp" />
+    <ClCompile Include="ExportEps.cpp" />
+    <ClCompile Include="ExportPdf.cpp" />
+    <ClCompile Include="ExportTxt.cpp" />
+    <ClCompile Include="Global.cpp" />
+    <ClCompile Include="Import.cpp" />
+    <ClCompile Include="ImportAI.cpp" />
+    <ClCompile Include="ImportDxf.cpp" />
+    <ClCompile Include="ImportGdal.cpp" />
+    <ClCompile Include="ImportGrf.cpp" />
+    <ClCompile Include="ImportJson.cpp" />
+    <ClCompile Include="ImportPostscript.cpp" />
+    <ClCompile Include="ImportSVG.cpp" />
+    <ClCompile Include="NameFieldDlg.cpp" />
+    <ClCompile Include="Port.cpp" />
+    <ClCompile Include="PSTokenFile.cpp" />
+    <ClCompile Include="Stdstack.cpp" />
+    <ClCompile Include="SVGHandler.cpp" />
+    <ClCompile Include="TokenFile.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Port.def" />
+    <None Include="res\Port.rc2" />
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Port.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Thirdparty\tinyxml\tinyxml2\tinyxml2.h" />
+    <ClInclude Include="PostscriptHandler.h" />
+    <ClInclude Include="DataHandler.h" />
+    <ClInclude Include="ExportAI.h" />
+    <ClInclude Include="ExportDxf.h" />
+    <ClInclude Include="ExportEps.h" />
+    <ClInclude Include="ExportMapInfo.h" />
+    <ClInclude Include="ExportTxt.h" />
+    <ClInclude Include="FieldPickerDlg.h" />
+    <ClInclude Include="Import.h" />
+    <ClInclude Include="ImportAI.h" />
+    <ClInclude Include="ImportDxf.h" />
+    <ClInclude Include="ImportGdal.h" />
+    <ClInclude Include="ImportGrf.h" />
+    <ClInclude Include="ImportJson.h" />
+    <ClInclude Include="ImportPostscript.h" />
+    <ClInclude Include="ImportSVG.h" />
+    <ClInclude Include="NameFieldDlg.h" />
+    <ClInclude Include="Geomstack.h" />
+    <ClInclude Include="Port.h" />
+    <ClInclude Include="PSTokenFile.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="StdAfx.h" />
+    <ClInclude Include="Stdstack.h" />
+    <ClInclude Include="SVGHandler.h" />
+    <ClInclude Include="TokenFile.h" />
+    <ClInclude Include="TokenString.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Database\Database.vcxproj">
+      <Project>{34538817-80f0-4640-8eb2-521eb0de007c}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Dataview\Dataview.vcxproj">
+      <Project>{c2b3c401-48dc-46f8-ae2c-e6a9e7f602d6}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Geometry\Geometry.vcxproj">
+      <Project>{e077340a-cc20-4ab3-8317-de65020bae49}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\GridCtrl\GridCtrl.vcxproj">
+      <Project>{1184d56e-9b6a-40af-8870-2af79c594070}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Image\Image.vcxproj">
+      <Project>{6d930e05-c3c0-475d-9816-92f917a33983}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Layer\Layer.vcxproj">
+      <Project>{00905832-76ff-40a9-91e2-91e40d0f5ead}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Projection\Projection.vcxproj">
+      <Project>{8ef6dfc8-e191-4344-a763-044fc95699c3}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Public\Public.vcxproj">
+      <Project>{4939c318-2298-4178-843e-25acf119ddd6}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Style\Style.vcxproj">
+      <Project>{06562e7d-4456-4133-af94-c88f48fd8f9f}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

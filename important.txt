@@ -1,0 +1,11 @@
+compile libhpdf:
+	1. open script\Makefile.msvc,
+	   change PNG_PREFIX   = ../../libpng to the real path	
+	   change ZLIB_PREFIX   = ../../zlib to the real path	
+	https://github.com/libharu/libharu/issues/135
+
+clunene
+
+ delete float_t definition
+
+True DBGrid only works on 32 mode

@@ -1,0 +1,336 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{D739337B-3EE0-4E3E-95BC-E19BD31E88CA}</ProjectGuid>
+    <RootNamespace>Information</RootNamespace>
+    <Keyword>MFCProj</Keyword>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>..\..\Thirdparty\boost\1.83.0;..\..\ThirdParty\libharu\2.4.4\win32\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>..\..\Thirdparty\boost\1.83.0;..\..\ThirdParty\libharu\2.4.4\win32\include;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+    </Midl>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;_USRDLL;JSON_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <BrowseInformation>true</BrowseInformation>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <BuildStlModules>false</BuildStlModules>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>VFW32.lib;Gdiplus.lib;WINMM.lib;..\Framework\Debug\Framework.lib;..\Public\Debug\Public.lib;..\Database\Debug\Database.lib;..\Projection\Debug\Projection.lib;..\Dataview\Debug\Dataview.lib;..\Geometry\Debug\Geometry.lib;..\Style\Debug\Style.lib</AdditionalDependencies>
+      <ModuleDefinitionFile>.\Information.def</ModuleDefinitionFile>
+      <SubSystem>Windows</SubSystem>
+      <ImportLibrary>$(ProjectDir)$(Configuration)\$(TargetName).lib</ImportLibrary>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <Profile>false</Profile>
+      <OptimizeReferences>false</OptimizeReferences>
+      <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
+      <AdditionalLibraryDirectories>D:\Workshop\ThirdParty\boost\1.83.0\lib32-msvc-14.3</AdditionalLibraryDirectories>
+    </Link>
+    <Bscmake>
+      <PreserveSbr>true</PreserveSbr>
+    </Bscmake>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+    </Midl>
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <BuildStlModules>false</BuildStlModules>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>VFW32.lib;Gdiplus.lib;WINMM.lib;..\Framework\Release\Framework.lib;..\Public\Release\Public.lib;..\Database\Release\Database.lib;..\Projection\Release\Projection.lib;..\Dataview\Release\Dataview.lib;..\Geometry\Release\Geometry.lib;..\Style\Release\Style.lib</AdditionalDependencies>
+      <ModuleDefinitionFile>.\Information.def</ModuleDefinitionFile>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <ImportLibrary>$(ProjectDir)$(Configuration)\$(TargetName).lib</ImportLibrary>
+      <Profile>false</Profile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>D:\Workshop\ThirdParty\boost\1.83.0\lib32-msvc-14.3</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="ATTDBGridCtrl.cpp" />
+    <ClCompile Include="ATTTDBGridCtrl.cpp" />
+    <ClCompile Include="ColumnPicker.cpp" />
+    <ClCompile Include="FieldsPicker.cpp" />
+    <ClCompile Include="OutputList.cpp" />
+    <ClCompile Include="POUList.cpp" />
+    <ClCompile Include="POUListCtrl.cpp" />
+    <ClCompile Include="Poupin.cpp" />
+    <ClCompile Include="_recordset.cpp" />
+    <ClCompile Include="Adodc.cpp" />
+    <ClCompile Include="Chart.cpp" />
+    <ClCompile Include="ChartBar.cpp" />
+    <ClCompile Include="column.cpp" />
+    <ClCompile Include="Columns.cpp" />
+    <ClCompile Include="ComboBoxEm.cpp" />
+    <ClCompile Include="CooQueryEar.cpp" />
+    <ClCompile Include="Crack.cpp" />
+    <ClCompile Include="DatabaseDlg.cpp" />
+    <ClCompile Include="DBGridCtrl.cpp" />
+    <ClCompile Include="DegreeCtrl.cpp" />
+    <ClCompile Include="ExecuteSQLProc.cpp" />
+    <ClCompile Include="field.cpp" />
+    <ClCompile Include="FieldDlg.cpp" />
+    <ClCompile Include="Fields.cpp" />
+    <ClCompile Include="font.cpp" />
+    <ClCompile Include="Global.cpp" />
+    <ClCompile Include="Information.cpp" />
+    <ClCompile Include="KeyQueryEar.cpp" />
+    <ClCompile Include="Label.cpp" />
+    <ClCompile Include="layouts.cpp" />
+    <ClCompile Include="msdgridctrl.cpp" />
+    <ClCompile Include="msflexgrid.cpp" />
+    <ClCompile Include="GeomQueryEar.cpp" />
+    <ClCompile Include="OrderkeyDlg.cpp" />
+    <ClCompile Include="picture.cpp" />
+    <ClCompile Include="POU.cpp" />
+    <ClCompile Include="POUDBGridCtrl.cpp" />
+    <ClCompile Include="POUPane.cpp" />
+    <ClCompile Include="POUTDBGridCtrl.cpp" />
+    <ClCompile Include="printinfo.cpp" />
+    <ClCompile Include="printinfos.cpp" />
+    <ClCompile Include="QueryPane.cpp" />
+    <ClCompile Include="rdc.cpp" />
+    <ClCompile Include="selbookmarks.cpp" />
+    <ClCompile Include="SexageCtrl.cpp" />
+    <ClCompile Include="split.cpp" />
+    <ClCompile Include="splits.cpp" />
+    <ClCompile Include="SQLDlg.cpp" />
+    <ClCompile Include="StatDlg.cpp" />
+    <ClCompile Include="styledisp.cpp" />
+    <ClCompile Include="styles.cpp" />
+    <ClCompile Include="TablePane.cpp" />
+    <ClCompile Include="TabQueryEar.cpp" />
+    <ClCompile Include="TDBGridCtrl.cpp" />
+    <ClCompile Include="truedbgridctrl.cpp" />
+    <ClCompile Include="valueitemdisp.cpp" />
+    <ClCompile Include="valueitems.cpp" />
+    <ClCompile Include="WhereDlg.cpp" />
+    <ClCompile Include="WherePickPage.cpp" />
+    <ClCompile Include="WhereTextPage.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Information.def" />
+    <None Include="res\Atlas_ToolBar24.bmp" />
+    <None Include="res\bitmap1.bmp" />
+    <None Include="res\bitmap2.bmp" />
+    <None Include="res\bmp00001.bmp" />
+    <None Include="res\bmp00002.bmp" />
+    <None Include="res\cross.cur" />
+    <None Include="res\cur00001.cur" />
+    <None Include="res\cursor1.cur" />
+    <None Include="res\DataGrid.bmp" />
+    <None Include="res\DbGrid.bmp" />
+    <None Include="res\DBGrid24..bmp" />
+    <None Include="res\DBGrid24.bmp" />
+    <None Include="res\Hot.cur" />
+    <None Include="res\icon1.ico" />
+    <None Include="res\informat.cur" />
+    <None Include="res\Information.rc2" />
+    <None Include="Information.rgs" />
+    <None Include="res\ItemImage.bmp" />
+    <None Include="res\ItemState.bmp" />
+    <None Include="res\measure.cur" />
+    <None Include="res\MenuArrow.bmp" />
+    <None Include="res\Output.bmp" />
+    <None Include="res\pane_dat.bmp" />
+    <None Include="res\pane_out.bmp" />
+    <None Include="res\pincurso.cur" />
+    <None Include="res\Positioner.cur" />
+    <None Include="res\POU.ico" />
+    <None Include="res\POU_Pane.bmp" />
+    <None Include="res\POUToolBar.bmp" />
+    <None Include="res\Query.ico" />
+    <None Include="res\QueryImage.bmp" />
+    <None Include="res\QueryState.bmp" />
+    <None Include="res\QuickSearch.bmp" />
+    <None Include="res\Round.cur" />
+    <None Include="res\select.cur" />
+    <None Include="res\sort.bmp" />
+    <None Include="res\sort24.bmp" />
+    <None Include="res\Symbol.bmp" />
+    <None Include="res\Table.ico" />
+    <None Include="res\TablePane_Toolbar-HC.bmp" />
+    <None Include="res\TablePane_Toolbar-NM.bmp" />
+    <None Include="res\TablePane_Toolbar.bmp" />
+    <None Include="res\TablePane_Toolbar24.bmp" />
+    <None Include="res\Tb_DbGrid.bmp" />
+    <None Include="res\Tool.bmp" />
+    <None Include="res\toolbar.bmp" />
+    <None Include="res\toolbar1.bmp" />
+    <None Include="res\Attribute.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="res\html1.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Information.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ATTDBGridCtrl.h" />
+    <ClInclude Include="ATTTDBGridCtrl.h" />
+    <ClInclude Include="ColumnPicker.h" />
+    <ClInclude Include="FieldsPicker.h" />
+    <ClInclude Include="OutputList.h" />
+    <ClInclude Include="POUList.h" />
+    <ClInclude Include="POUListCtrl.h" />
+    <ClInclude Include="Poupin.h" />
+    <ClInclude Include="_recordset.h" />
+    <ClInclude Include="Adodc.h" />
+    <ClInclude Include="Chart.h" />
+    <ClInclude Include="ChartBar.h" />
+    <ClInclude Include="column.h" />
+    <ClInclude Include="Columns.h" />
+    <ClInclude Include="ComboBoxEm.h" />
+    <ClInclude Include="CooQueryEar.h" />
+    <ClInclude Include="Crack.h" />
+    <ClInclude Include="DatabaseDlg.h" />
+    <ClInclude Include="DBGridCtrl.h" />
+    <ClInclude Include="DegreeCtrl.h" />
+    <ClInclude Include="ExecuteSQLProc.h" />
+    <ClInclude Include="field.h" />
+    <ClInclude Include="FieldDlg.h" />
+    <ClInclude Include="Fields.h" />
+    <ClInclude Include="font.h" />
+    <ClInclude Include="Global.h" />
+    <ClInclude Include="Information.h" />
+    <ClInclude Include="InPlaceEdit.h" />
+    <ClInclude Include="InPlaceList.h" />
+    <ClInclude Include="KeyQueryEar.h" />
+    <ClInclude Include="Label.h" />
+    <ClInclude Include="layouts.h" />
+    <ClInclude Include="ListCtrlEx.h" />
+    <ClInclude Include="msdgridctrl.h" />
+    <ClInclude Include="msflexgrid.h" />
+    <ClInclude Include="GeomQueryEar.h" />
+    <ClInclude Include="OrderkeyDlg.h" />
+    <ClInclude Include="picture.h" />
+    <ClInclude Include="POU.h" />
+    <ClInclude Include="POUDBGridCtrl.h" />
+    <ClInclude Include="POUPane.h" />
+    <ClInclude Include="POUTDBGridCtrl.h" />
+    <ClInclude Include="printinfo.h" />
+    <ClInclude Include="printinfos.h" />
+    <ClInclude Include="QueryPane.h" />
+    <ClInclude Include="rdc.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="selbookmarks.h" />
+    <ClInclude Include="SexageCtrl.h" />
+    <ClInclude Include="split.h" />
+    <ClInclude Include="splits.h" />
+    <ClInclude Include="SQLDlg.h" />
+    <ClInclude Include="StatDlg.h" />
+    <ClInclude Include="StdAfx.h" />
+    <ClInclude Include="styledisp.h" />
+    <ClInclude Include="styles.h" />
+    <ClInclude Include="TablePane.h" />
+    <ClInclude Include="TabQueryEar.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="TDBGridCtrl.h" />
+    <ClInclude Include="truedbgridctrl.h" />
+    <ClInclude Include="valueitemdisp.h" />
+    <ClInclude Include="valueitems.h" />
+    <ClInclude Include="WhereDlg.h" />
+    <ClInclude Include="WherePickPage.h" />
+    <ClInclude Include="WhereTextPage.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Database\Database.vcxproj">
+      <Project>{34538817-80f0-4640-8eb2-521eb0de007c}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Dataview\Dataview.vcxproj">
+      <Project>{c2b3c401-48dc-46f8-ae2c-e6a9e7f602d6}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Geometry\Geometry.vcxproj">
+      <Project>{e077340a-cc20-4ab3-8317-de65020bae49}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Projection\Projection.vcxproj">
+      <Project>{8ef6dfc8-e191-4344-a763-044fc95699c3}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Public\Public.vcxproj">
+      <Project>{4939c318-2298-4178-843e-25acf119ddd6}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Style\Style.vcxproj">
+      <Project>{06562e7d-4456-4133-af94-c88f48fd8f9f}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties RESOURCE_FILE="Information.rc" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

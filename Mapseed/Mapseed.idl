@@ -1,0 +1,96 @@
+// Mapseed.idl : ActiveX 控件项目的类型库源。
+
+// 此文件将由 MIDL 编译器工具处理以
+//产生类型库(Mapseed.tlb)，该类型库将成为 
+// Mapseed.ocx 中的资源。
+
+#include <olectl.h>
+#include <idispids.h>
+
+[ uuid(5F5507F6-78CE-4F17-AD6F-5A8088ECF6AD), version(1.0), helpfile("Mapseed.hlp"), helpstring("Mapseed ActiveX 控件模块"), control ]
+library MapseedLib
+{
+	importlib(STDOLE_TLB);
+
+	//  CMapseedCtrl 的主调度接口
+	[ uuid(F119C744-E94A-4DC7-9A81-B3F96A1E7211), helpstring("Mapseed Control 的调度接口")]
+	dispinterface _DMapseed
+	{
+		properties:
+		[id(1), helpstring("属性 FileName")] BSTR FileName;
+		[id(5), helpstring("属性 Zoom")] USHORT Zoom;
+
+		methods:
+			[id(DISPID_ABOUTBOX)] void AboutBox();
+			[id(3),  helpstring("方法GetViewPosX")] long GetViewPosX(void);
+			[id(4),  helpstring("方法GetViewPosY")] long GetViewPosY(void);
+			[id(6),  helpstring("方法GetViewSizeCX")] LONG GetViewSizeCX(void);
+			[id(7),  helpstring("方法GetViewSizeCY")] LONG GetViewSizeCY(void);
+			[id(8),  helpstring("方法ClientToDocPoint")] void ClientToDocPoint(LONG* x, LONG* y);
+			[id(9),  helpstring("方法ClientToDocSize")] void ClientToDocSize(LONG* cx, LONG* cy);
+			[id(10), helpstring("方法ClientToDocRect")] void ClientToDocRect(LONG* left,LONG* top,LONG* right,LONG* bottom);
+			[id(11),  helpstring("方法DocToClientPoint")] void DocToClientPoint(LONG* x, LONG* y);
+			[id(12),  helpstring("方法DocToClientSize")] void DocToClientSize(LONG* cx, LONG* cy);
+			[id(13), helpstring("方法DocToClientRect")] void DocToClientRect(LONG* left,LONG* top,LONG* right,LONG* bottom);
+			[id(14), helpstring("方法DocToMap")] void DocToMap(LONG* doxX, LONG* doxY, DOUBLE* mapX, DOUBLE* mapY);
+			[id(15), helpstring("方法MapToDoc")] void MapToDoc(DOUBLE* mapX, DOUBLE* mapY,LONG* doxX, LONG* doxY);
+			[id(16), helpstring("方法MapToGeo")] void MapToGeo(DOUBLE* mapX, DOUBLE* mapY,DOUBLE* geoX, DOUBLE* geoY);
+			[id(17), helpstring("方法GeoToMap")] void GeoToMap(DOUBLE* geoX, DOUBLE* geoY,DOUBLE* mapX, DOUBLE* mapY);
+			
+			[id(19), helpstring("方法Scroll")] void Scroll(LONG cx, LONG cy, VARIANT_BOOL bUpdate);
+			[id(20), helpstring("方法AimatView")] void AimatView(LONG docX, LONG docY, LONG cliX, LONG cliY);
+
+			[id(21), helpstring("方法SetPanTool")] void SetPanTool(void);
+			[id(22), helpstring("方法SetLengthTool")] void SetLengthTool(void);
+			[id(23), helpstring("方法SetAreaTool")] void SetAreaTool(void);
+			[id(24), helpstring("方法SetZoomInTool")] void SetZoomInTool(void);
+			[id(25), helpstring("方法SetZoomOutTool")] void SetZoomOutTool(void);
+			[id(26), helpstring("方法OpenAtlas")] VARIANT_BOOL OpenAtlas(BSTR strAtlas);
+			[id(27), helpstring("方法OpenMap")] VARIANT_BOOL OpenMap(BSTR strFile);
+			[id(28), helpstring("方法SetNullTool")] void SetNullTool(void);
+			[id(29), helpstring("方法CloseAtlas")] void CloseAtlas(void);
+			[id(30), helpstring("方法CloseMap")] void CloseMap(void);
+			[id(31), helpstring("方法MatchMap")] VARIANT_BOOL MatchMap(DOUBLE longitude, DOUBLE latitude);
+			[id(32), helpstring("方法GetMapName")] BSTR GetMapName(void);
+			[id(33), helpstring("方法GetMapSize")] void GetMapSize(LONG* cx, LONG* cy);
+			[id(34), helpstring("方法SetViewZoom")] void SetViewZoom(USHORT uZoom);
+			[id(35), helpstring("方法SetTrafficTool")] void SetTrafficTool(USHORT status);
+			[id(36), helpstring("方法GetRoutelist")] BSTR GetRoutelist();
+			[id(37), helpstring("方法QueryRouteByStation")] VARIANT_BOOL QueryRouteByStation(BSTR bstrStart,BSTR bstrEnd);
+			[id(38), helpstring("方法ShowTraffic")] void ShowTraffic(USHORT index);
+			[id(39), helpstring("方法SetInfoTool")] void SetInfoTool();
+			[id(40), helpstring("方法GetInfo")] BSTR GetInfo();
+	};
+
+
+	//  CMapseedCtrl 的事件调度接口
+	[ uuid(C40570B4-C981-4492-8978-76D8FF2125EF), helpstring("Mapseed Control 的事件接口") ]
+	dispinterface _DMapseedEvents
+	{
+		properties:
+			//  事件接口没有任何属性
+
+		methods:
+		// NOTE - ClassWizard will maintain event information here.
+		//    Use extreme caution when editing this section.
+		//{{AFX_ODL_EVENT(CMapseedCtrl)
+		[id(1)] void DrawOver(void);
+		[id(200)] void SearchRouteOver(void);
+		[id(201)] void HasInfo(void);
+		//}}AFX_ODL_EVENT
+		
+
+		[id(DISPID_MOUSEMOVE)] void MouseMove(SHORT Button, SHORT Shift, OLE_XPOS_PIXELS x, OLE_YPOS_PIXELS y);
+		[id(DISPID_MOUSEDOWN)] void MouseDown(SHORT Button, SHORT Shift, OLE_XPOS_PIXELS x, OLE_YPOS_PIXELS y);
+		[id(DISPID_CLICK)] void Click(void);
+		[id(DISPID_DBLCLICK)] void DblClick(void);
+	};
+
+	//  CMapseedCtrl 的类信息
+	[ uuid(2A5CCA81-DF7F-4A80-BB90-A8DA0A28BF31), licensed, helpstring("Mapseed Control"), control ]
+	coclass Mapseed
+	{
+		[default] dispinterface _DMapseed;
+		[default, source] dispinterface _DMapseedEvents;
+	};
+};

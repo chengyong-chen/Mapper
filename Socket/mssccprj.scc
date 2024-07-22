@@ -1,0 +1,5 @@
+SCC = This is a Source Code Control file
+
+[Socket.dsp]
+SCC_Aux_Path = "\\server\e$\Mapday_SourceSafe\Mapday_Server"
+SCC_Project_Name = "$/", AAAAAAAA

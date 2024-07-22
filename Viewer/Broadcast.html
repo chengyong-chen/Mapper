@@ -1,0 +1,45 @@
+lient(cliPoint);
+		DocToClient(zoomRect);
+		
+		m_pPaper.Zoom(this,m_uZoom,docPoint,cliPoint,0.5);
+	}
+
+	return 0L;
+}
+
+LONG CMapseedCtrl::OnPrepareDC(UINT WPARAM, LONG LPARAM)
+{
+	CDC* pDC = (CDC*)WPARAM;
+	CPrintInfo* pInfo = (CPrintInfo*)LPARAM;
+
+	OnPrepareDC(pDC,pInfo);
+
+	return 1L;
+}
+
+LONG CGrfView::OnSetMatrix(UINT WPARAM, LONG LPARAM)
+{
+	Matrix* matrix = (Matrix*)WPARAM;
+	if(matrix == NULL)
+		return 0;
+
+	switch(LPARAM)
+	{
+	case 0:
+		{
+			REAL m[6];
+			matrixDoctoCli.GetElements(m);
+			matrix->SetElements(m[0],m[1],m[2],m[3],m[4],m[5]) ;
+		}
+		break;
+	case 1:
+		{
+			REAL m[6];
+			matrixDoctoWin.GetElements(m);
+			matrix->SetElements(m[0],m[1],m[2],m[3],m[4],m[5]) ;
+		}
+		break;
+	case 2:
+		{
+			REAL m[6];
+			matrixClitoDoc.Ge

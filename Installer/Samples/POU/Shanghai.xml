@@ -1,0 +1,45 @@
+﻿<Map>
+    <Pou PinWebservice="http://www.yourdomainname.com/Webservice/Poupins.asmx?wsdl" />
+    <Background>
+        <Provider Name="Google" minBalancer="0" maxBalancer="3">
+            <Projection Type="Mercator" minX="-180" minY="-85.05112877980659" maxX="180" maxY="85.05112877980659" />
+            <Varieties>
+                <Variety Name="Road" minLevel="0" maxLevel="19" Server="http://mt{Balancer}.google.com/" Path="vt/lyrs=m@167000000x={X}y={Y}z={Z}s=Galileo" />
+                <Variety Name="Satellite" minLevel="0" maxLevel="19" Server="http://khm{Balancer}.google.com/" Path="kh/v=109src=appx={X}y={Y}z={Z}s=Galileo" />
+                <Variety Name="Terrian" minLevel="0" maxLevel="15" Server="http://mt{Balancer}.google.com/" Path="vt/lyrs=t@128,r@167000000x={X}y={Y}z={Z}s=Galileo" />
+            </Varieties>
+        </Provider>
+        <!--<Provider Name="Tianditu" minBalancer="1"  maxBalancer="4">
+      <Projection Type="Mercator" minX="-180" minY="-85.05112877980659" maxX="180" maxY="85.05112877980659"/>
+      <Varieties>
+        <Variety Name="Road" minLevel="0" maxLevel="18" Server="http://tile{Balancer}.tianditu.com/" Path="DataServer?T=siwei0608&X={X}&Y={Y}&L={Z}"/>
+        <Variety Name="Hybrid" minLevel="0" maxLevel="18" Server="http://tile{Balancer}.tianditu.com/" Path="DataServer?T=siwei0608&X={X}&Y={Y}&L={Z}"/>
+        <Variety Name="Satellite" minLevel="0" maxLevel="18" Server="http://tile{Balancer}.tianditu.com/" Path="DataServer?T=siwei0608&X={X}&Y={Y}&L={Z}"/>
+      </Varieties>
+    </Provider>-->
+        <Provider Name="Bing" Visible="0" minBalancer="0" maxBalancer="3">
+            <Projection Type="Mercator" minX="-180" minY="-85.05112877980659" maxX="180" maxY="85.05112877980659" />
+            <Varieties>
+                <Variety Name="Automatic" minLevel="1" maxLevel="19" Server="http://ecn.dynamic.t{Balancer}.tiles.virtualearth.net/" Path="comp/CompositionHandler/{XYZ}?mkt=en-cait=A,G,Ln=z" />
+                <Variety Name="Aerial" minLevel="1" maxLevel="19" Server="http://ecn.t{Balancer}.tiles.virtualearth.net/" Path="tiles/a{XYZ}.jpeg?g=845n=z" />
+                <Variety Name="Road" minLevel="1" maxLevel="19" Server="http://ecn.t{Balancer}.tiles.virtualearth.net/" Path="tiles/r{XYZ}?g=845lbl=l1stl=hshading=hilln=z" />
+            </Varieties>
+        </Provider>
+        <Provider Name="MapQuest" minBalancer="1" maxBalancer="4">
+            <Projection Type="Mercator" minX="-180" minY="-85.05112877980659" maxX="180" maxY="85.05112877980659" />
+            <Varieties>
+                <Variety Name="Road" minLevel="0" maxLevel="18" Server="http://vtiles0{Balancer}.mqcdn.com/" Path="tiles/1.0.0/vy/map/{Z}/{X}/{Y}.png" />
+                <Variety Name="Satellite" minLevel="0" maxLevel="18" Server="http://vtiles0{Balancer}.mqcdn.com/" Path="tiles/1.0.0/vy/sat/{Z}/{X}/{Y}.png" />
+                <Variety Name="Hybrid" minLevel="0" maxLevel="18" Server="http://vtiles0{Balancer}.mqcdn.com/" Path="tiles/1.0.0/vy/hyb/{Z}/{X}/{Y}.png" />
+            </Varieties>
+        </Provider>
+        <Provider Name="Yahoo" minBalancer="1" maxBalancer="4">
+            <Projection Type="Mercator" minX="-180" minY="-85.05112877980659" maxX="180" maxY="85.05112877980659" />
+            <Varieties>
+                <Variety Name="Road" minLevel="0" maxLevel="18" Server="http://{Balancer}.maptile.lbs.ovi.com/" Path="maptiler/v2/maptile/279af375be/normal.day/{Z}/{X}/{Y}/256/png8?token=TrLJuXVK62IQk0vuXFzaig%3D%3D" />
+                <Variety Name="Hybrid" minLevel="0" maxLevel="18" Server="http://{Balancer}.maptile.lbs.ovi.com/" Path="maptiler/v2/maptile/279af375be/hybrid.day/{Z}/{X}/{Y}/256/jpg?token=TrLJuXVK62IQk0vuXFzaig%3D%3D" />
+                <Variety Name="Satellite" minLevel="0" maxLevel="18" Server="http://{Balancer}.maptile.lbs.ovi.com/" Path="maptiler/v2/maptile/279af375be/satellite.day/{Z}/{X}/{Y}/256/jpg?token=TrLJuXVK62IQk0vuXFzaig%3D%3D" />
+            </Varieties>
+        </Provider>
+    </Background>
+</Map>

@@ -1,0 +1,330 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{46BD1799-D44D-4BF2-A30C-40BB6D82F2EF}</ProjectGuid>
+    <RootNamespace>Tool</RootNamespace>
+    <Keyword>MFCProj</Keyword>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>..\..\Thirdparty\boost\1.83.0;..\..\ThirdParty\libharu\2.4.4\win32\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>..\..\ThirdParty\libharu\2.4.4\win32\include;..\..\Thirdparty\boost\1.83.0;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+    </Midl>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;_USRDLL;JSON_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <BrowseInformation>true</BrowseInformation>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <BuildStlModules>false</BuildStlModules>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>VFW32.lib;WINMM.lib;gdiplus.lib;..\Geometry\Debug\Geometry.lib;..\Style\Debug\Style.lib;..\Dataview\Debug\Dataview.lib;..\Public\Debug\Public.lib;..\Database\Debug\Database.lib;..\Rectify\Debug\Rectify.lib;..\Projection\Debug\Projection.lib</AdditionalDependencies>
+      <ModuleDefinitionFile>.\Tool.def</ModuleDefinitionFile>
+      <SubSystem>Windows</SubSystem>
+      <ImportLibrary>$(ProjectDir)$(Configuration)\$(TargetName).lib</ImportLibrary>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <Profile>true</Profile>
+      <IgnoreSpecificDefaultLibraries>
+      </IgnoreSpecificDefaultLibraries>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <OptimizeReferences>false</OptimizeReferences>
+      <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
+      <AdditionalLibraryDirectories>D:\Workshop\ThirdParty\boost\1.83.0\lib32-msvc-14.3</AdditionalLibraryDirectories>
+    </Link>
+    <Bscmake>
+      <PreserveSbr>true</PreserveSbr>
+    </Bscmake>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+    </Midl>
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <BuildStlModules>false</BuildStlModules>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>VFW32.lib;WINMM.lib;Gdiplus.lib;..\Geometry\Release\Geometry.lib;..\Style\Release\Style.lib;..\Dataview\Release\Dataview.lib;..\Public\Release\Public.lib;..\Database\Release\Database.lib;..\Rectify\Release\Rectify.lib;..\Projection\Release\Projection.lib</AdditionalDependencies>
+      <ModuleDefinitionFile>.\Tool.def</ModuleDefinitionFile>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <ImportLibrary>$(ProjectDir)$(Configuration)\$(TargetName).lib</ImportLibrary>
+      <Profile>false</Profile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>D:\Workshop\ThirdParty\boost\1.83.0\lib32-msvc-14.3</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="AreaTool.cpp" />
+    <ClCompile Include="BezierTool.cpp" />
+    <ClCompile Include="BoundTool.cpp" />
+    <ClCompile Include="BufferTool.cpp" />
+    <ClCompile Include="DatumTool.cpp" />
+    <ClCompile Include="DispatchTool.cpp" />
+    <ClCompile Include="DrawToolWnd.cpp" />
+    <ClCompile Include="EditGeom.cpp" />
+    <ClCompile Include="EllipseTool.cpp" />
+    <ClCompile Include="EroseTool.cpp" />
+    <ClCompile Include="ExportDIBDlg.cpp" />
+    <ClCompile Include="ExtentDlg.cpp" />
+    <ClCompile Include="HyperlinkStatic.cpp" />
+    <ClCompile Include="ImageTool.cpp" />
+    <ClCompile Include="InfoTool.cpp" />
+    <ClCompile Include="InfoToolWnd.cpp" />
+    <ClCompile Include="InjectTool.cpp" />
+    <ClCompile Include="InsertTool.cpp" />
+    <ClCompile Include="LengthTool.cpp" />
+    <ClCompile Include="LinkTool.cpp" />
+    <ClCompile Include="MarkTool.cpp" />
+    <ClCompile Include="MarqueeTool.cpp" />
+    <ClCompile Include="PanTool.cpp" />
+    <ClCompile Include="PointCtrl.cpp" />
+    <ClCompile Include="PolyTool.cpp" />
+    <ClCompile Include="PositionTool.cpp" />
+    <ClCompile Include="PRectTool.cpp" />
+    <ClCompile Include="PrintTool.cpp" />
+    <ClCompile Include="RadiusTool.cpp" />
+    <ClCompile Include="RectDlg.cpp" />
+    <ClCompile Include="ReflectDlg.cpp" />
+    <ClCompile Include="ReflectTool.cpp" />
+    <ClCompile Include="RegionTool.cpp" />
+    <ClCompile Include="RotateDlg.cpp" />
+    <ClCompile Include="RotateTool.cpp" />
+    <ClCompile Include="RoundTool.cpp" />
+    <ClCompile Include="RouteTool.cpp" />
+    <ClCompile Include="RRectTool.cpp" />
+    <ClCompile Include="RulerTool.cpp" />
+    <ClCompile Include="ScaleDlg.cpp" />
+    <ClCompile Include="ScaleTool.cpp" />
+    <ClCompile Include="SelectTool.cpp" />
+    <ClCompile Include="SkewDlg.cpp" />
+    <ClCompile Include="SkewTool.cpp" />
+    <ClCompile Include="SmearTool.cpp" />
+    <ClCompile Include="SpinTool.cpp" />
+    <ClCompile Include="SplitTool.cpp" />
+    <ClCompile Include="ToolApp.cpp" />
+    <ClCompile Include="TextPolyTool.cpp" />
+    <ClCompile Include="TextTool.cpp" />
+    <ClCompile Include="Tool.cpp" />
+    <ClCompile Include="TopoCrossTool.cpp" />
+    <ClCompile Include="TopoPickTool.cpp" />
+    <ClCompile Include="ZoomTool.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\cursor1.cur" />
+    <None Include="res\Datum.cur" />
+    <None Include="res\Inject.cur" />
+    <None Include="res\Position.cur" />
+    <None Include="Tool.def" />
+    <None Include="res\Area.cur" />
+    <None Include="res\bottom.cur" />
+    <None Include="res\bottom1.cur" />
+    <None Include="res\Cross.cur" />
+    <None Include="res\cur00001.cur" />
+    <None Include="cur151.cur" />
+    <None Include="cur159.cur" />
+    <None Include="cur160.cur" />
+    <None Include="res\Down.cur" />
+    <None Include="res\DrawTool.bmp" />
+    <None Include="res\ghtidc_r.cur" />
+    <None Include="res\Grabber.cur" />
+    <None Include="res\horzguid.cur" />
+    <None Include="res\Hot.cur" />
+    <None Include="res\hot1.cur" />
+    <None Include="res\idc_.cur" />
+    <None Include="res\Image.cur" />
+    <None Include="res\Info.cur" />
+    <None Include="res\info1.cur" />
+    <None Include="res\informat.cur" />
+    <None Include="res\InfoTool.bmp" />
+    <None Include="res\Insert.cur" />
+    <None Include="res\left.cur" />
+    <None Include="res\left1cur.cur" />
+    <None Include="res\Length.cur" />
+    <None Include="res\Mark.cur" />
+    <None Include="res\measure.cur" />
+    <None Include="res\Move.cur" />
+    <None Include="res\nodeCross.cur" />
+    <None Include="res\NodeDisjoin.cur" />
+    <None Include="res\NodeInsert.cur" />
+    <None Include="res\nodeRemove.cur" />
+    <None Include="res\pincurso.cur" />
+    <None Include="res\Pitch.cur" />
+    <None Include="res\placetif.cur" />
+    <None Include="res\rea.cur" />
+    <None Include="res\Right.cur" />
+    <None Include="res\Round.cur" />
+    <None Include="res\Route.cur" />
+    <None Include="res\Ruler.cur" />
+    <None Include="res\select.cur" />
+    <None Include="res\select1.cur" />
+    <None Include="res\Stalemate.cur" />
+    <None Include="res\Star.cur" />
+    <None Include="res\text.cur" />
+    <None Include="res\Tool.rc2" />
+    <None Include="res\Top.cur" />
+    <None Include="res\topo_Split.cur" />
+    <None Include="res\TopoCross.cur" />
+    <None Include="res\TopoDisjoin.cur" />
+    <None Include="res\TopoPick.cur" />
+    <None Include="res\TopoSplit.cur" />
+    <None Include="res\Up.cur" />
+    <None Include="res\UpArrow.bmp" />
+    <None Include="res\vertguid.cur" />
+    <None Include="res\waypoint.cur" />
+    <None Include="res\zoomin.cur" />
+    <None Include="res\zoomout.cur" />
+    <None Include="res\zoomzero.cur" />
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Tool.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="SpinTool.h" />
+    <ClInclude Include="ToolApp.h" />
+    <ClInclude Include="AreaTool.h" />
+    <ClInclude Include="BezierTool.h" />
+    <ClInclude Include="BoundTool.h" />
+    <ClInclude Include="BufferTool.h" />
+    <ClInclude Include="DatumTool.h" />
+    <ClInclude Include="DispatchTool.h" />
+    <ClInclude Include="DrawToolWnd.h" />
+    <ClInclude Include="EditGeom.h" />
+    <ClInclude Include="EllipseTool.h" />
+    <ClInclude Include="EroseTool.h" />
+    <ClInclude Include="ExportDIBDlg.h" />
+    <ClInclude Include="ExtentDlg.h" />
+    <ClInclude Include="Global.h" />
+    <ClInclude Include="HyperlinkStatic.h" />
+    <ClInclude Include="ImageTool.h" />
+    <ClInclude Include="InfoTool.h" />
+    <ClInclude Include="InfoToolWnd.h" />
+    <ClInclude Include="InjectTool.h" />
+    <ClInclude Include="InsertTool.h" />
+    <ClInclude Include="LengthTool.h" />
+    <ClInclude Include="LinkTool.h" />
+    <ClInclude Include="MarkTool.h" />
+    <ClInclude Include="MarqueeTool.h" />
+    <ClInclude Include="PanTool.h" />
+    <ClInclude Include="PointCtrl.h" />
+    <ClInclude Include="PolyTool.h" />
+    <ClInclude Include="PositionTool.h" />
+    <ClInclude Include="PRectTool.h" />
+    <ClInclude Include="PrintTool.h" />
+    <ClInclude Include="RadiusTool.h" />
+    <ClInclude Include="RectDlg.h" />
+    <ClInclude Include="ReflectDlg.h" />
+    <ClInclude Include="ReflectTool.h" />
+    <ClInclude Include="RegionTool.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="RotateDlg.h" />
+    <ClInclude Include="RotateTool.h" />
+    <ClInclude Include="RoundTool.h" />
+    <ClInclude Include="RouteTool.h" />
+    <ClInclude Include="RRectTool.h" />
+    <ClInclude Include="RulerTool.h" />
+    <ClInclude Include="ScaleDlg.h" />
+    <ClInclude Include="ScaleTool.h" />
+    <ClInclude Include="SelectTool.h" />
+    <ClInclude Include="SkewDlg.h" />
+    <ClInclude Include="SkewTool.h" />
+    <ClInclude Include="SmearTool.h" />
+    <ClInclude Include="SplitTool.h" />
+    <ClInclude Include="StdAfx.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="TextPolyTool.h" />
+    <ClInclude Include="TextTool.h" />
+    <ClInclude Include="Tool.h" />
+    <ClInclude Include="TopoCrossTool.h" />
+    <ClInclude Include="TopoPickTool.h" />
+    <ClInclude Include="ZoomTool.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Database\Database.vcxproj">
+      <Project>{34538817-80f0-4640-8eb2-521eb0de007c}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Dataview\Dataview.vcxproj">
+      <Project>{c2b3c401-48dc-46f8-ae2c-e6a9e7f602d6}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Geometry\Geometry.vcxproj">
+      <Project>{e077340a-cc20-4ab3-8317-de65020bae49}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Public\Public.vcxproj">
+      <Project>{4939c318-2298-4178-843e-25acf119ddd6}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Rectify\Rectify.vcxproj">
+      <Project>{eaaead0f-224f-411b-b09b-b5022f1f9b38}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Style\Style.vcxproj">
+      <Project>{06562e7d-4456-4133-af94-c88f48fd8f9f}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

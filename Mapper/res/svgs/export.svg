@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+
+<svg
+   width="800px"
+   height="800px"
+   viewBox="0 0 32 32"
+   version="1.1"
+   id="svg5233"
+   sodipodi:docname="export.svg"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs5237" />
+  <sodipodi:namedview
+     id="namedview5235"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="1.04625"
+     inkscape:cx="297.25209"
+     inkscape:cy="400.4779"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg5233" />
+  <g
+     id="Lager_2"
+     data-name="Lager 2"
+     transform="translate(0 0)"
+     style="fill:#2e3436;fill-opacity:1">
+    <g
+       id="Group_1"
+       data-name="Group 1"
+       style="fill:#2e3436;fill-opacity:1">
+      <path
+         id="Path_2"
+         data-name="Path 2"
+         d="M30.02,20h-.04A1.979,1.979,0,0,0,28,21.98V27a1,1,0,0,1-1,1H5a1,1,0,0,1-1-1V5A1,1,0,0,1,5,4h9.02A1.979,1.979,0,0,0,16,2.02V1.98A1.979,1.979,0,0,0,14.02,0H1.98A1.979,1.979,0,0,0,0,1.98V30.02A1.979,1.979,0,0,0,1.98,32H30.02A1.979,1.979,0,0,0,32,30.02L31.98,30H32V21.98A1.979,1.979,0,0,0,30.02,20Z"
+         fill="#100a0b"
+         style="fill:#2e3436;fill-opacity:1" />
+      <path
+         id="Path_3"
+         data-name="Path 3"
+         d="M24.944,5.712c-5.679.405-10.051,2.269-13.013,5.561a15.421,15.421,0,0,0-3.868,9.352,2.124,2.124,0,0,0,2.111,2.361l.1-.01a1.949,1.949,0,0,0,1.732-1.809,12.177,12.177,0,0,1,2.929-7.251c2.207-2.432,5.593-3.831,10.066-4.19V10h-.056l-.043.268L22.6,12.6a2.017,2.017,0,0,0,0,2.833,1.969,1.969,0,0,0,2.807,0l6.016-6.074a2.018,2.018,0,0,0,0-2.834l-6-5.933a1.97,1.97,0,0,0-2.806,0,2.016,2.016,0,0,0,0,2.834Z"
+         fill="#100a0b"
+         style="fill:#2e3436;fill-opacity:1" />
+    </g>
+  </g>
+</svg>

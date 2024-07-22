@@ -1,0 +1,6 @@
+; Thrdmap.def : Declares the module parameters for the DLL.
+
+LIBRARY      "Thrdmap"
+
+EXPORTS
+    ; Explicit exports can go here

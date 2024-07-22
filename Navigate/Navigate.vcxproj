@@ -1,0 +1,292 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{F8DCE2C7-41A0-454D-8B1F-1FAE7E18F05C}</ProjectGuid>
+    <RootNamespace>Navigate</RootNamespace>
+    <Keyword>MFCProj</Keyword>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Configuration)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Configuration)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\Thirdparty\boost\1.83.0;..\..\ThirdParty\libharu\2.4.4\win32\include;$(IncludePath)</IncludePath>
+    <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\Thirdparty\boost\1.83.0;..\..\ThirdParty\libharu\2.4.4\win32\include;$(IncludePath)</IncludePath>
+    <LibraryPath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+    </Midl>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;_USRDLL;JSON_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <BrowseInformation>true</BrowseInformation>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <BuildStlModules>false</BuildStlModules>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>SetupApi.lib;winmm.lib;tapi32.lib;Gdiplus.lib;..\Public\Debug\Public.lib;..\Database\Debug\Database.lib;..\Projection\Debug\Projection.lib;..\Dataview\Debug\Dataview.lib;..\Coding\Debug\Coding.lib;..\Socket\Debug\Socket.lib;..\Geometry\Debug\Geometry.lib</AdditionalDependencies>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+      <ModuleDefinitionFile>.\Navigate.def</ModuleDefinitionFile>
+      <SubSystem>Windows</SubSystem>
+      <ImportLibrary>$(ProjectDir)$(Configuration)\$(TargetName).lib</ImportLibrary>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <Profile>false</Profile>
+      <OptimizeReferences>false</OptimizeReferences>
+      <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
+      <AdditionalLibraryDirectories>D:\Workshop\ThirdParty\boost\1.83.0\lib32-msvc-14.3</AdditionalLibraryDirectories>
+    </Link>
+    <Bscmake>
+      <PreserveSbr>true</PreserveSbr>
+    </Bscmake>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+    </Midl>
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <BuildStlModules>false</BuildStlModules>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>SetupApi.lib;winmm.lib;tapi32.lib;Gdiplus.lib;..\Public\Release\Public.lib;..\Database\Release\Database.lib;..\Projection\Release\Projection.lib;..\Dataview\Release\Dataview.lib;..\Coding\Release\Coding.lib;..\Socket\Release\Socket.lib;..\Geometry\Release\Geometry.lib</AdditionalDependencies>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+      <ModuleDefinitionFile>.\Navigate.def</ModuleDefinitionFile>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <ImportLibrary>$(ProjectDir)$(Configuration)\$(TargetName).lib</ImportLibrary>
+      <Profile>false</Profile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>D:\Workshop\ThirdParty\boost\1.83.0\lib32-msvc-14.3</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="CallDlg.cpp" />
+    <ClCompile Include="CmdParamDlg.cpp" />
+    <ClCompile Include="DatabasePage.cpp" />
+    <ClCompile Include="Dialit.CPP" />
+    <ClCompile Include="DispatchDlg.cpp" />
+    <ClCompile Include="FileMap.cpp" />
+    <ClCompile Include="FilePoly.cpp" />
+    <ClCompile Include="Global.cpp" />
+    <ClCompile Include="IconPage.cpp" />
+    <ClCompile Include="LED.cpp" />
+    <ClCompile Include="LoginDlg.cpp" />
+    <ClCompile Include="MessageDlg.cpp" />
+    <ClCompile Include="MessageEar.cpp" />
+    <ClCompile Include="ModemInfo.cpp" />
+    <ClCompile Include="ModemPage.CPP" />
+    <ClCompile Include="MonitorEar.cpp" />
+    <ClCompile Include="msdgridctrl.cpp" />
+    <ClCompile Include="msflexgrid.cpp" />
+    <ClCompile Include="Navigate.cpp" />
+    <ClCompile Include="NavinfoDlg.cpp" />
+    <ClCompile Include="NavinfoPane.cpp" />
+    <ClCompile Include="Port.cpp" />
+    <ClCompile Include="PortDlg.cpp" />
+    <ClCompile Include="PortReceiver.cpp" />
+    <ClCompile Include="PortSocket.cpp" />
+    <ClCompile Include="Probe.cpp" />
+    <ClCompile Include="ProxyDlg.cpp" />
+    <ClCompile Include="rdc.cpp" />
+    <ClCompile Include="Replay.cpp" />
+    <ClCompile Include="ReplayDlg.cpp" />
+    <ClCompile Include="ReplayTable.cpp" />
+    <ClCompile Include="RoadTopo.cpp" />
+    <ClCompile Include="Route.cpp" />
+    <ClCompile Include="SearchDlg.cpp" />
+    <ClCompile Include="SearchPage.cpp" />
+    <ClCompile Include="Segment.cpp" />
+    <ClCompile Include="SelectDlg.cpp" />
+    <ClCompile Include="SerialPage.CPP" />
+    <ClCompile Include="SetupSheet.cpp" />
+    <ClCompile Include="SocketPage.cpp" />
+    <ClCompile Include="SpeedPage.cpp" />
+    <ClCompile Include="Vehicle.cpp" />
+    <ClCompile Include="VehicleInfoDlg.cpp" />
+    <ClCompile Include="VehiclePane.cpp" />
+    <ClCompile Include="VehicleTag.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Navigate.def" />
+    <None Include="res\bitmap1.bmp" />
+    <None Include="res\bmp00001.bmp" />
+    <None Include="res\Compass.bmp" />
+    <None Include="res\CompassL.bmp" />
+    <None Include="res\cur161.cur" />
+    <None Include="res\cur162.cur" />
+    <None Include="res\cur163.cur" />
+    <None Include="res\cur165.cur" />
+    <None Include="res\direction.bmp" />
+    <None Include="res\directionS.bmp" />
+    <None Include="res\icon1.ico" />
+    <None Include="res\icon2.ico" />
+    <None Include="res\idb_.bmp" />
+    <None Include="res\led.bmp" />
+    <None Include="res\LEDImages.bmp" />
+    <None Include="res\Navigate.rc2" />
+    <None Include="res\Navinfo.ico" />
+    <None Include="res\NavinfoPane.ico" />
+    <None Include="res\preview.bmp" />
+    <None Include="res\preview1.bmp" />
+    <None Include="res\properties.ico" />
+    <None Include="res\route.bmp" />
+    <None Include="res\route.cur" />
+    <None Include="res\route1.bmp" />
+    <None Include="res\Signal.bmp" />
+    <None Include="res\Vehicle.bmp" />
+    <None Include="res\Vehicle.ico" />
+    <None Include="res\vehicle0.bmp" />
+    <None Include="res\vehicle1.bmp" />
+    <None Include="res\Vehicle2.bmp" />
+    <None Include="res\vehicle3.bmp" />
+    <None Include="res\vehicle4.bmp" />
+    <None Include="res\vehicle5.bmp" />
+    <None Include="res\Vehiclebk.bmp" />
+    <None Include="res\VehiclePane.ico" />
+    <None Include="res\vehiclew.bmp" />
+    <None Include="res\waypoint.cur" />
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Navigate.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CallDlg.h" />
+    <ClInclude Include="CLIENTCMD.h" />
+    <ClInclude Include="CmdParamDlg.h" />
+    <ClInclude Include="DatabasePage.h" />
+    <ClInclude Include="Dialit.H" />
+    <ClInclude Include="DispatchDlg.h" />
+    <ClInclude Include="FileMap.h" />
+    <ClInclude Include="FilePoly.h" />
+    <ClInclude Include="Global.h" />
+    <ClInclude Include="IconPage.h" />
+    <ClInclude Include="LED.h" />
+    <ClInclude Include="LoginDlg.h" />
+    <ClInclude Include="Message.h" />
+    <ClInclude Include="MessageDlg.h" />
+    <ClInclude Include="MessageEar.h" />
+    <ClInclude Include="ModemInfo.h" />
+    <ClInclude Include="ModemPage.H" />
+    <ClInclude Include="MonitorEar.h" />
+    <ClInclude Include="msdgridctrl.h" />
+    <ClInclude Include="msflexgrid.h" />
+    <ClInclude Include="Navigate.h" />
+    <ClInclude Include="NavinfoDlg.h" />
+    <ClInclude Include="NavinfoPane.h" />
+    <ClInclude Include="Port.h" />
+    <ClInclude Include="PortDlg.h" />
+    <ClInclude Include="PortReceiver.h" />
+    <ClInclude Include="PortSocket.h" />
+    <ClInclude Include="Probe.h" />
+    <ClInclude Include="ProxyDlg.h" />
+    <ClInclude Include="rdc.h" />
+    <ClInclude Include="Replay.h" />
+    <ClInclude Include="ReplayDlg.h" />
+    <ClInclude Include="ReplayTable.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="RoadTopo.h" />
+    <ClInclude Include="Route.h" />
+    <ClInclude Include="SearchDlg.h" />
+    <ClInclude Include="SearchPage.h" />
+    <ClInclude Include="Segment.h" />
+    <ClInclude Include="SelectDlg.h" />
+    <ClInclude Include="SerialPage.H" />
+    <ClInclude Include="SERVERCMD.h" />
+    <ClInclude Include="SetupSheet.h" />
+    <ClInclude Include="SocketPage.h" />
+    <ClInclude Include="SpeedPage.h" />
+    <ClInclude Include="StdAfx.h" />
+    <ClInclude Include="Vehicle.h" />
+    <ClInclude Include="VehicleInfoDlg.h" />
+    <ClInclude Include="VehiclePane.h" />
+    <ClInclude Include="VehicleTag.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Coding\Coding.vcxproj">
+      <Project>{6227b8de-f48b-49a4-bf70-c7b3a043c1b0}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Database\Database.vcxproj">
+      <Project>{34538817-80f0-4640-8eb2-521eb0de007c}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Dataview\Dataview.vcxproj">
+      <Project>{c2b3c401-48dc-46f8-ae2c-e6a9e7f602d6}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Geometry\Geometry.vcxproj">
+      <Project>{e077340a-cc20-4ab3-8317-de65020bae49}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Projection\Projection.vcxproj">
+      <Project>{8ef6dfc8-e191-4344-a763-044fc95699c3}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Public\Public.vcxproj">
+      <Project>{4939c318-2298-4178-843e-25acf119ddd6}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Socket\Socket.vcxproj">
+      <Project>{e1964a86-725e-4c9c-9375-001a294ea2cf}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

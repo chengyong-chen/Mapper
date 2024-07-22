@@ -1,0 +1,11 @@
+HKCR
+{
+	NoRemove AppID
+	{
+		{2F2CD476-6C09-4CFD-A819-7BE66BBE2CAF} = s 'Mapsvr'
+		'Mapsvr.EXE'
+		{
+			val AppID = s {2F2CD476-6C09-4CFD-A819-7BE66BBE2CAF}
+		}
+	}
+}

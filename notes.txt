@@ -1,0 +1,2 @@
+Illegal token on right side of :: in string.hpp
+	https://stackoverflow.com/questions/2561368/illegal-token-on-right-side-of
