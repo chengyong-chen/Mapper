@@ -88,11 +88,11 @@ public:
 		float cx;
 		float cy;
 		{//get rect's width and height
-			const CString strFont = m_fontdesc.GetFaceName();
-			float fSize = m_fSize*viewinfo.m_sizeDPI.cx/72.f;
-			const _bstr_t btrFont(strFont);
-			const Gdiplus::FontFamily fontFamily(btrFont);
-			::SysFreeString(btrFont);
+			const CString strFontFamily = m_fontdesc.GetFamilyName();
+			const _bstr_t btrFontFamily(strFontFamily);
+			float fSize = m_fSize*viewinfo.m_sizeDPI.cx/72.f;			
+			const Gdiplus::FontFamily fontFamily(btrFontFamily);
+			::SysFreeString(btrFontFamily);
 			const Gdiplus::Font font(&fontFamily, fSize, m_fontdesc.m_style, Gdiplus::UnitPixel);
 			fSize = font.GetSize();
 

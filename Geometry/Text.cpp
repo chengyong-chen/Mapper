@@ -236,11 +236,11 @@ Gdiplus::RectF CText::GetVewBoundary(const CViewinfo& viewinfo, const CLibrary& 
 	CType* pType = m_pType != nullptr ? m_pType : (CType*)context.pType;
 	if(pType == nullptr)
 		return Gdiplus::RectF(origin.X, origin.Y, 0, 0);
-	const CString fontName = pType->m_fontdesc.GetFaceName();
+	const CString strFontFamily = pType->.GetFamilyName();
 	float fontSize = pType->m_fSize * context.ratioType * viewinfo.m_sizeDPI.cx / 72.f;
-	const _bstr_t btrFont(fontName);
-	const Gdiplus::FontFamily fontFamily(btrFont);
-	::SysFreeString(btrFont);
+	const _bstr_t btrFontFamily(strFontFamily);
+	const Gdiplus::FontFamily fontFamily(btrFontFamily);
+	::SysFreeString(btrFontFamily);
 	Gdiplus::RectF rect(0, 0, 0, 0);
 	if(fontFamily.IsAvailable() == true)
 	{

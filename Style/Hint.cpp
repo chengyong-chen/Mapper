@@ -249,10 +249,10 @@ Gdiplus::RectF CHint::DrawString(Gdiplus::Graphics& g, const CViewinfo& viewinfo
 			break;
 	}
 
-	const CString strFont = m_fontdesc.GetFaceName();
-	const _bstr_t btrFont(strFont);
-	const Gdiplus::FontFamily fontFamily(btrFont);
-	::SysFreeString(btrFont);
+	const CString strFontFamily = m_fontdesc.GetFamilyName();
+	const _bstr_t btrFontFamily(strFontFamily);
+	const Gdiplus::FontFamily fontFamily(btrFontFamily);
+	::SysFreeString(btrFontFamily);
 	const Gdiplus::Font font(&fontFamily, m_fSize*viewinfo.m_sizeDPI.cx/72.f, m_fontdesc.m_style, Gdiplus::UnitPixel);
 	Gdiplus::StringFormat stringFormat(Gdiplus::StringFormat::GenericTypographic());
 	if(direction == 90)
@@ -611,10 +611,10 @@ void CHint::ExportTag(FILE* file, const CViewinfo& viewinfo, const CPsboard& aiK
 	const Gdiplus::SizeF textSize = CHint::MeasureText<Gdiplus::SizeF>(viewinfo, string, 0);
 	const Gdiplus::RectF textRect = ::GetTagRect(origin, textSize, hAlign, vAlign);
 			
-	const CString strFont = m_fontdesc.GetFaceName();
-	const _bstr_t btrFont(strFont);
-	const Gdiplus::FontFamily fontFamily(btrFont);
-	::SysFreeString(btrFont);
+	const CString strFontFamily = m_fontdesc.GetFamilyName();
+	const _bstr_t btrFontFamily(strFontFamily);
+	const Gdiplus::FontFamily fontFamily(btrFontFamily);
+	::SysFreeString(btrFontFamily);
 	const Gdiplus::Font font(&fontFamily, m_fSize*viewinfo.m_sizeDPI.cx/72.f, m_fontdesc.m_style, Gdiplus::UnitPixel);
 	const Gdiplus::REAL fSize = font.GetSize();
 	const float fAscent = fSize*fontFamily.GetCellAscent(m_fontdesc.m_style)/fontFamily.GetEmHeight(m_fontdesc.m_style);
@@ -795,10 +795,10 @@ void CHint::ExportTag(HPDF_Doc pdf, HPDF_Page page, const CViewinfo& viewinfo, c
 	CHint::ExportStyle(pdf, page, textRect);
 
 	CHint::ExportPdf(pdf, page);
-	const CString strFont = m_fontdesc.GetFaceName();
-	const _bstr_t btrFont(strFont);
-	const Gdiplus::FontFamily fontFamily(btrFont);
-	::SysFreeString(btrFont);
+	const CString strFontFamily = m_fontdesc.GetFamilyName();
+	const _bstr_t btrFontFamily(strFontFamily);
+	const Gdiplus::FontFamily fontFamily(btrFontFamily);
+	::SysFreeString(btrFontFamily);
 	const Gdiplus::Font font(&fontFamily, m_fSize*viewinfo.m_sizeDPI.cx/72.f, m_fontdesc.m_style, Gdiplus::UnitPixel);
 	const Gdiplus::REAL fSize = font.GetSize();
 	const float fAscent = fSize*fontFamily.GetCellAscent(m_fontdesc.m_style)/fontFamily.GetEmHeight(m_fontdesc.m_style);
