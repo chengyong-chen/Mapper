@@ -416,7 +416,6 @@ void CSpotFontDlg::OnOK()
 		if(pDesc != nullptr)
 		{
 			d_pSpot->m_strFontReal = pDesc->GetRealName();
-			d_pSpot->m_strFontFace = pDesc->GetFaceName();
 			d_pSpot->m_strFontFamily = pDesc->GetFamilyName();
 			d_pSpot->m_wId = (unsigned short)(0X20 + m_nSelected);
 			d_pSpot->m_nSize = m_nSize * 10;
@@ -460,7 +459,6 @@ void CSpotFontDlg::OnSelchangeFontcombo()
 		return;
 
 	d_pSpot->m_strFontReal = pDesc->GetRealName();
-	d_pSpot->m_strFontFace = CFontDesc::GetFaceByReal(d_pSpot->m_strFontReal);
 	d_pSpot->m_strFontFamily = CFontDesc::GetFamilyByReal(d_pSpot->m_strFontReal);
 
 	memset(&m_logFont, 0, sizeof(LOGFONT));
