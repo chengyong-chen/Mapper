@@ -27,7 +27,7 @@ BOOL ExportAI(CLayerTree& layertree, const CDatainfo& datainfo, LPCTSTR pathname
 	}
 
 	std::list<CStringA> fontlist;
-	GatherAllFonts(layertree, fontlist, true);
+	GatherAllFonts(layertree, fontlist);
 	CRect docValidBox = GetValidRect(layertree);
 
 	_ftprintf(file, _T("%%!PS-Adobe-3.0\n"));

@@ -1082,13 +1082,13 @@ std::list<std::tuple<int, int, CGeom*>> CCollection<T>::Swim(bool bStroke, bool 
 }
 
 template<class T>
-void CCollection<T>::GatherFonts(std::list<CStringA>& fontlist, bool bEnglish) const
+void CCollection<T>::GatherFonts(std::list<CStringA>& fontlist) const
 {
 	POSITION pos = m_geomlist.GetHeadPosition();
 	while(pos != nullptr)
 	{
 		T* pGeom = m_geomlist.GetNext(pos);
-		pGeom->GatherFonts(fontlist, bEnglish);
+		pGeom->GatherFonts(fontlist);
 	}
 }
 

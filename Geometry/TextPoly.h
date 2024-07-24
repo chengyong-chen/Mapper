@@ -73,7 +73,7 @@ public:
 	CGeom* Clip(const CRect& bound, Clipper2Lib::Paths64& clips, bool in, int tolerance, bool bStroke) override;
 
 public:
-	void GatherFonts(std::list<CStringA>& fontlist, bool bEnglish) const override;
+	void GatherFonts(std::list<CStringA>& fontlist) const override;
 
 public:
 	void Serialize(CArchive& ar, const DWORD& dwVersion) override;

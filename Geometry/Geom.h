@@ -272,7 +272,7 @@ public:
 	virtual bool IntoDatabase(CODBCRecordset& rs, const CDatainfo& datainfo) const;
 	virtual bool BeforeDispose(CDatabase* pDatabase, CString strTable, const CDatainfo& datainfo);
 
-	virtual void GatherFonts(std::list<CStringA>& fontlist, bool bEnglish) const;
+	virtual void GatherFonts(std::list<CStringA>& fontlist) const;
 
 	virtual DWORD PackPC(CFile* pFile, BYTE*& bytes);
 	virtual DWORD ReleaseCE(CFile& file, const BYTE& type) const;

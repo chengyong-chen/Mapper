@@ -48,7 +48,7 @@ BOOL ExportPdf(CLayerTree& layertree, CViewExporter& viewinfo, LPCTSTR pathname,
 	//HPDF_SetCurrentEncoder(pdf, "UTF-8");
 
 	std::list<CStringA> fontlist;
-	GatherAllFonts(layertree, fontlist, false);
+	GatherAllFonts(layertree, fontlist);
 	for(CStringA& strFont : fontlist)
 	{
 		if(CFontDesc::FontRealNameExists(strFont) == false)
@@ -57,7 +57,7 @@ BOOL ExportPdf(CLayerTree& layertree, CViewExporter& viewinfo, LPCTSTR pathname,
 			continue;
 		}
 		const HPDF_FontDef def = HPDF_Doc_FindFontDef(pdf, strFont);
-	//	if(def == nullptr) //have to load from the font file
+		if(def == nullptr) //have to load from the font file
 		{
 			CString strFile = CFontDesc::GetFileByReal(strFont);
 			if(strFile.IsEmpty() == FALSE)

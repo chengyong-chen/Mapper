@@ -356,7 +356,7 @@ void CText::CalCorner(CType* pType, float fPointToDoc, const float& ratio)
 	}
 }
 
-void CText::GatherFonts(std::list<CStringA>& fontlist, bool bEnglish) const
+void CText::GatherFonts(std::list<CStringA>& fontlist) const
 {
 	if(m_pType != nullptr)
 	{

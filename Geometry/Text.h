@@ -45,7 +45,7 @@ public:
 public:
 	CPoint GetOrigin() const override{ return m_Origin; };
 	float GetInflation(const CLine* pLine, const CType* pType, const float& ratioLine, const float& ratioType) const override { return 0.f; }
-	void GatherFonts(std::list<CStringA>& fontlist, bool bEnglish) const override;
+	void GatherFonts(std::list<CStringA>& fontlist) const override;
 	CPoint GetGeogroid() const override { return CGeom::GetGeogroid(); }
 	CPoint GetLabeloid() const override { return CGeom::GetLabeloid(); }
 

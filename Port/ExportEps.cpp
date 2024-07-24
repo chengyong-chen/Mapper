@@ -34,7 +34,7 @@ BOOL ExportEps(CLayerTree& layertree, const CDatainfo& datainfo, LPCTSTR pathnam
 	fprintf(file, "%%%%Canvassize: 16383\n");
 
 	std::list<CStringA> fontlist;
-	GatherAllFonts(layertree, fontlist, true);
+	GatherAllFonts(layertree, fontlist);
 	CRect docValidBox = GetValidRect(layertree);
 
 	int countLayers = 0;
@@ -226,7 +226,7 @@ void AddFont(CStringA strFont, std::list<CStringA>& fontlist)
 	}
 }
 
-void GatherAllFonts(CTree<CLayer>& layertree, std::list<CStringA>& fontlist, bool bEnglish)
+void GatherAllFonts(CTree<CLayer>& layertree, std::list<CStringA>& fontlist)
 {
 	fontlist.clear();
 
@@ -255,7 +255,7 @@ void GatherAllFonts(CTree<CLayer>& layertree, std::list<CStringA>& fontlist, boo
 		for(POSITION pos = layer->m_geomlist.GetHeadPosition(); pos != nullptr; layer->m_geomlist.GetNext(pos))
 		{
 			CGeom* pGeom = layer->m_geomlist.GetAt(pos);
-			pGeom->GatherFonts(fontlist, bEnglish);
+			pGeom->GatherFonts(fontlist);
 
 			if(pGeom->IsKindOf(RUNTIME_CLASS(CText)) == TRUE)
 			{

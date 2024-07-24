@@ -894,7 +894,7 @@ void CTextPoly::Attribute(CWnd* pWnd, const CViewinfo& viewinfo)
 	}
 }
 
-void CTextPoly::GatherFonts(std::list<CStringA>& fontlist, bool bEnglish) const
+void CTextPoly::GatherFonts(std::list<CStringA>& fontlist) const
 {
 	if(m_pType != nullptr)
 	{

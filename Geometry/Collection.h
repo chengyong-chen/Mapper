@@ -92,7 +92,7 @@ public:
 	std::list<std::tuple<int, int, CGeom*>> Swim(bool bStroke, bool bFill, int cxTile, int cyTile, int minRow, int maxRow, int minCol, int maxCol) const override;
 
 public:
-	void GatherFonts(std::list<CStringA>& fontlist, bool bEnglish) const override;
+	void GatherFonts(std::list<CStringA>& fontlist) const override;
 public:
 	~CCollection() override;
 	void Serialize(CArchive& ar, const DWORD& dwVersion) override;

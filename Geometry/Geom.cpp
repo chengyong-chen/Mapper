@@ -2644,7 +2644,7 @@ inline float CGeom::GetInflation(const CLine* pLine, const CType* pType, const f
 void CGeom::RecalRect()
 {
 }
-void CGeom::GatherFonts(std::list<CStringA>& fontlist, bool bEnglish) const
+void CGeom::GatherFonts(std::list<CStringA>& fontlist) const
 {
 	if(m_pHint != nullptr)
 	{
