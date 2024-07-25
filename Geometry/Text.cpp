@@ -236,7 +236,7 @@ Gdiplus::RectF CText::GetVewBoundary(const CViewinfo& viewinfo, const CLibrary& 
 	CType* pType = m_pType != nullptr ? m_pType : (CType*)context.pType;
 	if(pType == nullptr)
 		return Gdiplus::RectF(origin.X, origin.Y, 0, 0);
-	const CString strFontFamily = pType->.GetFamilyName();
+	const CString strFontFamily = pType->m_fontdesc.GetFamilyName();
 	float fontSize = pType->m_fSize * context.ratioType * viewinfo.m_sizeDPI.cx / 72.f;
 	const _bstr_t btrFontFamily(strFontFamily);
 	const Gdiplus::FontFamily fontFamily(btrFontFamily);
@@ -244,10 +244,10 @@ Gdiplus::RectF CText::GetVewBoundary(const CViewinfo& viewinfo, const CLibrary& 
 	Gdiplus::RectF rect(0, 0, 0, 0);
 	if(fontFamily.IsAvailable() == true)
 	{
-		const Gdiplus::Font font(&fontFamily, fontSize, pType->m_fontdesc.m_style, Gdiplus::UnitPixel);
-		const UINT16 emLineSpacing = fontFamily.GetLineSpacing(pType->m_fontdesc.m_style);
-		const UINT16 emHeight = fontFamily.GetEmHeight(pType->m_fontdesc.m_style);
-		const UINT16 emDescent = fontFamily.GetCellDescent(pType->m_fontdesc.m_style);
+		const Gdiplus::Font font(&fontFamily, fontSize, pType->m_fontdesc.GetStyle(), Gdiplus::UnitPixel);
+		const UINT16 emLineSpacing = fontFamily.GetLineSpacing(pType->m_fontdesc.GetStyle());
+		const UINT16 emHeight = fontFamily.GetEmHeight(pType->m_fontdesc.GetStyle());
+		const UINT16 emDescent = fontFamily.GetCellDescent(pType->m_fontdesc.GetStyle());
 		fontSize = font.GetSize();
 		Gdiplus::Bitmap bitmap(16, 16);
 		const Gdiplus::Graphics g(&bitmap);
@@ -310,10 +310,10 @@ void CText::CalCorner(CType* pType, float fPointToDoc, const float& ratio)
 	{
 		Gdiplus::FontFamily fontFamily;
 		pFont->GetFamily(&fontFamily);
-		const UINT16 emLineSpacing = fontFamily.GetLineSpacing(pType->m_fontdesc.m_style);
-		const UINT16 emHeight = fontFamily.GetEmHeight(pType->m_fontdesc.m_style);
-		const UINT16 emAscent = fontFamily.GetCellAscent(pType->m_fontdesc.m_style);
-		const UINT16 emDescent = fontFamily.GetCellDescent(pType->m_fontdesc.m_style);
+		const UINT16 emLineSpacing = fontFamily.GetLineSpacing(pType->m_fontdesc.GetStyle());
+		const UINT16 emHeight = fontFamily.GetEmHeight(pType->m_fontdesc.GetStyle());
+		const UINT16 emAscent = fontFamily.GetCellAscent(pType->m_fontdesc.GetStyle());
+		const UINT16 emDescent = fontFamily.GetCellDescent(pType->m_fontdesc.GetStyle());
 		const float fontSize = pFont->GetSize();
 		Gdiplus::Bitmap bitmap(16, 16);
 		const Gdiplus::Graphics g(&bitmap);
@@ -530,10 +530,10 @@ void CText::Draw(Gdiplus::Graphics& g, const CViewinfo& viewinfo, const float& r
 	Gdiplus::FontFamily fontFamily;
 	font->GetFamily(&fontFamily);
 	const Gdiplus::REAL sizeFont = font->GetSize();
-	const UINT16 emLineSpacing = fontFamily.GetLineSpacing(m_pType->m_fontdesc.m_style);
-	const UINT16 emHeight = fontFamily.GetEmHeight(m_pType->m_fontdesc.m_style);
-	UINT16 emAscent = fontFamily.GetCellAscent(m_pType->m_fontdesc.m_style);
-	const UINT16 emDescent = fontFamily.GetCellDescent(m_pType->m_fontdesc.m_style);
+	const UINT16 emLineSpacing = fontFamily.GetLineSpacing(m_pType->m_fontdesc.GetStyle());
+	const UINT16 emHeight = fontFamily.GetEmHeight(m_pType->m_fontdesc.GetStyle());
+	UINT16 emAscent = fontFamily.GetCellAscent(m_pType->m_fontdesc.GetStyle());
+	const UINT16 emDescent = fontFamily.GetCellDescent(m_pType->m_fontdesc.GetStyle());
 
 	const Gdiplus::StringFormat* pStringFormat = Gdiplus::StringFormat::GenericTypographic();
 	const Gdiplus::PointF origin = viewinfo.DocToClient<Gdiplus::PointF>(m_Origin);

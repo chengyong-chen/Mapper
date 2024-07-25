@@ -20,6 +20,7 @@ typedef struct _tagFONT_PROPERTIES
 	CString csCopyright;
 	CString csTrademark;
 	CString csFamily;
+	CStringA csStyle;
 } FONT_PROPERTIES,*LPFONT_PROPERTIES;
 
 typedef struct _tagTTF_OFFSET_TABLE

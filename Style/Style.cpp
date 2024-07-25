@@ -43,7 +43,7 @@ BOOL CStyleApp::InitInstance()
 		pType->m_fSize = 10;
 		delete pType->m_pColor;
 		pType->m_pColor = new CColorSpot(200, 200, 200, 255);
-		pType->m_fontdesc.SetFaceName(ncm.lfMessageFont.lfFaceName);
+		pType->m_fontdesc.SetByFaceName(ncm.lfMessageFont.lfFaceName);
 	}
 	CHint* pHint = CHint::Default();
 	if(pHint!=nullptr)
@@ -51,7 +51,7 @@ BOOL CStyleApp::InitInstance()
 		pHint->m_fSize = 12;
 		delete pHint->m_pColor;
 		pHint->m_pColor = new CColorSpot(200, 200, 200, 255);
-		pHint->m_fontdesc.SetFaceName(ncm.lfMessageFont.lfFaceName);
+		pHint->m_fontdesc.SetByFaceName(ncm.lfMessageFont.lfFaceName);
 	}
 	//CColorSpot::Black = new CColorSpot(0, 0, 0, 0);
 	return CWinApp::InitInstance();

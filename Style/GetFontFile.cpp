@@ -180,6 +180,11 @@ BOOL GetTTFontProperties(CFile& file, FONT_PROPERTIES& FontProps)
 				ttRecord.uLanguageId = SWAPWORD(ttRecord.uLanguageId);
 				if(ttRecord.uStringLength == 0)
 					continue;
+				if(ttRecord.uPlatformId != 3)
+					continue;
+				if(ttRecord.uLanguageId != 1033)
+					continue;
+
 				const int nPos = file.GetPosition();
 				file.Seek(tblDir.uOffset + ttRecord.uStringOffset + ttNTHeader.uStorageOffset, CFile::begin);
 
@@ -218,6 +223,10 @@ BOOL GetTTFontProperties(CFile& file, FONT_PROPERTIES& FontProps)
 						case 1:
 							if(FontProps.csFamily.IsEmpty())
 								FontProps.csFamily = strName;
+							break;
+						case 2:
+							if(FontProps.csStyle.IsEmpty())
+								FontProps.csStyle = strName;
 							break;
 						case 4: //Full name
 							//ttRecord.uLanguageId

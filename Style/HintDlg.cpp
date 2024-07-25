@@ -90,7 +90,7 @@ BOOL CHintDlg::OnInitDialog()
 	}
 	for (int index = 0; index < pComboBoxStyles->GetCount(); index++)
 	{
-		if (pComboBoxStyles->GetItemData(index) == m_hint.m_fontdesc.m_style)
+		if (pComboBoxStyles->GetItemData(index) == m_hint.m_fontdesc.GetStyle())
 		{
 			pComboBoxStyles->SetCurSel(index);
 			break;
@@ -194,7 +194,7 @@ void CHintDlg::OnOK()
 	if (pComboBoxStyles != nullptr)
 	{
 		const int nIndex = pComboBoxStyles->GetCurSel();
-		m_hint.m_fontdesc.m_style = (Gdiplus::FontStyle)pComboBoxStyles->GetItemData(nIndex);
+		m_hint.m_fontdesc.SetStyle((Gdiplus::FontStyle)pComboBoxStyles->GetItemData(nIndex));
 	}
 
 	CDialog::OnOK();

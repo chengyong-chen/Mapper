@@ -1796,7 +1796,7 @@ CGeom* CImportGdal::ReadPoint(OGRPoint* poGeometry, OGRStyleMgr* poStyleMgr, CLi
 			if(pGeom->IsKindOf(RUNTIME_CLASS(CMark)))
 			{
 				CHint* pHint = new CHint();
-				pHint->m_fontdesc.SetFaceName(strFont);
+				pHint->m_fontdesc.SetByFaceName(strFont);
 				pHint->m_fSize = std::abs(fSize);
 				pHint->m_pColor = pszForecolor==nullptr ? nullptr : new CColorSpot(pszForecolor);
 				const char* pszBackcolor = poStylLabel->BackColor(bDeault);
@@ -1816,7 +1816,7 @@ CGeom* CImportGdal::ReadPoint(OGRPoint* poGeometry, OGRStyleMgr* poStyleMgr, CLi
 			else if(pGeom->IsKindOf(RUNTIME_CLASS(CText)))
 			{
 				CType* pType = new CType();
-				pType->m_fontdesc.SetFaceName(strFont);
+				pType->m_fontdesc.SetByFaceName(strFont);
 				pType->m_fSize = abs(fSize);
 				pType->m_pColor = pszForecolor==nullptr ? nullptr : new CColorSpot(pszForecolor);
 				pType->m_deform.m_nHorzscale = poStylLabel->Stretch(bDeault)*100;

@@ -225,6 +225,6 @@ void CType::ExportPdf(HPDF_Doc pdf, HPDF_Page page) const
 CType* CType::Default(float size, Gdiplus::FontStyle style)
 {
 	m_default.m_fSize = size;
-	m_default.m_fontdesc.m_style = style;
+	m_default.m_fontdesc.SetStyle(style);
 	return &m_default;
 }

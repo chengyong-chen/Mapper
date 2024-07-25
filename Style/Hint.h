@@ -93,12 +93,12 @@ public:
 			float fSize = m_fSize*viewinfo.m_sizeDPI.cx/72.f;			
 			const Gdiplus::FontFamily fontFamily(btrFontFamily);
 			::SysFreeString(btrFontFamily);
-			const Gdiplus::Font font(&fontFamily, fSize, m_fontdesc.m_style, Gdiplus::UnitPixel);
+			const Gdiplus::Font font(&fontFamily, fSize, m_fontdesc.GetStyle(), Gdiplus::UnitPixel);
 			fSize = font.GetSize();
 
 			Gdiplus::StringFormat stringFormat(Gdiplus::StringFormat::GenericTypographic());
-			const UINT16 emLineSpacing = fontFamily.GetLineSpacing(m_fontdesc.m_style);
-			const UINT16 emHeight = fontFamily.GetEmHeight(m_fontdesc.m_style);
+			const UINT16 emLineSpacing = fontFamily.GetLineSpacing(m_fontdesc.GetStyle());
+			const UINT16 emHeight = fontFamily.GetEmHeight(m_fontdesc.GetStyle());
 			const float LineSpacing = fSize*emLineSpacing/emHeight;
 			const float linegap = LineSpacing - fSize;
 			if(direction == 90)

@@ -79,7 +79,7 @@ void CPostscriptHandler::onGapedText(std::list<Glyph*> texts)
 	CType* pType = new CType();
 	pType->m_fSize = FontState.size*mscale;
 	pType->m_fontdesc.SetRealName(strReal);
-	pType->m_fontdesc.m_style = FontState.style;
+	pType->m_fontdesc.SetStyle(FontState.style);
 	switch(FontState.rendermode)
 	{
 		case 0:
@@ -131,7 +131,7 @@ void CPostscriptHandler::onSimpleText(std::string text)
 	CType* pType = new CType();
 	pType->m_fSize = FontState.size*mscale;
 	pType->m_fontdesc.SetRealName(strReal);
-	pType->m_fontdesc.m_style = FontState.style;
+	pType->m_fontdesc.SetStyle(FontState.style);
 	switch(FontState.rendermode)
 	{
 		case 0:

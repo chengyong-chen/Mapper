@@ -112,17 +112,17 @@ Gdiplus::Font* CHint::GetFont(const float& fZoom, const CSize& dpi) const
 	if(fontFamily.IsAvailable())
 	{
 		const float pixels = roundf(m_fSize*fZoom*dpi.cx/72.f, 10);
-		return ::new Gdiplus::Font(&fontFamily, pixels, m_fontdesc.m_style, Gdiplus::UnitPixel);
+		return ::new Gdiplus::Font(&fontFamily, pixels, m_fontdesc.GetStyle(), Gdiplus::UnitPixel);
 	}
 	else if(this != &m_default)
 	{
-		return CHint::Default(m_fSize, m_fontdesc.m_style)->GetFont(fZoom, dpi);
+		return CHint::Default(m_fSize, m_fontdesc.GetStyle())->GetFont(fZoom, dpi);
 	}
 	else
 	{
 		const Gdiplus::FontFamily arial(L"Arial");
 		const float pixels = m_fSize*fZoom*dpi.cx/72.f;
-		return ::new Gdiplus::Font(&arial, pixels, m_fontdesc.m_style, Gdiplus::UnitPixel);
+		return ::new Gdiplus::Font(&arial, pixels, m_fontdesc.GetStyle(), Gdiplus::UnitPixel);
 	}
 }
 
@@ -138,8 +138,8 @@ float CHint::GetAscent(const float& fZoom, const CSize& dpi) const
 	{
 		Gdiplus::FontFamily fontFamily;
 		font->GetFamily(&fontFamily);
-		const UINT ascent = fontFamily.GetCellAscent(m_fontdesc.m_style);
-		const float fAscent = font->GetSize()*ascent/fontFamily.GetEmHeight(m_fontdesc.m_style);
+		const UINT ascent = fontFamily.GetCellAscent(m_fontdesc.GetStyle());
+		const float fAscent = font->GetSize()*ascent/fontFamily.GetEmHeight(m_fontdesc.GetStyle());
 
 		::delete font;
 		font = nullptr;
@@ -157,8 +157,8 @@ float CHint::GetDescent(const float& fZoom, const CSize& dpi) const
 	{
 		Gdiplus::FontFamily fontFamily;
 		font->GetFamily(&fontFamily);
-		const UINT descent = fontFamily.GetCellDescent(m_fontdesc.m_style);
-		const float fDescent = font->GetSize()*descent/fontFamily.GetEmHeight(m_fontdesc.m_style);
+		const UINT descent = fontFamily.GetCellDescent(m_fontdesc.GetStyle());
+		const float fDescent = font->GetSize()*descent/fontFamily.GetEmHeight(m_fontdesc.GetStyle());
 
 		::delete font;
 		font = nullptr;
@@ -177,8 +177,8 @@ float CHint::GetlineSpacing(const float& fZoom, const CSize& dpi) const
 		Gdiplus::FontFamily fontFamily;
 		font->GetFamily(&fontFamily);
 		const Gdiplus::REAL sizeFont = font->GetSize();
-		const UINT16 emLineSpacing = fontFamily.GetLineSpacing(m_fontdesc.m_style);
-		const UINT16 emHeight = fontFamily.GetEmHeight(m_fontdesc.m_style);
+		const UINT16 emLineSpacing = fontFamily.GetLineSpacing(m_fontdesc.GetStyle());
+		const UINT16 emHeight = fontFamily.GetEmHeight(m_fontdesc.GetStyle());
 		const float LineSpacing = sizeFont*emLineSpacing/emHeight;
 
 		::delete font;
@@ -253,7 +253,7 @@ Gdiplus::RectF CHint::DrawString(Gdiplus::Graphics& g, const CViewinfo& viewinfo
 	const _bstr_t btrFontFamily(strFontFamily);
 	const Gdiplus::FontFamily fontFamily(btrFontFamily);
 	::SysFreeString(btrFontFamily);
-	const Gdiplus::Font font(&fontFamily, m_fSize*viewinfo.m_sizeDPI.cx/72.f, m_fontdesc.m_style, Gdiplus::UnitPixel);
+	const Gdiplus::Font font(&fontFamily, m_fSize*viewinfo.m_sizeDPI.cx/72.f, m_fontdesc.GetStyle(), Gdiplus::UnitPixel);
 	Gdiplus::StringFormat stringFormat(Gdiplus::StringFormat::GenericTypographic());
 	if(direction == 90)
 	{
@@ -283,7 +283,7 @@ Gdiplus::RectF CHint::DrawString(Gdiplus::Graphics& g, const CViewinfo& viewinfo
 	//g.DrawRectangle(&pen,textRect);
 	const int X = textRect.GetLeft();
 	const int Y = textRect.GetTop();//for chinese Y is ok, but for english the Y is a little up moved.
-	float offset = 0;//m_fSize*(fontFamily.GetLineSpacing(m_style)-fontFamily.GetCellAscent(m_style)-fontFamily.GetCellDescent(m_style))/fontFamily.GetEmHeight(m_style);
+	float offset = 0;//m_fSize*(fontFamily.GetLineSpacing(GetStyle())-fontFamily.GetCellAscent(GetStyle())-fontFamily.GetCellDescent(GetStyle()))/fontFamily.GetEmHeight(GetStyle());
 	g.TranslateTransform(X, Y);
 	const _bstr_t bstr(string);
 	const Gdiplus::SolidBrush textBrush(m_pColor == nullptr ? 0XFF808080 : CColor::RGBtoARGB(m_pColor->GetMonitorRGB()));
@@ -451,7 +451,7 @@ void CHint::ReleaseWeb(boost::json::object& json) const
 	else
 		json["Color"] = "rgba(128,128,128,1)";
 
-	switch(m_fontdesc.m_style)
+	switch(m_fontdesc.GetStyle())
 	{
 		case Gdiplus::FontStyle::FontStyleBold:
 			json["Style"] = "bold";
@@ -494,7 +494,7 @@ void CHint::ReleaseWeb(pbf::writer& writer) const
 	else
 		writer.add_string("rgba(128,128,128,1)");
 
-	switch(m_fontdesc.m_style)
+	switch(m_fontdesc.GetStyle())
 	{
 		case Gdiplus::FontStyle::FontStyleBold:
 			writer.add_string("bold");
@@ -615,11 +615,11 @@ void CHint::ExportTag(FILE* file, const CViewinfo& viewinfo, const CPsboard& aiK
 	const _bstr_t btrFontFamily(strFontFamily);
 	const Gdiplus::FontFamily fontFamily(btrFontFamily);
 	::SysFreeString(btrFontFamily);
-	const Gdiplus::Font font(&fontFamily, m_fSize*viewinfo.m_sizeDPI.cx/72.f, m_fontdesc.m_style, Gdiplus::UnitPixel);
+	const Gdiplus::Font font(&fontFamily, m_fSize*viewinfo.m_sizeDPI.cx/72.f, m_fontdesc.GetStyle(), Gdiplus::UnitPixel);
 	const Gdiplus::REAL fSize = font.GetSize();
-	const float fAscent = fSize*fontFamily.GetCellAscent(m_fontdesc.m_style)/fontFamily.GetEmHeight(m_fontdesc.m_style);
-	float fDescent = fSize*fontFamily.GetCellDescent(m_fontdesc.m_style)/fontFamily.GetEmHeight(m_fontdesc.m_style);
-	float fLinespace = fSize*fontFamily.GetLineSpacing(m_fontdesc.m_style)/fontFamily.GetEmHeight(m_fontdesc.m_style);//the real size dose not match with the measured size
+	const float fAscent = fSize*fontFamily.GetCellAscent(m_fontdesc.GetStyle())/fontFamily.GetEmHeight(m_fontdesc.GetStyle());
+	float fDescent = fSize*fontFamily.GetCellDescent(m_fontdesc.GetStyle())/fontFamily.GetEmHeight(m_fontdesc.GetStyle());
+	float fLinespace = fSize*fontFamily.GetLineSpacing(m_fontdesc.GetStyle())/fontFamily.GetEmHeight(m_fontdesc.GetStyle());//the real size dose not match with the measured size
 	fLinespace = fSize;
 
 	short nRow = 0;
@@ -799,11 +799,11 @@ void CHint::ExportTag(HPDF_Doc pdf, HPDF_Page page, const CViewinfo& viewinfo, c
 	const _bstr_t btrFontFamily(strFontFamily);
 	const Gdiplus::FontFamily fontFamily(btrFontFamily);
 	::SysFreeString(btrFontFamily);
-	const Gdiplus::Font font(&fontFamily, m_fSize*viewinfo.m_sizeDPI.cx/72.f, m_fontdesc.m_style, Gdiplus::UnitPixel);
+	const Gdiplus::Font font(&fontFamily, m_fSize*viewinfo.m_sizeDPI.cx/72.f, m_fontdesc.GetStyle(), Gdiplus::UnitPixel);
 	const Gdiplus::REAL fSize = font.GetSize();
-	const float fAscent = fSize*fontFamily.GetCellAscent(m_fontdesc.m_style)/fontFamily.GetEmHeight(m_fontdesc.m_style);
-	float fDescent = fSize*fontFamily.GetCellDescent(m_fontdesc.m_style)/fontFamily.GetEmHeight(m_fontdesc.m_style);
-	float fLinespace = fSize*fontFamily.GetLineSpacing(m_fontdesc.m_style)/fontFamily.GetEmHeight(m_fontdesc.m_style);//the real size dose not match with the measured size
+	const float fAscent = fSize*fontFamily.GetCellAscent(m_fontdesc.GetStyle())/fontFamily.GetEmHeight(m_fontdesc.GetStyle());
+	float fDescent = fSize*fontFamily.GetCellDescent(m_fontdesc.GetStyle())/fontFamily.GetEmHeight(m_fontdesc.GetStyle());
+	float fLinespace = fSize*fontFamily.GetLineSpacing(m_fontdesc.GetStyle())/fontFamily.GetEmHeight(m_fontdesc.GetStyle());//the real size dose not match with the measured size
 	fLinespace = fSize;
 
 	string.Replace(_T("\r\n"), _T("\r"));
@@ -899,7 +899,7 @@ void CHint::ExportTag(HPDF_Doc pdf, HPDF_Page page, const CViewinfo& viewinfo, c
 CHint* CHint::Default(float size, Gdiplus::FontStyle style)
 {
 	m_default.m_fSize = size;
-	m_default.m_fontdesc.m_style = style;
+	m_default.m_fontdesc.SetStyle(style);
 	return &m_default;
 };
 
