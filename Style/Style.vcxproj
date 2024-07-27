@@ -58,13 +58,15 @@
     </Midl>
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;_USRDLL;JSON_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;_USRDLL;JSON_DEBUG;STYLE_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <BrowseInformation>true</BrowseInformation>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <BuildStlModules>false</BuildStlModules>
+      <UndefinePreprocessorDefinitions>
+      </UndefinePreprocessorDefinitions>
     </ClCompile>
     <Link>
       <AdditionalDependencies>Gdiplus.lib;Mscms.lib;..\Public\Debug\Public.lib;..\Database\Debug\Database.lib;..\Projection\Debug\Projection.lib;..\Geometry\Debug\Geometry.lib;..\Dataview\Debug\Dataview.lib;..\..\Thirdparty\ZLib\1.2.11\zlib.lib;..\..\Thirdparty\libharu\2.4.4\libhpdf.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -90,7 +92,7 @@
     <ClCompile>
       <Optimization>MaxSpeed</Optimization>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_USRDLL;STYLE_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
@@ -144,6 +146,7 @@
     <ClCompile Include="FillSymbolDlg.cpp" />
     <ClCompile Include="FlashMid.cpp" />
     <ClCompile Include="FontCombox.cpp" />
+    <ClCompile Include="FontDesc.cpp" />
     <ClCompile Include="GetFontFile.cpp" />
     <ClCompile Include="GetNameValue.cpp" />
     <ClCompile Include="Global.cpp" />
@@ -273,6 +276,7 @@
     <ClInclude Include="FlashMid.h" />
     <ClInclude Include="FlashMidDlg.h" />
     <ClInclude Include="FontCombox.h" />
+    <ClInclude Include="FontDesc.h" />
     <ClInclude Include="GetFontFile.h" />
     <ClInclude Include="GetNameValue.h" />
     <ClInclude Include="Global.h" />

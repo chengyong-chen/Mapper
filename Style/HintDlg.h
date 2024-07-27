@@ -1,11 +1,11 @@
 #pragma once
 
 #include "Resource.h"
-#include "FontComBox.h"
+#include "FontCombox.h"
 
 class CColor;
 class CHint;
-class CFontDesc;
+
 
 class __declspec(dllexport) CHintDlg : public CDialog
 {
@@ -20,7 +20,6 @@ public:
 	{
 		IDD = IDD_HINT
 	};
-
 	CFontComboBox m_fontcombo;
 	//}}AFX_DATA
 
