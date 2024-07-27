@@ -220,8 +220,15 @@
     <ClCompile Include="MemPtrReader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="stdafx.cpp" />
-    <ClCompile Include="SpotFlash.cpp" />
+    <ClCompile Include="SpotFlash.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FontDesc.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AfxMessageMap.h">
@@ -471,6 +478,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="MidTable.hpp" />
+    <ClInclude Include="FontDesc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />

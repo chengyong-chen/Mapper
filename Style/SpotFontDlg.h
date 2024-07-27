@@ -21,15 +21,15 @@ public:
 
 	CSpotFont* d_pSpot;
 
-	static long COLUMN; //ÁÐÊý
-	static long ROW; //ÐÐÊý
+	static long COLUMN; //ï¿½ï¿½ï¿½ï¿½
+	static long ROW; //ï¿½ï¿½ï¿½ï¿½
 
-	long m_nFontCount; //·ûºÅ×ÜÊý
-	long m_nLineCount; //µ±Ç°ÐÐÊý
+	long m_nFontCount; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	long m_nLineCount; //ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½
 
-	long m_nSelected; //µ±Ç°Ñ¡Ôñ·ûºÅ
+	long m_nSelected; //ï¿½ï¿½Ç°Ñ¡ï¿½ï¿½ï¿½ï¿½ï¿½
 
-	LOGFONT m_logFont; //×ÖÌå
+	LOGFONT m_logFont; //ï¿½ï¿½ï¿½ï¿½
 
 	void DrawFont();
 	void DrawFontUnit(long nUnitNum, long nType);

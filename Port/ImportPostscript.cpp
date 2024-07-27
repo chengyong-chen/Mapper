@@ -725,7 +725,7 @@ void CImportPostscript::ExcuteCommand(XRef* xref, GfxResources& reses, const cha
 					const char* plussign = strstr(specification, "+");
 					fontname = plussign!=nullptr ? plussign+1 : specification;
 				}
-				char* found = CFontDesc::GetBestMatchedByFace(fontfamily, fontname);
+				char* found = CFontDesc::GetBestMatched(fontfamily, fontname);
 				m_datahandler.FontState.font = found;
 				m_datahandler.FontState.style = Gdiplus::FontStyle::FontStyleRegular;
 				DWORD dwFlg = font->getFlags();

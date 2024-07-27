@@ -2,7 +2,7 @@
 
 #include "SpotFont.h"
 #include "SpotFontDlg.h"
-
+#include "FontDesc.h"
 #include "Color.h"
 #include "ColorDlg.h"
 #include "../Public/Global.h"
