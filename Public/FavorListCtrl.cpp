@@ -122,7 +122,7 @@ template<class T> void TFavorListCtrl<T>::Build()
 		int index = this->InsertItem(nItem,nullptr,0);
 
 		this->SetItem(index,0,LVIF_IMAGE,nullptr,pT->m_bVisible == false ? 0:1,0,0,0);   
-		this->SetItem(index,1,LVIF_IMAGE,nullptr,pT->m_bTagShow == false ? 0:1,0,0,0);
+		this->SetItem(index,1,LVIF_IMAGE,nullptr,pT->m_bShowTag == false ? 0:1,0,0,0);
 		const CPOUHeaderProfile& headerprofile = pT->m_datasource.GetHeaderProfile();
 		if(pT->m_bVisible == false || headerprofile.m_strAnnoField.IsEmpty() == TRUE)
 		{
@@ -165,7 +165,7 @@ template<class T> void TFavorListCtrl<T>::OnLButtonDown(UINT nFlags, CPoint poin
 					this->SetItem(hItem,0,LVIF_IMAGE,nullptr,1,0,0,0);   
 					if(headerprofile.m_strAnnoField.IsEmpty() == FALSE)
 					{
-						this->SetItem(hItem,1,LVIF_IMAGE,nullptr,pT->m_bTagShow == TRUE ? 1:0,0,0,0);   
+						this->SetItem(hItem,1,LVIF_IMAGE,nullptr,pT->m_bShowTag == TRUE ? 1:0,0,0,0);   
 					}
 				}
 
@@ -182,8 +182,8 @@ template<class T> void TFavorListCtrl<T>::OnLButtonDown(UINT nFlags, CPoint poin
 			{
 				if(pT->m_bVisible == TRUE && headerprofile.m_strAnnoField.IsEmpty() == FALSE)
 				{
-					pT->m_bTagShow = !pT->m_bTagShow;
-					this->SetItem(hItem,1,LVIF_IMAGE,nullptr,pT->m_bTagShow == TRUE ? 1:0,0,0,0);   
+					pT->m_bShowTag = !pT->m_bShowTag;
+					this->SetItem(hItem,1,LVIF_IMAGE,nullptr,pT->m_bShowTag == TRUE ? 1:0,0,0,0);   
 
 					pT->Invalidate(m_pDocument);
 				}
@@ -325,7 +325,7 @@ template<class T> void TFavorListCtrl<T>::OnAllon()
 			this->SetItem(index,0,LVIF_IMAGE,nullptr,1,0,0,0);   
 			if(pT->m_datasource.GetHeaderProfile().m_strAnnoField.IsEmpty() == FALSE)
 			{
-				this->SetItem(index,1,LVIF_IMAGE,nullptr,pT->m_bTagShow == TRUE ? 1:0,0,0,0);   
+				this->SetItem(index,1,LVIF_IMAGE,nullptr,pT->m_bShowTag == TRUE ? 1:0,0,0,0);   
 			}
 
 			this->SetItemState(index,INDEXTOSTATEIMAGEMASK(2), TVIS_STATEIMAGEMASK);

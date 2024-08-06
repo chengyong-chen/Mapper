@@ -4164,9 +4164,9 @@ void CLayer::ReleaseCap(pbf::writer& writer, const CDatainfo& datainfo, const BY
 		wSwitch |= m_bLocked ? 0X0008 : 0X0000;
 		wSwitch |= m_bDetour ? 0X0010 : 0X0000;
 		wSwitch |= m_bHide ? 0X0020 : 0X0000;
-		wSwitch |= m_bTagPivot ? 0X0040 : 0X0000;
+		wSwitch |= m_bTagPivot ? 0X0040 : 0X0000;		
 		wSwitch |= m_bAttribute ? 0X0080 : 0X0000;
-
+		
 		CSpot* pSpot = this->GetSpot();
 		CLine* pLine = this->GetLine();
 		CFill* pFill = this->GetFill();
@@ -4179,6 +4179,7 @@ void CLayer::ReleaseCap(pbf::writer& writer, const CDatainfo& datainfo, const BY
 		wSwitch |= pType != nullptr ? 0X0800 : 0X0000;
 		wSwitch |= pHint != nullptr ? 0X1000 : 0X0000;
 		wSwitch |= pThem != nullptr ? 0X2000 : 0X0000;
+		wSwitch |= m_bTagOblige ? 0X4000 : 0X0000;
 
 		writer.add_fixed_uint16(wSwitch);
 		if(pLine != nullptr)
