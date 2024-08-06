@@ -151,7 +151,7 @@ void CSpotFont::Serialize(CArchive& ar, const DWORD& dwVersion)
 		delete m_pColor;
 		m_pColor = CColor::Apply(colorindex);
 
-		m_strFontFamily = CFontDesc::GetFamilyByReal(m_strFontReal);
+		m_strFontFace = CFontDesc::GetFaceByReal(m_strFontReal);
 	}
 
 	if(m_pColor!=nullptr)

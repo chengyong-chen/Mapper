@@ -7,6 +7,8 @@
 #include <CGAL/Constrained_triangulation_plus_2.h>
 #include <CGAL/Polyline_simplification_2/Squared_distance_cost.h>
 #include <CGAL/IO/WKT.h>
+#include <CGAL/Delaunay_triangulation_2.h>
+#include <CGAL/point_generators_2.h>
 
 
 #include <boost/format.hpp>
@@ -20,6 +22,15 @@ typedef bg::model::d2::point_xy<int> point;
 typedef bg::model::polygon<point> polygon;
 typedef bg::model::multi_polygon<polygon> mpolygon;
 typedef bg::model::ring<point> Ring;
+
+#include <set>
+
+typedef CGAL::Exact_predicates_inexact_constructions_kernel K;
+typedef CGAL::Triangulation_vertex_base_2<K> Vb;
+typedef CGAL::Triangulation_data_structure_2<Vb> Tds;
+typedef CGAL::Delaunay_triangulation_2<K, Tds> Delaunay;
+typedef K::Point_2 CGALPoint;
+
 
 #include "correct.hpp"
 #include "psimpl.h"
@@ -100,5 +111,32 @@ namespace Simplify
 			result.push_back((int)(*it).x());
 			result.push_back((int)(*it).y());
 		}	
+	}
+
+	std::vector<std::vector<bool>> determineAdjacency(const std::vector<CGALPoint>& centroids, std::vector<CPoint>& edges)
+	{
+		Delaunay triangulation;
+		triangulation.insert(centroids.begin(), centroids.end());
+		std::map<CGALPoint, int> pointIndex;
+		int size = centroids.size();
+		for(int index = 0; index < size; index++) {
+			pointIndex[centroids[index]] = index;
+		}
+		
+		std::vector<std::vector<bool>> matrix(size, std::vector<bool>(size, false));
+		for(auto edge = triangulation.finite_edges_begin(); edge != triangulation.finite_edges_end(); ++edge) {
+			auto face = edge->first;
+			CGALPoint& point1 = face->vertex((edge->second + 1) % 3)->point();
+			CGALPoint& point2 = face->vertex((edge->second + 2) % 3)->point();
+			int i1 = pointIndex[point1];
+			int i2 = pointIndex[point2];
+			matrix[i1][i2] = true;
+			matrix[i2][i1] = true;
+
+
+			edges.push_back(CPoint(point1.x(), point1.y()));
+			edges.push_back(CPoint(point2.x(), point2.y()));
+		}
+		return matrix;
 	}
 }

@@ -202,7 +202,7 @@ void CLaypp::Reload(CWnd* pWnd, const CDatainfo& datainfo, const CViewinfo& view
 	if(pDatabase==nullptr)
 		return;
 	const bool bDrawGeom = (m_bShowGeom == false || viewinfo.m_levelCurrent< m_minLevelObj || viewinfo.m_levelCurrent >= m_maxLevelObj) ? false : true;
-	const bool bDrawTag = (m_bShowTag == false || viewinfo.m_levelCurrent<m_minLevelTag || viewinfo.m_levelCurrent >= m_maxLevelTag) ? false : true;
+	const bool bDrawTag = (m_bTagShow == false || viewinfo.m_levelCurrent<m_minLevelTag || viewinfo.m_levelCurrent >= m_maxLevelTag) ? false : true;
 	if(bDrawGeom==false&&bDrawTag==false)
 		return;
 
@@ -279,7 +279,7 @@ void CLaypp::Draw(Gdiplus::Graphics& g, const CViewinfo& viewinfo, const CRect& 
 	if(m_bVisible==false)
 		return;
 	const bool bDrawGeom = (m_bShowGeom==false||viewinfo.m_levelCurrent < m_minLevelObj||viewinfo.m_levelCurrent>=m_maxLevelObj) ? false : true;
-	const bool bDrawTag = (m_bShowTag==false||viewinfo.m_levelCurrent   < m_minLevelTag||viewinfo.m_levelCurrent>=m_maxLevelTag) ? false : true;
+	const bool bDrawTag = (m_bTagShow==false||viewinfo.m_levelCurrent   < m_minLevelTag||viewinfo.m_levelCurrent>=m_maxLevelTag) ? false : true;
 	if(bDrawGeom==false&&bDrawTag==false)
 		return;
 	const float scaleMark = (m_bDynamic&SpotDynamic)==SpotDynamic ? viewinfo.CurrentRatio() : 1.0f;
@@ -357,7 +357,7 @@ void CLaypp::DrawTag(Gdiplus::Graphics& g, const CViewinfo& viewinfo, const CRec
 {
 	if(m_bVisible==false)
 		return;
-	if(m_bShowTag==false)
+	if(m_bTagShow==false)
 		return;
 	if(viewinfo.m_levelCurrent<m_minLevelTag)
 		return;

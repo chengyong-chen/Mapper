@@ -121,6 +121,7 @@ protected:
 	afx_msg void OnProcessCleanOutofrange();
 	afx_msg void OnProcessCleanOrphan();
 	afx_msg void OnProcessAutoTagging();
+	afx_msg void OnPolygonAutoColoring();
 	afx_msg void OnEditPaste();
 	afx_msg void OnEditCopy();
 	afx_msg void OnEditMove();

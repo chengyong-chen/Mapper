@@ -11,7 +11,7 @@ static char THIS_FILE[] = __FILE__;
 /////////////////////////////////////////////////////////////////////////////
 // CLayerAttrDlg dialog
 
-CLayerAttrDlg::CLayerAttrDlg(CWnd* pParent /*=nullptr*/, const WORD wId, BYTE bLevel, float minLevelObj, float maxLevelObj, float minLevelTag, float maxLevelTag, BOOL bKeyQuery, bool bLocked, bool bHide, bool bShowTag, BYTE bDynamic, bool bDetour, bool bPivot, bool bCentroid, CStringA strGeoCatogery, bool bTagResistance)
+CLayerAttrDlg::CLayerAttrDlg(CWnd* pParent /*=nullptr*/, const WORD wId, BYTE bLevel, float minLevelObj, float maxLevelObj, float minLevelTag, float maxLevelTag, BOOL bKeyQuery, bool bLocked, bool bHide, bool bTagShow, BYTE bDynamic, bool bDetour, bool bTagPivot, bool bTagOblige, bool bCentroid, CStringA strGeoCatogery, bool bTagResistant)
 	: CDialog(CLayerAttrDlg::IDD, pParent)
 {
 	//{{AFX_DATA_INIT(CLayerAttrDlg)
@@ -22,11 +22,12 @@ CLayerAttrDlg::CLayerAttrDlg(CWnd* pParent /*=nullptr*/, const WORD wId, BYTE bL
 	m_maxLevelTag = 20;
 	m_bKeyQuery = FALSE;
 	m_bLocked = FALSE;
-	m_bShowTag = FALSE;
-	m_bPivot = FALSE;
+	m_bTagShow = FALSE;
+	m_bTagPivot = FALSE;
+	m_bTagOblige = FALSE;
 	m_bCentroid = FALSE;
 	m_dwLevel = 0;
-	m_bTagResistance = FALSE;
+	m_bTagResistant = FALSE;
 	//}}AFX_DATA_INIT
 
 	m_wId = wId;
@@ -37,17 +38,18 @@ CLayerAttrDlg::CLayerAttrDlg(CWnd* pParent /*=nullptr*/, const WORD wId, BYTE bL
 	m_bKeyQuery = bKeyQuery;
 	m_bLocked = bLocked;
 	m_bHide = bHide;
-	m_bShowTag = bShowTag;
+	m_bTagShow = bTagShow;
 	m_bSpotDynamic = (bDynamic&SpotDynamic)==SpotDynamic ? true : false;
 	m_bLineDynamic = (bDynamic&LineDynamic)==LineDynamic ? true : false;
 	m_bFillDynamic = (bDynamic&FillDynamic)==FillDynamic ? true : false;
 	m_bTypeDynamic = (bDynamic&TypeDynamic)==TypeDynamic ? true : false;
 	m_bDetour = bDetour;
-	m_bPivot = bPivot;
+	m_bTagPivot = bTagPivot;
+	m_bTagOblige = bTagOblige;
 	m_dwLevel = bLevel;
 	m_bCentroid = bCentroid;
 	m_strGeoCatogery = strGeoCatogery;
-	m_bTagResistance = bTagResistance;
+	m_bTagResistant = bTagResistant;
 }
 
 void CLayerAttrDlg::DoDataExchange(CDataExchange* pDX)
@@ -57,16 +59,17 @@ void CLayerAttrDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Check(pDX, IDC_QUERYNAME, m_bKeyQuery);
 	DDX_Check(pDX, IDC_LOCKED, m_bLocked);
 	DDX_Check(pDX, IDC_HIDE, m_bHide);
-	DDX_Check(pDX, IDC_SHOWTIP, m_bShowTag);
+	DDX_Check(pDX, IDC_SHOWTIP, m_bTagShow);
 	DDX_Check(pDX, IDC_SPOTDYNAMIC, m_bSpotDynamic);
 	DDX_Check(pDX, IDC_LINEDYNAMIC, m_bLineDynamic);
 	DDX_Check(pDX, IDC_FILLDYNAMIC, m_bFillDynamic);
 	DDX_Check(pDX, IDC_TYPEDYNAMIC, m_bTypeDynamic);
 	DDX_Check(pDX, IDC_DETOUR, m_bDetour);
-	DDX_Check(pDX, IDC_PIVOT, m_bPivot);
+	DDX_Check(pDX, IDC_TAGPIVOT, m_bTagPivot);
+	DDX_Check(pDX, IDC_TAGOBLIGE, m_bTagOblige);
 	DDX_Check(pDX, IDC_CENTROID, m_bCentroid);
 	DDX_Text(pDX, IDC_GEOCATOGERY, m_strGeoCatogery);
-	DDX_Check(pDX, IDC_TAGRESISTANCE, m_bTagResistance);
+	DDX_Check(pDX, IDC_TAGRESISTANT, m_bTagResistant);
 	//}}AFX_DATA_MAP
 }
 

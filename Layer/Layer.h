@@ -91,17 +91,19 @@ public:
 public:
 	bool m_bVisible = true;
 	bool m_bShowGeom = true;
-	bool m_bShowTag = true;
+	bool m_bTagShow = true;
 	bool m_bKeyQuery = true;
 	bool m_bLocked = false;
 	bool m_bDetour = false;
-	bool m_bHide = false;
-	bool m_bPivot = false;
+	bool m_bHide = false;	
 	bool m_bAttribute = false;
 	bool m_bCentroid = true;
 	BYTE m_bDynamic = 0XFF&(~HintDynamic);
 	mutable unsigned long m_nActiveCount = 0;
-	BYTE ​m_bTagResistance = 0X00;
+private:
+	bool m_bTagPivot = false;
+	bool m_bTagOblige = false;
+	BYTE ​m_bTagResistant = 0X00;
 
 public:
 	CLayerTree& m_tree;
@@ -146,6 +148,7 @@ public:
 	virtual void Purify() const;
 	virtual void Wipeout();
 	virtual void CleanOrphan();
+	virtual void AutoColoring(unsigned int tolerance);
 
 public:
 	virtual CTypedPtrList<CObList, CGeom*>& GetGeomList() { return m_geomlist; }

@@ -362,7 +362,7 @@ void CMark::FillTag(Gdiplus::Graphics& g, const CViewinfo& viewinfo, const CHint
 	Gdiplus::SolidBrush brush(Gdiplus::Color::White);
 	g.FillRectangle(&brush, tagRect);
 }
-void CMark::DrawTag(Gdiplus::Graphics& g, const CViewinfo& viewinfo, const CHint* pHint, const bool& bPivot) const
+void CMark::DrawTag(Gdiplus::Graphics& g, const CViewinfo& viewinfo, const CHint* pHint, const bool& bPivot, const bool& bOblige) const
 {
 	if(m_strName.IsEmpty()==TRUE)
 		return;

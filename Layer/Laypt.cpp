@@ -49,7 +49,7 @@ void CLaypt::Reload(CWnd* pWnd, const CDatainfo& datainfo, const CViewinfo& view
 		return;
 
 	const bool bDrawObj = (m_bShowGeom == false || viewinfo.m_levelCurrent<m_minLevelObj || viewinfo.m_levelCurrent >= m_maxLevelObj) ? false : true;
-	const bool bDrawTag = (m_bShowTag == false || viewinfo.m_levelCurrent< m_minLevelTag || viewinfo.m_levelCurrent >= m_maxLevelTag) ? false : true;
+	const bool bDrawTag = (m_bTagShow == false || viewinfo.m_levelCurrent< m_minLevelTag || viewinfo.m_levelCurrent >= m_maxLevelTag) ? false : true;
 	if(bDrawObj==false&&bDrawTag==false)
 		return;
 

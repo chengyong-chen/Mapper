@@ -267,15 +267,15 @@ BOOL CImportGdal::Import(LPCTSTR lpszPath, CStringList& files, bool ignoreProjec
 void CImportGdal::ReadLayer(LPCTSTR lpszFile, CDaoDatabase* pMDBDataBase, bool ignoreProjection, bool into)
 {
 	CT2CA caTable(lpszFile);
-
-	GDALDatasetUniquePtr poDataset(GDALDataset::Open(caTable.m_psz, GA_ReadOnly|GDAL_OF_VECTOR, nullptr, nullptr, nullptr));
-	if(poDataset==nullptr)
+	GDALDataset* pGDALDataset = GDALDataset::Open(caTable.m_psz, GA_ReadOnly | GDAL_OF_VECTOR, nullptr, nullptr, nullptr);
+	if(pGDALDataset == nullptr)
 	{
 		CString strError;
 		strError.Format(_T("Open %s failed."), lpszFile);
 		AfxMessageBox(strError);
 		return;
 	}
+	GDALDatasetUniquePtr poDataset(pGDALDataset);
 	bool intoed1 = into;
 	const std::filesystem::path filepath(lpszFile);
 	const std::string ext = filepath.extension().string();
@@ -1862,7 +1862,7 @@ CSpot* CImportGdal::ReadSpot(OGRStyleMgr* poStyleMgr, CLibrary& library) const
 			if(pszSymbolId!=nullptr&&(strstr(pszSymbolId, "mapinfo-sym-")||strstr(pszSymbolId, "ogr-sym-")))
 			{
 				CSpotFont* pSpotFont = new CSpotFont();
-				pSpotFont->m_strFontReal = _T("MapInfo Symbols");
+				pSpotFont->m_strFontReal = "MapInfo Symbols";
 				pSpotFont->m_strFontFace = _T("MapInfo Symbols");
 				pSpotFont->m_pColor = new CColorSpot(poStyleSymbol->Color(bDeault));
 				pSpotFont->m_nSize = abs(nSize);

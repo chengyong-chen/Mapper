@@ -47,7 +47,7 @@ public:
 	void Draw(Gdiplus::Graphics& g, const CViewinfo& viewinfo, const float& ratio) const override;
 	void Draw(Gdiplus::Graphics& g, const CViewinfo& viewinfo, const CLibrary& library, Context& context) const override;
 	void DrawHatch(Gdiplus::Graphics& g, const CViewinfo& viewinfo, const int& width) const override;
-	void DrawCentroid(CDC* pDC, const CViewinfo& viewinfo, const bool& labeloid, const bool& geogroid) const override;
+	void DrawCentroid(CDC* pDC, const CViewinfo& viewinfo, const bool& labeloid, const bool& geogroid) const override;	
 	virtual void AddPath(Gdiplus::GraphicsPath& path, const Gdiplus::Matrix& matrix) const = 0;
 	virtual void AddPath(Gdiplus::GraphicsPath& path, const CViewinfo& viewinfo, const float& tolerance) const = 0;
 	void Preoccupy(Gdiplus::Graphics& g, CLine* pLine, const CViewinfo& viewinfo, const float& ratio) const;

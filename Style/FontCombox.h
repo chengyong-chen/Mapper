@@ -13,7 +13,7 @@ public:
 	void BuildFontList();
 	bool MatchFont(CFontDesc* fontdesac);
 	bool MatchFont(CString strFont);
-
+	bool MatchFont(CStringA strFont);
 	CFontDesc* GetCurSelDesc() const;
 
 	static int CALLBACK EnumFontFamExProc(ENUMLOGFONTEX* pelf, NEWTEXTMETRICEX* lpntm, DWORD FontType, LPVOID pThis);

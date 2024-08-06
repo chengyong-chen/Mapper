@@ -359,6 +359,7 @@
 #define ID_PROCESS_WIPEOUT              33356
 #define ID_FILE_IMPORTINTO              33357
 #define ID_PROCESS_NORMALIZE            33358
+#define ID_POLYGON_AUTOCOLORING         33359
 #define ID_REPLACE_WITHMARK             33363
 #define ID_PROCESS_AUTOTAGGING          33364
 #define ID_VIEW_FIXEDTAGS               33365

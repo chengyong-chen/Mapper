@@ -1,6 +1,7 @@
 #include "stdafx.h"
 
 #include "Color.h"
+#include "ColorSpot.h"
 
 #include "FillAlone.h"
 #include "Psboard.h"
@@ -25,7 +26,11 @@ CFillAlone::CFillAlone()
 CFillAlone::CFillAlone(CColor* pColor)
 	:m_pColor(pColor)
 {
-
+	
+}
+CFillAlone::CFillAlone(COLORREF color)
+{
+	m_pColor = new CColorSpot(color);
 }
 CFillAlone::~CFillAlone()
 {

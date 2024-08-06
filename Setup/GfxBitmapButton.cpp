@@ -108,7 +108,7 @@ void CGfxBitmapButton::DrawItem(LPDRAWITEMSTRUCT lpDIS)
 	if(m_cImageBk.m_hImageList)
 		nImageCount = m_cImageBk.GetImageCount();
 
-	// »­±³¾°Î»Í¼
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î»Í¼
 	int nBitmapId = 0;
 	if(nImageCount > 1)
 	{
@@ -127,7 +127,7 @@ void CGfxBitmapButton::DrawItem(LPDRAWITEMSTRUCT lpDIS)
 	CString rText;
 	GetWindowText(rText);
 	
-	// »­±ê¼Ç
+	// ï¿½ï¿½ï¿½ï¿½ï¿½
 	CPoint point;
 	pDrawDC->SelectObject(CFont::FromHandle((HFONT)GetStockObject(DEFAULT_GUI_FONT)));
 	CSize size = pDrawDC->GetTextExtent(_T(" "), 2);
@@ -190,7 +190,7 @@ void CGfxBitmapButton::DrawItem(LPDRAWITEMSTRUCT lpDIS)
 	if(m_cImageMark.m_hImageList)
 		m_cImageMark.Draw(pDrawDC, 0, point, ILD_TRANSPARENT);
 
-	// »­ÍâÎ§µÄ±ß¿ò
+	// ï¿½ï¿½ï¿½ï¿½Î§ï¿½Ä±ß¿ï¿½
 	CPen pen(PS_SOLID, 0, m_colFrameColor);
 	if(m_bMouseTracking && !(state & ODS_DISABLED))
 		pDrawDC->Draw3dRect(&(lpDIS->rcItem), GetSysColor(COLOR_BTNHILIGHT), m_colFrameColor);
@@ -201,7 +201,7 @@ void CGfxBitmapButton::DrawItem(LPDRAWITEMSTRUCT lpDIS)
 		pDrawDC->Rectangle(&(lpDIS->rcItem));
 	}
 
-	// Ð´ÎÄ×Ö
+	// Ð´ï¿½ï¿½ï¿½ï¿½
 	if(rText.GetLength())
 	{
 		if(state & ODS_DISABLED)

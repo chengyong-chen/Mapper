@@ -156,6 +156,7 @@ BEGIN_MESSAGE_MAP(CGrfDoc, COleDocument)
 	ON_COMMAND(ID_PROCESS_CLEANOUTOFRANGE, OnProcessCleanOutofrange)
 	ON_COMMAND(ID_PROCESS_CLEANORPHAN, OnProcessCleanOrphan)
 	ON_COMMAND(ID_PROCESS_AUTOTAGGING, OnProcessAutoTagging)
+	ON_COMMAND(ID_POLYGON_AUTOCOLORING, OnPolygonAutoColoring)
 	ON_COMMAND(ID_EDIT_UNDO, OnEditUndo)
 	ON_COMMAND(ID_EDIT_REDO, OnEditRedo)
 	ON_COMMAND(ID_EDIT_CLEAR, OnEditClear)
@@ -2627,8 +2628,8 @@ BOOL CGrfDoc::OnCmdMsg(UINT nId, int nCode, void* pExtra, AFX_CMDHANDLERINFO* pH
 					break;
 				case ID_TOOL_TOPOSPLIT:
 					pCmdUI->Enable(FALSE);
-		//			pCmdUI->Enable(m_topolist.size() > 0);
-		//			pCmdUI->SetCheck(m_pTool == &topoSplitTool);
+					//			pCmdUI->Enable(m_topolist.size() > 0);
+					//			pCmdUI->SetCheck(m_pTool == &topoSplitTool);
 					return TRUE;
 					break;
 				case ID_TOOL_RECTIFYDATUM:
@@ -5034,4 +5035,17 @@ void CGrfDoc::OnProcessAutoTagging()
 		::DeleteObject(hBitmap);
 		::free(pbmi);
 	}
+}
+void CGrfDoc::OnPolygonAutoColoring()
+{
+	AfxGetApp()->BeginWaitCursor();
+	for(CLayerTree::forwiterator it = m_layertree.forwbegin(); it != m_layertree.forwend(); ++it)
+	{
+		CLayer* layer = *it;
+		if(layer->m_bVisible == false)
+			continue;
+
+		layer->AutoColoring(m_Datainfo.m_zoomPointToDoc);
+	}
+	AfxGetApp()->EndWaitCursor();
 }

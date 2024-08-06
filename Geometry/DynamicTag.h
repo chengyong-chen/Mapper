@@ -68,7 +68,7 @@ public:
 	static CGroupTag* GetGroup(CObList& list, const CGeom* pGeom);
 
 public:
-	virtual void Draw(Gdiplus::Graphics& g, const CViewinfo& viewinfo, const CHint* pHint, const bool& bPivot);
+	virtual void Draw(Gdiplus::Graphics& g, const CViewinfo& viewinfo, const CHint* pHint, const bool& bPivot, const bool& bOblige);
 
 	class CWord : public CObject
 	{

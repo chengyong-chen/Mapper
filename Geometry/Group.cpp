@@ -32,13 +32,13 @@ CGroup::CGroup(CLine* pLine, CFillCompact* pFill)
 CGroup::~CGroup()
 {
 }
-void CGroup::DrawTag(Gdiplus::Graphics& g, const CViewinfo& viewinfo, const CHint* pHint, const bool& bPivot) const
+void CGroup::DrawTag(Gdiplus::Graphics& g, const CViewinfo& viewinfo, const CHint* pHint, const bool& bPivot, const bool& bOblige) const
 {
 	POSITION pos = m_geomlist.GetHeadPosition();
 	while(pos!=nullptr)
 	{
 		CGeom* pGeom = m_geomlist.GetNext(pos);
-		pGeom->DrawTag(g, viewinfo, pHint, bPivot);
+		pGeom->DrawTag(g, viewinfo, pHint, bPivot, bOblige);
 	}
 }
 void CGroup::DrawTag(Gdiplus::Graphics& g, const CViewinfo& viewinfo, const CHint* pHint) const

@@ -33,7 +33,7 @@ END_MESSAGE_MAP()
 
 int CTree1::OnCreate(LPCREATESTRUCT lpCreateStruct)
 {
-	if(CTreeCtrl::OnCreate(lpCreateStruct)==-1)
+	if(CTreeCtrl::OnCreate(lpCreateStruct) == -1)
 		return -1;
 
 	SetItemHeight(24);
@@ -43,7 +43,7 @@ int CTree1::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	const HINSTANCE hInstOld = AfxGetResourceHandle();
 	AfxSetResourceHandle(hInst);
 	CImageList typeImages;
-	if(typeImages.Create(IDB_ITEMIMAGE, 16, 0, RGB(255, 0, 0))==TRUE)
+	if(typeImages.Create(IDB_ITEMIMAGE, 16, 0, RGB(255, 0, 0)) == TRUE)
 	{
 		SetImageList(&typeImages, LVSIL_NORMAL);
 		typeImages.Detach();
@@ -59,25 +59,25 @@ void CTree1::BuildTree(CTreeNodeList* pNodelist)
 {
 	DeleteAllItems();
 
-	if(pNodelist!=nullptr)
+	if(pNodelist != nullptr)
 	{
 		SetItemHeight(24);
 		SetTextColor(RGB(0, 0, 185));
 
 		POSITION pos = pNodelist->GetHeadPosition();
-		while(pos!=nullptr)
+		while(pos != nullptr)
 		{
 			CTreeNode1* node = pNodelist->GetNext(pos);
-			if(node==nullptr)
+			if(node == nullptr)
 				break;
 
 			HTREEITEM pParentItem = GetItemById(node->m_wParent);
-			if(node->m_wParent==0||pParentItem!=nullptr)
+			if(node->m_wParent == 0 || pParentItem != nullptr)
 			{
 				TV_INSERTSTRUCT tvstruct;
 				tvstruct.hParent = pParentItem;
 				tvstruct.hInsertAfter = TVI_LAST;
-				tvstruct.item.mask = TVIF_TEXT|TVIF_PARAM|TVIF_IMAGE|TVIF_SELECTEDIMAGE;
+				tvstruct.item.mask = TVIF_TEXT | TVIF_PARAM | TVIF_IMAGE | TVIF_SELECTEDIMAGE;
 				tvstruct.item.pszText = node->m_strName.GetBuffer(node->m_strName.GetLength());
 				tvstruct.item.iImage = node->Gettype();
 				tvstruct.item.iSelectedImage = tvstruct.item.iImage;
@@ -91,7 +91,7 @@ void CTree1::BuildTree(CTreeNodeList* pNodelist)
 				TV_INSERTSTRUCT tvstruct;
 				tvstruct.hParent = pParentItem;
 				tvstruct.hInsertAfter = TVI_LAST;
-				tvstruct.item.mask = TVIF_TEXT|TVIF_PARAM|TVIF_IMAGE|TVIF_SELECTEDIMAGE;
+				tvstruct.item.mask = TVIF_TEXT | TVIF_PARAM | TVIF_IMAGE | TVIF_SELECTEDIMAGE;
 				tvstruct.item.pszText = node->m_strName.GetBuffer(node->m_strName.GetLength());
 				tvstruct.item.iImage = node->Gettype();
 				tvstruct.item.iSelectedImage = tvstruct.item.iImage;
@@ -105,7 +105,7 @@ void CTree1::BuildTree(CTreeNodeList* pNodelist)
 		}
 
 		HTREEITEM hFixedItem = GetRootItem();
-		if(hFixedItem!=nullptr)
+		if(hFixedItem != nullptr)
 		{
 			SelectItem(hFixedItem);
 		}
@@ -116,9 +116,9 @@ void CTree1::BuildTree(CTreeNodeList* pNodelist)
 
 BOOL CTree1::OnCmdMsg(UINT nId, int nCode, void* pExtra, AFX_CMDHANDLERINFO* pHandlerInfo)
 {
-	if(pHandlerInfo==nullptr)
+	if(pHandlerInfo == nullptr)
 	{
-		if(nCode==CN_UPDATE_COMMAND_UI)
+		if(nCode == CN_UPDATE_COMMAND_UI)
 		{
 			CCmdUI* pCmdUI = (CCmdUI*)pExtra;
 			if(pCmdUI->m_bContinueRouting)
@@ -130,22 +130,22 @@ BOOL CTree1::OnCmdMsg(UINT nId, int nCode, void* pExtra, AFX_CMDHANDLERINFO* pHa
 
 			switch(nId)
 			{
-			case ID_ITEM_DELETE:
-			{
-				if(this->GetSelectedItem()==nullptr)
-					pCmdUI->Enable(FALSE);
-				else
-					pCmdUI->Enable(TRUE);
-			}
-			return TRUE;
-			break;
+				case ID_ITEM_DELETE:
+					{
+						if(this->GetSelectedItem() == nullptr)
+							pCmdUI->Enable(FALSE);
+						else
+							pCmdUI->Enable(TRUE);
+					}
+					return TRUE;
+					break;
 
-			default:
-				break;
+				default:
+					break;
 			}
 			pCmdUI->m_bContinueRouting = false;
 		}
-		if(nCode==CN_COMMAND)
+		if(nCode == CN_COMMAND)
 		{
 		}
 	}
@@ -156,13 +156,13 @@ BOOL CTree1::OnCmdMsg(UINT nId, int nCode, void* pExtra, AFX_CMDHANDLERINFO* pHa
 BOOL CTree1::TransferItem(HTREEITEM hitemFrom, HTREEITEM hitemTo)
 {
 	HTREEITEM hFirstChild;
-	while((hFirstChild = GetChildItem(hitemFrom))!=nullptr)
+	while((hFirstChild = GetChildItem(hitemFrom)) != nullptr)
 	{
 		TCHAR sztBuffer[50];
 
 		TV_INSERTSTRUCT tvstruct;
 
-		tvstruct.item.mask = TVIF_TEXT|TVIF_PARAM|TVIF_IMAGE|TVIF_SELECTEDIMAGE;
+		tvstruct.item.mask = TVIF_TEXT | TVIF_PARAM | TVIF_IMAGE | TVIF_SELECTEDIMAGE;
 		tvstruct.item.hItem = hFirstChild;
 		tvstruct.item.cchTextMax = 49;
 		tvstruct.item.pszText = sztBuffer;
@@ -173,7 +173,7 @@ BOOL CTree1::TransferItem(HTREEITEM hitemFrom, HTREEITEM hitemTo)
 		tvstruct.item.stateMask = LVIS_STATEIMAGEMASK;
 		HTREEITEM hNewItem = InsertItem(&tvstruct);
 
-		if(m_pNodelist!=nullptr)
+		if(m_pNodelist != nullptr)
 		{
 			CTreeNode1* node1 = (CTreeNode1*)GetItemData(hFirstChild);
 			POSITION pos1 = m_pNodelist->Find(node1);
@@ -198,11 +198,11 @@ BOOL CTree1::IsChildOf(HTREEITEM hitemChild, HTREEITEM hitemSuspectedParent) con
 {
 	do
 	{
-		if(hitemChild==hitemSuspectedParent)
+		if(hitemChild == hitemSuspectedParent)
 			break;
-	} while((hitemChild = GetParentItem(hitemChild))!=nullptr);
+	} while((hitemChild = GetParentItem(hitemChild)) != nullptr);
 
-	return (hitemChild!=nullptr);
+	return (hitemChild != nullptr);
 }
 
 BOOL CTree1::IsUperOf(HTREEITEM hitemSuspectedup, HTREEITEM hitemdown) const
@@ -210,28 +210,28 @@ BOOL CTree1::IsUperOf(HTREEITEM hitemSuspectedup, HTREEITEM hitemdown) const
 	do
 	{
 		hitemdown = GetUperItem(hitemdown);
-		if(hitemdown==hitemSuspectedup)
+		if(hitemdown == hitemSuspectedup)
 			return TRUE;
-	} while(hitemdown!=hitemSuspectedup&&hitemdown!=nullptr);
+	} while(hitemdown != hitemSuspectedup && hitemdown != nullptr);
 	return FALSE;
 }
 
 HTREEITEM CTree1::GetUperItem(HTREEITEM hitem) const
 {
-	if(hitem==nullptr)
+	if(hitem == nullptr)
 		return nullptr;
 
-	if(this->GetPrevSiblingItem(hitem)==nullptr)
+	if(this->GetPrevSiblingItem(hitem) == nullptr)
 	{
 		hitem = this->GetParentItem(hitem);
 		return hitem;
 	}
 
 	hitem = this->GetPrevSiblingItem(hitem);
-	while(this->GetChildItem(hitem)!=nullptr)
+	while(this->GetChildItem(hitem) != nullptr)
 	{
 		hitem = this->GetChildItem(hitem);
-		while(this->GetNextSiblingItem(hitem)!=nullptr)
+		while(this->GetNextSiblingItem(hitem) != nullptr)
 			hitem = this->GetNextSiblingItem(hitem);
 	}
 
@@ -240,20 +240,20 @@ HTREEITEM CTree1::GetUperItem(HTREEITEM hitem) const
 
 HTREEITEM CTree1::GetDownItem(HTREEITEM hitem) const
 {
-	if(this->GetChildItem(hitem)!=nullptr)
+	if(this->GetChildItem(hitem) != nullptr)
 	{
 		return this->GetChildItem(hitem);
 	}
 
-	if(this->GetNextSiblingItem(hitem)!=nullptr)
+	if(this->GetNextSiblingItem(hitem) != nullptr)
 	{
 		return this->GetNextSiblingItem(hitem);
 	}
 
-	while(this->GetParentItem(hitem)!=nullptr)
+	while(this->GetParentItem(hitem) != nullptr)
 	{
 		hitem = this->GetParentItem(hitem);
-		if(this->GetNextSiblingItem(hitem)!=nullptr)
+		if(this->GetNextSiblingItem(hitem) != nullptr)
 		{
 			return this->GetNextSiblingItem(hitem);
 		}
@@ -264,15 +264,15 @@ HTREEITEM CTree1::GetDownItem(HTREEITEM hitem) const
 
 HTREEITEM CTree1::GetItemById(WORD wItemID) const
 {
-	if(wItemID==0)
+	if(wItemID == 0)
 		return nullptr;
 
 	HTREEITEM hItem = nullptr;
 	hItem = this->GetDownItem(hItem);
-	while(hItem!=nullptr)
+	while(hItem != nullptr)
 	{
 		const CTreeNode1* node = (CTreeNode1*)this->GetItemData(hItem);
-		if(node->m_wId==wItemID)
+		if(node->m_wId == wItemID)
 		{
 			return hItem;
 		}
@@ -284,15 +284,15 @@ HTREEITEM CTree1::GetItemById(WORD wItemID) const
 
 HTREEITEM CTree1::GetItemByName(CString strName) const
 {
-	if(strName.GetLength()<=0)
+	if(strName.GetLength() <= 0)
 		return nullptr;
 
 	HTREEITEM hItem = nullptr;
 	hItem = this->GetDownItem(hItem);
-	while(hItem!=nullptr)
+	while(hItem != nullptr)
 	{
 		const CTreeNode1* node = (CTreeNode1*)this->GetItemData(hItem);
-		if(node->m_strName==strName)
+		if(node->m_strName == strName)
 		{
 			return hItem;
 		}
@@ -306,7 +306,7 @@ void CTree1::OnEndlabeledit(NMHDR* pNMHDR, LRESULT* pResult)
 	TV_DISPINFO* pTVDispInfo = (TV_DISPINFO*)pNMHDR;
 	// TODO: Add your control notification handler code here
 
-	if(pTVDispInfo->item.pszText!=nullptr)
+	if(pTVDispInfo->item.pszText != nullptr)
 	{
 		pTVDispInfo->item.mask = TVIF_TEXT;
 		SetItem(&pTVDispInfo->item);
@@ -327,16 +327,16 @@ void CTree1::OnBegindrag(NMHDR* pNMHDR, LRESULT* pResult)
 
 	GetCursorPos(&ptAction);
 	ScreenToClient(&ptAction);
-	ASSERT(m_bDragging==FALSE);
+	ASSERT(m_bDragging == FALSE);
 	m_hitemDrag = HitTest(ptAction, &nFlags);
-	if(m_hitemDrag!=nullptr)
+	if(m_hitemDrag != nullptr)
 	{
 		m_bDragging = TRUE;
 		m_hitemDrop = nullptr;
 
-		ASSERT(m_pDragImage==nullptr);
+		ASSERT(m_pDragImage == nullptr);
 		m_pDragImage = CreateDragImage(m_hitemDrag);
-		if(m_pDragImage!=nullptr)
+		if(m_pDragImage != nullptr)
 		{
 			m_pDragImage->DragShowNolock(TRUE);
 			m_pDragImage->SetDragCursorImage(0, CPoint(0, 0));
@@ -357,16 +357,16 @@ void CTree1::OnMouseMove(UINT nFlags, CPoint point)
 
 	if(m_bDragging)
 	{
-		if((hitem = HitTest(point, &flags))!=nullptr)
+		if((hitem = HitTest(point, &flags)) != nullptr)
 		{
-			if(m_pDragImage!=nullptr)
+			if(m_pDragImage != nullptr)
 			{
 				m_pDragImage->DragMove(point);
 				m_pDragImage->DragLeave(this);
 			}
 			SelectDropTarget(hitem);
 			m_hitemDrop = hitem;
-			if(m_pDragImage!=nullptr)
+			if(m_pDragImage != nullptr)
 			{
 				m_pDragImage->DragEnter(this, point);
 			}
@@ -374,7 +374,7 @@ void CTree1::OnMouseMove(UINT nFlags, CPoint point)
 			const HINSTANCE hInstOld = AfxGetResourceHandle();
 			AfxSetResourceHandle(hInst);
 
-			if(::GetKeyState(VK_CONTROL)<0)
+			if(::GetKeyState(VK_CONTROL) < 0)
 				SetCursor(AfxGetApp()->LoadCursor(IDC_ITEMMOVETO));
 			else
 			{
@@ -393,26 +393,26 @@ void CTree1::OnMouseMove(UINT nFlags, CPoint point)
 
 void CTree1::OnLButtonUp(UINT nFlags, CPoint point)
 {
-	if(m_bDragging&&m_hitemDrag!=nullptr&&m_hitemDrop!=nullptr)
+	if(m_bDragging && m_hitemDrag != nullptr && m_hitemDrop != nullptr)
 	{
-		if(m_pDragImage!=nullptr)
+		if(m_pDragImage != nullptr)
 		{
 			m_pDragImage->DragLeave(this);
 			m_pDragImage->EndDrag();
 		}
 
-		if(m_hitemDrag!=m_hitemDrop&&!IsChildOf(m_hitemDrop, m_hitemDrag))
+		if(m_hitemDrag != m_hitemDrop && !IsChildOf(m_hitemDrop, m_hitemDrag))
 		{
 			CTreeNode1* check1 = (CTreeNode1*)GetItemData(m_hitemDrop);
 			CTreeNode1* check2 = (CTreeNode1*)GetItemData(m_hitemDrag);
 
 			HTREEITEM hNewItem;
-			if(::GetKeyState(VK_CONTROL)<0)
+			if(::GetKeyState(VK_CONTROL) < 0)
 			{
 				TCHAR sztBuffer[20];
 
 				TV_INSERTSTRUCT tvstruct;
-				tvstruct.item.mask = TVIF_TEXT|TVIF_PARAM|TVIF_IMAGE|TVIF_SELECTEDIMAGE;
+				tvstruct.item.mask = TVIF_TEXT | TVIF_PARAM | TVIF_IMAGE | TVIF_SELECTEDIMAGE;
 				tvstruct.item.hItem = m_hitemDrag;
 				tvstruct.item.cchTextMax = 19;
 				tvstruct.item.pszText = sztBuffer;
@@ -426,7 +426,7 @@ void CTree1::OnLButtonUp(UINT nFlags, CPoint point)
 				HTREEITEM UpItem = GetUperItem(hNewItem);
 				CTreeNode1* Upnode = (CTreeNode1*)GetItemData(UpItem);
 				CTreeNode1* Dragnode = (CTreeNode1*)GetItemData(m_hitemDrag);
-				if(Upnode!=Dragnode&&m_pNodelist!=nullptr)
+				if(Upnode != Dragnode && m_pNodelist != nullptr)
 				{
 					POSITION DragPos = m_pNodelist->Find(Dragnode);
 					POSITION UpPos = m_pNodelist->Find(Upnode);
@@ -436,7 +436,7 @@ void CTree1::OnLButtonUp(UINT nFlags, CPoint point)
 				SetItemData(m_hitemDrag, 0);
 
 				HTREEITEM ParentItem = GetParentItem(m_hitemDrop);
-				if(ParentItem!=nullptr)
+				if(ParentItem != nullptr)
 				{
 					CTreeNode1* Parentnode = (CTreeNode1*)GetItemData(ParentItem);
 					Dragnode->m_wParent = Parentnode->m_wId;
@@ -449,12 +449,12 @@ void CTree1::OnLButtonUp(UINT nFlags, CPoint point)
 				TransferItem(m_hitemDrag, hNewItem);
 				DeleteItem(m_hitemDrag);
 			}
-			else if(GetParentItem(m_hitemDrag)!=m_hitemDrop)
+			else if(GetParentItem(m_hitemDrag) != m_hitemDrop)
 			{
 				TV_INSERTSTRUCT tvstruct;
 				TCHAR sztBuffer[50];
 
-				tvstruct.item.mask = TVIF_TEXT|TVIF_PARAM|TVIF_IMAGE|TVIF_SELECTEDIMAGE;
+				tvstruct.item.mask = TVIF_TEXT | TVIF_PARAM | TVIF_IMAGE | TVIF_SELECTEDIMAGE;
 				tvstruct.item.hItem = m_hitemDrag;
 				tvstruct.item.cchTextMax = 49;
 				tvstruct.item.pszText = sztBuffer;
@@ -468,7 +468,7 @@ void CTree1::OnLButtonUp(UINT nFlags, CPoint point)
 				HTREEITEM UpItem = GetUperItem(hNewItem);
 				CTreeNode1* Upnode = (CTreeNode1*)GetItemData(UpItem);
 				CTreeNode1* Dragnode = (CTreeNode1*)GetItemData(m_hitemDrag);
-				if(Upnode!=Dragnode&&m_pNodelist!=nullptr)
+				if(Upnode != Dragnode && m_pNodelist != nullptr)
 				{
 					POSITION DragPos = m_pNodelist->Find(Dragnode);
 					POSITION UpPos = m_pNodelist->Find(Upnode);
@@ -484,7 +484,7 @@ void CTree1::OnLButtonUp(UINT nFlags, CPoint point)
 				DeleteItem(m_hitemDrag);
 			}
 
-			if(hNewItem!=nullptr)
+			if(hNewItem != nullptr)
 			{
 				SelectItem(hNewItem);
 			}
@@ -498,7 +498,7 @@ void CTree1::OnLButtonUp(UINT nFlags, CPoint point)
 	m_bDragging = FALSE;
 	SelectDropTarget(nullptr);
 
-	if(m_pDragImage!=nullptr)
+	if(m_pDragImage != nullptr)
 	{
 		m_pDragImage->DeleteImageList();
 		m_pDragImage->Detach();
@@ -512,25 +512,25 @@ void CTree1::OnLButtonUp(UINT nFlags, CPoint point)
 bool CTree1::InsertAfter(CTreeNode1* newNode)
 {
 	HTREEITEM hSelectItem = GetSelectedItem();
-	if(hSelectItem==nullptr)
+	if(hSelectItem == nullptr)
 		return false;
 
 	HTREEITEM hParentItem = GetParentItem(hSelectItem);
 	HTREEITEM hBeforItem = hSelectItem;
 
 	CTreeNode1* nSlectnode = (CTreeNode1*)GetItemData(hSelectItem);
-	CTreeNode1* nParentnode = hParentItem==nullptr ? nullptr : (CTreeNode1*)GetItemData(hParentItem);
-	newNode->m_wParent = nParentnode==nullptr ? 0 : nParentnode->m_wId;
+	CTreeNode1* nParentnode = hParentItem == nullptr ? nullptr : (CTreeNode1*)GetItemData(hParentItem);
+	newNode->m_wParent = nParentnode == nullptr ? 0 : nParentnode->m_wId;
 
-	while(this->GetChildItem(hBeforItem)!=nullptr)
+	while(this->GetChildItem(hBeforItem) != nullptr)
 	{
 		hBeforItem = this->GetChildItem(hBeforItem);
-		while(this->GetNextSiblingItem(hBeforItem)!=nullptr)
+		while(this->GetNextSiblingItem(hBeforItem) != nullptr)
 			hBeforItem = this->GetNextSiblingItem(hBeforItem);
 	}
 
 	CTreeNode1* nBefornode = (CTreeNode1*)this->GetItemData(hBeforItem);
-	if(m_pNodelist!=nullptr)
+	if(m_pNodelist != nullptr)
 	{
 		POSITION pos = m_pNodelist->Find(nBefornode);
 		m_pNodelist->InsertAfter(pos, newNode);
@@ -539,7 +539,7 @@ bool CTree1::InsertAfter(CTreeNode1* newNode)
 	TV_INSERTSTRUCT tvstruct;
 	tvstruct.hParent = hParentItem;
 	tvstruct.hInsertAfter = hSelectItem;
-	tvstruct.item.mask = TVIF_TEXT|TVIF_PARAM|TVIF_IMAGE|TVIF_SELECTEDIMAGE;
+	tvstruct.item.mask = TVIF_TEXT | TVIF_PARAM | TVIF_IMAGE | TVIF_SELECTEDIMAGE;
 	tvstruct.item.iImage = newNode->Gettype();
 	tvstruct.item.iSelectedImage = tvstruct.item.iImage;
 	tvstruct.item.pszText = (LPTSTR)"New";
@@ -552,16 +552,16 @@ bool CTree1::InsertAfter(CTreeNode1* newNode)
 bool CTree1::InsertBefore(CTreeNode1* newNode)
 {
 	HTREEITEM hSelectItem = GetSelectedItem();
-	if(hSelectItem==nullptr)
+	if(hSelectItem == nullptr)
 		return false;
 
 	HTREEITEM hParentItem = GetParentItem(hSelectItem);
 
 	CTreeNode1* nSelectnode = (CTreeNode1*)GetItemData(hSelectItem);
-	CTreeNode1* nParentnode = hParentItem==nullptr ? nullptr : (CTreeNode1*)GetItemData(hParentItem);
-	newNode->m_wParent = nParentnode==nullptr ? 0 : nParentnode->m_wId;
+	CTreeNode1* nParentnode = hParentItem == nullptr ? nullptr : (CTreeNode1*)GetItemData(hParentItem);
+	newNode->m_wParent = nParentnode == nullptr ? 0 : nParentnode->m_wId;
 
-	if(m_pNodelist!=nullptr)
+	if(m_pNodelist != nullptr)
 	{
 		POSITION pos = m_pNodelist->Find(nSelectnode);
 		m_pNodelist->InsertBefore(pos, newNode);
@@ -569,8 +569,8 @@ bool CTree1::InsertBefore(CTreeNode1* newNode)
 
 	TV_INSERTSTRUCT tvstruct;
 	tvstruct.hParent = hParentItem;
-	tvstruct.hInsertAfter = GetPrevSiblingItem(hSelectItem)==nullptr ? TVI_FIRST : GetPrevSiblingItem(hSelectItem);
-	tvstruct.item.mask = TVIF_TEXT|TVIF_PARAM|TVIF_IMAGE|TVIF_SELECTEDIMAGE;
+	tvstruct.hInsertAfter = GetPrevSiblingItem(hSelectItem) == nullptr ? TVI_FIRST : GetPrevSiblingItem(hSelectItem);
+	tvstruct.item.mask = TVIF_TEXT | TVIF_PARAM | TVIF_IMAGE | TVIF_SELECTEDIMAGE;
 	tvstruct.item.pszText = (LPTSTR)"New";
 	tvstruct.item.iImage = newNode->Gettype();
 	tvstruct.item.iSelectedImage = tvstruct.item.iImage;
@@ -583,13 +583,13 @@ bool CTree1::InsertBefore(CTreeNode1* newNode)
 bool CTree1::InsertIn(CTreeNode1* newNode)
 {
 	HTREEITEM hSelectItem = GetSelectedItem();
-	CTreeNode1* nSelectnode = hSelectItem==nullptr ? nullptr : (CTreeNode1*)GetItemData(hSelectItem);
+	CTreeNode1* nSelectnode = hSelectItem == nullptr ? nullptr : (CTreeNode1*)GetItemData(hSelectItem);
 
-	newNode->m_wParent = nSelectnode==nullptr ? 0 : nSelectnode->m_wId;
+	newNode->m_wParent = nSelectnode == nullptr ? 0 : nSelectnode->m_wId;
 
-	if(m_pNodelist!=nullptr)
+	if(m_pNodelist != nullptr)
 	{
-		if(hSelectItem!=nullptr)
+		if(hSelectItem != nullptr)
 		{
 			POSITION pos = m_pNodelist->Find(nSelectnode);
 			m_pNodelist->InsertAfter(pos, newNode);
@@ -601,7 +601,7 @@ bool CTree1::InsertIn(CTreeNode1* newNode)
 	TV_INSERTSTRUCT tvstruct;
 	tvstruct.hParent = hSelectItem;
 	tvstruct.hInsertAfter = TVI_FIRST;
-	tvstruct.item.mask = TVIF_TEXT|TVIF_PARAM|TVIF_IMAGE|TVIF_SELECTEDIMAGE;
+	tvstruct.item.mask = TVIF_TEXT | TVIF_PARAM | TVIF_IMAGE | TVIF_SELECTEDIMAGE;
 	tvstruct.item.pszText = (LPTSTR)"New";
 	tvstruct.item.iImage = newNode->Gettype();
 	tvstruct.item.iSelectedImage = tvstruct.item.iImage;
@@ -609,7 +609,7 @@ bool CTree1::InsertIn(CTreeNode1* newNode)
 
 	HTREEITEM hItem = InsertItem(&tvstruct);
 
-	if(nSelectnode==nullptr)
+	if(nSelectnode == nullptr)
 	{
 		SelectItem(hItem);
 	}
@@ -622,10 +622,10 @@ bool ForceDelete = FALSE;
 void CTree1::OnDelete()
 {
 	const HTREEITEM hItem = this->GetSelectedItem();
-	if(hItem!=nullptr)
+	if(hItem != nullptr)
 	{
 		CTreeNode1* node = (CTreeNode1*)this->GetItemData(hItem);
-		if(node!=nullptr)
+		if(node != nullptr)
 		{
 			ForceDelete = TRUE;
 			this->DeleteItem(hItem);
@@ -636,16 +636,16 @@ void CTree1::OnDelete()
 
 void CTree1::OnDeleteitem(NMHDR* pNMHDR, LRESULT* pResult)
 {
-	if(m_pNodelist!=nullptr)
+	if(m_pNodelist != nullptr)
 	{
 		NM_TREEVIEW* pNMTreeView = (NM_TREEVIEW*)pNMHDR;
-		if(ForceDelete==TRUE)
+		if(ForceDelete == TRUE)
 		{
 			CTreeNode1* node = (CTreeNode1*)pNMTreeView->itemOld.lParam;
-			if(node!=nullptr)
+			if(node != nullptr)
 			{
 				const POSITION pos = m_pNodelist->Find(node);
-				if(pos!=nullptr)
+				if(pos != nullptr)
 				{
 					m_pNodelist->RemoveAt(pos);
 				}
@@ -659,30 +659,30 @@ void CTree1::OnDeleteitem(NMHDR* pNMHDR, LRESULT* pResult)
 void CTree1::Select(CTreeNode1* pLayer)
 {
 	const HTREEITEM hSelItem = this->GetSelectedItem();
-	if(hSelItem==nullptr)
+	if(hSelItem == nullptr)
 		return;
 
 	CTreeNode1* selLayer = (CTreeNode1*)this->GetItemData(hSelItem);
-	if(selLayer==pLayer)
+	if(selLayer == pLayer)
 		return;
 
 	HTREEITEM hItem = this->GetRootItem();
-	if(hItem==nullptr)
+	if(hItem == nullptr)
 		return;
 
 	do
 	{
 		CTreeNode1* node = (CTreeNode1*)this->GetItemData(hItem);
-		if(node==pLayer)
+		if(node == pLayer)
 		{
 			SelectItem(hItem);
 		}
-	} while((hItem = GetDownItem(hItem))!=nullptr);
+	} while((hItem = GetDownItem(hItem)) != nullptr);
 }
 
 BOOL CTree1::DestroyWindow()
 {
-	if(m_pDragImage!=nullptr)
+	if(m_pDragImage != nullptr)
 	{
 		m_pDragImage->DeleteImageList();
 		m_pDragImage->Detach();
@@ -738,7 +738,7 @@ CImageList* CTree1::CreateDragImage(HTREEITEM hItem)
 
 		// Create imagelist
 		CImageList* pImageList = new CImageList();
-		pImageList->Create(rect.Width(), rect.Height(), ILC_COLORDDB|ILC_MASK, 0, 1);
+		pImageList->Create(rect.Width(), rect.Height(), ILC_COLORDDB | ILC_MASK, 0, 1);
 		pImageList->Add(&bitmap, RGB(0, 255, 0)); // Here green is used as mask color
 
 		return pImageList;
@@ -748,13 +748,13 @@ CImageList* CTree1::CreateDragImage(HTREEITEM hItem)
 DWORD CTree1::GetMaxItemId() const
 {
 	WORD wMaxId = 0;
-	if(m_pNodelist!=nullptr)
+	if(m_pNodelist != nullptr)
 	{
 		POSITION pos = m_pNodelist->GetHeadPosition();
-		while(pos!=nullptr)
+		while(pos != nullptr)
 		{
 			CTreeNode1* node = m_pNodelist->GetNext(pos);
-			if(node->m_wId>wMaxId)
+			if(node->m_wId > wMaxId)
 			{
 				wMaxId = node->m_wId;
 			}

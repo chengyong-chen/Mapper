@@ -18,7 +18,7 @@ protected:
 	CGroup(CLine* pLine, CFillCompact* pFill);
 
 public:
-	void DrawTag(Gdiplus::Graphics& g, const CViewinfo& viewinfo, const CHint* pHint, const bool& bPivot) const override;
+	void DrawTag(Gdiplus::Graphics& g, const CViewinfo& viewinfo, const CHint* pHint, const bool& bPivot, const bool& bOblige) const override;
 	void DrawTag(Gdiplus::Graphics& g, const CViewinfo& viewinfo, const CHint* pHint) const override;
 	void DrawCentroid(CDC* pDC, const CViewinfo& viewinfo, const bool& labeloid, const bool& geogroid) const override;
 

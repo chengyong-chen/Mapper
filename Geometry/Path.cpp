@@ -533,8 +533,6 @@ Gdiplus::PointF CPath::GetTagAnchor(const CViewinfo& viewinfo, HALIGN& hAlign, V
 {
 	if(m_bClosed==true)
 	{
-		hAlign = HALIGN::HA_CENTER;
-		vAlign = VALIGN::VA_CENTER;
 		const CPoint docPoint = this->GetLabeloid();
 		return viewinfo.DocToClient <Gdiplus::PointF>(docPoint);
 	}

@@ -12,6 +12,7 @@
 #endif
 #include "afxres.h"
 #include "verrsrc.h"
+
 /////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
@@ -20,7 +21,7 @@
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
 LANGUAGE LANG_CHINESE, SUBLANG_NEUTRAL
-//#pragma code_page(936)
+#pragma code_page(936)
 
 #ifdef APSTUDIO_INVOKED
 /////////////////////////////////////////////////////////////////////////////
@@ -28,41 +29,41 @@ LANGUAGE LANG_CHINESE, SUBLANG_NEUTRAL
 // TEXTINCLUDE
 //
 
-1 TEXTINCLUDE
+1 TEXTINCLUDE 
 BEGIN
-"resource.h\0"
+    "resource.h\0"
 END
 
-2 TEXTINCLUDE
+2 TEXTINCLUDE 
 BEGIN
-"#ifndef APSTUDIO_INVOKED\r\n"
-"#include ""targetver.h""\r\n"
-"#endif\r\n"
-"#include ""afxres.h""\r\n"
-"#include ""verrsrc.h""\r\n"
-"\0"
+    "#ifndef APSTUDIO_INVOKED\r\n"
+    "#include ""targetver.h""\r\n"
+    "#endif\r\n"
+    "#include ""afxres.h""\r\n"
+    "#include ""verrsrc.h""\r\n"
+    "\0"
 END
 
-3 TEXTINCLUDE
+3 TEXTINCLUDE 
 BEGIN
-"#define _AFX_NO_SPLITTER_RESOURCES\r\n"
-"#define _AFX_NO_OLE_RESOURCES\r\n"
-"#define _AFX_NO_TRACKER_RESOURCES\r\n"
-"#define _AFX_NO_PROPERTY_RESOURCES\r\n"
-"\r\n"
-"#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
-"#ifdef _WIN32\r\n"
-"LANGUAGE 9, 1\r\n"
-"#pragma code_page(1252)\r\n"
-"#endif\r\n"
-"#include ""res\\Mapper.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
-"#include ""afxres.rc""         // Standard components\r\n"
-"#include ""afxprint.rc""       // printing/print preview resources\r\n"
-"#if !defined(_AFXDLL)\r\n"
-"#include ""afxribbon.rc""        // MFC ribbon and control bar resources\r\n"
-"#endif\r\n"
-"#endif\r\n"
-"\0"
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif\r\n"
+    "#include ""res\\Mapper.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#include ""afxprint.rc""       // printing/print preview resources\r\n"
+    "#if !defined(_AFXDLL)\r\n"
+    "#include ""afxribbon.rc""        // MFC ribbon and control bar resources\r\n"
+    "#endif\r\n"
+    "#endif\r\n"
+    "\0"
 END
 
 #endif    // APSTUDIO_INVOKED
@@ -75,17 +76,17 @@ END
 
 IDR_ITEM MENU
 BEGIN
-POPUP "Item"
-BEGIN
-POPUP "æ·»åŠ "
-BEGIN
-MENUITEM "åœ¨ä¸Š", ID_ITEM_ADDBEFORE
-MENUITEM "åœ¨ä¸‹", ID_ITEM_ADDAFTER
-MENUITEM "åœ¨é‡Œ", ID_ITEM_ADDIN
-END
-MENUITEM "åˆ é™¤", ID_ITEM_DELETE
-MENUITEM "å±žæ€§", ID_ITEM_ATTRIBUTE
-END
+    POPUP "Item"
+    BEGIN
+        POPUP "Ìí¼Ó"
+        BEGIN
+            MENUITEM "ÔÚÉÏ",                          ID_ITEM_ADDBEFORE
+            MENUITEM "ÔÚÏÂ",                          ID_ITEM_ADDAFTER
+            MENUITEM "ÔÚÀï",                          ID_ITEM_ADDIN
+        END
+        MENUITEM "É¾³ý",                          ID_ITEM_DELETE
+        MENUITEM "ÊôÐÔ",                          ID_ITEM_ATTRIBUTE
+    END
 END
 
 
@@ -93,37 +94,38 @@ END
 //
 // Dialog
 //
+
 IDD_REPLACE DIALOG 0, 0, 152, 80
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "æ›¿æ¢"
+CAPTION "Ìæ»»"
 FONT 8, "MS Shell Dlg"
 BEGIN
-EDITTEXT        IDC_SOURCE, 42, 3, 107, 14, ES_AUTOHSCROLL
-EDITTEXT        IDC_DESTINATION, 42, 18, 107, 14, ES_AUTOHSCROLL
-CONTROL         "å…¨å­—åŒ¹é…", IDC_EQUAL, "Button", BS_AUTOCHECKBOX | WS_TABSTOP, 16, 48, 48, 10
-CONTROL         "åŒºåˆ†å¤§å°å†™", IDC_CAPSGREEK, "Button", BS_AUTOCHECKBOX | WS_TABSTOP, 76, 48, 51, 10
-DEFPUSHBUTTON   "æ›¿æ¢", IDC_REPLACE, 3, 65, 26, 12
-DEFPUSHBUTTON   "å…¨éƒ¨æ›¿æ¢", IDC_REPLACEALL, 31, 65, 39, 12
-DEFPUSHBUTTON   "æŸ¥æ‰¾ä¸‹ä¸€ä¸ª", IDC_NEXT, 72, 65, 47, 12
-PUSHBUTTON      "Cancel", IDCANCEL, 121, 65, 28, 12
-LTEXT           "æŸ¥æ‰¾å†…å®¹:", IDC_STATIC, 3, 3, 35, 8
-LTEXT           "æ›¿æ¢ä¸º:", IDC_STATIC, 3, 21, 27, 8
-GROUPBOX        "æœç´¢é€‰é¡¹", IDC_STATIC, 3, 36, 146, 26
+    EDITTEXT        IDC_SOURCE,42,3,107,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_DESTINATION,42,18,107,14,ES_AUTOHSCROLL
+    CONTROL         "È«×ÖÆ¥Åä",IDC_EQUAL,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,16,48,48,10
+    CONTROL         "Çø·Ö´óÐ¡Ð´",IDC_CAPSGREEK,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,76,48,51,10
+    DEFPUSHBUTTON   "Ìæ»»",IDC_REPLACE,3,65,26,12
+    DEFPUSHBUTTON   "È«²¿Ìæ»»",IDC_REPLACEALL,31,65,39,12
+    DEFPUSHBUTTON   "²éÕÒÏÂÒ»¸ö",IDC_NEXT,72,65,47,12
+    PUSHBUTTON      "Cancel",IDCANCEL,121,65,28,12
+    LTEXT           "²éÕÒÄÚÈÝ:",IDC_STATIC,3,3,35,8
+    LTEXT           "Ìæ»»Îª:",IDC_STATIC,3,21,27,8
+    GROUPBOX        "ËÑË÷Ñ¡Ïî",IDC_STATIC,3,36,146,26
 END
 
 IDD_CREATETABLE DIALOGEX 0, 0, 315, 175
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
 EXSTYLE WS_EX_CONTROLPARENT
-CAPTION "åˆ›å»ºæ•°æ®åº“è¡¨"
+CAPTION "´´½¨Êý¾Ý¿â±í"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-DEFPUSHBUTTON   "ç¡®å®š", IDOK, 263, 2, 50, 14
-PUSHBUTTON      "å–æ¶ˆ", IDCANCEL, 263, 17, 50, 14
-CONTROL         "", IDC_LAYERTREE, "SysTreeView32", TVS_HASBUTTONS | TVS_HASLINES | TVS_SHOWSELALWAYS | TVS_NOSCROLL | WS_BORDER | WS_TABSTOP, 2, 11, 91, 162
-LTEXT           "å›¾å±‚:", IDC_STATIC, 2, 2, 20, 8
-LTEXT           "è¡¨å:", IDC_STATIC, 99, 2, 20, 8
-EDITTEXT        IDC_TABLENAME, 99, 16, 80, 14, ES_AUTOHSCROLL
-CONTROL         "ä½œä¸ºç¼ºçœè¡¨", IDC_CHECK1, "Button", BS_AUTOCHECKBOX | WS_TABSTOP, 126, 2, 56, 10
+    DEFPUSHBUTTON   "È·¶¨",IDOK,263,2,50,14
+    PUSHBUTTON      "È¡Ïû",IDCANCEL,263,17,50,14
+    CONTROL         "",IDC_LAYERTREE,"SysTreeView32",TVS_HASBUTTONS | TVS_HASLINES | TVS_SHOWSELALWAYS | TVS_NOSCROLL | WS_BORDER | WS_TABSTOP,2,11,91,162
+    LTEXT           "Í¼²ã:",IDC_STATIC,2,2,20,8
+    LTEXT           "±íÃû:",IDC_STATIC,99,2,20,8
+    EDITTEXT        IDC_TABLENAME,99,16,80,14,ES_AUTOHSCROLL
+    CONTROL         "×÷ÎªÈ±Ê¡±í",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,126,2,56,10
 END
 
 
@@ -135,21 +137,21 @@ END
 #ifdef APSTUDIO_INVOKED
 GUIDELINES DESIGNINFO
 BEGIN
-IDD_REPLACE, DIALOG
-BEGIN
-LEFTMARGIN, 3
-RIGHTMARGIN, 149
-TOPMARGIN, 3
-BOTTOMMARGIN, 77
-END
+    IDD_REPLACE, DIALOG
+    BEGIN
+        LEFTMARGIN, 3
+        RIGHTMARGIN, 149
+        TOPMARGIN, 3
+        BOTTOMMARGIN, 77
+    END
 
-IDD_CREATETABLE, DIALOG
-BEGIN
-LEFTMARGIN, 3
-RIGHTMARGIN, 313
-TOPMARGIN, 3
-BOTTOMMARGIN, 173
-END
+    IDD_CREATETABLE, DIALOG
+    BEGIN
+        LEFTMARGIN, 3
+        RIGHTMARGIN, 313
+        TOPMARGIN, 3
+        BOTTOMMARGIN, 173
+    END
 END
 #endif    // APSTUDIO_INVOKED
 
@@ -161,253 +163,253 @@ END
 
 STRINGTABLE
 BEGIN
-IDS_NOACTIVELAYER       "æ— å½“å‰è¢«é€‰ä¸­çš„å›¾å±‚"
-IDS_INSERTERROR         "æ’å…¥è®°å½•å‡ºé”™"
-IDS_NOLAYERTABLE        "é€‰ä¸­çš„è¦ç´ æ— å¯¹åº”çš„æ•°æ®è¡¨"
-IDS_INCONSISTENTTABLE   "ä¸åŒçš„æ•°æ®è¡¨"
-IDS_CANNOTOPENTABLE     "æ•°æ®è¡¨æ— æ³•æ‰“å¼€"
-IDS_TOOLBAR_STANDARD    "æ ‡å‡†"
-IDS_VIEW_CUSTOMIZE      "ä¸ªæ€§åŒ–"
-IDS_STATUSINFO          "çŠ¶æ€"
-IDS_VIEWSCALE           "æ¯”ä¾‹å°º"
-IDS_VIEWLEVEL           "æ˜¾ç¤ºçº§åˆ«"
-IDS_PROGRESSBAR         "è¿›åº¦æ¡"
-IDS_GEOMNAME            "è¦ç´ åç§°"
-IDS_GEOCODE             "è¦ç´ åœ°ç†ä»£ç "
-IDS_GEOMID              "è¦ç´ ID"
+    IDS_NOACTIVELAYER       "ÎÞµ±Ç°±»Ñ¡ÖÐµÄÍ¼²ã"
+    IDS_INSERTERROR         "²åÈë¼ÇÂ¼³ö´í"
+    IDS_NOLAYERTABLE        "Ñ¡ÖÐµÄÒªËØÎÞ¶ÔÓ¦µÄÊý¾Ý±í"
+    IDS_INCONSISTENTTABLE   "²»Í¬µÄÊý¾Ý±í"
+    IDS_CANNOTOPENTABLE     "Êý¾Ý±íÎÞ·¨´ò¿ª"
+    IDS_TOOLBAR_STANDARD    "±ê×¼"
+    IDS_VIEW_CUSTOMIZE      "¸öÐÔ»¯"
+    IDS_STATUSINFO          "×´Ì¬"
+    IDS_VIEWSCALE           "±ÈÀý³ß"
+    IDS_VIEWLEVEL           "ÏÔÊ¾¼¶±ð"
+    IDS_PROGRESSBAR         "½ø¶ÈÌõ"
+    IDS_GEOMNAME            "ÒªËØÃû³Æ"
+    IDS_GEOCODE             "ÒªËØµØÀí´úÂë"
+    IDS_GEOMID              "ÒªËØID"
 END
 
 STRINGTABLE
 BEGIN
-IDS_POINTCOUNT          "èŠ‚ç‚¹æ•°é‡"
-IDS_HANDLEXY            "èŠ‚ç‚¹åæ ‡"
-IDS_UNITCOMBO           "å•ä½ä¸‹æ‹‰æ¡†"
-IDP_SOCKETS_INIT_FAILED "çª—å£Socketåˆ›å»ºå¤±è´¥"
-IDS_UNDOWILLBECLEARED   "ä¹‹å‰çš„æ“ä½œå°†ä¸å¯åŽæ‚”"
-IDS_NEEDSINGLECLOSEDPATH "éœ€è¦ä¸€ä¸ªç®€å•çš„å°é—­å¤šè¾¹å½¢"
-IDR_GRFTYPR             "Diwatu Grf\nGrf\nGraphic File Map\nGraphic Map File(*.Grf)\n.Grf\nGrf\nGrf"
-IDR_GISTYPE             "Diwatu Gis\nGis\nGis File Map\nGis Map File (*.Gis)\n.Gis\nGis\nGis"
-IDR_GEOTYPE             "Diwatu Geo\nGeo\nGeo Database Map\nGeo Database Map File (*.Geo)\n.Geo\nGeo\nGeo"
+    IDS_POINTCOUNT          "½ÚµãÊýÁ¿"
+    IDS_HANDLEXY            "½Úµã×ø±ê"
+    IDS_UNITCOMBO           "µ¥Î»ÏÂÀ­¿ò"
+    IDP_SOCKETS_INIT_FAILED "´°¿ÚSocket´´½¨Ê§°Ü"
+    IDS_UNDOWILLBECLEARED   "Ö®Ç°µÄ²Ù×÷½«²»¿Éºó»Ú"
+    IDS_NEEDSINGLECLOSEDPATH "ÐèÒªÒ»¸ö¼òµ¥µÄ·â±Õ¶à±ßÐÎ"
+    IDR_GRFTYPR             "Diwatu Grf\nGrf\nGraphic File Map\nGraphic Map File(*.Grf)\n.Grf\nGrf\nGrf"
+    IDR_GISTYPE             "Diwatu Gis\nGis\nGis File Map\nGis Map File (*.Gis)\n.Gis\nGis\nGis"
+    IDR_GEOTYPE             "Diwatu Geo\nGeo\nGeo Database Map\nGeo Database Map File (*.Geo)\n.Geo\nGeo\nGeo"
 END
 
 STRINGTABLE
 BEGIN
-IDP_FAILED_TO_CREATE    "åˆ›å»ºå¤±è´¥"
-IDR_GRFTYPE_CNTR_IP     "yrtertrtyr"
-IDR_GISTYPE_CNTR_IP     "yrtertrtyr"
-IDR_MDBTYPE_CNTR_IP     "ddd"
+    IDP_FAILED_TO_CREATE    "´´½¨Ê§°Ü"
+    IDR_GRFTYPE_CNTR_IP     "yrtertrtyr"
+    IDR_GISTYPE_CNTR_IP     "yrtertrtyr"
+    IDR_MDBTYPE_CNTR_IP     "ddd"
 END
 
 STRINGTABLE
 BEGIN
-ID_ARRANGE_TOFRONT      "æŠŠå½“å‰è¢«æ¿€æ´»çš„è¦ç´ ç§»åˆ°æœ€å‰é¢"
-ID_ARRANGE_TOBACK       "æŠŠå½“å‰è¢«æ¿€æ´»çš„è¦ç´ ç§»åˆ°æœ€åŽé¢"
-ID_ARRANGE_FORWARD      "æŠŠå½“å‰è¢«æ¿€æ´»çš„è¦ç´ å‘å‰ç§»åŠ¨"
-ID_ARRANGE_BACKWARD     "æŠŠå½“å‰è¢«æ¿€æ´»çš„è¦ç´ å‘åŽç§»åŠ¨"
+    ID_ARRANGE_TOFRONT      "°Ñµ±Ç°±»¼¤»îµÄÒªËØÒÆµ½×îÇ°Ãæ"
+    ID_ARRANGE_TOBACK       "°Ñµ±Ç°±»¼¤»îµÄÒªËØÒÆµ½×îºóÃæ"
+    ID_ARRANGE_FORWARD      "°Ñµ±Ç°±»¼¤»îµÄÒªËØÏòÇ°ÒÆ¶¯"
+    ID_ARRANGE_BACKWARD     "°Ñµ±Ç°±»¼¤»îµÄÒªËØÏòºóÒÆ¶¯"
 END
 
 STRINGTABLE
 BEGIN
-IDR_GEOTYPE_CNTR_IP     "yrtertrtyr"
+    IDR_GEOTYPE_CNTR_IP     "yrtertrtyr"
 END
 
 STRINGTABLE
 BEGIN
-IDR_MAINFRAME           "Diwatu Mapper"
+    IDR_MAINFRAME           "Diwatu Mapper"
 END
 
 STRINGTABLE
 BEGIN
-ID_TOPOEDGE_REMOVE      "åˆ é™¤æ‹“æ‰‘è¾¹"
-ID_EDIT_DUPLICATE       "å¤åˆ¶"
-ID_EDIT_CLONE           "åŽŸåœ°å¤åˆ¶????"
-ID_GEOM_LOCK            "é”å®šè¦ç´ "
-ID_GEOM_UNLOCK          "è§£é”"
-ID_GEOM_GROUP           "ç»„åˆ"
-ID_VIEW_RULER           "æ˜¾ç¤ºæ ‡å°º"
-ID_GEOM_UNGROUP         "è§£ç»„"
-ID_FILE_IMPORT          "å¯¼å…¥"
-ID_FILE_EXPORT          "å¯¼å‡º"
-ID_FILE_DOCSETUP        "æ–‡æ¡£è®¾ç½®"
-ID_FILE_PREFERENCES     "åå¥½è®¾å®š"
-ID_MAGNIFY_FITINPAGE    "æ˜¾ç¤ºå…¨é¡µ"
+    ID_TOPOEDGE_REMOVE      "É¾³ýÍØÆË±ß"
+    ID_EDIT_DUPLICATE       "¸´ÖÆ"
+    ID_EDIT_CLONE           "Ô­µØ¸´ÖÆ????"
+    ID_GEOM_LOCK            "Ëø¶¨ÒªËØ"
+    ID_GEOM_UNLOCK          "½âËø"
+    ID_GEOM_GROUP           "×éºÏ"
+    ID_VIEW_RULER           "ÏÔÊ¾±ê³ß"
+    ID_GEOM_UNGROUP         "½â×é"
+    ID_FILE_IMPORT          "µ¼Èë"
+    ID_FILE_EXPORT          "µ¼³ö"
+    ID_FILE_DOCSETUP        "ÎÄµµÉèÖÃ"
+    ID_FILE_PREFERENCES     "Æ«ºÃÉè¶¨"
+    ID_MAGNIFY_FITINPAGE    "ÏÔÊ¾È«Ò³"
 END
 
 STRINGTABLE
 BEGIN
-ID_VIEW_GRID            "æ˜¾ç¤ºç½‘æ ¼"
-ID_VIEW_GUIDES          "æ˜¾ç¤ºç½‘æ ¼"
-ID_FILE_REVERT          "æ–‡æ¡£å¤åŽŸ"
-ID_GEOM_JOIN            "è¿žæŽ¥"
-ID_GEOM_SPLIT           "åˆ‡æ–­"
-ID_PATH_REVERSE         "è·¯å¾„åè½¬"
-ID_EDIT_MOVE            "ç§»åŠ¨è¦ç´ "
-ID_SELECTALL_INVERSE    "é€†å‘é€‰å–"
-ID_SELECTALL_ALL        "å…¨éƒ¨é€‰å–"
+    ID_VIEW_GRID            "ÏÔÊ¾Íø¸ñ"
+    ID_VIEW_GUIDES          "ÏÔÊ¾Íø¸ñ"
+    ID_FILE_REVERT          "ÎÄµµ¸´Ô­"
+    ID_GEOM_JOIN            "Á¬½Ó"
+    ID_GEOM_SPLIT           "ÇÐ¶Ï"
+    ID_PATH_REVERSE         "Â·¾¶·´×ª"
+    ID_EDIT_MOVE            "ÒÆ¶¯ÒªËØ"
+    ID_SELECTALL_INVERSE    "ÄæÏòÑ¡È¡"
+    ID_SELECTALL_ALL        "È«²¿Ñ¡È¡"
 END
 
 STRINGTABLE
 BEGIN
-ID_SELECTALL_REBEL      "é€‰å–æ‰€æœ‰å…·æœ‰ç‹¬è‡ªç±»åž‹çš„è¦ç´ "
+    ID_SELECTALL_REBEL      "Ñ¡È¡ËùÓÐ¾ßÓÐ¶À×ÔÀàÐÍµÄÒªËØ"
 END
 
 STRINGTABLE
 BEGIN
-ID_FILE_MAPINFO         "åœ°å›¾è®¾ç½®"
+    ID_FILE_MAPINFO         "µØÍ¼ÉèÖÃ"
 END
 
 STRINGTABLE
 BEGIN
-ID_SELECTALL_DISCARD    "å–æ¶ˆæ¿€æ´»"
-ID_GEOM_SETTYPE         "è®¾å®šå­—ä½“ç±»åž‹"
-ID_GEOM_SETSPOT         "è®¾å®šç‚¹çŠ¶ç¬¦å·"
-ID_GEOM_SETSTYLE        "è®¾å®šçº¿é¢ç±»åž‹"
-ID_GEOM_REGRESS         "åˆ é™¤ç‹¬è‡ªçš„ç±»åž‹"
-ID_ANNO_TOTEXT          "å°†æ ‡æ³¨å˜ä¸ºæ–‡æœ¬"
-ID_MAGNIFY_FITACTIVE    "å°†è¢«æ¿€æ´»çš„è¦ç´ æ˜¾ç¤ºåœ¨å¯è§çª—å£å†…"
-ID_GEOM_PROPERTY        "è¦ç´ å±žæ€§"
-ID_GEOM_COMBINE         "ç»„æˆå¤åˆå¤šå˜å½¢"
-ID_GEOM_DISBAND         "è§£æ•£å¤åˆå¤šè¾¹å½¢"
-ID_TRANSFORM_PROJECT    "æŠ•å½±å˜æ¢"
+    ID_SELECTALL_DISCARD    "È¡Ïû¼¤»î"
+    ID_GEOM_SETTYPE         "Éè¶¨×ÖÌåÀàÐÍ"
+    ID_GEOM_SETSPOT         "Éè¶¨µã×´·ûºÅ"
+    ID_GEOM_SETSTYLE        "Éè¶¨ÏßÃæÀàÐÍ"
+    ID_GEOM_REGRESS         "É¾³ý¶À×ÔµÄÀàÐÍ"
+    ID_ANNO_TOTEXT          "½«±ê×¢±äÎªÎÄ±¾"
+    ID_MAGNIFY_FITACTIVE    "½«±»¼¤»îµÄÒªËØÏÔÊ¾ÔÚ¿É¼û´°¿ÚÄÚ"
+    ID_GEOM_PROPERTY        "ÒªËØÊôÐÔ"
+    ID_GEOM_COMBINE         "×é³É¸´ºÏ¶à±äÐÎ"
+    ID_GEOM_DISBAND         "½âÉ¢¸´ºÏ¶à±ßÐÎ"
+    ID_TRANSFORM_PROJECT    "Í¶Ó°±ä»»"
 END
 
 STRINGTABLE
 BEGIN
-ID_TAG_CREATE           "åˆ›å»ºæ ‡ç­¾"
-ID_EDIT_TRANSFORM       "çŸ©é˜µå˜æ¢"
-ID_TAG_DELETE           "åˆ é™¤æ ‡ç­¾"
-ID_TAG_SETUP            "è®¾ç½®æ ‡ç­¾"
-ID_ANNO_SETUP           "æ³¨è®°è®¾ç½®"
-ID_ANNO_CLEAR           "åˆ é™¤æ³¨è®°"
-ID_ANNO_REPLACE         "æ³¨è®°æ›¿æ¢"
-ID_PROCESS_CLEANDUPLICATED "åˆ é™¤é‡å¤çš„è¦ç´ "
-ID_PROCESS_CLEANOUTOFRANGE "åˆ é™¤é¡µé¢ä»¥å¤–çš„è¦ç´ "
-ID_ATLAS_OPEN           "æ‰“å¼€åœ°å›¾é›†"
+    ID_TAG_CREATE           "´´½¨±êÇ©"
+    ID_EDIT_TRANSFORM       "¾ØÕó±ä»»"
+    ID_TAG_DELETE           "É¾³ý±êÇ©"
+    ID_TAG_SETUP            "ÉèÖÃ±êÇ©"
+    ID_ANNO_SETUP           "×¢¼ÇÉèÖÃ"
+    ID_ANNO_CLEAR           "É¾³ý×¢¼Ç"
+    ID_ANNO_REPLACE         "×¢¼ÇÌæ»»"
+    ID_PROCESS_CLEANDUPLICATED "É¾³ýÖØ¸´µÄÒªËØ"
+    ID_PROCESS_CLEANOUTOFRANGE "É¾³ýÒ³ÃæÒÔÍâµÄÒªËØ"
+    ID_ATLAS_OPEN           "´ò¿ªµØÍ¼¼¯"
 END
 
 STRINGTABLE
 BEGIN
-ID_ATLAS_SAVE           "æ‰“å¼€åœ°å›¾é›†"
-ID_ATLAS_CLOSE          "å…³é—­åœ°å›¾é›†"
-ID_ATLAS_NEW            "åˆ›å»ºåœ°å›¾é›†"
-ID_MAP_COPY             "æ‹·è´åœ°å›¾è¦ç´ "
-ID_MAP_PASTE            "ç²˜è´´åœ°å›¾è¦ç´ "
-ID_EDIT_CLIPIN          "å†…éƒ¨è£å‰ª"
-ID_EDIT_CLIPOUT         "å¤–éƒ¨è£å‰ª"
-ID_GEOM_SETHINT         "æ ‡ç­¾ç±»åž‹è®¾å®š"
-ID_EDIT_INSERTGPSROUTE  "æ’å…¥GPSè½¨è¿¹"
-ID_DATABASE_ATTACHAAT   "å…³è”å±žæ€§æ•°æ®åº“"
-ID_DATABASE_UNASSIGNATT "å–æ¶ˆå±žæ€§æ•°æ®åº“å…³è”"
-ID_TOPOEDGE_CREATE      "åˆ›å»ºæ‹“æœ´è¾¹"
-ID_TOOL_TOPOCROSS       "æ‹“æ‰‘è¾¹äº¤å‰"
+    ID_ATLAS_SAVE           "´ò¿ªµØÍ¼¼¯"
+    ID_ATLAS_CLOSE          "¹Ø±ÕµØÍ¼¼¯"
+    ID_ATLAS_NEW            "´´½¨µØÍ¼¼¯"
+    ID_MAP_COPY             "¿½±´µØÍ¼ÒªËØ"
+    ID_MAP_PASTE            "Õ³ÌùµØÍ¼ÒªËØ"
+    ID_EDIT_CLIPIN          "ÄÚ²¿²Ã¼ô"
+    ID_EDIT_CLIPOUT         "Íâ²¿²Ã¼ô"
+    ID_GEOM_SETHINT         "±êÇ©ÀàÐÍÉè¶¨"
+    ID_EDIT_INSERTGPSROUTE  "²åÈëGPS¹ì¼£"
+    ID_DATABASE_ATTACHAAT   "¹ØÁªÊôÐÔÊý¾Ý¿â"
+    ID_DATABASE_UNASSIGNATT "È¡ÏûÊôÐÔÊý¾Ý¿â¹ØÁª"
+    ID_TOPOEDGE_CREATE      "´´½¨ÍØÆÓ±ß"
+    ID_TOOL_TOPOCROSS       "ÍØÆË±ß½»²æ"
 END
 
 STRINGTABLE
 BEGIN
-ID_MAP_MOVE             "ç§»åŠ¨åœ°å›¾"
-ID_TOOL_TOPOPICK        "æ‹“æ‰‘é€‰å–å·¥å…·"
-ID_TOOL_TOPOSPLIT       "æ‹“æœ´è¾¹å‰ªåˆ‡å·¥å…·"
-ID_TOOL_TOPOEROSE       "æ‹“æœ´åˆ é™¤å·¥å…·"
-ID_TOPOEDGE_JOIN        "è¿žæŽ¥æ‹“æ‰‘è¾¹"
-ID_TOPOEDGE_CROSS       "æ‹“æ‰‘è¾¹äº¤å‰"
-ID_DATABASE_ATTACHPOU   "å…³è”ç”¨æˆ·ç‚¹ä½ä¿¡æ¯æ•°æ®åº“"
-ID_DATABASE_ATTACHGEO   "å–æ¶ˆå…³è”ç”¨æˆ·ç‚¹ä½ä¿¡æ¯æ•°æ®åº“"
-ID_VIEW_PANE01          "å›¾é›†æŽ§åˆ¶æ¿"
-ID_VIEW_PANE02          "å›¾å±‚æŽ§åˆ¶æ¿"
+    ID_MAP_MOVE             "ÒÆ¶¯µØÍ¼"
+    ID_TOOL_TOPOPICK        "ÍØÆËÑ¡È¡¹¤¾ß"
+    ID_TOOL_TOPOSPLIT       "ÍØÆÓ±ß¼ôÇÐ¹¤¾ß"
+    ID_TOOL_TOPOEROSE       "ÍØÆÓÉ¾³ý¹¤¾ß"
+    ID_TOPOEDGE_JOIN        "Á¬½ÓÍØÆË±ß"
+    ID_TOPOEDGE_CROSS       "ÍØÆË±ß½»²æ"
+    ID_DATABASE_ATTACHPOU   "¹ØÁªÓÃ»§µãÎ»ÐÅÏ¢Êý¾Ý¿â"
+    ID_DATABASE_ATTACHGEO   "È¡Ïû¹ØÁªÓÃ»§µãÎ»ÐÅÏ¢Êý¾Ý¿â"
+    ID_VIEW_PANE01          "Í¼¼¯¿ØÖÆ°å"
+    ID_VIEW_PANE02          "Í¼²ã¿ØÖÆ°å"
 END
 
 STRINGTABLE
 BEGIN
-ID_VIEW_PANE04          "ç”¨æˆ·ç‚¹æ•°æ®æŽ§åˆ¶æ¿"
-ID_VIEW_PANE05          "å±žæ€§æ•°æ®è¡¨é¢æ¿"
-ID_VIEW_PANE06          "æŸ¥è¯¢é¢æ¿"
-ID_VIEW_PANE07          "è¦ç´ å±žæ€§é¢æ¿"
-ID_VIEW_PANE08          "æ‹“æœ´æŽ§åˆ¶æ¿"
-ID_VIEW_PANE10          "????????"
-ID_MAGNIFY_PAPER1TO1    "å®žé™…æ‰“å°å°ºå¯¸æ˜¾ç¤º"
-ID_MAGNIFY_SCREEN1TO1   "å®žé™…å±å¹•å°ºå¯¸æ˜¾ç¤º"
-ID_MAP_REIDALL          "ä»Žæ–°åˆ†é…ID"
-ID_TOOL_DBINJECT        "å…³è”æ‰€é€‰æ•°æ®è¡¨è®°å½•åˆ°å›¾å½¢è¦ç´ "
-ID_TOOL_DBPOSITION      "ç§»åŠ¨åˆ°æ•°æ®è®°å½•å¯¹åº”çš„å›¾å½¢"
-ID_TOOL_DBPICKINFO      "æ˜¾ç¤ºå›¾å½¢å…³è”çš„å±žæ€§æ•°æ®"
+    ID_VIEW_PANE04          "ÓÃ»§µãÊý¾Ý¿ØÖÆ°å"
+    ID_VIEW_PANE05          "ÊôÐÔÊý¾Ý±íÃæ°å"
+    ID_VIEW_PANE06          "²éÑ¯Ãæ°å"
+    ID_VIEW_PANE07          "ÒªËØÊôÐÔÃæ°å"
+    ID_VIEW_PANE08          "ÍØÆÓ¿ØÖÆ°å"
+    ID_VIEW_PANE10          "????????"
+    ID_MAGNIFY_PAPER1TO1    "Êµ¼Ê´òÓ¡³ß´çÏÔÊ¾"
+    ID_MAGNIFY_SCREEN1TO1   "Êµ¼ÊÆÁÄ»³ß´çÏÔÊ¾"
+    ID_MAP_REIDALL          "´ÓÐÂ·ÖÅäID"
+    ID_TOOL_DBINJECT        "¹ØÁªËùÑ¡Êý¾Ý±í¼ÇÂ¼µ½Í¼ÐÎÒªËØ"
+    ID_TOOL_DBPOSITION      "ÒÆ¶¯µ½Êý¾Ý¼ÇÂ¼¶ÔÓ¦µÄÍ¼ÐÎ"
+    ID_TOOL_DBPICKINFO      "ÏÔÊ¾Í¼ÐÎ¹ØÁªµÄÊôÐÔÊý¾Ý"
 END
 
 STRINGTABLE
 BEGIN
-ID_ALIGN_LEFT           "å‘å·¦å¯¹é½"
-ID_ALIGN_HCENTER        "æ°´å¹³æ–¹å‘ä¸­é—´å¯¹é½"
-ID_ALIGN_RIGHT          "å‘å³å¯¹é½"
-ID_ALIGN_BOTTOM         "å‘åº•éƒ¨å¯¹é½"
-ID_ALIGN_VCENTER        "åž‚ç›´æ–¹å‘ä¸­é—´å¯¹é½"
-ID_ALIGN_TOP            "å‘ä¸Šéƒ¨å¯¹å…¶"
-ID_ALIGN_CENTER         "ä¸­é—´å¯¹é½"
+    ID_ALIGN_LEFT           "Ïò×ó¶ÔÆë"
+    ID_ALIGN_HCENTER        "Ë®Æ½·½ÏòÖÐ¼ä¶ÔÆë"
+    ID_ALIGN_RIGHT          "ÏòÓÒ¶ÔÆë"
+    ID_ALIGN_BOTTOM         "Ïòµ×²¿¶ÔÆë"
+    ID_ALIGN_VCENTER        "´¹Ö±·½ÏòÖÐ¼ä¶ÔÆë"
+    ID_ALIGN_TOP            "ÏòÉÏ²¿¶ÔÆä"
+    ID_ALIGN_CENTER         "ÖÐ¼ä¶ÔÆë"
 END
 
 STRINGTABLE
 BEGIN
-ID_MAP_AIDPANE          "Open or close map's information form(for customization)"
-ID_EDIT_INSERTSUBMAP    "æ’å…¥å­å›¾"
+    ID_MAP_AIDPANE          "Open or close map's information form(for customization)"
+    ID_EDIT_INSERTSUBMAP    "²åÈë×ÓÍ¼"
 END
 
 STRINGTABLE
 BEGIN
-ID_RELEASEWEB_VECTORPAGE "ä»¥çŸ¢é‡æ•´é¡µæ–¹å¼å‘å¸ƒ"
-ID_RELEASEWEB_VECTORTILE "ä»¥çŸ¢é‡åˆ†å—æ–¹å¼å‘å¸ƒ"
-ID_RELEASEWEB_RASTERTILE "ä»¥å›¾åƒåˆ†å—æ–¹å¼å‘å¸ƒ"
-ID_EDIT_CLIPRELEASE     "é‡Šæ”¾è¢«è’™è”½çš„è¦ç´ "
+    ID_RELEASEWEB_VECTORPAGE "ÒÔÊ¸Á¿ÕûÒ³·½Ê½·¢²¼"
+    ID_RELEASEWEB_VECTORTILE "ÒÔÊ¸Á¿·Ö¿é·½Ê½·¢²¼"
+    ID_RELEASEWEB_RASTERTILE "ÒÔÍ¼Ïñ·Ö¿é·½Ê½·¢²¼"
+    ID_EDIT_CLIPRELEASE     "ÊÍ·Å±»ÃÉ±ÎµÄÒªËØ"
 END
 
 STRINGTABLE
 BEGIN
-ID_EDIT_WRAPIN          "è’™è”½è¦ç´ "
+    ID_EDIT_WRAPIN          "ÃÉ±ÎÒªËØ"
 END
 
 STRINGTABLE
 BEGIN
-ID_FILE_NEW             "?????ï¿½ï¿½???"
-ID_FILE_OPEN            "????????"
-ID_FILE_CLOSE           "?????"
-ID_FILE_SAVE            "??????"
-ID_FILE_SAVE_AS         "???????????????"
-ID_FILE_PAGE_SETUP      "???????"
-ID_FILE_PRINT_SETUP     "????????"
-ID_FILE_PRINT           "??????"
-ID_FILE_PRINT_PREVIEW   "???"
+    ID_FILE_NEW             "??????????"
+    ID_FILE_OPEN            "????????"
+    ID_FILE_CLOSE           "?????"
+    ID_FILE_SAVE            "??????"
+    ID_FILE_SAVE_AS         "???????????????"
+    ID_FILE_PAGE_SETUP      "???????"
+    ID_FILE_PRINT_SETUP     "????????"
+    ID_FILE_PRINT           "??????"
+    ID_FILE_PRINT_PREVIEW   "???"
 END
 
 STRINGTABLE
 BEGIN
-ID_EDIT_CLEAR           "æ¸…é™¤"
-ID_EDIT_CLEAR_ALL       "æ¸…æ¥šå…¨éƒ¨"
-ID_EDIT_COPY            "æ‹·è´"
-ID_EDIT_CUT             "å‰ªåˆ‡"
-ID_EDIT_FIND            "æŸ¥æ‰¾"
-ID_EDIT_PASTE           "ç²˜è´´"
-ID_EDIT_REPEAT          "é‡å¤"
-ID_EDIT_UNDO            "åŽæ‚”"
-ID_EDIT_REDO            "ååŽæ‚”"
+    ID_EDIT_CLEAR           "Çå³ý"
+    ID_EDIT_CLEAR_ALL       "Çå³þÈ«²¿"
+    ID_EDIT_COPY            "¿½±´"
+    ID_EDIT_CUT             "¼ôÇÐ"
+    ID_EDIT_FIND            "²éÕÒ"
+    ID_EDIT_PASTE           "Õ³Ìù"
+    ID_EDIT_REPEAT          "ÖØ¸´"
+    ID_EDIT_UNDO            "ºó»Ú"
+    ID_EDIT_REDO            "·´ºó»Ú"
 END
 
 STRINGTABLE
 BEGIN
-ID_APP_ABOUT            "å¸®åŠ©"
-ID_APP_EXIT             "é€€å‡º"
+    ID_APP_ABOUT            "°ïÖú"
+    ID_APP_EXIT             "ÍË³ö"
 END
 
 STRINGTABLE
 BEGIN
-ID_INDICATOR_EXT        "EXT"
-ID_INDICATOR_CAPS       "CAP"
-ID_INDICATOR_NUM        "NUM"
-ID_INDICATOR_SCRL       "SCRL"
-ID_INDICATOR_OVR        "OVR"
-ID_INDICATOR_REC        "REC"
+    ID_INDICATOR_EXT        "EXT"
+    ID_INDICATOR_CAPS       "CAP"
+    ID_INDICATOR_NUM        "NUM"
+    ID_INDICATOR_SCRL       "SCRL"
+    ID_INDICATOR_OVR        "OVR"
+    ID_INDICATOR_REC        "REC"
 END
 
 STRINGTABLE
 BEGIN
-ID_VIEW_TOOLBAR         "æ˜¾ç¤ºç»˜å›¾å·¥å…·ç®±"
-ID_VIEW_STATUS_BAR      "æ˜¾ç¤ºåº•éƒ¨çŠ¶æ€æ¡"
+    ID_VIEW_TOOLBAR         "ÏÔÊ¾»æÍ¼¹¤¾ßÏä"
+    ID_VIEW_STATUS_BAR      "ÏÔÊ¾µ×²¿×´Ì¬Ìõ"
 END
 
 #endif    // Chinese (Simplified) resources
@@ -428,48 +430,48 @@ LANGUAGE LANG_ENGLISH, SUBLANG_NEUTRAL
 
 IDR_MAINFRAME MENU
 BEGIN
-POPUP "&File"
-BEGIN
-MENUITEM "&New\tCtrl+N", ID_FILE_NEW
-MENUITEM "&Open...\tCtrl+O", ID_FILE_OPEN
-MENUITEM "&Close", ID_FILE_CLOSE
-MENUITEM SEPARATOR
-MENUITEM "Recent File", ID_FILE_MRU_FILE1, GRAYED
-MENUITEM SEPARATOR
-MENUITEM "E&xit", ID_APP_EXIT
-END
-POPUP "&View"
-BEGIN
-POPUP "&Application Look"
-BEGIN
-MENUITEM "Windows &2000", ID_VIEW_APPLOOK_WIN_2000
-MENUITEM "Office &XP", ID_VIEW_APPLOOK_OFF_XP
-MENUITEM "&Windows XP", ID_VIEW_APPLOOK_WIN_XP
-MENUITEM "Office 200&3", ID_VIEW_APPLOOK_OFF_2003
-MENUITEM "Visual Studio 200&5", ID_VIEW_APPLOOK_VS_2005
-MENUITEM "Visual Studio 200&8", ID_VIEW_APPLOOK_VS_2008
-POPUP "Office 200&7"
-BEGIN
-MENUITEM "&Blue Style", ID_VIEW_APPLOOK_OFF_2007_BLUE
-MENUITEM "B&lack Style", ID_VIEW_APPLOOK_OFF_2007_BLACK
-MENUITEM "&Silver Style", ID_VIEW_APPLOOK_OFF_2007_SILVER
-MENUITEM "&Aqua Style", ID_VIEW_APPLOOK_OFF_2007_AQUA
-END
-END
-END
-POPUP "&Help"
-BEGIN
-MENUITEM "&About MFCApplication3...", ID_APP_ABOUT
-END
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&New\tCtrl+N",                ID_FILE_NEW
+        MENUITEM "&Open...\tCtrl+O",            ID_FILE_OPEN
+        MENUITEM "&Close",                      ID_FILE_CLOSE
+        MENUITEM SEPARATOR
+        MENUITEM "Recent File",                 ID_FILE_MRU_FILE1, GRAYED
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit",                       ID_APP_EXIT
+    END
+    POPUP "&View"
+    BEGIN
+        POPUP "&Application Look"
+        BEGIN
+            MENUITEM "Windows &2000",               ID_VIEW_APPLOOK_WIN_2000
+            MENUITEM "Office &XP",                  ID_VIEW_APPLOOK_OFF_XP
+            MENUITEM "&Windows XP",                 ID_VIEW_APPLOOK_WIN_XP
+            MENUITEM "Office 200&3",                ID_VIEW_APPLOOK_OFF_2003
+            MENUITEM "Visual Studio 200&5",         ID_VIEW_APPLOOK_VS_2005
+            MENUITEM "Visual Studio 200&8",         ID_VIEW_APPLOOK_VS_2008
+            POPUP "Office 200&7"
+            BEGIN
+                MENUITEM "&Blue Style",                 ID_VIEW_APPLOOK_OFF_2007_BLUE
+                MENUITEM "B&lack Style",                ID_VIEW_APPLOOK_OFF_2007_BLACK
+                MENUITEM "&Silver Style",               ID_VIEW_APPLOOK_OFF_2007_SILVER
+                MENUITEM "&Aqua Style",                 ID_VIEW_APPLOOK_OFF_2007_AQUA
+            END
+        END
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&About MFCApplication3...",   ID_APP_ABOUT
+    END
 END
 
 IDR_POPUP MENU
 BEGIN
-POPUP "Top"
-BEGIN
-MENUITEM "Set Label Centroid", ID_TOP_SETLABELOID
-MENUITEM "Set Political Centroid", ID_TOP_SETGEOGROID
-END
+    POPUP "Top"
+    BEGIN
+        MENUITEM "Set Label Centroid",          ID_TOP_SETLABELOID
+        MENUITEM "Set Political Centroid",      ID_TOP_SETGEOGROID
+    END
 END
 
 
@@ -483,19 +485,19 @@ STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Move geometries"
 FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
-DEFPUSHBUTTON   "OK", IDOK, 101, 7, 39, 14
-PUSHBUTTON      "Cancel", IDCANCEL, 101, 24, 39, 14
-EDITTEXT        IDC_CX, 58, 20, 30, 13, ES_AUTOHSCROLL
-EDITTEXT        IDC_CY, 58, 39, 30, 13, ES_AUTOHSCROLL
-CONTROL         "Content", IDC_CONTENT, "Button", BS_AUTOCHECKBOX | WS_GROUP | WS_TABSTOP, 66, 60, 42, 8
-CONTROL         "Fill", IDC_FILL, "Button", BS_AUTOCHECKBOX | WS_GROUP | WS_TABSTOP, 115, 60, 25, 8
-LTEXT           "Offset:  in ", IDC_STATIC, 7, 7, 46, 10
-LTEXT           "Vertical:", IDC_STATIC, 16, 40, 31, 10
-LTEXT           "Horizontal:", IDC_STATIC, 16, 21, 40, 11
-LTEXT           "Move options:", IDC_STATIC, 7, 60, 54, 8
-LTEXT           "Static", IDC_UNIT, 53, 7, 40, 10
-CONTROL         IDC_GREEKTYPE, IDC_STATIC, "Static", SS_BITMAP, 90, 40, 9, 10, WS_EX_TRANSPARENT
-CONTROL         IDB_VIEW_LARGE, IDC_STATIC, "Static", SS_BITMAP, 90, 22, 9, 10
+    DEFPUSHBUTTON   "OK",IDOK,101,7,39,14
+    PUSHBUTTON      "Cancel",IDCANCEL,101,24,39,14
+    EDITTEXT        IDC_CX,58,20,30,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_CY,58,39,30,13,ES_AUTOHSCROLL
+    CONTROL         "Content",IDC_CONTENT,"Button",BS_AUTOCHECKBOX | WS_GROUP | WS_TABSTOP,66,60,42,8
+    CONTROL         "Fill",IDC_FILL,"Button",BS_AUTOCHECKBOX | WS_GROUP | WS_TABSTOP,115,60,25,8
+    LTEXT           "Offset:  in ",IDC_STATIC,7,7,46,10
+    LTEXT           "Vertical:",IDC_STATIC,16,40,31,10
+    LTEXT           "Horizontal:",IDC_STATIC,16,21,40,11
+    LTEXT           "Move options:",IDC_STATIC,7,60,54,8
+    LTEXT           "Static",IDC_UNIT,53,7,40,10
+    CONTROL         IDC_GREEKTYPE,IDC_STATIC,"Static",SS_BITMAP,90,40,9,10,WS_EX_TRANSPARENT
+    CONTROL         IDB_VIEW_LARGE,IDC_STATIC,"Static",SS_BITMAP,90,22,9,10
 END
 
 IDD_PREFER DIALOGEX 0, 0, 174, 97
@@ -503,24 +505,24 @@ STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSM
 CAPTION "Prefer"
 FONT 8, "MS Shell Dlg", 400, 0, 0x0
 BEGIN
-DEFPUSHBUTTON   "OK", IDOK, 130, 3, 41, 14
-PUSHBUTTON      "Cancel", IDCANCEL, 131, 24, 40, 14
-EDITTEXT        IDC_GREEKTYPE, 74, 3, 28, 12, ES_AUTOHSCROLL
-EDITTEXT        IDC_UNDONUMBER, 74, 19, 28, 12, ES_AUTOHSCROLL
-COMBOBOX        IDC_UNITCOMBO, 74, 35, 50, 89, CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
-EDITTEXT        IDC_JOINTOLERANCE, 93, 55, 28, 12, ES_AUTOHSCROLL
-LTEXT           "Greek type below:", IDC_STATIC, 3, 3, 69, 8
-LTEXT           "Unit of measure:", IDC_STATIC, 3, 36, 66, 11
-LTEXT           "Point", IDC_STATIC, 106, 3, 22, 8
-LTEXT           "Number of undo:", IDC_STATIC, 3, 19, 61, 8
-LTEXT           "Path join tolerance:", IDC_STATIC, 3, 57, 89, 8
-LTEXT           "Point", IDC_STATIC, 124, 57, 26, 8
-EDITTEXT        IDC_DENSITY, 93, 83, 28, 12, ES_AUTOHSCROLL
-LTEXT           "Path archors density:", IDC_STATIC, 3, 85, 89, 8
-LTEXT           "Point", IDC_STATIC, 123, 85, 26, 8
-EDITTEXT        IDC_TOPOTOLERANCE, 93, 69, 28, 12, ES_AUTOHSCROLL
-LTEXT           "Topology edge tolerance:", IDC_STATIC, 3, 71, 89, 8
-LTEXT           "Point", IDC_STATIC, 124, 71, 26, 8
+    DEFPUSHBUTTON   "OK",IDOK,130,3,41,14
+    PUSHBUTTON      "Cancel",IDCANCEL,131,24,40,14
+    EDITTEXT        IDC_GREEKTYPE,74,3,28,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_UNDONUMBER,74,19,28,12,ES_AUTOHSCROLL
+    COMBOBOX        IDC_UNITCOMBO,74,35,50,89,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_JOINTOLERANCE,93,55,28,12,ES_AUTOHSCROLL
+    LTEXT           "Greek type below:",IDC_STATIC,3,3,69,8
+    LTEXT           "Unit of measure:",IDC_STATIC,3,36,66,11
+    LTEXT           "Point",IDC_STATIC,106,3,22,8
+    LTEXT           "Number of undo:",IDC_STATIC,3,19,61,8
+    LTEXT           "Path join tolerance:",IDC_STATIC,3,57,89,8
+    LTEXT           "Point",IDC_STATIC,124,57,26,8
+    EDITTEXT        IDC_DENSITY,93,83,28,12,ES_AUTOHSCROLL
+    LTEXT           "Path archors density:",IDC_STATIC,3,85,89,8
+    LTEXT           "Point",IDC_STATIC,123,85,26,8
+    EDITTEXT        IDC_TOPOTOLERANCE,93,69,28,12,ES_AUTOHSCROLL
+    LTEXT           "Topology edge tolerance:",IDC_STATIC,3,71,89,8
+    LTEXT           "Point",IDC_STATIC,124,71,26,8
 END
 
 IDD_ABOUTBOX DIALOGEX 0, 0, 184, 91
@@ -528,13 +530,13 @@ STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "About Mapper"
 FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
-ICON            IDR_MAINFRAME, IDC_STATIC, 7, 7, 20, 20, NOT WS_VISIBLE
-LTEXT           "Version:", IDC_STATIC, 37, 28, 29, 8, SS_NOPREFIX
-LTEXT           "Copyright 2008", IDC_STATIC, 38, 43, 119, 8
-DEFPUSHBUTTON   "OK", IDOK, 145, 7, 32, 14, WS_GROUP
-LTEXT           "Diwatu Company Limited.", IDC_STATIC, 37, 55, 128, 11
-LTEXT           "Static", IDC_VERSION, 70, 28, 107, 8
-CONTROL         "www.diwatu.com", IDC_MFCLINK1, "MfcLink", WS_TABSTOP, 37, 70, 60, 14
+    ICON            IDR_MAINFRAME,IDC_STATIC,7,7,20,20,NOT WS_VISIBLE
+    LTEXT           "Version:",IDC_STATIC,37,28,29,8,SS_NOPREFIX
+    LTEXT           "Copyright 2008",IDC_STATIC,38,43,119,8
+    DEFPUSHBUTTON   "OK",IDOK,145,7,32,14,WS_GROUP
+    LTEXT           "Diwatu Company Limited.",IDC_STATIC,37,55,128,11
+    LTEXT           "Static",IDC_VERSION,70,28,107,8
+    CONTROL         "www.diwatu.com",IDC_MFCLINK1,"MfcLink",WS_TABSTOP,37,70,60,14
 END
 
 IDD_ATLASNEW DIALOGEX 0, 0, 145, 244
@@ -543,11 +545,11 @@ EXSTYLE WS_EX_APPWINDOW
 CAPTION "Create new atlas"
 FONT 8, "MS Shell Dlg", 0, 0, 0x1
 BEGIN
-DEFPUSHBUTTON   "OK", IDOK, 21, 227, 50, 14
-PUSHBUTTON      "Cancel", IDCANCEL, 78, 227, 50, 14
-CONTROL         "Tree1", IDC_PATHPICKER, "SysTreeView32", TVS_HASLINES | TVS_DISABLEDRAGDROP | WS_HSCROLL | WS_TABSTOP, 15, 38, 127, 184, WS_EX_CLIENTEDGE
-CONTROL         "Empty atlas", IDC_RADIO1, "Button", BS_AUTORADIOBUTTON, 7, 7, 60, 10
-CONTROL         "From existing directory", IDC_RADIO2, "Button", BS_AUTORADIOBUTTON, 7, 24, 108, 10
+    DEFPUSHBUTTON   "OK",IDOK,21,227,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,78,227,50,14
+    CONTROL         "Tree1",IDC_PATHPICKER,"SysTreeView32",TVS_HASLINES | TVS_DISABLEDRAGDROP | WS_HSCROLL | WS_TABSTOP,15,38,127,184,WS_EX_CLIENTEDGE
+    CONTROL         "Empty atlas",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON,7,7,60,10
+    CONTROL         "From existing directory",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,7,24,108,10
 END
 
 IDD_REPLACE DIALOGEX 0, 0, 151, 97
@@ -555,17 +557,17 @@ STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Replace"
 FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
-EDITTEXT        IDC_SOURCE, 54, 3, 94, 14, ES_AUTOHSCROLL
-EDITTEXT        IDC_DESTINATION, 54, 18, 94, 14, ES_AUTOHSCROLL
-CONTROL         "Match whole word", IDC_EQUAL, "Button", BS_AUTOCHECKBOX | WS_TABSTOP, 16, 48, 48, 10
-CONTROL         "Match case", IDC_CAPSGREEK, "Button", BS_AUTOCHECKBOX | WS_TABSTOP, 76, 48, 51, 10
-DEFPUSHBUTTON   "Replace", IDC_REPLACE, 80, 63, 47, 12
-DEFPUSHBUTTON   "Replace All", IDC_REPLACEALL, 80, 82, 47, 12
-DEFPUSHBUTTON   "Find Next", IDC_NEXT, 21, 63, 47, 12
-PUSHBUTTON      "Cancel", IDCANCEL, 21, 82, 47, 12
-LTEXT           "Find what:", IDC_STATIC, 3, 3, 41, 8
-LTEXT           "Replace with:", IDC_STATIC, 3, 21, 53, 8
-GROUPBOX        "Find options", IDC_STATIC, 3, 36, 145, 26
+    EDITTEXT        IDC_SOURCE,54,3,94,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_DESTINATION,54,18,94,14,ES_AUTOHSCROLL
+    CONTROL         "Match whole word",IDC_EQUAL,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,16,48,48,10
+    CONTROL         "Match case",IDC_CAPSGREEK,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,76,48,51,10
+    DEFPUSHBUTTON   "Replace",IDC_REPLACE,80,63,47,12
+    DEFPUSHBUTTON   "Replace All",IDC_REPLACEALL,80,82,47,12
+    DEFPUSHBUTTON   "Find Next",IDC_NEXT,21,63,47,12
+    PUSHBUTTON      "Cancel",IDCANCEL,21,82,47,12
+    LTEXT           "Find what:",IDC_STATIC,3,3,41,8
+    LTEXT           "Replace with:",IDC_STATIC,3,21,53,8
+    GROUPBOX        "Find options",IDC_STATIC,3,36,145,26
 END
 
 IDD_SCALEBAR DIALOGEX 0, 0, 79, 12
@@ -574,9 +576,9 @@ EXSTYLE WS_EX_TOOLWINDOW
 CAPTION "Scale Ctrl"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-LTEXT           "Scale: 1:", IDC_STATIC, 0, 2, 29, 8
-EDITTEXT        IDC_SCALE, 29, 2, 38, 12, ES_AUTOHSCROLL | NOT WS_BORDER
-PUSHBUTTON      ">", IDC_EXCUTE, 69, 1, 10, 11, BS_FLAT
+    LTEXT           "Scale: 1:",IDC_STATIC,0,2,29,8
+    EDITTEXT        IDC_SCALE,29,2,38,12,ES_AUTOHSCROLL | NOT WS_BORDER
+    PUSHBUTTON      ">",IDC_EXCUTE,69,1,10,11,BS_FLAT
 END
 
 IDD_LEVELBAR DIALOGEX 0, 0, 79, 12
@@ -585,9 +587,9 @@ EXSTYLE WS_EX_TOOLWINDOW
 CAPTION "Level Ctrl"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-LTEXT           "Level: ", -1, 0, 2, 22, 8
-EDITTEXT        IDC_LEVEL, 29, 2, 38, 12, ES_AUTOHSCROLL | NOT WS_BORDER
-PUSHBUTTON      ">", IDC_EXCUTE, 69, 1, 10, 11, BS_FLAT
+    LTEXT           "Level: ",-1,0,2,22,8
+    EDITTEXT        IDC_LEVEL,29,2,38,12,ES_AUTOHSCROLL | NOT WS_BORDER
+    PUSHBUTTON      ">",IDC_EXCUTE,69,1,10,11,BS_FLAT
 END
 
 IDD_DYNAMIC DIALOGEX 0, 0, 621, 110
@@ -595,22 +597,22 @@ STYLE DS_SETFONT | DS_FIXEDSYS | DS_CONTROL | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Dialog"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-CONTROL         "", IDC_STATIC, "Static", SS_BLACKFRAME, 131, 14, 124, 7
-CONTROL         "", IDC_STATIC, "Static", SS_BLACKFRAME, 131, 51, 124, 7
-CONTROL         "", IDC_STATIC, "Static", SS_BLACKFRAME, 131, 87, 124, 7
-LTEXT           "Map Scale Range:", IDC_STATIC, 118, 3, 58, 8
-LTEXT           "Map Level Range:", IDC_STATIC, 118, 40, 58, 8, SS_ENDELLIPSIS
-LTEXT           "Layer Level Range:", IDC_STATIC, 118, 76, 63, 8
-CONTROL         "Custom2", IDC_CUSTOM2, "", WS_TABSTOP, 3, 3, 109, 104
-LTEXT           "Static", IDC_STATIC, 121, 22, 19, 8
-LTEXT           "Static", IDC_STATIC, 177, 22, 19, 8
-CTEXT           "Static", IDC_STATIC, 245, 22, 19, 8
-LTEXT           "Static", IDC_STATIC, 121, 59, 19, 8
-LTEXT           "Static", IDC_STATIC, 177, 59, 19, 8
-CTEXT           "Static", IDC_STATIC, 245, 59, 19, 8
-LTEXT           "Static", IDC_STATIC, 121, 95, 19, 8
-LTEXT           "Static", IDC_STATIC, 177, 95, 19, 8
-CTEXT           "Static", IDC_STATIC, 245, 95, 19, 8
+    CONTROL         "",IDC_STATIC,"Static",SS_BLACKFRAME,131,14,124,7
+    CONTROL         "",IDC_STATIC,"Static",SS_BLACKFRAME,131,51,124,7
+    CONTROL         "",IDC_STATIC,"Static",SS_BLACKFRAME,131,87,124,7
+    LTEXT           "Map Scale Range:",IDC_STATIC,118,3,58,8
+    LTEXT           "Map Level Range:",IDC_STATIC,118,40,58,8,SS_ENDELLIPSIS
+    LTEXT           "Layer Level Range:",IDC_STATIC,118,76,63,8
+    CONTROL         "Custom2",IDC_CUSTOM2,"",WS_TABSTOP,3,3,109,104
+    LTEXT           "Static",IDC_STATIC,121,22,19,8
+    LTEXT           "Static",IDC_STATIC,177,22,19,8
+    CTEXT           "Static",IDC_STATIC,245,22,19,8
+    LTEXT           "Static",IDC_STATIC,121,59,19,8
+    LTEXT           "Static",IDC_STATIC,177,59,19,8
+    CTEXT           "Static",IDC_STATIC,245,59,19,8
+    LTEXT           "Static",IDC_STATIC,121,95,19,8
+    LTEXT           "Static",IDC_STATIC,177,95,19,8
+    CTEXT           "Static",IDC_STATIC,245,95,19,8
 END
 
 IDD_PUBLISHTOWEB DIALOGEX 0, 0, 321, 194
@@ -618,29 +620,29 @@ STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_VISIBLE | WS_CAPT
 CAPTION "Also Publish this to a Web?"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-DEFPUSHBUTTON   "Create New", IDOK, 200, 173, 50, 14
-PUSHBUTTON      "Local Only", IDC_LOCAL, 257, 173, 57, 14
-LTEXT           "Map Name:", IDC_STATIC, 7, 14, 37, 8
-LTEXT           "Description:", IDC_STATIC, 7, 33, 39, 8
-LTEXT           "Client:", IDC_STATIC, 7, 154, 22, 8
-LTEXT           "Username:", IDC_STATIC, 106, 154, 36, 8
-LTEXT           "Password:", IDC_STATIC, 201, 154, 34, 8
-LTEXT           "API Url:", IDC_STATIC, 7, 127, 26, 8
-EDITTEXT        IDC_EDIT1, 40, 125, 269, 13, ES_AUTOHSCROLL
-EDITTEXT        IDC_EDIT2, 32, 152, 68, 13, ES_AUTOHSCROLL
-EDITTEXT        IDC_EDIT3, 144, 152, 52, 13, ES_AUTOHSCROLL
-EDITTEXT        IDC_EDIT4, 238, 152, 76, 13, ES_PASSWORD | ES_AUTOHSCROLL
-EDITTEXT        IDC_EDIT5, 46, 12, 268, 13, ES_AUTOHSCROLL
-EDITTEXT        IDC_EDIT6, 7, 44, 307, 53, ES_MULTILINE | ES_AUTOHSCROLL
-PUSHBUTTON      "Update", IDC_UPDATE, 116, 173, 50, 14
-LTEXT           "Level Range:", IDC_STATIC, 7, 106, 43, 8
-LTEXT           "Min:", IDC_STATIC, 67, 106, 14, 8
-EDITTEXT        IDC_LEVELMAX, 163, 103, 40, 14, ES_AUTOHSCROLL | ES_NUMBER
-LTEXT           "Max:", IDC_STATIC, 138, 106, 17, 8
-EDITTEXT        IDC_LEVELMIN, 89, 103, 40, 14, ES_AUTOHSCROLL | ES_NUMBER
-CONTROL         "Export Geomety's infomation in Database", IDC_EXPORTPROPERTY,
-"Button", BS_AUTOCHECKBOX | WS_TABSTOP, 168, 29, 145, 10
-CONTROL         "Partial", IDC_PARTIAL, "Button", BS_AUTOCHECKBOX | WS_TABSTOP, 209, 105, 36, 10
+    DEFPUSHBUTTON   "Create New",IDOK,200,173,50,14
+    PUSHBUTTON      "Local Only",IDC_LOCAL,257,173,57,14
+    LTEXT           "Map Name:",IDC_STATIC,7,14,37,8
+    LTEXT           "Description:",IDC_STATIC,7,33,39,8
+    LTEXT           "Client:",IDC_STATIC,7,154,22,8
+    LTEXT           "Username:",IDC_STATIC,106,154,36,8
+    LTEXT           "Password:",IDC_STATIC,201,154,34,8
+    LTEXT           "API Url:",IDC_STATIC,7,127,26,8
+    EDITTEXT        IDC_EDIT1,40,125,269,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT2,32,152,68,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT3,144,152,52,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT4,238,152,76,13,ES_PASSWORD | ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT5,46,12,268,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT6,7,44,307,53,ES_MULTILINE | ES_AUTOHSCROLL
+    PUSHBUTTON      "Update",IDC_UPDATE,116,173,50,14
+    LTEXT           "Level Range:",IDC_STATIC,7,106,43,8
+    LTEXT           "Min:",IDC_STATIC,67,106,14,8
+    EDITTEXT        IDC_LEVELMAX,163,103,40,14,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "Max:",IDC_STATIC,138,106,17,8
+    EDITTEXT        IDC_LEVELMIN,89,103,40,14,ES_AUTOHSCROLL | ES_NUMBER
+    CONTROL         "Export Geomety's infomation in Database",IDC_EXPORTPROPERTY,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,168,29,145,10
+    CONTROL         "Partial",IDC_PARTIAL,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,209,105,36,10
 END
 
 IDD_PATHBUFFER DIALOGEX 0, 0, 183, 97
@@ -648,25 +650,25 @@ STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSM
 CAPTION "Path Buffer"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-LTEXT           "Distance", IDC_STATIC, 8, 9, 28, 8
-EDITTEXT        IDC_BUFFERDELTA, 47, 7, 40, 14, ES_AUTOHSCROLL
-LTEXT           "Points", IDC_STATIC, 94, 9, 20, 8
-LTEXT           "End Type:", IDC_STATIC, 8, 30, 39, 9
-LTEXT           "Join Type:", IDC_STATIC, 8, 48, 33, 9
-CONTROL         IDB_ENDBUTT, IDC_STATIC, "Static", SS_BITMAP | SS_RIGHTJUST, 68, 32, 17, 6
-CONTROL         IDB_ENDROUND, IDC_STATIC, "Static", SS_BITMAP, 106, 32, 21, 6
-CONTROL         IDB_JOINSQUARE, IDC_STATIC, "Static", SS_BITMAP | SS_RIGHTJUST, 152, 49, 15, 9
-CONTROL         IDB_JOINBEVEL, IDC_STATIC, "Static", SS_BITMAP | SS_RIGHTJUST, 68, 48, 15, 10
-CONTROL         IDB_JOINROUND, IDC_STATIC, "Static", SS_BITMAP | SS_RIGHTJUST, 108, 48, 15, 9
-CONTROL         IDB_ENDSQUARE, IDC_STATIC, "Static", SS_BITMAP | SS_RIGHTJUST, 150, 32, 21, 6
-DEFPUSHBUTTON   "OK", IDOK, 71, 76, 50, 14
-CONTROL         "", IDC_ENDBUTT, "Button", BS_AUTORADIOBUTTON | BS_BITMAP | WS_GROUP, 52, 31, 8, 8
-CONTROL         "", IDC_ENDROUND, "Button", BS_AUTORADIOBUTTON | BS_BITMAP, 93, 31, 8, 8
-CONTROL         "", IDC_ENDSQUARE, "Button", BS_AUTORADIOBUTTON | BS_BITMAP, 135, 31, 8, 8
-CONTROL         "", IDC_JOINBEVEL, "Button", BS_AUTORADIOBUTTON | BS_BITMAP | WS_GROUP, 52, 49, 8, 8
-CONTROL         "", IDC_JOINROUND, "Button", BS_AUTORADIOBUTTON | BS_BITMAP, 93, 49, 8, 8
-CONTROL         "", IDC_JOINMITER, "Button", BS_AUTORADIOBUTTON | BS_BITMAP, 135, 49, 8, 8
-PUSHBUTTON      "Cancel", IDCANCEL, 126, 76, 50, 14
+    LTEXT           "Distance",IDC_STATIC,8,9,28,8
+    EDITTEXT        IDC_BUFFERDELTA,47,7,40,14,ES_AUTOHSCROLL
+    LTEXT           "Points",IDC_STATIC,94,9,20,8
+    LTEXT           "End Type:",IDC_STATIC,8,30,39,9
+    LTEXT           "Join Type:",IDC_STATIC,8,48,33,9
+    CONTROL         IDB_ENDBUTT,IDC_STATIC,"Static",SS_BITMAP | SS_RIGHTJUST,68,32,17,6
+    CONTROL         IDB_ENDROUND,IDC_STATIC,"Static",SS_BITMAP,106,32,21,6
+    CONTROL         IDB_JOINSQUARE,IDC_STATIC,"Static",SS_BITMAP | SS_RIGHTJUST,152,49,15,9
+    CONTROL         IDB_JOINBEVEL,IDC_STATIC,"Static",SS_BITMAP | SS_RIGHTJUST,68,48,15,10
+    CONTROL         IDB_JOINROUND,IDC_STATIC,"Static",SS_BITMAP | SS_RIGHTJUST,108,48,15,9
+    CONTROL         IDB_ENDSQUARE,IDC_STATIC,"Static",SS_BITMAP | SS_RIGHTJUST,150,32,21,6
+    DEFPUSHBUTTON   "OK",IDOK,71,76,50,14
+    CONTROL         "",IDC_ENDBUTT,"Button",BS_AUTORADIOBUTTON | BS_BITMAP | WS_GROUP,52,31,8,8
+    CONTROL         "",IDC_ENDROUND,"Button",BS_AUTORADIOBUTTON | BS_BITMAP,93,31,8,8
+    CONTROL         "",IDC_ENDSQUARE,"Button",BS_AUTORADIOBUTTON | BS_BITMAP,135,31,8,8
+    CONTROL         "",IDC_JOINBEVEL,"Button",BS_AUTORADIOBUTTON | BS_BITMAP | WS_GROUP,52,49,8,8
+    CONTROL         "",IDC_JOINROUND,"Button",BS_AUTORADIOBUTTON | BS_BITMAP,93,49,8,8
+    CONTROL         "",IDC_JOINMITER,"Button",BS_AUTORADIOBUTTON | BS_BITMAP,135,49,8,8
+    PUSHBUTTON      "Cancel",IDCANCEL,126,76,50,14
 END
 
 
@@ -678,69 +680,69 @@ END
 #ifdef APSTUDIO_INVOKED
 GUIDELINES DESIGNINFO
 BEGIN
-IDD_MOVE, DIALOG
-BEGIN
-LEFTMARGIN, 3
-RIGHTMARGIN, 140
-TOPMARGIN, 3
-BOTTOMMARGIN, 68
-END
+    IDD_MOVE, DIALOG
+    BEGIN
+        LEFTMARGIN, 3
+        RIGHTMARGIN, 140
+        TOPMARGIN, 3
+        BOTTOMMARGIN, 68
+    END
 
-IDD_PREFER, DIALOG
-BEGIN
-LEFTMARGIN, 3
-RIGHTMARGIN, 171
-TOPMARGIN, 3
-BOTTOMMARGIN, 94
-END
+    IDD_PREFER, DIALOG
+    BEGIN
+        LEFTMARGIN, 3
+        RIGHTMARGIN, 171
+        TOPMARGIN, 3
+        BOTTOMMARGIN, 94
+    END
 
-IDD_ABOUTBOX, DIALOG
-BEGIN
-LEFTMARGIN, 3
-RIGHTMARGIN, 177
-TOPMARGIN, 3
-BOTTOMMARGIN, 84
-END
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 3
+        RIGHTMARGIN, 177
+        TOPMARGIN, 3
+        BOTTOMMARGIN, 84
+    END
 
-IDD_ATLASNEW, DIALOG
-BEGIN
-LEFTMARGIN, 3
-RIGHTMARGIN, 142
-TOPMARGIN, 3
-BOTTOMMARGIN, 241
-END
+    IDD_ATLASNEW, DIALOG
+    BEGIN
+        LEFTMARGIN, 3
+        RIGHTMARGIN, 142
+        TOPMARGIN, 3
+        BOTTOMMARGIN, 241
+    END
 
-IDD_REPLACE, DIALOG
-BEGIN
-LEFTMARGIN, 3
-RIGHTMARGIN, 148
-TOPMARGIN, 3
-BOTTOMMARGIN, 94
-END
+    IDD_REPLACE, DIALOG
+    BEGIN
+        LEFTMARGIN, 3
+        RIGHTMARGIN, 148
+        TOPMARGIN, 3
+        BOTTOMMARGIN, 94
+    END
 
-IDD_SCALEBAR, DIALOG
-BEGIN
-END
+    IDD_SCALEBAR, DIALOG
+    BEGIN
+    END
 
-IDD_LEVELBAR, DIALOG
-BEGIN
-END
+    IDD_LEVELBAR, DIALOG
+    BEGIN
+    END
 
-IDD_DYNAMIC, DIALOG
-BEGIN
-LEFTMARGIN, 3
-RIGHTMARGIN, 617
-TOPMARGIN, 3
-BOTTOMMARGIN, 107
-END
+    IDD_DYNAMIC, DIALOG
+    BEGIN
+        LEFTMARGIN, 3
+        RIGHTMARGIN, 617
+        TOPMARGIN, 3
+        BOTTOMMARGIN, 107
+    END
 
-IDD_PUBLISHTOWEB, DIALOG
-BEGIN
-LEFTMARGIN, 7
-RIGHTMARGIN, 314
-TOPMARGIN, 7
-BOTTOMMARGIN, 187
-END
+    IDD_PUBLISHTOWEB, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 314
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 187
+    END
 END
 #endif    // APSTUDIO_INVOKED
 
@@ -752,29 +754,29 @@ END
 
 IDD_PREFER DLGINIT
 BEGIN
-IDC_UNITCOMBO, 0x403, 7, 0
-0x6e49, 0x6863, 0x7365, "\000"
-IDC_UNITCOMBO, 0x403, 7, 0
-0x6f50, 0x6e69, 0x7374, "\000"
-IDC_UNITCOMBO, 0x403, 12, 0
-0x694d, 0x6c6c, 0x6d69, 0x7465, 0x6572, 0x0073,
-0
+    IDC_UNITCOMBO, 0x403, 7, 0
+0x6e49, 0x6863, 0x7365, "\000" 
+    IDC_UNITCOMBO, 0x403, 7, 0
+0x6f50, 0x6e69, 0x7374, "\000" 
+    IDC_UNITCOMBO, 0x403, 12, 0
+0x694d, 0x6c6c, 0x6d69, 0x7465, 0x6572, 0x0073, 
+    0
 END
 
 IDD_ABOUTBOX DLGINIT
 BEGIN
-IDC_MFCLINK1, 0x37c, 171, 0
-0x4d3c, 0x4346, 0x694c, 0x6b6e, 0x555f, 0x6c72, 0x773e, 0x7777, 0x672e,
-0x7369, 0x6977, 0x2e6e, 0x6f63, 0x3c6d, 0x4d2f, 0x4346, 0x694c, 0x6b6e,
-0x555f, 0x6c72, 0x3c3e, 0x464d, 0x4c43, 0x6e69, 0x5f6b, 0x7255, 0x506c,
-0x6572, 0x6966, 0x3e78, 0x2f3c, 0x464d, 0x4c43, 0x6e69, 0x5f6b, 0x7255,
-0x506c, 0x6572, 0x6966, 0x3e78, 0x4d3c, 0x4346, 0x694c, 0x6b6e, 0x545f,
-0x6f6f, 0x746c, 0x7069, 0x3c3e, 0x4d2f, 0x4346, 0x694c, 0x6b6e, 0x545f,
-0x6f6f, 0x746c, 0x7069, 0x3c3e, 0x464d, 0x4c43, 0x6e69, 0x5f6b, 0x7546,
-0x6c6c, 0x6554, 0x7478, 0x6f54, 0x6c6f, 0x6974, 0x3e70, 0x4146, 0x534c,
-0x3c45, 0x4d2f, 0x4346, 0x694c, 0x6b6e, 0x465f, 0x6c75, 0x546c, 0x7865,
-0x5474, 0x6f6f, 0x746c, 0x7069, "\076"
-0
+    IDC_MFCLINK1, 0x37c, 171, 0
+0x4d3c, 0x4346, 0x694c, 0x6b6e, 0x555f, 0x6c72, 0x773e, 0x7777, 0x672e, 
+0x7369, 0x6977, 0x2e6e, 0x6f63, 0x3c6d, 0x4d2f, 0x4346, 0x694c, 0x6b6e, 
+0x555f, 0x6c72, 0x3c3e, 0x464d, 0x4c43, 0x6e69, 0x5f6b, 0x7255, 0x506c, 
+0x6572, 0x6966, 0x3e78, 0x2f3c, 0x464d, 0x4c43, 0x6e69, 0x5f6b, 0x7255, 
+0x506c, 0x6572, 0x6966, 0x3e78, 0x4d3c, 0x4346, 0x694c, 0x6b6e, 0x545f, 
+0x6f6f, 0x746c, 0x7069, 0x3c3e, 0x4d2f, 0x4346, 0x694c, 0x6b6e, 0x545f, 
+0x6f6f, 0x746c, 0x7069, 0x3c3e, 0x464d, 0x4c43, 0x6e69, 0x5f6b, 0x7546, 
+0x6c6c, 0x6554, 0x7478, 0x6f54, 0x6c6f, 0x6974, 0x3e70, 0x4146, 0x534c, 
+0x3c45, 0x4d2f, 0x4346, 0x694c, 0x6b6e, 0x465f, 0x6c75, 0x546c, 0x7865, 
+0x5474, 0x6f6f, 0x746c, 0x7069, "\076" 
+    0
 END
 
 
@@ -785,35 +787,35 @@ END
 
 IDR_MAINFRAME ACCELERATORS
 BEGIN
-VK_BACK, ID_EDIT_CLEAR, VIRTKEY, NOINVERT
-VK_DELETE, ID_EDIT_CLEAR, VIRTKEY, NOINVERT
-"C", ID_EDIT_CLONE, VIRTKEY, SHIFT, CONTROL, NOINVERT
-"C", ID_EDIT_COPY, VIRTKEY, CONTROL, NOINVERT
-"X", ID_EDIT_CUT, VIRTKEY, CONTROL, NOINVERT
-VK_TAB, ID_SELECTALL_DISCARD, VIRTKEY, NOINVERT
-"D", ID_EDIT_DUPLICATE, VIRTKEY, CONTROL, NOINVERT
-"M", ID_EDIT_MOVE, VIRTKEY, CONTROL, NOINVERT
-"V", ID_EDIT_PASTE, VIRTKEY, CONTROL, NOINVERT
-"Y", ID_EDIT_REDO, VIRTKEY, CONTROL, NOINVERT
-"A", ID_SELECTALL_ALL, VIRTKEY, CONTROL, NOINVERT
-"Z", ID_EDIT_UNDO, VIRTKEY, CONTROL, NOINVERT
-"N", ID_FILE_NEW, VIRTKEY, CONTROL, NOINVERT
-"O", ID_FILE_OPEN, VIRTKEY, CONTROL, NOINVERT
-"P", ID_FILE_PRINT, VIRTKEY, CONTROL, NOINVERT
-"S", ID_FILE_SAVE, VIRTKEY, CONTROL, NOINVERT
-"I", ID_ANNO_SETUP, VIRTKEY, CONTROL, NOINVERT
-"G", ID_GEOM_GROUP, VIRTKEY, CONTROL, NOINVERT
-"J", ID_GEOM_JOIN, VIRTKEY, CONTROL, NOINVERT
-"L", ID_GEOM_LOCK, VIRTKEY, CONTROL, NOINVERT
-"J", ID_GEOM_SPLIT, VIRTKEY, SHIFT, CONTROL, NOINVERT
-"U", ID_GEOM_UNGROUP, VIRTKEY, CONTROL, NOINVERT
-"L", ID_GEOM_UNLOCK, VIRTKEY, SHIFT, CONTROL, NOINVERT
-"=", ID_POLYGON_SCULPT1, ASCII, ALT, NOINVERT
-"+", ID_POLYGON_SCULPT2, ASCII, ALT, NOINVERT
-"-", ID_POLYGON_SCULPT3, ASCII, ALT, NOINVERT
-"-", ID_POLYGON_SCULPT3, ASCII, ALT, NOINVERT
-VK_F2, ID_VIEW_DRAWTOOL, VIRTKEY, CONTROL, NOINVERT
-"W", ID_MAGNIFY_FITINPAGE, VIRTKEY, CONTROL, NOINVERT
+    VK_BACK,        ID_EDIT_CLEAR,          VIRTKEY, NOINVERT
+    VK_DELETE,      ID_EDIT_CLEAR,          VIRTKEY, NOINVERT
+    "C",            ID_EDIT_CLONE,          VIRTKEY, SHIFT, CONTROL, NOINVERT
+    "C",            ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    "X",            ID_EDIT_CUT,            VIRTKEY, CONTROL, NOINVERT
+    VK_TAB,         ID_SELECTALL_DISCARD,   VIRTKEY, NOINVERT
+    "D",            ID_EDIT_DUPLICATE,      VIRTKEY, CONTROL, NOINVERT
+    "M",            ID_EDIT_MOVE,           VIRTKEY, CONTROL, NOINVERT
+    "V",            ID_EDIT_PASTE,          VIRTKEY, CONTROL, NOINVERT
+    "Y",            ID_EDIT_REDO,           VIRTKEY, CONTROL, NOINVERT
+    "A",            ID_SELECTALL_ALL,       VIRTKEY, CONTROL, NOINVERT
+    "Z",            ID_EDIT_UNDO,           VIRTKEY, CONTROL, NOINVERT
+    "N",            ID_FILE_NEW,            VIRTKEY, CONTROL, NOINVERT
+    "O",            ID_FILE_OPEN,           VIRTKEY, CONTROL, NOINVERT
+    "P",            ID_FILE_PRINT,          VIRTKEY, CONTROL, NOINVERT
+    "S",            ID_FILE_SAVE,           VIRTKEY, CONTROL, NOINVERT
+    "I",            ID_ANNO_SETUP,          VIRTKEY, CONTROL, NOINVERT
+    "G",            ID_GEOM_GROUP,          VIRTKEY, CONTROL, NOINVERT
+    "J",            ID_GEOM_JOIN,           VIRTKEY, CONTROL, NOINVERT
+    "L",            ID_GEOM_LOCK,           VIRTKEY, CONTROL, NOINVERT
+    "J",            ID_GEOM_SPLIT,          VIRTKEY, SHIFT, CONTROL, NOINVERT
+    "U",            ID_GEOM_UNGROUP,        VIRTKEY, CONTROL, NOINVERT
+    "L",            ID_GEOM_UNLOCK,         VIRTKEY, SHIFT, CONTROL, NOINVERT
+    "=",            ID_POLYGON_SCULPT1,     ASCII,  ALT, NOINVERT
+    "+",            ID_POLYGON_SCULPT2,     ASCII,  ALT, NOINVERT
+    "-",            ID_POLYGON_SCULPT3,     ASCII,  ALT, NOINVERT
+    "-",            ID_POLYGON_SCULPT3,     ASCII,  ALT, NOINVERT
+    VK_F2,          ID_VIEW_DRAWTOOL,       VIRTKEY, CONTROL, NOINVERT
+    "W",            ID_MAGNIFY_FITINPAGE,   VIRTKEY, CONTROL, NOINVERT
 END
 
 
@@ -839,35 +841,35 @@ IDR_GEOTYPE             ICON                    "res\\Geo.ico"
 //
 
 VS_VERSION_INFO VERSIONINFO
-FILEVERSION 13, 1, 0, 0
-PRODUCTVERSION 13, 1, 0, 0
-FILEFLAGSMASK 0x3fL
+ FILEVERSION 13,1,0,0
+ PRODUCTVERSION 13,1,0,0
+ FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
-FILEFLAGS 0x1L
+ FILEFLAGS 0x1L
 #else
-FILEFLAGS 0x0L
+ FILEFLAGS 0x0L
 #endif
-FILEOS 0x4L
-FILETYPE 0x1L
-FILESUBTYPE 0x0L
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
 BEGIN
-BLOCK "StringFileInfo"
-BEGIN
-BLOCK "080404b0"
-BEGIN
-VALUE "FileDescription", "Diwatu Mapper"
-VALUE "FileVersion", "13.01.00.0"
-VALUE "InternalName", "MAPPER"
-VALUE "LegalCopyright", "Copyright@ Diwatu Software Ltd. 2012"
-VALUE "OriginalFilename", "MAPPER.EXE"
-VALUE "ProductName", "Diwatu"
-VALUE "ProductVersion", "13.01.00.0"
-END
-END
-BLOCK "VarFileInfo"
-BEGIN
-VALUE "Translation", 0x804, 1200
-END
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "080404b0"
+        BEGIN
+            VALUE "FileDescription", "Diwatu Mapper"
+            VALUE "FileVersion", "13.01.00.0"
+            VALUE "InternalName", "MAPPER"
+            VALUE "LegalCopyright", "Copyright@ Diwatu Software Ltd. 2012"
+            VALUE "OriginalFilename", "MAPPER.EXE"
+            VALUE "ProductName", "Diwatu"
+            VALUE "ProductVersion", "13.01.00.0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x804, 1200
+    END
 END
 
 
@@ -878,38 +880,38 @@ END
 
 IDD_LEVELBAR AFX_DIALOG_LAYOUT
 BEGIN
-0
+    0
 END
 
 IDD_DYNAMIC AFX_DIALOG_LAYOUT
 BEGIN
-0,
-0, 0, 0, 0,
-0, 0, 0, 0,
-0, 0, 0, 0,
-0, 0, 0, 0,
-0, 0, 0, 0,
-0, 0, 0, 0,
-0, 0, 0, 0,
-0, 0, 100, 0,
-0, 0, 100, 0,
-0, 0, 100, 0,
-0, 0, 100, 0,
-0, 0, 100, 0,
-0, 0, 100, 0,
-0, 0, 100, 0,
-0, 0, 100, 0,
-0, 0, 100, 0
+    0,
+    0, 0, 0, 0,
+    0, 0, 0, 0,
+    0, 0, 0, 0,
+    0, 0, 0, 0,
+    0, 0, 0, 0,
+    0, 0, 0, 0,
+    0, 0, 0, 0,
+    0, 0, 100, 0,
+    0, 0, 100, 0,
+    0, 0, 100, 0,
+    0, 0, 100, 0,
+    0, 0, 100, 0,
+    0, 0, 100, 0,
+    0, 0, 100, 0,
+    0, 0, 100, 0,
+    0, 0, 100, 0
 END
 
 IDD_PUBLISHTOWEB AFX_DIALOG_LAYOUT
 BEGIN
-0
+    0
 END
 
 IDD_PATHBUFFER AFX_DIALOG_LAYOUT
 BEGIN
-0
+    0
 END
 
 
@@ -984,337 +986,337 @@ IDB_JOINROUND           BITMAP                  "res\\joinround.bmp"
 
 STRINGTABLE
 BEGIN
-AFX_IDS_APP_TITLE       "Mapper"
-AFX_IDS_IDLEMESSAGE     "Ready"
+    AFX_IDS_APP_TITLE       "Mapper"
+    AFX_IDS_IDLEMESSAGE     "Ready"
 END
 
 STRINGTABLE
 BEGIN
-IDP_FAILED_TO_CREATE    "failed to create"
-IDR_GRFTYPE_CNTR_IP     "yrtertrtyr"
-IDP_OLE_INIT_FAILED     "fgdgssdf"
-IDR_GISTYPE_CNTR_IP     "yrtertrtyr"
-IDR_MDBTYPE_CNTR_IP     "yrtertrtyr"
+    IDP_FAILED_TO_CREATE    "failed to create"
+    IDR_GRFTYPE_CNTR_IP     "yrtertrtyr"
+    IDP_OLE_INIT_FAILED     "fgdgssdf"
+    IDR_GISTYPE_CNTR_IP     "yrtertrtyr"
+    IDR_MDBTYPE_CNTR_IP     "yrtertrtyr"
 END
 
 STRINGTABLE
 BEGIN
-IDR_GEOTYPE_CNTR_IP     "yrtertrtyr"
+    IDR_GEOTYPE_CNTR_IP     "yrtertrtyr"
 END
 
 STRINGTABLE
 BEGIN
-ID_INDICATOR_EXT        "EXT"
-ID_INDICATOR_CAPS       "CAP"
-ID_INDICATOR_NUM        "NUM"
-ID_INDICATOR_SCRL       "SCRL"
-ID_INDICATOR_OVR        "OVR"
-ID_INDICATOR_REC        "REC"
+    ID_INDICATOR_EXT        "EXT"
+    ID_INDICATOR_CAPS       "CAP"
+    ID_INDICATOR_NUM        "NUM"
+    ID_INDICATOR_SCRL       "SCRL"
+    ID_INDICATOR_OVR        "OVR"
+    ID_INDICATOR_REC        "REC"
 END
 
 STRINGTABLE
 BEGIN
-ID_FILE_NEW             "Create a new document\nNew"
-ID_FILE_OPEN            "Open an existing document\nOpen"
-ID_FILE_CLOSE           "Close the active document\nClose"
-ID_FILE_SAVE            "Save the active document\nSave"
-ID_FILE_SAVE_AS         "Save the active document with a new name\nSave As"
-ID_FILE_PAGE_SETUP      "Setup page\nPage Setup"
-ID_FILE_PRINT_SETUP     "Change the printer and printing options\nPrint Setup"
-ID_FILE_PRINT           "Print the active document\nPrint"
-ID_FILE_PRINT_PREVIEW   "Display full pages\nPrint Preview"
+    ID_FILE_NEW             "Create a new document\nNew"
+    ID_FILE_OPEN            "Open an existing document\nOpen"
+    ID_FILE_CLOSE           "Close the active document\nClose"
+    ID_FILE_SAVE            "Save the active document\nSave"
+    ID_FILE_SAVE_AS         "Save the active document with a new name\nSave As"
+    ID_FILE_PAGE_SETUP      "Setup page\nPage Setup"
+    ID_FILE_PRINT_SETUP     "Change the printer and printing options\nPrint Setup"
+    ID_FILE_PRINT           "Print the active document\nPrint"
+    ID_FILE_PRINT_PREVIEW   "Display full pages\nPrint Preview"
 END
 
 STRINGTABLE
 BEGIN
-ID_APP_ABOUT            "Help"
-ID_APP_EXIT             "Exit"
+    ID_APP_ABOUT            "Help"
+    ID_APP_EXIT             "Exit"
 END
 
 STRINGTABLE
 BEGIN
-ID_NEXT_PANE            "Switch to the next window pane\nNext Pane"
-ID_PREV_PANE            "Switch back to the previous window pane\nPrevious Pane"
+    ID_NEXT_PANE            "Switch to the next window pane\nNext Pane"
+    ID_PREV_PANE            "Switch back to the previous window pane\nPrevious Pane"
 END
 
 STRINGTABLE
 BEGIN
-ID_WINDOW_NEW           "Open another window for the active document\nNew Window"
-ID_WINDOW_ARRANGE       "Arrange icons at the bottom of the window\nArrange Icons"
-ID_WINDOW_CASCADE       "Arrange windows so they overlap\nCascade Windows"
-ID_WINDOW_TILE_HORZ     "Arrange windows as non-overlapping tiles\nTile Windows"
-ID_WINDOW_TILE_VERT     "Arrange windows as non-overlapping tiles\nTile Windows"
-ID_WINDOW_SPLIT         "Split the active window into panes\nSplit"
+    ID_WINDOW_NEW           "Open another window for the active document\nNew Window"
+    ID_WINDOW_ARRANGE       "Arrange icons at the bottom of the window\nArrange Icons"
+    ID_WINDOW_CASCADE       "Arrange windows so they overlap\nCascade Windows"
+    ID_WINDOW_TILE_HORZ     "Arrange windows as non-overlapping tiles\nTile Windows"
+    ID_WINDOW_TILE_VERT     "Arrange windows as non-overlapping tiles\nTile Windows"
+    ID_WINDOW_SPLIT         "Split the active window into panes\nSplit"
 END
 
 STRINGTABLE
 BEGIN
-ID_EDIT_CLEAR           "Erase the selection\nErase"
-ID_EDIT_CLEAR_ALL       "Erase everything\nErase All"
-ID_EDIT_COPY            "Copy the selection and put it on the Clipboard\nCopy"
-ID_EDIT_CUT             "Cut the selection and put it on the Clipboard\nCut"
-ID_EDIT_FIND            "Find the specified text\nFind"
-ID_EDIT_PASTE           "Insert Clipboard contents\nPaste"
-ID_EDIT_REPEAT          "Repeat the last action\nRepeat"
-ID_EDIT_UNDO            "Undo the last action\nUndo"
-ID_EDIT_REDO            "Redo the previously undone action\nRedo"
+    ID_EDIT_CLEAR           "Erase the selection\nErase"
+    ID_EDIT_CLEAR_ALL       "Erase everything\nErase All"
+    ID_EDIT_COPY            "Copy the selection and put it on the Clipboard\nCopy"
+    ID_EDIT_CUT             "Cut the selection and put it on the Clipboard\nCut"
+    ID_EDIT_FIND            "Find the specified text\nFind"
+    ID_EDIT_PASTE           "Insert Clipboard contents\nPaste"
+    ID_EDIT_REPEAT          "Repeat the last action\nRepeat"
+    ID_EDIT_UNDO            "Undo the last action\nUndo"
+    ID_EDIT_REDO            "Redo the previously undone action\nRedo"
 END
 
 STRINGTABLE
 BEGIN
-ID_SELECTALL_DISCARD    "Discard all the selected geometries\nDiscard all"
-ID_GEOM_SETTYPE         "Set font style for selected text geometry\nSet text's type"
-ID_GEOM_SETSPOT         "Set the dot symbol for a selected dot geometry\nSet spot symbol"
-ID_GEOM_SETSTYLE        "Set stroke, fill style for selected geometries\nSet stroke and fill style"
-ID_GEOM_REGRESS         "Remove it's own style and use the layer's\nRegress"
-ID_ANNO_TOTEXT          "Create name's text for geometries\nName to text "
-ID_MAGNIFY_FITACTIVE    "Fit all active geometries in window\nFit active"
-ID_GEOM_PROPERTY        "Setup geometry's  property\nProperty"
-ID_GEOM_COMBINE         "Combine the selected geometries to a complex geometry\nCombine"
-ID_GEOM_DISBAND         "Disband the selected complex geometries\nDisband"
-ID_TRANSFORM_PROJECT    "Transform the map to a different projection or different map paramenters"
+    ID_SELECTALL_DISCARD    "Discard all the selected geometries\nDiscard all"
+    ID_GEOM_SETTYPE         "Set font style for selected text geometry\nSet text's type"
+    ID_GEOM_SETSPOT         "Set the dot symbol for a selected dot geometry\nSet spot symbol"
+    ID_GEOM_SETSTYLE        "Set stroke, fill style for selected geometries\nSet stroke and fill style"
+    ID_GEOM_REGRESS         "Remove it's own style and use the layer's\nRegress"
+    ID_ANNO_TOTEXT          "Create name's text for geometries\nName to text "
+    ID_MAGNIFY_FITACTIVE    "Fit all active geometries in window\nFit active"
+    ID_GEOM_PROPERTY        "Setup geometry's  property\nProperty"
+    ID_GEOM_COMBINE         "Combine the selected geometries to a complex geometry\nCombine"
+    ID_GEOM_DISBAND         "Disband the selected complex geometries\nDisband"
+    ID_TRANSFORM_PROJECT    "Transform the map to a different projection or different map paramenters"
 END
 
 STRINGTABLE
 BEGIN
-ID_TAG_CREATE           "Create a note for a geometry which has a name\nCreate note"
-ID_EDIT_TRANSFORM       "Transform all the selected geometries with parameters\nTransform"
-ID_TAG_DELETE           "Delete the tag for  the active geometries\nDelete note"
-ID_TAG_SETUP            "Setup the tag for active geometries\nSetup note"
-ID_ANNO_SETUP           "Give or edte the name of a geometry\nSetup name"
-ID_ANNO_CLEAR           "Remove the name of a geometry\nClear name"
-ID_ANNO_REPLACE         "Replace geometries' name with different text\nReplace"
-ID_PROCESS_CLEANDUPLICATED "Remove all the duplicated geometries"
-ID_PROCESS_CLEANOUTOFRANGE
-"Remove all the geometries which are not in the document range"
-ID_ATLAS_OPEN           "Open an existing atlas file"
+    ID_TAG_CREATE           "Create a note for a geometry which has a name\nCreate note"
+    ID_EDIT_TRANSFORM       "Transform all the selected geometries with parameters\nTransform"
+    ID_TAG_DELETE           "Delete the tag for  the active geometries\nDelete note"
+    ID_TAG_SETUP            "Setup the tag for active geometries\nSetup note"
+    ID_ANNO_SETUP           "Give or edte the name of a geometry\nSetup name"
+    ID_ANNO_CLEAR           "Remove the name of a geometry\nClear name"
+    ID_ANNO_REPLACE         "Replace geometries' name with different text\nReplace"
+    ID_PROCESS_CLEANDUPLICATED "Remove all the duplicated geometries"
+    ID_PROCESS_CLEANOUTOFRANGE 
+                            "Remove all the geometries which are not in the document range"
+    ID_ATLAS_OPEN           "Open an existing atlas file"
 END
 
 STRINGTABLE
 BEGIN
-ID_ATLAS_SAVE           "Save the active atlas file"
-ID_ATLAS_CLOSE          "Close the active atlas"
-ID_ATLAS_NEW            "Create a new Atlas"
-ID_MAP_COPY             "Copy selected geometries with map information"
-ID_MAP_PASTE            "Paste the geometries copied by Map->Copy"
-ID_EDIT_CLIPIN          "Clip this map by a selected closed geometry\nClip in"
-ID_EDIT_CLIPOUT         "Clip this map by a selected closed geometry\nClip out"
-ID_ATLAS_CLOSE2         "Close  the active atlas"
-ID_GEOM_SETHINT         "Set hint's style for selected geometry\nSet hint's style"
-ID_EDIT_INSERTGPSROUTE  "Insert GPS route as lines"
-ID_DATABASE_ATTACHAAT   "Attach a database for geometries' attribute"
-ID_DATABASE_UNASSIGNATT "Unassigne the attribute records with the selected geometries\nUnassigne"
-ID_TOPOEDGE_CREATE      "Insert topology edges from selected lines"
-ID_TOOL_TOPOCROSS       "Convert intersected edges into a node"
+    ID_ATLAS_SAVE           "Save the active atlas file"
+    ID_ATLAS_CLOSE          "Close the active atlas"
+    ID_ATLAS_NEW            "Create a new Atlas"
+    ID_MAP_COPY             "Copy selected geometries with map information"
+    ID_MAP_PASTE            "Paste the geometries copied by Map->Copy"
+    ID_EDIT_CLIPIN          "Clip this map by a selected closed geometry\nClip in"
+    ID_EDIT_CLIPOUT         "Clip this map by a selected closed geometry\nClip out"
+    ID_ATLAS_CLOSE2         "Close  the active atlas"
+    ID_GEOM_SETHINT         "Set hint's style for selected geometry\nSet hint's style"
+    ID_EDIT_INSERTGPSROUTE  "Insert GPS route as lines"
+    ID_DATABASE_ATTACHAAT   "Attach a database for geometries' attribute"
+    ID_DATABASE_UNASSIGNATT "Unassigne the attribute records with the selected geometries\nUnassigne"
+    ID_TOPOEDGE_CREATE      "Insert topology edges from selected lines"
+    ID_TOOL_TOPOCROSS       "Convert intersected edges into a node"
 END
 
 STRINGTABLE
 BEGIN
-ID_MAP_MOVE             "Move the whole map"
-ID_TOOL_TOPOPICK        "Pick a Topology Edge"
-ID_RELEASE_VIEWER       "Release this map to a format which you can use Diwatu Viewer to open"
-ID_RELEASE_POCKETPC     "Release this map to a format which you can use Diwatu PocketPC Viewer to open"
-ID_TOOL_TOPOSPLIT       "Split the edge "
-ID_TOOL_TOPOEROSE       "Pick Nodes and Edges"
-ID_TOPOEDGE_JOIN        "Join two selected topology edges"
-ID_TOPOEDGE_CROSS       "Cut  two selected and intersected topology edges"
-ID_DATABASE_ATTACHPOU   "Attach a database for user's own point information"
-ID_DATABASE_ATTACHGEO   "Attach a database for storing map data"
-ID_VIEW_PANE01          "Show Atlas panel window"
-ID_VIEW_PANE02          "Show Layer window"
+    ID_MAP_MOVE             "Move the whole map"
+    ID_TOOL_TOPOPICK        "Pick a Topology Edge"
+    ID_RELEASE_VIEWER       "Release this map to a format which you can use Diwatu Viewer to open"
+    ID_RELEASE_POCKETPC     "Release this map to a format which you can use Diwatu PocketPC Viewer to open"
+    ID_TOOL_TOPOSPLIT       "Split the edge "
+    ID_TOOL_TOPOEROSE       "Pick Nodes and Edges"
+    ID_TOPOEDGE_JOIN        "Join two selected topology edges"
+    ID_TOPOEDGE_CROSS       "Cut  two selected and intersected topology edges"
+    ID_DATABASE_ATTACHPOU   "Attach a database for user's own point information"
+    ID_DATABASE_ATTACHGEO   "Attach a database for storing map data"
+    ID_VIEW_PANE01          "Show Atlas panel window"
+    ID_VIEW_PANE02          "Show Layer window"
 END
 
 STRINGTABLE
 BEGIN
-ID_TOPOEDGE_REMOVE      "Remove the  topology edges for selected lines"
-ID_EDIT_DUPLICATE       "Duplicate all the selected geometries\nDupliate"
-ID_EDIT_CLONE           "Clone all the selected geometries\nClone"
-ID_GEOM_LOCK            "lock the active geometries\nLock"
-ID_GEOM_UNLOCK          "Unlock the locked geometries\nUnlock"
-ID_GEOM_GROUP           "Make all the active geometries to a group\nGroup"
-ID_VIEW_RULER           "Show ruler"
-ID_GEOM_UNGROUP         "Ungroup the active group geometries\nUngroup"
-ID_FILE_IMPORT          "Import other softwares's files"
-ID_FILE_EXPORT          "Export this file to other software's format"
-ID_FILE_DOCSETUP        "Setup document"
-ID_FILE_PREFERENCES     "Preferences about this document"
-ID_MAGNIFY_FITINPAGE    "Fit the whole page in the visible window\nFit all"
+    ID_TOPOEDGE_REMOVE      "Remove the  topology edges for selected lines"
+    ID_EDIT_DUPLICATE       "Duplicate all the selected geometries\nDupliate"
+    ID_EDIT_CLONE           "Clone all the selected geometries\nClone"
+    ID_GEOM_LOCK            "lock the active geometries\nLock"
+    ID_GEOM_UNLOCK          "Unlock the locked geometries\nUnlock"
+    ID_GEOM_GROUP           "Make all the active geometries to a group\nGroup"
+    ID_VIEW_RULER           "Show ruler"
+    ID_GEOM_UNGROUP         "Ungroup the active group geometries\nUngroup"
+    ID_FILE_IMPORT          "Import other softwares's files"
+    ID_FILE_EXPORT          "Export this file to other software's format"
+    ID_FILE_DOCSETUP        "Setup document"
+    ID_FILE_PREFERENCES     "Preferences about this document"
+    ID_MAGNIFY_FITINPAGE    "Fit the whole page in the visible window\nFit all"
 END
 
 STRINGTABLE
 BEGIN
-ID_VIEW_GRID            "Show Grid"
-ID_VIEW_GUIDES          "Show Guiders"
-ID_FILE_REVERT          "Revert the document to it's original"
-ID_GEOM_JOIN            "Join the active polylines\nJoin"
-ID_GEOM_SPLIT           "Split the active gpolyline"
-ID_PATH_REVERSE         "Remove point"
-ID_EDIT_MOVE            "Move all the selected geometries\nMove"
-ID_SELECTALL_INVERSE    "Unselect what is selected and select everything else\nInverse select"
-ID_SELECTALL_ALL        "Select all geometries\nSelect All"
+    ID_VIEW_GRID            "Show Grid"
+    ID_VIEW_GUIDES          "Show Guiders"
+    ID_FILE_REVERT          "Revert the document to it's original"
+    ID_GEOM_JOIN            "Join the active polylines\nJoin"
+    ID_GEOM_SPLIT           "Split the active gpolyline"
+    ID_PATH_REVERSE         "Remove point"
+    ID_EDIT_MOVE            "Move all the selected geometries\nMove"
+    ID_SELECTALL_INVERSE    "Unselect what is selected and select everything else\nInverse select"
+    ID_SELECTALL_ALL        "Select all geometries\nSelect All"
 END
 
 STRINGTABLE
 BEGIN
-ID_VIEW_TOOLBAR         "Show or hide the toolbar\nToggle ToolBar"
-ID_VIEW_STATUS_BAR      "Show or hide the status bar\nToggle StatusBar"
+    ID_VIEW_TOOLBAR         "Show or hide the toolbar\nToggle ToolBar"
+    ID_VIEW_STATUS_BAR      "Show or hide the status bar\nToggle StatusBar"
 END
 
 STRINGTABLE
 BEGIN
-AFX_IDS_SCSIZE          "Change the window size"
-AFX_IDS_SCMOVE          "Change the window position"
-AFX_IDS_SCMINIMIZE      "Reduce the window to an icon"
-AFX_IDS_SCMAXIMIZE      "Enlarge the window to full size"
-AFX_IDS_SCNEXTWINDOW    "Switch to the next document window"
-AFX_IDS_SCPREVWINDOW    "Switch to the previous document window"
-AFX_IDS_SCCLOSE         "Close the active window and prompts to save the documents"
+    AFX_IDS_SCSIZE          "Change the window size"
+    AFX_IDS_SCMOVE          "Change the window position"
+    AFX_IDS_SCMINIMIZE      "Reduce the window to an icon"
+    AFX_IDS_SCMAXIMIZE      "Enlarge the window to full size"
+    AFX_IDS_SCNEXTWINDOW    "Switch to the next document window"
+    AFX_IDS_SCPREVWINDOW    "Switch to the previous document window"
+    AFX_IDS_SCCLOSE         "Close the active window and prompts to save the documents"
 END
 
 STRINGTABLE
 BEGIN
-AFX_IDS_SCRESTORE       "Restore the window to normal size"
-AFX_IDS_SCTASKLIST      "Activate Task List"
-AFX_IDS_MDICHILD        "Activate this window"
+    AFX_IDS_SCRESTORE       "Restore the window to normal size"
+    AFX_IDS_SCTASKLIST      "Activate Task List"
+    AFX_IDS_MDICHILD        "Activate this window"
 END
 
 STRINGTABLE
 BEGIN
-AFX_IDS_ALLFILTER       "All Diwatu Files(*.Grf;*.Gis;*.Geo)"
-AFX_IDS_PREVIEW_CLOSE   "Close print preview mode\nCancel Preview"
+    AFX_IDS_ALLFILTER       "All Diwatu Files(*.Grf;*.Gis;*.Geo)"
+    AFX_IDS_PREVIEW_CLOSE   "Close print preview mode\nCancel Preview"
 END
 
 STRINGTABLE
 BEGIN
-IDR_MAINFRAME           "Diwatu Mapper"
+    IDR_MAINFRAME           "Diwatu Mapper"
 END
 
 STRINGTABLE
 BEGIN
-IDS_POINTCOUNT          "Handles' count"
-IDS_HANDLEXY            "Handle's x and y"
-IDS_COORDINATE          "Coordinate"
-IDS_UNITCOMBO           "Unit's combo"
-IDP_SOCKETS_INIT_FAILED "Windows sockets initialization failed."
-IDS_UNDOWILLBECLEARED   "Will not be able to undo any changes you did after this operation is done! "
-IDS_LOSINGUNDOS         "The undo stack will be cleared after this operation, will you continue?"
-IDS_NEEDSINGLECLOSEDPATH
-"No activated closed geometry or too many activated!"
-IDR_GRFTYPE             "Diwatu Grf\nGrf\nGraphic File Map\nGraphic Map File(*.Grf)\n.Grf\nGrf\nGrf"
-IDR_GISTYPE             "Diwatu Gis\nGis\nGis File Map\nGis Map File (*.Gis)\n.Gis\nGis\nGis"
-IDR_GEOTYPE             "Diwatu Geo\nGeo\nGeo Database Map\nGeo Database Map File (*.Geo)\n.Geo\nGeo\nGeo"
+    IDS_POINTCOUNT          "Handles' count"
+    IDS_HANDLEXY            "Handle's x and y"
+    IDS_COORDINATE          "Coordinate"
+    IDS_UNITCOMBO           "Unit's combo"
+    IDP_SOCKETS_INIT_FAILED "Windows sockets initialization failed."
+    IDS_UNDOWILLBECLEARED   "Will not be able to undo any changes you did after this operation is done! "
+    IDS_LOSINGUNDOS         "The undo stack will be cleared after this operation, will you continue?"
+    IDS_NEEDSINGLECLOSEDPATH 
+                            "No activated closed geometry or too many activated!"
+    IDR_GRFTYPE             "Diwatu Grf\nGrf\nGraphic File Map\nGraphic Map File(*.Grf)\n.Grf\nGrf\nGrf"
+    IDR_GISTYPE             "Diwatu Gis\nGis\nGis File Map\nGis Map File (*.Gis)\n.Gis\nGis\nGis"
+    IDR_GEOTYPE             "Diwatu Geo\nGeo\nGeo Database Map\nGeo Database Map File (*.Geo)\n.Geo\nGeo\nGeo"
 END
 
 STRINGTABLE
 BEGIN
-ID_OLE_INSERT_NEW       "Insert new linked or embedded object\nNew Object"
-ID_OLE_EDIT_LINKS       "Edit linked geometries\nEdit Links"
+    ID_OLE_INSERT_NEW       "Insert new linked or embedded object\nNew Object"
+    ID_OLE_EDIT_LINKS       "Edit linked geometries\nEdit Links"
 END
 
 STRINGTABLE
 BEGIN
-ID_OLE_VERB_FIRST       "Activate embedded or linked object"
+    ID_OLE_VERB_FIRST       "Activate embedded or linked object"
 END
 
 STRINGTABLE
 BEGIN
-ID_FILE_MAPINFO         "This map's information "
+    ID_FILE_MAPINFO         "This map's information "
 END
 
 STRINGTABLE
 BEGIN
-ID_ARRANGE_TOFRONT      "Bring the active geometries to top\nBring to front"
-ID_ARRANGE_TOBACK       "Send the active geometries to end\nSend to back"
-ID_ARRANGE_FORWARD      "Raise the selected geometries one step\nBring forward"
-ID_ARRANGE_BACKWARD     "Bring the active geometries backward\nSend backward"
+    ID_ARRANGE_TOFRONT      "Bring the active geometries to top\nBring to front"
+    ID_ARRANGE_TOBACK       "Send the active geometries to end\nSend to back"
+    ID_ARRANGE_FORWARD      "Raise the selected geometries one step\nBring forward"
+    ID_ARRANGE_BACKWARD     "Bring the active geometries backward\nSend backward"
 END
 
 STRINGTABLE
 BEGIN
-IDS_NOACTIVELAYER       "No active layer!"
-IDS_INSERTERROR         "Error wher insert record!"
-IDS_NOLAYERTABLE        "No table for the activated geometries!"
-IDS_INCONSISTENTTABLE   "Different table!"
-IDS_CANNOTOPENTABLE     "The table cann't be opened!"
-IDS_TOOLBAR_STANDARD    "Standard"
-IDS_VIEW_CUSTOMIZE      "Customize..."
-IDS_STATUSINFO          "Status"
-IDS_VIEWSCALE           "View scale"
-IDS_VIEWLEVEL           "View level"
-IDS_PROGRESSBAR         "Progress bar"
-IDS_GEOMNAME            "Geometry's name"
-IDS_GEOCODE             "Geometry's geo code"
-IDS_GEOMID              "Geometry's ID"
+    IDS_NOACTIVELAYER       "No active layer!"
+    IDS_INSERTERROR         "Error wher insert record!"
+    IDS_NOLAYERTABLE        "No table for the activated geometries!"
+    IDS_INCONSISTENTTABLE   "Different table!"
+    IDS_CANNOTOPENTABLE     "The table cann't be opened!"
+    IDS_TOOLBAR_STANDARD    "Standard"
+    IDS_VIEW_CUSTOMIZE      "Customize..."
+    IDS_STATUSINFO          "Status"
+    IDS_VIEWSCALE           "View scale"
+    IDS_VIEWLEVEL           "View level"
+    IDS_PROGRESSBAR         "Progress bar"
+    IDS_GEOMNAME            "Geometry's name"
+    IDS_GEOCODE             "Geometry's geo code"
+    IDS_GEOMID              "Geometry's ID"
 END
 
 STRINGTABLE
 BEGIN
-ID_VIEW_PANE04          "Show User's points window"
-ID_VIEW_PANE05          "Show Database table form"
-ID_VIEW_PANE06          "Show Search window"
-ID_VIEW_PANE07          "Show Property window"
-ID_VIEW_PANE08          "Show Topology window"
-ID_VIEW_PANE10          "Show Message window"
-ID_MAGNIFY_PAPER1TO1    "Show this map in it's real size\nReal size on paper "
-ID_MAGNIFY_SCREEN1TO1   "Show this map in it's real size\nReal size on screen"
-ID_MAP_REIDALL          "Reassign all the geometries' ID"
-ID_TOOL_DBINJECT        "Assign the activated attribute database record to the geometry\nInject"
-ID_TOOL_DBPOSITION      "Position the activated POU database record\nPosition"
-ID_TOOL_DBPICKINFO      "Activate  the record linked to the geometry\nShowRecord"
-ID_WAMAP_VECTORTILES    "Release this map to a vector-Tiled format which you can put it on a website with Wamap"
+    ID_VIEW_PANE04          "Show User's points window"
+    ID_VIEW_PANE05          "Show Database table form"
+    ID_VIEW_PANE06          "Show Search window"
+    ID_VIEW_PANE07          "Show Property window"
+    ID_VIEW_PANE08          "Show Topology window"
+    ID_VIEW_PANE10          "Show Message window"
+    ID_MAGNIFY_PAPER1TO1    "Show this map in it's real size\nReal size on paper "
+    ID_MAGNIFY_SCREEN1TO1   "Show this map in it's real size\nReal size on screen"
+    ID_MAP_REIDALL          "Reassign all the geometries' ID"
+    ID_TOOL_DBINJECT        "Assign the activated attribute database record to the geometry\nInject"
+    ID_TOOL_DBPOSITION      "Position the activated POU database record\nPosition"
+    ID_TOOL_DBPICKINFO      "Activate  the record linked to the geometry\nShowRecord"
+    ID_WAMAP_VECTORTILES    "Release this map to a vector-Tiled format which you can put it on a website with Wamap"
 END
 
 STRINGTABLE
 BEGIN
-ID_RELEASEWEB_VECTORPAGE
-"Release this map to a vector-paged format which you can put it on a website with Giscake"
-ID_RELEASEWEB_VECTORTILE
-"Release this map to a Vector-Tiled format which you can put it on a website with Giscake"
-ID_RELEASEWEB_RASTERTILE
-"Release this map to a Raster-Tiled format which you can put it on a website with Giscake"
-ID_EDIT_CLIPRELEASE     "Realease the wrapped geometries"
+    ID_RELEASEWEB_VECTORPAGE 
+                            "Release this map to a vector-paged format which you can put it on a website with Giscake"
+    ID_RELEASEWEB_VECTORTILE 
+                            "Release this map to a Vector-Tiled format which you can put it on a website with Giscake"
+    ID_RELEASEWEB_RASTERTILE 
+                            "Release this map to a Raster-Tiled format which you can put it on a website with Giscake"
+    ID_EDIT_CLIPRELEASE     "Realease the wrapped geometries"
 END
 
 STRINGTABLE
 BEGIN
-ID_ALIGN_LEFT           "Align left"
-ID_ALIGN_HCENTER        "Align center horizontal"
-ID_ALIGN_RIGHT          "Align right"
-ID_ALIGN_BOTTOM         "Align bottom"
-ID_ALIGN_VCENTER        "Align center vertical"
-ID_ALIGN_TOP            "Align top"
-ID_ALIGN_CENTER         "Align center"
+    ID_ALIGN_LEFT           "Align left"
+    ID_ALIGN_HCENTER        "Align center horizontal"
+    ID_ALIGN_RIGHT          "Align right"
+    ID_ALIGN_BOTTOM         "Align bottom"
+    ID_ALIGN_VCENTER        "Align center vertical"
+    ID_ALIGN_TOP            "Align top"
+    ID_ALIGN_CENTER         "Align center"
 END
 
 STRINGTABLE
 BEGIN
-ID_MAP_AIDPANE          "Open or close map's information form(for customization)"
-ID_VIEW_LABELOID        "Display a black dot as labeling centroid for polygons"
-ID_VIEW_GEOGROID        "Display a black dot as  administritive centroid for polygons"
-ID_EDIT_INSERTSUBMAP    "Insert a Map file as a submap, it is not editable and  exsits as a link."
+    ID_MAP_AIDPANE          "Open or close map's information form(for customization)"
+    ID_VIEW_LABELOID        "Display a black dot as labeling centroid for polygons"
+    ID_VIEW_GEOGROID        "Display a black dot as  administritive centroid for polygons"
+    ID_EDIT_INSERTSUBMAP    "Insert a Map file as a submap, it is not editable and  exsits as a link."
 END
 
 STRINGTABLE
 BEGIN
-ID_SELECTALL_REBEL      "Has own styling, including font, line, fill or mark ect, instead of using the setting from layer"
-ID_SELECTALL_IDENTICAL  "Find all the identical objects to the activated one which have exactly the same styles and shape"
-ID_SELECTALL_SAMESTYLE  "Same line stroke, painting, font etc."
+    ID_SELECTALL_REBEL      "Has own styling, including font, line, fill or mark ect, instead of using the setting from layer"
+    ID_SELECTALL_IDENTICAL  "Find all the identical objects to the activated one which have exactly the same styles and shape"
+    ID_SELECTALL_SAMESTYLE  "Same line stroke, painting, font etc."
 END
 
 STRINGTABLE
 BEGIN
-ID_EDIT_WRAPIN          "Wrap all the geometries in the selected polygon"
-ID_PROCESS_WIPEOUT      "Remove all the geometries"
-ID_PROCESS_NORMALIZE    "Making all polygons clockwise, holes in a ppolygon anti-clockwise"
+    ID_EDIT_WRAPIN          "Wrap all the geometries in the selected polygon"
+    ID_PROCESS_WIPEOUT      "Remove all the geometries"
+    ID_PROCESS_NORMALIZE    "Making all polygons clockwise, holes in a ppolygon anti-clockwise"
 END
 
 STRINGTABLE
 BEGIN
-ID_REPLACE_WITHMARK     "Replace the selected elements with Dot Symbol(Mark)"
-ID_PROCESS_AUTOTAGGING  "Automatically decide tagging on levels"
-ID_VIEW_CREATEDTAGS     "Show user created tags"
-ID_VIEW_DYNAMICTAGS     "Show tags basing on its name"
-ID_PROCESS_CLEANORPHAN  "Remove elements like space only text, single point polyline etc."
+    ID_REPLACE_WITHMARK     "Replace the selected elements with Dot Symbol(Mark)"
+    ID_PROCESS_AUTOTAGGING  "Automatically decide tagging on levels"
+    ID_VIEW_CREATEDTAGS     "Show user created tags"
+    ID_VIEW_DYNAMICTAGS     "Show tags basing on its name"
+    ID_PROCESS_CLEANORPHAN  "Remove elements like space only text, single point polyline etc."
 END
 
 #endif    // English (Neutral) resources

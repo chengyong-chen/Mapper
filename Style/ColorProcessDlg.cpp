@@ -114,9 +114,6 @@ void CColorProcessDlg::OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar
 		break;
 	}
 
-	if(nPos<0) nPos = 0;
-	if(nPos>100) nPos = 100;
-
 	pScrollBar->SetScrollPos(nPos);
 
 	TCHAR ch[4];

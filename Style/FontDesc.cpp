@@ -22,10 +22,21 @@ static char THIS_FILE[] = __FILE__;
 #define PRINTER_FONT 0x0100
 #define TTF_FONT     0x0200
 #define DEVICE_FONT  0x0400
-//
 
-std::map<std::string, std::wstring> CFontDesc::m_RealToFace;  //one to one
-std::map<std::string, std::wstring> CFontDesc::m_RealToFamily;//multiple to one
+
+// Specialization of the template to use the custom hash function
+template<>
+AFX_INLINE UINT AFXAPI HashKey(const CStringA& key) {
+	const char* str = key.GetString();
+	UINT hash = 0;
+	while(*str) {
+		hash = (hash << 5) + hash + *str++;
+	}
+	return hash;
+}
+
+CMap<CStringA, const CStringA&, CString, const CString&> CFontDesc::m_RealToFace;  //one to one
+CMap<CStringA, const CStringA&, CString, const CString&> CFontDesc::m_RealToFamily;//multiple to one
 
 CFontDesc::CFontDesc()
 {
@@ -110,11 +121,7 @@ const BOOL CFontDesc::operator !=(const CFontDesc& descSrc) const
 }
 CString CFontDesc::GetFaceName() const
 {
-	std::map<std::string, std::wstring>::const_iterator it = CFontDesc::m_RealToFace.find(m_strRealName.GetString());
-	if(it != CFontDesc::m_RealToFace.end())
-		return CString(it->second.c_str());
-	else
-		return (CString)m_strRealName;
+	return CFontDesc::GetFaceByReal(m_strRealName);
 };
 void CFontDesc::SetByFaceName(CString strFaceName)
 {
@@ -213,8 +220,8 @@ void CFontDesc::ReleaseWeb(pbf::writer& writer) const
 }
 void CFontDesc::LoadFontNames()
 {
-	CFontDesc::m_RealToFace.clear();
-	CFontDesc::m_RealToFamily.clear();
+	CFontDesc::m_RealToFace.RemoveAll();
+	CFontDesc::m_RealToFamily.RemoveAll();
 
 	OSVERSIONINFO osversion;
 	osversion.dwOSVersionInfoSize = sizeof(OSVERSIONINFO);
@@ -244,8 +251,8 @@ void CFontDesc::LoadFontNames()
 			FONT_PROPERTIES fontprops;
 			if(GetTTFFontProperties(strFile, fontprops) == TRUE)
 			{
-				CFontDesc::m_RealToFace.insert({std::string(fontprops.realName.GetString()), std::wstring(fontprops.faceName.GetString())});
-				CFontDesc::m_RealToFamily.insert({std::string(fontprops.realName.GetString()), std::wstring(fontprops.csFamily.GetString())});
+				CFontDesc::m_RealToFace.SetAt(fontprops.realName, fontprops.faceName);
+				CFontDesc::m_RealToFamily.SetAt(fontprops.realName, fontprops.csFamily);
 				OutputDebugString(_T("Real: ") + CString(fontprops.realName) + _T("Face: ") + fontprops.faceName + _T("\t") + _T("Famiy: ") + fontprops.csFamily + _T("\n"));
 			}
 		}
@@ -257,8 +264,8 @@ void CFontDesc::LoadFontNames()
 				FONT_PROPERTIES fontprops;
 				if(GetTTCFontProperties(strFile, fontprops, index) == TRUE)
 				{
-					CFontDesc::m_RealToFace.insert({std::string(fontprops.realName.GetString()), std::wstring(fontprops.faceName.GetString())});
-					CFontDesc::m_RealToFamily.insert({std::string(fontprops.realName.GetString()), std::wstring(fontprops.csFamily.GetString())});
+					CFontDesc::m_RealToFace.SetAt(fontprops.realName, fontprops.faceName);
+					CFontDesc::m_RealToFamily.SetAt(fontprops.realName, fontprops.csFamily);
 					OutputDebugString(_T("Real: ") + CString(fontprops.realName) + _T("Face: ") + fontprops.faceName + _T("\t") + _T("Famiy: ") + fontprops.csFamily + _T("\n"));
 				}
 			}
@@ -274,40 +281,49 @@ void CFontDesc::LoadFontNames()
 
 bool CFontDesc::FontRealNameExists(CStringA strReal)
 {
-	return CFontDesc::m_RealToFamily.find(strReal.GetString()) != CFontDesc::m_RealToFamily.end();
+	CString strFace;
+	return CFontDesc::m_RealToFace.Lookup(strReal, strFace);
 }
 CString CFontDesc::GetFaceByReal(CStringA strReal)
 {
-	std::map<std::string, std::wstring>::iterator it = CFontDesc::m_RealToFace.find(strReal.GetString());
-	if(it == CFontDesc::m_RealToFace.end())
-		return (CString)strReal;		
+	CString strFace;
+	if(CFontDesc::m_RealToFace.Lookup(strReal, strFace) == TRUE)
+		return CFontDesc::m_RealToFace[strReal];
 	else
-		return CString(it->second.c_str());
+		return CString(strReal);
 }
 CStringA CFontDesc::GetRealByFace(CString strFace)
 { 
-	for(std::map<std::string, std::wstring>::iterator it = CFontDesc::m_RealToFace.begin();it!= CFontDesc::m_RealToFace.end();it++)	
+	POSITION pos = m_RealToFace.GetStartPosition();
+	while(pos != nullptr)
 	{
-		if(CString(it->second.c_str()) == strFace)
-			return CStringA(it->first.c_str());
+		CStringA strName1;
+		CString strName2;
+		m_RealToFace.GetNextAssoc(pos, strName1, strName2);
+		if(strName2 == strFace)
+			return strName1;
 	}
+
 	return CStringA(strFace);
 }
 CString CFontDesc::GetFamilyByReal(CStringA strReal)
 {
-	std::map<std::string, std::wstring>::iterator it = CFontDesc::m_RealToFamily.find(strReal.GetString());
-	if(it == CFontDesc::m_RealToFamily.end())
-		return (CString)strReal;		
+	CString strFamily;
+	if(CFontDesc::m_RealToFamily.Lookup(strReal, strFamily) == TRUE)
+		return CFontDesc::m_RealToFamily[strReal];
 	else
-		return CString(it->second.c_str());
-		
+		return CString(strReal);
 }
 CStringA CFontDesc::GetRealByFamily(CString strFamily, Gdiplus::FontStyle style)
 {
-	for(std::map<std::string, std::wstring>::iterator it = CFontDesc::m_RealToFamily.begin(); it != CFontDesc::m_RealToFamily.end(); it++)
+	POSITION pos = m_RealToFamily.GetStartPosition();
+	while(pos != nullptr)
 	{
-		if(CString(it->second.c_str()) == strFamily)
-			return CStringA(it->first.c_str());
+		CStringA strName1;
+		CString strName2;
+		m_RealToFamily.GetNextAssoc(pos, strName1, strName2);
+		if(strName2 == strFamily)
+			return strName1;
 	}
 
 	return CStringA(strFamily);
@@ -345,11 +361,13 @@ char* CFontDesc::GetBestMatched(const char* family, const char* name)
 
 	memset(best, 0, 256);
 	int maxed = 0;
-	for(std::map<std::string, std::wstring>::iterator it = CFontDesc::m_RealToFamily.begin(); it != CFontDesc::m_RealToFamily.end(); it++)
-	{	
-		CStringA strName1 = CStringA(it->first.c_str());
-		CString strName2 = CString(it->second.c_str());
-	
+	POSITION pos = m_RealToFace.GetStartPosition();
+	while(pos != nullptr)
+	{
+		CStringA strName1;
+		CString strName2;
+		m_RealToFace.GetNextAssoc(pos, strName1, strName2);
+			
 		strcpy_s(name1, strName1.GetBuffer());
 		strcpy_s(name2, CT2A(strName2.GetBuffer()));
 		strName1.ReleaseBuffer();

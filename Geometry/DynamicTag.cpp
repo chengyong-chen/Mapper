@@ -190,7 +190,7 @@ CGroupTag::~CGroupTag()
 	m_geomlist.RemoveAll();
 }
 
-void CGroupTag::Draw(Gdiplus::Graphics& g, const CViewinfo& viewinfo, const CHint* pHint, const bool& bPivot)
+void CGroupTag::Draw(Gdiplus::Graphics& g, const CViewinfo& viewinfo, const CHint* pHint, const bool& bPivot, const bool& bOblige)
 {
 	if(m_string.IsEmpty()==TRUE)
 		return;
@@ -299,7 +299,7 @@ void CGroupTag::Draw(Gdiplus::Graphics& g, const CViewinfo& viewinfo, const CHin
 
 		if(sortList.GetCount()==1)
 		{
-			pPoly->DrawTag(g, viewinfo, pHint, bPivot);
+			pPoly->DrawTag(g, viewinfo, pHint, bPivot, bOblige);
 			if(m_bDelete==true)
 			{
 				delete pPoly;

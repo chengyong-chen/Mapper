@@ -106,9 +106,9 @@ CGeom::~CGeom()
 }
 BOOL CGeom::operator==(const CGeom& geom) const
 {
-	if(m_Rect!=geom.m_Rect)
+	if(m_Rect != geom.m_Rect)
 		return FALSE;
-	else if(m_strName!=geom.m_strName)
+	else if(m_strName != geom.m_strName)
 		return FALSE;
 	else
 		return TRUE;
@@ -116,7 +116,7 @@ BOOL CGeom::operator==(const CGeom& geom) const
 void CGeom::Sha1(boost::uuids::detail::sha1& sha1) const
 {
 	sha1.process_byte(this->Gettype());
-	if(m_strName.IsEmpty()==FALSE)
+	if(m_strName.IsEmpty() == FALSE)
 	{
 		cstr::sha1(m_strName, sha1);
 	}
@@ -213,109 +213,109 @@ void CGeom::Serialize(CArchive& ar, const DWORD& dwVersion)
 	if(ar.IsStoring())
 	{
 		unsigned short toggler = 0;
-		if(m_bLocked==true)				toggler |= 0X0001;
-		if(m_bClosed==true)				toggler |= 0X0002;
-		if(m_attId!=0XFFFFFFFF)			toggler |= 0X0004;
-		if(m_pTag!=nullptr)				toggler |= 0X0008;
-		if(m_pLine!=nullptr)			toggler |= 0X0010;
-		if(m_pFill!=nullptr)			toggler |= 0X0020;
-		if(m_pType!=nullptr)			toggler |= 0X0040;
-		if(m_pHint!=nullptr)			toggler |= 0X0080;
-		if(m_strName.IsEmpty()==false)	toggler |= 0X0100;
-		if(m_filter!=FilterType::None)	toggler |= 0X0200;
-		if(m_geoCode.IsEmpty()==false)	toggler |= 0X0400;
+		if(m_bLocked == true)				toggler |= 0X0001;
+		if(m_bClosed == true)				toggler |= 0X0002;
+		if(m_attId != 0XFFFFFFFF)			toggler |= 0X0004;
+		if(m_pTag != nullptr)				toggler |= 0X0008;
+		if(m_pLine != nullptr)			toggler |= 0X0010;
+		if(m_pFill != nullptr)			toggler |= 0X0020;
+		if(m_pType != nullptr)			toggler |= 0X0040;
+		if(m_pHint != nullptr)			toggler |= 0X0080;
+		if(m_strName.IsEmpty() == false)	toggler |= 0X0100;
+		if(m_filter != FilterType::None)	toggler |= 0X0200;
+		if(m_geoCode.IsEmpty() == false)	toggler |= 0X0400;
 
-		ar<<toggler;
-		ar<<m_geoId;
-		if(m_attId!=0XFFFFFFFF)
-			ar<<m_attId;
-		ar<<m_Rect;
-		if(m_strName.IsEmpty()==false)
-			ar<<m_strName;
-		if(m_filter!=FilterType::None)
-			ar<<m_filter;
-		if(m_geoCode.IsEmpty()==false)
-			ar<<m_geoCode;
-		if(m_pLine!=nullptr)
+		ar << toggler;
+		ar << m_geoId;
+		if(m_attId != 0XFFFFFFFF)
+			ar << m_attId;
+		ar << m_Rect;
+		if(m_strName.IsEmpty() == false)
+			ar << m_strName;
+		if(m_filter != FilterType::None)
+			ar << m_filter;
+		if(m_geoCode.IsEmpty() == false)
+			ar << m_geoCode;
+		if(m_pLine != nullptr)
 		{
 			const CLine::LINETYPE linetype = m_pLine->Gettype();
-			ar<<(BYTE)linetype;
+			ar << (BYTE)linetype;
 		}
-		if(m_pFill!=nullptr)
+		if(m_pFill != nullptr)
 		{
 			const CFill::FILLTYPE filltype = m_pFill->Gettype();
-			ar<<(BYTE)filltype;
+			ar << (BYTE)filltype;
 		}
 	}
 	else
 	{
 		unsigned short toggler = 0;
-		ar>>toggler;
-		ar>>m_geoId;
-		if((toggler&0X0004)==0X0004)
-			ar>>m_attId;
-		ar>>m_Rect;
-		if((toggler&0X0100)==0X0100)
-			ar>>m_strName;
-		if((toggler&0X0200)==0X0200)
-			ar>>m_filter;
-		m_bLocked = (toggler&0X01)==0X01;
-		m_bClosed = (toggler&0X02)==0X02;
-		if((toggler&0X0400)==0X0400)
-			ar>>m_geoCode;
-		if((toggler&0X08)==0X08)
+		ar >> toggler;
+		ar >> m_geoId;
+		if((toggler & 0X0004) == 0X0004)
+			ar >> m_attId;
+		ar >> m_Rect;
+		if((toggler & 0X0100) == 0X0100)
+			ar >> m_strName;
+		if((toggler & 0X0200) == 0X0200)
+			ar >> m_filter;
+		m_bLocked = (toggler & 0X01) == 0X01;
+		m_bClosed = (toggler & 0X02) == 0X02;
+		if((toggler & 0X0400) == 0X0400)
+			ar >> m_geoCode;
+		if((toggler & 0X08) == 0X08)
 		{
 			m_pTag = new CTag(m_strName, ANCHOR_5);
 		}
-		if((toggler&0X10)==0X10)
+		if((toggler & 0X10) == 0X10)
 		{
 			char lineindex;
-			ar>>lineindex;
+			ar >> lineindex;
 			m_pLine = CLine::Apply(lineindex);
 		}
-		else if(m_pLine!=nullptr)
+		else if(m_pLine != nullptr)
 		{
 			delete m_pLine;
 			m_pLine = nullptr;
 		}
-		if((toggler&0X20)==0X20)
+		if((toggler & 0X20) == 0X20)
 		{
 			char fillindex;
-			ar>>fillindex;
+			ar >> fillindex;
 			m_pFill = CFillCompact::Apply(fillindex);
 		}
-		else if(m_pFill!=nullptr)
+		else if(m_pFill != nullptr)
 		{
 			delete m_pFill;
 			m_pFill = nullptr;
 		}
-		if((toggler&0X40)==0X40)
+		if((toggler & 0X40) == 0X40)
 		{
 			m_pType = new CType;
 		}
-		if((toggler&0X80)==0X80)
+		if((toggler & 0X80) == 0X80)
 		{
 			m_pHint = new CHint;
 		}
-		if(m_strName==_T("Shanghai"))
+		if(m_strName == _T("Shanghai"))
 		{
 			int i = 0;
 		}
 	}
 
-	if(m_pTag!=nullptr)
+	if(m_pTag != nullptr)
 	{
 		m_pTag->Serialize(ar, dwVersion);
 		m_bTag = m_pTag->GetShort();
 	}
 
-	if(m_pLine!=nullptr)
+	if(m_pLine != nullptr)
 		m_pLine->Serialize(ar, dwVersion);
-	if(m_pFill!=nullptr)
+	if(m_pFill != nullptr)
 		m_pFill->Serialize(ar, dwVersion);
-	if(m_pType!=nullptr)
+	if(m_pType != nullptr)
 		m_pType->Serialize(ar, dwVersion);
-	if(m_pHint!=nullptr)
+	if(m_pHint != nullptr)
 		m_pHint->Serialize(ar, dwVersion);
 }
 
@@ -326,7 +326,7 @@ void CGeom::Attribute(CWnd* pWnd, const CViewinfo& viewinfo)
 	AfxSetResourceHandle(hInst);
 
 	CPropertyDlg dlg(pWnd, m_geoId, m_attId, m_geoCode, std::nullopt);
-	if(dlg.DoModal()==IDOK)
+	if(dlg.DoModal() == IDOK)
 	{
 		m_geoCode = dlg.m_strGeoCode;
 	}
@@ -339,16 +339,16 @@ void CGeom::ReleaseCE(CArchive& ar) const
 {
 	if(ar.IsStoring())
 	{
-		ar<<m_bClosed;
-		const int left = m_Rect.left/10000;
-		const int top = m_Rect.top/10000;
-		const int width = m_Rect.Width()/10000;
-		const int height = m_Rect.Height()/10000;
-		ar<<m_geoId;
-		ar<<left;
-		ar<<top;
-		ar<<width;
-		ar<<height;
+		ar << m_bClosed;
+		const int left = m_Rect.left / 10000;
+		const int top = m_Rect.top / 10000;
+		const int width = m_Rect.Width() / 10000;
+		const int height = m_Rect.Height() / 10000;
+		ar << m_geoId;
+		ar << left;
+		ar << top;
+		ar << width;
+		ar << height;
 		SerializeStrCE(ar, m_strName);
 	}
 	else
@@ -368,60 +368,60 @@ void CGeom::ReleaseDCOM(CArchive& ar)
 	if(ar.IsStoring())
 	{
 		char toggles = 0;
-		if(m_bClosed==true) toggles |= 0X02;
-		if(m_pLine!=nullptr) toggles |= 0X10;
-		if(m_pFill!=nullptr) toggles |= 0X20;
-		if(m_pType!=nullptr) toggles |= 0X40;
+		if(m_bClosed == true) toggles |= 0X02;
+		if(m_pLine != nullptr) toggles |= 0X10;
+		if(m_pFill != nullptr) toggles |= 0X20;
+		if(m_pType != nullptr) toggles |= 0X40;
 		//	if(m_pHint != nullptr)    toggles |= 0X40;
 
-		if(m_strName.IsEmpty()==FALSE) toggles |= 0X80;
+		if(m_strName.IsEmpty() == FALSE) toggles |= 0X80;
 
-		ar<<m_geoId;//	ar << m_Rect; //´óÔ¼Õ¼×ÜÊý¾ÓÁ¿µÄ16%
-		ar<<toggles;
-		if(m_strName.IsEmpty()==FALSE)
+		ar << m_geoId;//	ar << m_Rect; //´óÔ¼Õ¼×ÜÊý¾ÓÁ¿µÄ16%
+		ar << toggles;
+		if(m_strName.IsEmpty() == FALSE)
 		{
-			ar<<m_strName;
+			ar << m_strName;
 		}
 
-		if(m_pLine!=nullptr)
+		if(m_pLine != nullptr)
 		{
 			const CLine::LINETYPE linetype = m_pLine->Gettype();
-			ar<<(BYTE)linetype;
+			ar << (BYTE)linetype;
 		}
-		if(m_pFill!=nullptr)
+		if(m_pFill != nullptr)
 		{
 			const CFill::FILLTYPE filltype = m_pFill->Gettype();
-			ar<<(BYTE)filltype;
+			ar << (BYTE)filltype;
 		}
 	}
 	else
 	{
 		char toggles = 0;
 
-		ar>>m_geoId;//	ar >> m_Rect;
-		ar>>toggles;
+		ar >> m_geoId;//	ar >> m_Rect;
+		ar >> toggles;
 
-		m_bClosed = (toggles&0X02)==0X02 ? true : false;
-		if((toggles&0X80)==0X80)
+		m_bClosed = (toggles & 0X02) == 0X02 ? true : false;
+		if((toggles & 0X80) == 0X80)
 		{
-			ar>>m_strName;
+			ar >> m_strName;
 		}
 
 		delete m_pLine;
 		m_pLine = nullptr;
-		if((toggles&0X10)==0X10)
+		if((toggles & 0X10) == 0X10)
 		{
 			char lineindex;
-			ar>>lineindex;
+			ar >> lineindex;
 			m_pLine = CLine::Apply(lineindex);
 		}
 
 		delete m_pFill;
 		m_pFill = nullptr;
-		if((toggles&0X20)==0X20)
+		if((toggles & 0X20) == 0X20)
 		{
 			char fillindex;
-			ar>>fillindex;
+			ar >> fillindex;
 			m_pFill = CFillCompact::Apply(fillindex);
 		}
 		/*
@@ -439,11 +439,11 @@ void CGeom::ReleaseDCOM(CArchive& ar)
 		}*/
 	}
 
-	if(m_pLine!=nullptr)
+	if(m_pLine != nullptr)
 		m_pLine->ReleaseDCOM(ar);
-	if(m_pFill!=nullptr)
+	if(m_pFill != nullptr)
 		m_pFill->ReleaseDCOM(ar);
-	if(m_pHint!=nullptr)
+	if(m_pHint != nullptr)
 		m_pHint->ReleaseDCOM(ar);
 }
 
@@ -453,9 +453,9 @@ CGeom* CGeom::Load(CODBCRecordset& rs, const CDatainfo& datainfo, CString& strTa
 	{
 		const short type = rs.Field(_T("Shape")).AsShort();
 		CGeom* pGeom = CGeom::Apply(type);
-		if(pGeom!=nullptr)
+		if(pGeom != nullptr)
 		{
-			if(pGeom->GetValues(rs, datainfo, strTag)==TRUE)
+			if(pGeom->GetValues(rs, datainfo, strTag) == TRUE)
 			{
 				return pGeom;
 			}
@@ -489,7 +489,7 @@ bool CGeom::GetValues(const CODBCRecordset& rs, const CDatainfo& datainfo, CStri
 		m_Rect.right = datainfo.MapToDoc(rs.Field(_T("maxX")).AsDouble());
 		m_Rect.bottom = datainfo.MapToDoc(rs.Field(_T("maxY")).AsDouble());
 
-		if(strTag.IsEmpty()==FALSE)
+		if(strTag.IsEmpty() == FALSE)
 		{
 			m_strName = rs.Field(strTag).AsString();
 			m_strName.Trim();
@@ -558,9 +558,9 @@ bool CGeom::IntoDatabase(CODBCRecordset& rs, const CDatainfo& datainfo) const
 
 bool CGeom::BeforeDispose(CDatabase* pDatabase, CString strTable, const CDatainfo& datainfo)
 {
-	if(pDatabase==nullptr)
+	if(pDatabase == nullptr)
 		return false;
-	if(m_bModified==false)
+	if(m_bModified == false)
 		return false;
 
 	try
@@ -570,7 +570,7 @@ bool CGeom::BeforeDispose(CDatabase* pDatabase, CString strTable, const CDatainf
 
 		CODBCRecordset rs(pDatabase);
 		rs.Open(strSQL, dbOpenDynaset);
-		if(rs.IsEOF()==FALSE)
+		if(rs.IsEOF() == FALSE)
 		{
 			PutValues(rs, datainfo);
 			rs.Update();
@@ -598,35 +598,35 @@ bool CGeom::BeforeDispose(CDatabase* pDatabase, CString strTable, const CDatainf
 
 DWORD CGeom::PackPC(CFile* pFile, BYTE*& bytes)
 {
-	if(pFile!=nullptr)
+	if(pFile != nullptr)
 	{
 		DWORD size = PackStrPC(m_strName, pFile);
 
 		BYTE toggles = 0;
-		if(m_bLocked==true) toggles |= 0X01;
-		if(m_bClosed==true) toggles |= 0X02;
-		if(m_pTag!=nullptr) toggles |= 0X08;
+		if(m_bLocked == true) toggles |= 0X01;
+		if(m_bClosed == true) toggles |= 0X02;
+		if(m_pTag != nullptr) toggles |= 0X08;
 
-		if(m_pLine!=nullptr) toggles |= 0X10;
-		if(m_pFill!=nullptr) toggles |= 0X20;
-		if(m_pType!=nullptr) toggles |= 0X40;
+		if(m_pLine != nullptr) toggles |= 0X10;
+		if(m_pFill != nullptr) toggles |= 0X20;
+		if(m_pType != nullptr) toggles |= 0X40;
 
 		pFile->Write(&toggles, sizeof(BYTE));
 		size += sizeof(BYTE);
 
-		if(m_pTag!=nullptr)
+		if(m_pTag != nullptr)
 		{
 			size += m_pTag->PackPC(pFile, bytes);
 		}
 
-		if(m_pLine!=nullptr)
+		if(m_pLine != nullptr)
 		{
 			const CLine::LINETYPE linetype = m_pLine->Gettype();
 			pFile->Write(&linetype, sizeof(BYTE));
 
 			size += sizeof(BYTE);
 		}
-		if(m_pFill!=nullptr)
+		if(m_pFill != nullptr)
 		{
 			const CFill::FILLTYPE filltype = m_pFill->Gettype();
 			pFile->Write(&filltype, sizeof(BYTE));
@@ -634,15 +634,15 @@ DWORD CGeom::PackPC(CFile* pFile, BYTE*& bytes)
 			size += sizeof(BYTE);
 		}
 
-		if(m_pLine!=nullptr)
+		if(m_pLine != nullptr)
 		{
 			size += m_pLine->PackPC(pFile, bytes);
 		}
-		if(m_pFill!=nullptr)
+		if(m_pFill != nullptr)
 		{
 			size += m_pFill->PackPC(pFile, bytes);
 		}
-		if(m_pType!=nullptr)
+		if(m_pType != nullptr)
 		{
 			size += m_pType->PackPC(pFile, bytes);
 		}
@@ -653,19 +653,19 @@ DWORD CGeom::PackPC(CFile* pFile, BYTE*& bytes)
 	{
 		m_strName = UnpackStrPC(bytes);
 		const BYTE toggles = *(BYTE*)bytes;
-		m_bClosed = (toggles&0X02)==0X02 ? true : false;
-		m_pTag = (toggles&0X08)==0X08 ? new CTag(m_strName, ANCHOR_5) : nullptr;
+		m_bClosed = (toggles & 0X02) == 0X02 ? true : false;
+		m_pTag = (toggles & 0X08) == 0X08 ? new CTag(m_strName, ANCHOR_5) : nullptr;
 
 		bytes += sizeof(BYTE);
 
-		if(m_pTag!=nullptr)
+		if(m_pTag != nullptr)
 		{
 			m_pTag->PackPC(nullptr, bytes);
 		}
 
 		delete m_pLine;
 		m_pLine = nullptr;
-		if((toggles&0X10)==0X10)
+		if((toggles & 0X10) == 0X10)
 		{
 			const BYTE lineindex = *(BYTE*)bytes;
 			m_pLine = CLine::Apply(lineindex);
@@ -675,7 +675,7 @@ DWORD CGeom::PackPC(CFile* pFile, BYTE*& bytes)
 
 		delete m_pFill;
 		m_pFill = nullptr;
-		if((toggles&0X20)==0X20)
+		if((toggles & 0X20) == 0X20)
 		{
 			const BYTE fillindex = *(BYTE*)bytes;
 
@@ -683,28 +683,28 @@ DWORD CGeom::PackPC(CFile* pFile, BYTE*& bytes)
 
 			bytes += sizeof(BYTE);
 		}
-		if((toggles&0X40)==0X40)
+		if((toggles & 0X40) == 0X40)
 		{
-			if(m_pType==nullptr)
+			if(m_pType == nullptr)
 			{
 				m_pType = new CType;
 			}
 		}
-		else if(m_pType!=nullptr)
+		else if(m_pType != nullptr)
 		{
 			delete m_pType;
 			m_pType = nullptr;
 		}
 
-		if(m_pLine!=nullptr)
+		if(m_pLine != nullptr)
 		{
 			m_pLine->PackPC(nullptr, bytes);
 		}
-		if(m_pFill!=nullptr)
+		if(m_pFill != nullptr)
 		{
 			m_pFill->PackPC(nullptr, bytes);
 		}
-		if(m_pType!=nullptr)
+		if(m_pType != nullptr)
 		{
 			m_pType->PackPC(nullptr, bytes);
 		}
@@ -718,7 +718,7 @@ DWORD CGeom::ReleaseCE(CFile& file, const BYTE& type) const
 	size += PackStrCE(m_strName, file);
 
 	BYTE toggles = 0;
-	if(m_bClosed==true) toggles |= 0X02;
+	if(m_bClosed == true) toggles |= 0X02;
 
 	file.Write(&toggles, sizeof(BYTE));
 	size += sizeof(BYTE);
@@ -740,60 +740,60 @@ void CGeom::ReleaseWeb(CFile& file, CSize offset) const
 	SaveAsUTF8(file, m_strName);
 
 	BYTE toggles = 0;
-	if(m_bClosed==true) toggles |= 0X02;
-	if(m_pLine!=nullptr) toggles |= 0X10;
-	if(m_pFill!=nullptr) toggles |= 0X20;
+	if(m_bClosed == true) toggles |= 0X02;
+	if(m_pLine != nullptr) toggles |= 0X10;
+	if(m_pFill != nullptr) toggles |= 0X20;
 	file.Write(&toggles, sizeof(BYTE));
 
-	if(m_pLine!=nullptr)
+	if(m_pLine != nullptr)
 	{
 		const CLine::LINETYPE linetype = m_pLine->Gettype();
 		file.Write(&linetype, sizeof(BYTE));
 	}
-	if(m_pFill!=nullptr)
+	if(m_pFill != nullptr)
 	{
 		const CFill::FILLTYPE filltype = m_pFill->Gettype();
 		file.Write(&filltype, sizeof(BYTE));
 	}
 
-	if(m_pLine!=nullptr)
+	if(m_pLine != nullptr)
 	{
 		m_pLine->ReleaseWeb(file);
 	}
-	if(m_pFill!=nullptr)
+	if(m_pFill != nullptr)
 	{
 		m_pFill->ReleaseWeb(file);
 	}
 }
 void CGeom::ReleaseWeb(BinaryStream& stream, CSize offset) const
 {
-	stream<<m_bType;
-	stream<<m_geoId;
-	stream<<m_attId;
+	stream << m_bType;
+	stream << m_geoId;
+	stream << m_attId;
 	SaveAsUTF8(stream, m_strName);
 
 	BYTE toggles = 0;
-	if(m_bClosed==true) toggles |= 0X02;
-	if(m_pLine!=nullptr) toggles |= 0X10;
-	if(m_pFill!=nullptr) toggles |= 0X20;
-	stream<<toggles;
+	if(m_bClosed == true) toggles |= 0X02;
+	if(m_pLine != nullptr) toggles |= 0X10;
+	if(m_pFill != nullptr) toggles |= 0X20;
+	stream << toggles;
 
-	if(m_pLine!=nullptr)
+	if(m_pLine != nullptr)
 	{
 		const CLine::LINETYPE linetype = m_pLine->Gettype();
-		stream<<linetype;
+		stream << linetype;
 	}
-	if(m_pFill!=nullptr)
+	if(m_pFill != nullptr)
 	{
 		const CFill::FILLTYPE filltype = m_pFill->Gettype();
-		stream<<filltype;
+		stream << filltype;
 	}
 
-	if(m_pLine!=nullptr)
+	if(m_pLine != nullptr)
 	{
 		m_pLine->ReleaseWeb(stream);
 	}
-	if(m_pFill!=nullptr)
+	if(m_pFill != nullptr)
 	{
 		m_pFill->ReleaseWeb(stream);
 	}
@@ -801,11 +801,11 @@ void CGeom::ReleaseWeb(BinaryStream& stream, CSize offset) const
 void CGeom::ReleaseWeb(boost::json::object& json) const
 {
 	json["Type"] = m_bType;
-	if(m_geoId!=0X00000000)
+	if(m_geoId != 0X00000000)
 		json["GeoID"] = m_geoId;
-	if(m_attId!=0X00000000)
+	if(m_attId != 0X00000000)
 		json["AttID"] = m_attId;
-	if(m_geoCode.IsEmpty()==FALSE)
+	if(m_geoCode.IsEmpty() == FALSE)
 		json["Geocode"] = m_geoCode;
 	SaveAsEscapedASCII(json, "Name", m_strName);
 	{
@@ -817,12 +817,12 @@ void CGeom::ReleaseWeb(boost::json::object& json) const
 		json["Rect"] = boost::json::value_from(child);
 	}
 	BYTE toggles = 0;
-	if(m_bClosed==true) toggles |= 0X02;
-	if(m_pLine!=nullptr) toggles |= 0X10;
-	if(m_pFill!=nullptr) toggles |= 0X20;
+	if(m_bClosed == true) toggles |= 0X02;
+	if(m_pLine != nullptr) toggles |= 0X10;
+	if(m_pFill != nullptr) toggles |= 0X20;
 	json["Wswitch"] = toggles;
 
-	if(m_pLine!=nullptr)
+	if(m_pLine != nullptr)
 	{
 		boost::json::object child;
 		const CLine::LINETYPE type = m_pLine->Gettype();
@@ -830,7 +830,7 @@ void CGeom::ReleaseWeb(boost::json::object& json) const
 		m_pLine->ReleaseWeb(child);
 		json["Line"] = child;
 	}
-	if(m_pFill!=nullptr&&m_bClosed==true)
+	if(m_pFill != nullptr && m_bClosed == true)
 	{
 		boost::json::object child;
 		const CFill::FILLTYPE type = m_pFill->Gettype();
@@ -847,45 +847,45 @@ void CGeom::ReleaseWeb(pbf::writer& writer, const CSize offset) const
 	writer.add_variant_uint32(m_geoId);
 
 	BYTE toggles = 0;
-	toggles |= m_attId==0XFFFFFFFF ? 0X00 : 0X01;
-	toggles |= m_bClosed==true ? 0X02 : 0X00;
+	toggles |= m_attId == 0XFFFFFFFF ? 0X00 : 0X01;
+	toggles |= m_bClosed == true ? 0X02 : 0X00;
 	toggles |= m_geoCode.IsEmpty() ? 0X00 : 0X04;
 	toggles |= m_strName.IsEmpty() ? 0X00 : 0X08;
-	toggles |= m_pLine!=nullptr ? 0X10 : 0X00;
-	toggles |= (m_pFill!=nullptr&&m_bClosed==true) ? 0X20 : 0X00;
+	toggles |= m_pLine != nullptr ? 0X10 : 0X00;
+	toggles |= (m_pFill != nullptr && m_bClosed == true) ? 0X20 : 0X00;
 	toggles |= m_Rect.IsRectEmpty() ? 0X00 : 0X40;
-	toggles |= m_bTag==0X00 ? 0X00 : 0X80;
+	toggles |= m_bTag == 0X00 ? 0X00 : 0X80;
 	writer.add_byte(toggles);
-	if(m_attId!=0XFFFFFFFF)
+	if(m_attId != 0XFFFFFFFF)
 	{
 		writer.add_variant_uint32(m_attId);
 	}
-	if(m_geoCode.IsEmpty()==false)
+	if(m_geoCode.IsEmpty() == false)
 	{
 		writer.add_string(m_geoCode);
 	}
-	if(m_strName.IsEmpty()==false)
+	if(m_strName.IsEmpty() == false)
 	{
 		writer.add_string(EscapedASCII(m_strName));
 	}
-	if(m_Rect.IsRectEmpty()==false)
+	if(m_Rect.IsRectEmpty() == false)
 	{
-		writer.add_variant_sint32(m_Rect.left-offset.cx);
-		writer.add_variant_sint32(m_Rect.top-offset.cy);
-		writer.add_variant_sint32(m_Rect.right-offset.cx);
-		writer.add_variant_sint32(m_Rect.bottom-offset.cy);
+		writer.add_variant_sint32(m_Rect.left - offset.cx);
+		writer.add_variant_sint32(m_Rect.top - offset.cy);
+		writer.add_variant_sint32(m_Rect.right - offset.cx);
+		writer.add_variant_sint32(m_Rect.bottom - offset.cy);
 	}
-	if(m_bTag!=0X00)
+	if(m_bTag != 0X00)
 	{
 		writer.add_byte(m_bTag);
 	}
-	if(m_pLine!=nullptr)
+	if(m_pLine != nullptr)
 	{
 		const CLine::LINETYPE type = m_pLine->Gettype();
 		writer.add_byte(type);
 		m_pLine->ReleaseWeb(writer);
 	}
-	if(m_pFill!=nullptr&&m_bClosed==true)
+	if(m_pFill != nullptr && m_bClosed == true)
 	{
 		const CFill::FILLTYPE type = m_pFill->Gettype();
 		writer.add_byte(type);
@@ -895,7 +895,7 @@ void CGeom::ReleaseWeb(pbf::writer& writer, const CSize offset) const
 }
 void CGeom::ReleaseWeb(boost::json::object& json, const CDatainfo& datainfo, CSize& offset, CDatabase* pDatabase, CString& strSQL, CString& strIdField) const
 {
-	if(pDatabase!=nullptr&&pDatabase->IsOpen()&&strSQL.IsEmpty()==FALSE&&this->m_attId!=0XFFFFFFFF)
+	if(pDatabase != nullptr && pDatabase->IsOpen() && strSQL.IsEmpty() == FALSE && this->m_attId != 0XFFFFFFFF)
 	{
 		CRecordset rs(pDatabase);
 		rs.m_strFilter.Format(_T("%s=%d"), strIdField, this->m_attId);
@@ -903,11 +903,11 @@ void CGeom::ReleaseWeb(boost::json::object& json, const CDatainfo& datainfo, CSi
 		if(!rs.IsEOF()) {
 			rs.MoveFirst();
 			boost::json::object child;
-			for(short index = 0; index<rs.GetODBCFieldCount(); index++)
+			for(short index = 0; index < rs.GetODBCFieldCount(); index++)
 			{
 				CODBCFieldInfo field;
 				rs.GetODBCFieldInfo(index, field);
-				if(field.m_strName==strIdField)
+				if(field.m_strName == strIdField)
 					continue;
 
 				std::string name(CW2A(field.m_strName));
@@ -958,7 +958,7 @@ void CGeom::ReleaseWeb(boost::json::object& json, const CDatainfo& datainfo, CSi
 }
 void CGeom::ReleaseWeb(pbf::writer& writer, CDatabase* pDatabase, CString& strSQL, CString& strIdField) const
 {
-	if(pDatabase!=nullptr&&pDatabase->IsOpen()&&strSQL.IsEmpty()==FALSE&&this->m_attId!=0XFFFFFFFF)
+	if(pDatabase != nullptr && pDatabase->IsOpen() && strSQL.IsEmpty() == FALSE && this->m_attId != 0XFFFFFFFF)
 	{
 		CRecordset rs(pDatabase);
 		rs.m_strFilter.Format(_T("%s=%d"), strIdField, this->m_attId);
@@ -967,7 +967,7 @@ void CGeom::ReleaseWeb(pbf::writer& writer, CDatabase* pDatabase, CString& strSQ
 			rs.MoveFirst();
 
 			std::list<std::pair<std::string, std::string>> properties;
-			for(short index=0; index < rs.GetODBCFieldCount(); index++)
+			for(short index = 0; index < rs.GetODBCFieldCount(); index++)
 			{
 				CODBCFieldInfo field;
 				rs.GetODBCFieldInfo(index, field);
@@ -982,7 +982,7 @@ void CGeom::ReleaseWeb(pbf::writer& writer, CDatabase* pDatabase, CString& strSQ
 					case DBVT_NULL:
 						break;
 					case DBVT_BOOL:
-						properties.push_back(std::make_pair(name,std::to_string(varValue.m_boolVal)));
+						properties.push_back(std::make_pair(name, std::to_string(varValue.m_boolVal)));
 						break;
 					case DBVT_UCHAR:
 					case DBVT_SHORT:
@@ -1017,13 +1017,13 @@ void CGeom::ReleaseWeb(pbf::writer& writer, CDatabase* pDatabase, CString& strSQ
 			rs.Close();
 
 			writer.add_variant_int16(properties.size());
-			for(const auto& pair:properties)
+			for(const auto& pair : properties)
 			{
 				writer.add_string(pair.first);
 				writer.add_string(pair.second);
 			}
 		}
-		else 
+		else
 			writer.add_variant_uint32(0);
 	}
 	else {
@@ -1033,40 +1033,53 @@ void CGeom::ReleaseWeb(pbf::writer& writer, CDatabase* pDatabase, CString& strSQ
 void CGeom::Flash(CWnd* pWnd, const CViewinfo& viewinfo, const int& nTimes) const
 {
 }
-void CGeom::DrawTag(Gdiplus::Graphics& g, const CViewinfo& viewinfo, const CHint* pHint, const bool& bPivot) const
+void CGeom::DrawTag(Gdiplus::Graphics& g, const CViewinfo& viewinfo, const CHint* pHint, const bool& bPivot, const bool& bOblige) const
 {
-	if(m_strName.IsEmpty()==TRUE)
+	if(m_strName.IsEmpty() == TRUE)
 		return;
+		
+	if(bOblige == false)
+	{
+		const Gdiplus::Size textSize = pHint->MeasureText<Gdiplus::Size>(g, viewinfo, m_strName, 0);
+		const Gdiplus::Rect geomRect = viewinfo.DocToClient<Gdiplus::Rect>(m_Rect);
+		if(textSize.Width > geomRect.Width)
+			return;
+		if(textSize.Height > geomRect.Height)
+			return;	
+	}
 
-	const Gdiplus::Size textSize = pHint->MeasureText<Gdiplus::Size>(g, viewinfo, m_strName, 0);
-	const Gdiplus::Rect geomRect = viewinfo.DocToClient<Gdiplus::Rect>(m_Rect);
-	if(textSize.Width>geomRect.Width)
-		return;
-	if(textSize.Height>geomRect.Height)
-		return;
-
-	HALIGN hAlign;
-	VALIGN vAlign;
-	Gdiplus::PointF origin = GetTagAnchor(viewinfo, hAlign, vAlign);
-	pHint->DrawString(g, viewinfo, m_strName, origin, 0, hAlign, vAlign);
+	if(bPivot)
+	{
+		static HALIGN hAlign = HALIGN::HA_CENTER;
+		static VALIGN vAlign = VALIGN::VA_CENTER;
+		Gdiplus::PointF origin = GetTagAnchor(viewinfo, hAlign, vAlign);
+		pHint->DrawString(g, viewinfo, m_strName, origin, 0, HALIGN::HA_CENTER, VALIGN::VA_CENTER);
+	}
+	else
+	{
+		HALIGN hAlign;
+		VALIGN vAlign;
+		Gdiplus::PointF origin = GetTagAnchor(viewinfo, hAlign, vAlign);
+		pHint->DrawString(g, viewinfo, m_strName, origin, 0, hAlign, vAlign);
+	}
 }
 void CGeom::DrawFATToTAT(Gdiplus::Graphics& g, const CViewinfo& viewinfo, const Gdiplus::Pen* pen, const unsigned int& fAnchor, const double& st, const unsigned int& tAnchor, const double& et) const
 {
-	if(tAnchor<fAnchor)
+	if(tAnchor < fAnchor)
 		return;
-	if(tAnchor==fAnchor&&et<=st)
+	if(tAnchor == fAnchor && et <= st)
 		return;
 	const Gdiplus::PointF fpoint = viewinfo.DocToClient<Gdiplus::PointF>(this->GetPoint(fAnchor, st));
 	const Gdiplus::PointF tpoint = viewinfo.DocToClient<Gdiplus::PointF>(this->GetPoint(tAnchor, et));
 
-	Gdiplus::PointF* points = new Gdiplus::PointF[tAnchor-fAnchor+2];
+	Gdiplus::PointF* points = new Gdiplus::PointF[tAnchor - fAnchor + 2];
 	points[0] = fpoint;
-	points[tAnchor-fAnchor+2-1] = tpoint;
-	for(int nAnchor = fAnchor+1; nAnchor<=tAnchor; nAnchor++)
+	points[tAnchor - fAnchor + 2 - 1] = tpoint;
+	for(int nAnchor = fAnchor + 1; nAnchor <= tAnchor; nAnchor++)
 	{
-		points[nAnchor-fAnchor] = viewinfo.DocToClient<Gdiplus::PointF>(GetAnchor(nAnchor));
+		points[nAnchor - fAnchor] = viewinfo.DocToClient<Gdiplus::PointF>(GetAnchor(nAnchor));
 	}
-	g.DrawLines(pen, points, tAnchor-fAnchor+2);
+	g.DrawLines(pen, points, tAnchor - fAnchor + 2);
 	::delete[] points;
 }
 void CGeom::DrawPath(CDC* pDC, const CViewinfo& viewinfo) const
@@ -1101,17 +1114,17 @@ void CGeom::DrawHatch(Gdiplus::Graphics& g, const CViewinfo& viewinfo, const int
 }
 void CGeom::Preoccupy(Gdiplus::Graphics& g, const CViewinfo& viewinfo, const CLibrary& library, Context& context) const
 {
-	CLine* pLine = m_pLine!=nullptr ? m_pLine : context.pLine;
-	if(pLine==nullptr)
+	CLine* pLine = m_pLine != nullptr ? m_pLine : context.pLine;
+	if(pLine == nullptr)
 		return;
 
-	CColor* pOldLineColor = this->m_pLine==nullptr ? nullptr : this->m_pLine->m_pColor;
-	if(this->m_pLine!=nullptr)
+	CColor* pOldLineColor = this->m_pLine == nullptr ? nullptr : this->m_pLine->m_pColor;
+	if(this->m_pLine != nullptr)
 	{
 		const_cast<CColor*&>(this->m_pLine->m_pColor) = CColorSpot::White();
 	}
-	CColor* pOldTypeColor = this->m_pType==nullptr ? nullptr : this->m_pType->m_pColor;
-	if(this->m_pType!=nullptr)
+	CColor* pOldTypeColor = this->m_pType == nullptr ? nullptr : this->m_pType->m_pColor;
+	if(this->m_pType != nullptr)
 	{
 		const_cast<CColor*&>(this->m_pType->m_pColor) = CColorSpot::White();
 	}
@@ -1128,44 +1141,44 @@ void CGeom::Preoccupy(Gdiplus::Graphics& g, const CViewinfo& viewinfo, const CLi
 	context.pFill = pOldFill2;
 	context.brushFill = pOldBrush;
 
-	if(this->m_pLine!=nullptr)
+	if(this->m_pLine != nullptr)
 	{
 		const_cast<CColor*&>(this->m_pLine->m_pColor) = pOldLineColor;
 	}
-	if(this->m_pType!=nullptr)
+	if(this->m_pType != nullptr)
 	{
 		const_cast<CColor*&>(this->m_pType->m_pColor) = pOldTypeColor;
 	}
 }
 void CGeom::Mono(Gdiplus::Graphics& g, const Gdiplus::Matrix& matrix, Context& context, const CSize& dpi) const
 {
-	CColor* pOldLineColor = this->m_pLine==nullptr ? nullptr : this->m_pLine->m_pColor;
-	if(this->m_pLine!=nullptr)
+	CColor* pOldLineColor = this->m_pLine == nullptr ? nullptr : this->m_pLine->m_pColor;
+	if(this->m_pLine != nullptr)
 	{
 		const_cast<CColor*&>(this->m_pLine->m_pColor) = CColorSpot::White();
 	}
-	CColor* pOldFillColor = this->m_pFill==nullptr ? nullptr : this->m_pFill->GetColor();
-	if(this->m_pFill!=nullptr)
+	CColor* pOldFillColor = this->m_pFill == nullptr ? nullptr : this->m_pFill->GetColor();
+	if(this->m_pFill != nullptr)
 	{
 		this->m_pFill->SetColor(CColorSpot::White());
 	}
-	CColor* pOldTypeColor = this->m_pType==nullptr ? nullptr : this->m_pType->m_pColor;
-	if(this->m_pType!=nullptr)
+	CColor* pOldTypeColor = this->m_pType == nullptr ? nullptr : this->m_pType->m_pColor;
+	if(this->m_pType != nullptr)
 	{
 		const_cast<CColor*&>(this->m_pType->m_pColor) = CColorSpot::White();
 	}
-	
+
 	Draw(g, matrix, context, dpi);
 
-	if(this->m_pLine!=nullptr)
+	if(this->m_pLine != nullptr)
 	{
 		const_cast<CColor*&>(this->m_pLine->m_pColor) = pOldLineColor;
 	}
-	if(this->m_pFill!=nullptr)
+	if(this->m_pFill != nullptr)
 	{
 		this->m_pFill->SetColor(pOldFillColor);
 	}
-	if(this->m_pType!=nullptr)
+	if(this->m_pType != nullptr)
 	{
 		const_cast<CColor*&>(this->m_pType->m_pColor) = pOldTypeColor;
 	}
@@ -1183,16 +1196,16 @@ void CGeom::SetStyle(CWnd* pWnd, CLibrary& library, const CViewinfo& viewinfo)
 	AfxSetResourceHandle(hInst);
 
 	CStyleDlg dlg(pWnd, false, library, m_pLine, m_pFill);
-	if(dlg.DoModal()==IDOK)
+	if(dlg.DoModal() == IDOK)
 	{
-		if(m_pLine!=nullptr)
+		if(m_pLine != nullptr)
 		{
 			Invalidate(pWnd, viewinfo, 3);
 			//			m_pLine->Decrease(nullptr);
 			delete m_pLine;
 			m_pLine = nullptr;
 		}
-		if(m_pFill!=nullptr)
+		if(m_pFill != nullptr)
 		{
 			Invalidate(pWnd, viewinfo, 0);
 			//			m_pFill->Decrease(nullptr);
@@ -1205,12 +1218,12 @@ void CGeom::SetStyle(CWnd* pWnd, CLibrary& library, const CViewinfo& viewinfo)
 		dlg.d_pLine = nullptr;
 		dlg.d_pFill = nullptr;
 
-		if(m_pLine!=nullptr)
+		if(m_pLine != nullptr)
 		{
 			Invalidate(pWnd, viewinfo, 3);
 			//			m_pLine->SetWidth(library.);
 		}
-		if(m_pFill!=nullptr)
+		if(m_pFill != nullptr)
 		{
 			Invalidate(pWnd, viewinfo, 0);
 		}
@@ -1229,11 +1242,11 @@ void CGeom::SetHint(CWnd* pWnd, const CViewinfo& viewinfo)
 	HINSTANCE hInst = ::LoadLibrary(_T("Style.dll"));
 	AfxSetResourceHandle(hInst);
 
-	CHint* pHint = m_pHint!=nullptr ? m_pHint->Clone() : new CHint();
+	CHint* pHint = m_pHint != nullptr ? m_pHint->Clone() : new CHint();
 	CHintDlg dlg(pWnd, *pHint);
-	if(dlg.DoModal()==IDOK)
+	if(dlg.DoModal() == IDOK)
 	{
-		if(m_pHint!=nullptr)
+		if(m_pHint != nullptr)
 		{
 			Invalidate(pWnd, viewinfo, 3);
 			delete m_pHint;
@@ -1241,7 +1254,7 @@ void CGeom::SetHint(CWnd* pWnd, const CViewinfo& viewinfo)
 		}
 
 		m_pHint = pHint;
-		if(m_pHint!=nullptr)
+		if(m_pHint != nullptr)
 		{
 			Invalidate(pWnd, viewinfo, 3);
 		}
@@ -1260,13 +1273,13 @@ void CGeom::SetHint(CWnd* pWnd, const CViewinfo& viewinfo)
 
 bool CGeom::IsDissident() const
 {
-	if(m_pLine!=nullptr)
+	if(m_pLine != nullptr)
 		return true;
-	if(m_pFill!=nullptr)
+	if(m_pFill != nullptr)
 		return true;
-	if(m_pType!=nullptr)
+	if(m_pType != nullptr)
 		return true;
-	if(m_pHint!=nullptr)
+	if(m_pHint != nullptr)
 		return true;
 
 	return false;
@@ -1274,7 +1287,7 @@ bool CGeom::IsDissident() const
 
 void CGeom::Regress(CWnd* pWnd, CLibrary& library)
 {
-	if(m_pLine!=nullptr)
+	if(m_pLine != nullptr)
 	{
 		m_pLine->Decrease(library);
 		delete m_pLine;
@@ -1283,7 +1296,7 @@ void CGeom::Regress(CWnd* pWnd, CLibrary& library)
 		m_bModified = true;
 	}
 
-	if(m_pFill!=nullptr)
+	if(m_pFill != nullptr)
 	{
 		m_pFill->Decrease(library);
 		delete m_pFill;
@@ -1292,7 +1305,7 @@ void CGeom::Regress(CWnd* pWnd, CLibrary& library)
 		m_bModified = true;
 	}
 
-	if(m_pType!=nullptr)
+	if(m_pType != nullptr)
 	{
 		delete m_pType;
 		m_pType = nullptr;
@@ -1303,14 +1316,14 @@ void CGeom::Regress(CWnd* pWnd, CLibrary& library)
 
 void CGeom::CountStyle(CValueCounter<CLine>& lines, CValueCounter<CFillGeneral>& fills, CValueCounter<CSpot>& spots, CValueCounter<CType>& types, const CLine* pLine, const CFillGeneral* pFill, const CSpot* m_pSpot, const CType* pType) const
 {
-	if(m_pLine!=nullptr)
+	if(m_pLine != nullptr)
 		lines.CountIn(m_pLine);
 	else
 		lines.CountIn(pLine);
 
-	if(m_bClosed==true)
+	if(m_bClosed == true)
 	{
-		if(m_pFill!=nullptr)
+		if(m_pFill != nullptr)
 			fills.CountIn(m_pFill);
 		else
 			fills.CountIn(pFill);
@@ -1319,48 +1332,48 @@ void CGeom::CountStyle(CValueCounter<CLine>& lines, CValueCounter<CFillGeneral>&
 
 bool CGeom::HasSameStyle(const ACTIVEALL& activeall, const CLine* pLine1, const CFillGeneral* pFill1, const CSpot* pSpot1, const CType* pType1, const CLine* pLine2, const CFillGeneral* pFill2, const CSpot* pSpot2, const CType* pType2) const
 {
-	pLine2 = m_pLine!=nullptr ? m_pLine : pLine2;
-	pFill2 = m_pFill!=nullptr ? m_pFill : pFill2;
+	pLine2 = m_pLine != nullptr ? m_pLine : pLine2;
+	pFill2 = m_pFill != nullptr ? m_pFill : pFill2;
 
 	switch(activeall)
 	{
 		case ACTIVEALL::Stroke:
-			if(pLine1==nullptr)
+			if(pLine1 == nullptr)
 				return false;
-			else if(pLine2==nullptr)
+			else if(pLine2 == nullptr)
 				return false;
-			else if(pLine1==pLine2)
+			else if(pLine1 == pLine2)
 				return true;
 			else
-				return (*pLine1==*pLine2);
+				return (*pLine1 == *pLine2);
 			break;
 		case ACTIVEALL::Fill:
-			if(m_bClosed==false)
+			if(m_bClosed == false)
 				return false;
-			if(pFill1==nullptr)
+			if(pFill1 == nullptr)
 				return false;
-			else if(pFill2==nullptr)
+			else if(pFill2 == nullptr)
 				return false;
-			else if(pFill1==pFill2)
+			else if(pFill1 == pFill2)
 				return true;
 			else
-				return (*pFill1==*pFill2);
+				return (*pFill1 == *pFill2);
 			break;
 		case ACTIVEALL::Style:
-			if(m_bClosed==false)
+			if(m_bClosed == false)
 				return false;
-			if(pLine1==nullptr)
+			if(pLine1 == nullptr)
 				return false;
-			else if(pFill1==nullptr)
+			else if(pFill1 == nullptr)
 				return false;
-			else if(pLine2==nullptr)
+			else if(pLine2 == nullptr)
 				return false;
-			else if(pFill2==nullptr)
+			else if(pFill2 == nullptr)
 				return false;
-			else if(pLine1==pLine2&&pFill1==pFill2)
+			else if(pLine1 == pLine2 && pFill1 == pFill2)
 				return true;
 			else
-				return (*pLine1==*pLine2)&&(*pFill1==*pFill2);
+				return (*pLine1 == *pLine2) && (*pFill1 == *pFill2);
 			break;
 		default:
 			break;
@@ -1372,11 +1385,11 @@ bool CGeom::HasSameStyle(const ACTIVEALL& activeall, const CLine* pLine1, const 
 void CGeom::Invalid(CDocument& document) const
 {
 	POSITION pos = document.GetFirstViewPosition();
-	while(pos!=nullptr)
+	while(pos != nullptr)
 	{
 		CView* pView = document.GetNextView(pos);
 		CViewinfo* pViewinfo = (CViewinfo*)pView->SendMessage(WM_GETVIEWINFO, 0, 0);
-		if(pViewinfo!=nullptr)
+		if(pViewinfo != nullptr)
 		{
 			this->Invalidate(pView, *pViewinfo, 10);
 		}
@@ -1385,7 +1398,7 @@ void CGeom::Invalid(CDocument& document) const
 
 void CGeom::Invalidate(CWnd* pWnd, const CViewinfo& viewinfo, const unsigned long& inflate) const
 {
-	if(pWnd==nullptr)
+	if(pWnd == nullptr)
 		return;
 
 	ASSERT_VALID(this);
@@ -1418,7 +1431,7 @@ void CGeom::InvalidateAnchor(CWnd* pWnd, const CViewinfo& viewinfo, const unsign
 
 void CGeom::InvalidateTag(CWnd* pWnd, const CViewinfo& viewinfo, const CHint* pHint) const
 {
-	if(m_pTag!=nullptr)
+	if(m_pTag != nullptr)
 	{
 		HALIGN hAlign;
 		VALIGN vAlign;
@@ -1430,9 +1443,9 @@ void CGeom::InvalidateTag(CWnd* pWnd, const CViewinfo& viewinfo, const CHint* pH
 void CGeom::DrawAnchor(CDC* pDC, const CViewinfo& viewinfo, const unsigned int& nAnchor) const
 {
 	const unsigned int nAnchors = GetAnchors();
-	if(nAnchor==nAnchors&&m_bClosed==true)
+	if(nAnchor == nAnchors && m_bClosed == true)
 		return;
-	if(nAnchor>nAnchors)
+	if(nAnchor > nAnchors)
 		return;
 	const CPoint& point = GetAnchor(nAnchor);
 	const Gdiplus::Point cliPoint = viewinfo.DocToClient<Gdiplus::Point>(point);
@@ -1445,9 +1458,9 @@ void CGeom::DrawAnchor(CDC* pDC, const CViewinfo& viewinfo, const unsigned int& 
 void CGeom::DrawAnchors(CDC* pDC, const CViewinfo& viewinfo) const
 {
 	const unsigned int nAnchors = GetAnchors();
-	for(unsigned int nAnchor = 1; nAnchor<=nAnchors; nAnchor++)
+	for(unsigned int nAnchor = 1; nAnchor <= nAnchors; nAnchor++)
 	{
-		if(nAnchor==nAnchors&&m_bClosed==true)
+		if(nAnchor == nAnchors && m_bClosed == true)
 			continue;
 
 		const CPoint& point = GetAnchor(nAnchor);
@@ -1461,12 +1474,12 @@ void CGeom::DrawAnchors(CDC* pDC, const CViewinfo& viewinfo) const
 
 void CGeom::DrawTag(Gdiplus::Graphics& g, const CViewinfo& viewinfo, const CHint* pHint) const
 {
-	if(m_pTag!=nullptr)
+	if(m_pTag != nullptr)
 	{
 		HALIGN hAlign;
 		VALIGN vAlign;
 		const Gdiplus::PointF point = this->GetTagAnchor(viewinfo, hAlign, vAlign);
-		m_pTag->Draw(g, viewinfo, m_pHint!=nullptr ? m_pHint : pHint, point);
+		m_pTag->Draw(g, viewinfo, m_pHint != nullptr ? m_pHint : pHint, point);
 	}
 }
 
@@ -1483,9 +1496,9 @@ bool CGeom::PickOn(const CPoint& point, const unsigned long& gap) const
 
 bool CGeom::PickIn(const CPoint& point) const
 {
-	if(m_bClosed==false)
+	if(m_bClosed == false)
 		return false;
-	else if(m_pFill!=nullptr&&m_pFill->Gettype()==CFill::FILLTYPE::Blank)
+	else if(m_pFill != nullptr && m_pFill->Gettype() == CFill::FILLTYPE::Blank)
 		return false;
 	else
 		return m_Rect.PtInRect(point);
@@ -1493,20 +1506,20 @@ bool CGeom::PickIn(const CPoint& point) const
 
 unsigned int CGeom::PickAnchor(const CDatainfo& datainfo, const CViewinfo& viewinfo, const Gdiplus::Point& cliPoint) const
 {
-	if(m_bLocked==true)
+	if(m_bLocked == true)
 		return 0;
 
 	Gdiplus::Rect cliRect = viewinfo.DocToClient<Gdiplus::Rect>(m_Rect);
 	cliRect.Inflate(5, 5);
-	if(cliRect.Contains(cliPoint)==FALSE)
+	if(cliRect.Contains(cliPoint) == FALSE)
 		return 0;
 
-	for(unsigned int nAnchor = 1; nAnchor<=GetAnchors(); nAnchor++)
+	for(unsigned int nAnchor = 1; nAnchor <= GetAnchors(); nAnchor++)
 	{
 		const Gdiplus::Point cliHandle = viewinfo.DocToClient<Gdiplus::Point>(GetAnchor(nAnchor));
 		Gdiplus::Rect rect(Gdiplus::Point(cliHandle.X, cliHandle.Y), Gdiplus::Size(0, 0));
 		rect.Inflate(5, 5);
-		if(rect.Contains(cliPoint)==TRUE)
+		if(rect.Contains(cliPoint) == TRUE)
 		{
 			return nAnchor;
 		}
@@ -1517,76 +1530,76 @@ unsigned int CGeom::PickAnchor(const CDatainfo& datainfo, const CViewinfo& viewi
 
 bool CGeom::PickIn(const CRect& rect) const
 {
-	if(m_Rect.IsRectEmpty()==TRUE)
+	if(m_Rect.IsRectEmpty() == TRUE)
 	{
-		if(rect.PtInRect(CPoint(m_Rect.left, m_Rect.top))==TRUE)
+		if(rect.PtInRect(CPoint(m_Rect.left, m_Rect.top)) == TRUE)
 			return TRUE;
-		else if(rect.PtInRect(CPoint(m_Rect.right, m_Rect.top))==TRUE)
+		else if(rect.PtInRect(CPoint(m_Rect.right, m_Rect.top)) == TRUE)
 			return TRUE;
-		else if(rect.PtInRect(CPoint(m_Rect.right, m_Rect.bottom))==TRUE)
+		else if(rect.PtInRect(CPoint(m_Rect.right, m_Rect.bottom)) == TRUE)
 			return TRUE;
-		else if(rect.PtInRect(CPoint(m_Rect.left, m_Rect.bottom))==TRUE)
+		else if(rect.PtInRect(CPoint(m_Rect.left, m_Rect.bottom)) == TRUE)
 			return TRUE;
 		else
 			return FALSE;
 	}
 	else
-		return !(m_Rect&rect).IsRectEmpty();
+		return !(m_Rect & rect).IsRectEmpty();
 }
 
 bool CGeom::PickIn(const CPoint& center, const unsigned long& radius) const
 {
 	CRect rect(center, CSize(0, 0));
 	rect.InflateRect(radius, radius);
-	if(rect.IntersectRect(rect, m_Rect)==FALSE)
+	if(rect.IntersectRect(rect, m_Rect) == FALSE)
 		return false;
 
-	if(m_Rect.PtInRect(center)==TRUE)
+	if(m_Rect.PtInRect(center) == TRUE)
 		return true;
 
 	rect = m_Rect;
 	rect.OffsetRect(-center.x, -center.y);
 
-	if(abs(rect.left)<radius)
+	if(abs(rect.left) < radius)
 	{
-		if(rect.top*rect.bottom<0)
+		if(rect.top * rect.bottom < 0)
 			return true;
 	}
 
-	if(abs(rect.right)<radius)
+	if(abs(rect.right) < radius)
 	{
-		if(rect.top*rect.bottom<0)
+		if(rect.top * rect.bottom < 0)
 			return true;
 	}
 
-	if(abs(rect.top)<radius)
+	if(abs(rect.top) < radius)
 	{
-		if(rect.left*rect.right<0)
+		if(rect.left * rect.right < 0)
 			return true;
 	}
 
-	if(abs(rect.bottom)<radius)
+	if(abs(rect.bottom) < radius)
 	{
-		if(rect.left*rect.right<0)
+		if(rect.left * rect.right < 0)
 			return true;
 	}
 
 	CPoint point;
 
 	point = rect.TopLeft();
-	if(point.x*point.x+point.y*point.y<=radius*radius)
+	if(point.x * point.x + point.y * point.y <= radius * radius)
 		return true;
 
 	point = CPoint(rect.right, rect.top);
-	if(point.x*point.x+point.y*point.y<=radius*radius)
+	if(point.x * point.x + point.y * point.y <= radius * radius)
 		return true;
 
 	point = rect.BottomRight();
-	if(point.x*point.x+point.y*point.y<=radius*radius)
+	if(point.x * point.x + point.y * point.y <= radius * radius)
 		return true;
 
 	point = CPoint(rect.left, rect.bottom);;
-	if(point.x*point.x+point.y*point.y<=radius*radius)
+	if(point.x * point.x + point.y * point.y <= radius * radius)
 		return true;
 
 	return false;
@@ -1595,8 +1608,8 @@ bool CGeom::PickIn(const CPoint& center, const unsigned long& radius) const
 bool CGeom::PickIn(const CPoly& polygon) const
 {
 	CRect rect = polygon.m_Rect;
-	rect = m_Rect&rect;
-	if(rect.IsRectEmpty()==TRUE)
+	rect = m_Rect & rect;
+	if(rect.IsRectEmpty() == TRUE)
 		return false;
 
 	return polygon.PickIn(m_Rect);
@@ -1607,13 +1620,13 @@ bool CGeom::IsIn(const CViewinfo& viewinfo, const Gdiplus::Rect& vewRect) const
 	const Gdiplus::Point point2 = viewinfo.DocToClient<Gdiplus::Point>(CPoint(m_Rect.right, m_Rect.top));
 	const Gdiplus::Point point3 = viewinfo.DocToClient<Gdiplus::Point>(CPoint(m_Rect.right, m_Rect.bottom));
 	const Gdiplus::Point point4 = viewinfo.DocToClient<Gdiplus::Point>(CPoint(m_Rect.left, m_Rect.bottom));
-	if(min(min(point1.X, point2.X), min(point3.X, point4.X))>vewRect.GetRight())
+	if(min(min(point1.X, point2.X), min(point3.X, point4.X)) > vewRect.GetRight())
 		return false;
-	else if(max(max(point1.X, point2.X), max(point3.X, point4.X))<vewRect.GetLeft())
+	else if(max(max(point1.X, point2.X), max(point3.X, point4.X)) < vewRect.GetLeft())
 		return false;
-	else if(min(min(point1.Y, point2.Y), min(point3.Y, point4.Y))>vewRect.GetBottom())
+	else if(min(min(point1.Y, point2.Y), min(point3.Y, point4.Y)) > vewRect.GetBottom())
 		return false;
-	else if(max(max(point1.Y, point2.Y), max(point3.Y, point4.Y))<vewRect.GetTop())
+	else if(max(max(point1.Y, point2.Y), max(point3.Y, point4.Y)) < vewRect.GetTop())
 		return false;
 	else
 		return true;
@@ -1657,27 +1670,27 @@ CPoint& CGeom::GetAnchor(const unsigned int& nAnchor) const
 
 bool CGeom::GetAandT(const unsigned int fAnchor, double st, unsigned long length, unsigned int& tAnchor, double& et) const
 {
-	if(fAnchor>=5)
+	if(fAnchor >= 5)
 	{
 		tAnchor = 5;
 		et = 0;
 		return false;
 	}
-	else if(length==0)
+	else if(length == 0)
 	{
 		tAnchor = fAnchor;
 		et = st;
 		return true;
 	}
 
-	if(length==0)
+	if(length == 0)
 	{
 		tAnchor = fAnchor;
 		et = st;
 		return true;
 	}
 
-	for(unsigned int nAnchor = fAnchor; nAnchor<5; nAnchor++)
+	for(unsigned int nAnchor = fAnchor; nAnchor < 5; nAnchor++)
 	{
 		long segment = 0;
 		switch(nAnchor)
@@ -1694,16 +1707,16 @@ bool CGeom::GetAandT(const unsigned int fAnchor, double st, unsigned long length
 				segment = 0;
 				break;
 		}
-		const long leftlen = segment*(1-st);
-		if(length<leftlen)
+		const long leftlen = segment * (1 - st);
+		if(length < leftlen)
 		{
 			tAnchor = nAnchor;
-			et = st+(double)length/segment;
+			et = st + (double)length / segment;
 
 			return true;
 		}
 
-		if(length==leftlen)
+		if(length == leftlen)
 		{
 			tAnchor = nAnchor;
 			et = 1;
@@ -1727,12 +1740,12 @@ CPoint CGeom::GetPoint(const unsigned int& nAnchor, const double& t) const
 	{
 		case 1:
 			{
-				if(t==0.0f)
+				if(t == 0.0f)
 				{
 					point.x = m_Rect.left;
 					point.y = m_Rect.top;
 				}
-				else if(t==1.0f)
+				else if(t == 1.0f)
 				{
 					point.x = m_Rect.left;
 					point.y = m_Rect.bottom;
@@ -1740,37 +1753,37 @@ CPoint CGeom::GetPoint(const unsigned int& nAnchor, const double& t) const
 				else
 				{
 					point.x = m_Rect.left;
-					point.y = m_Rect.top+round(m_Rect.Height()*t);
+					point.y = m_Rect.top + round(m_Rect.Height() * t);
 				}
 			}
 			break;
 		case 2:
 			{
-				if(t==0.0f)
+				if(t == 0.0f)
 				{
 					point.x = m_Rect.left;
 					point.y = m_Rect.bottom;
 				}
-				else if(t==1.0f)
+				else if(t == 1.0f)
 				{
 					point.x = m_Rect.right;
 					point.y = m_Rect.bottom;
 				}
 				else
 				{
-					point.x = m_Rect.left+round(m_Rect.Width()*t);
+					point.x = m_Rect.left + round(m_Rect.Width() * t);
 					point.y = m_Rect.bottom;
 				}
 			}
 			break;
 		case 3:
 			{
-				if(t==0.0f)
+				if(t == 0.0f)
 				{
 					point.x = m_Rect.right;
 					point.y = m_Rect.bottom;
 				}
-				else if(t==1.0f)
+				else if(t == 1.0f)
 				{
 					point.x = m_Rect.right;
 					point.y = m_Rect.top;
@@ -1778,25 +1791,25 @@ CPoint CGeom::GetPoint(const unsigned int& nAnchor, const double& t) const
 				else
 				{
 					point.x = m_Rect.right;
-					point.y = m_Rect.bottom-round(m_Rect.Height()*t);
+					point.y = m_Rect.bottom - round(m_Rect.Height() * t);
 				}
 			}
 			break;
 		case 4:
 			{
-				if(t==0.0f)
+				if(t == 0.0f)
 				{
 					point.x = m_Rect.right;
 					point.y = m_Rect.top;
 				}
-				else if(t==1.0f)
+				else if(t == 1.0f)
 				{
 					point.x = m_Rect.left;
 					point.y = m_Rect.top;
 				}
 				else
 				{
-					point.x = m_Rect.right-round(m_Rect.Width()*t);
+					point.x = m_Rect.right - round(m_Rect.Width() * t);
 					point.y = m_Rect.top;
 				}
 			}
@@ -1821,40 +1834,40 @@ double CGeom::GetAngle(const unsigned int& nAnchor, const double& t) const
 	{
 		case 1:
 			{
-				if(t==0.0f)
-					angle = M_PI*3/4;
-				else if(t==1.0f)
-					angle = M_PI/4;
+				if(t == 0.0f)
+					angle = M_PI * 3 / 4;
+				else if(t == 1.0f)
+					angle = M_PI / 4;
 				else
-					angle = M_PI/2;
+					angle = M_PI / 2;
 			}
 			break;
 		case 2:
 			{
-				if(t==0.0f)
-					angle = M_PI/4;
-				else if(t==1.0f)
-					angle = M_PI*7/4;
+				if(t == 0.0f)
+					angle = M_PI / 4;
+				else if(t == 1.0f)
+					angle = M_PI * 7 / 4;
 				else
 					angle = 0.f;
 			}
 			break;
 		case 3:
 			{
-				if(t==0.0f)
-					angle = M_PI*7/4;
-				else if(t==1.0f)
-					angle = M_PI*5/4;
+				if(t == 0.0f)
+					angle = M_PI * 7 / 4;
+				else if(t == 1.0f)
+					angle = M_PI * 5 / 4;
 				else
-					angle = M_PI*3/2;
+					angle = M_PI * 3 / 2;
 			}
 			break;
 		case 4:
 			{
-				if(t==0.0f)
-					angle = M_PI*5/4;
-				else if(t==1.0f)
-					angle = M_PI*3/4;
+				if(t == 0.0f)
+					angle = M_PI * 5 / 4;
+				else if(t == 1.0f)
+					angle = M_PI * 3 / 4;
 				else
 					angle = M_PI;
 			}
@@ -1872,7 +1885,7 @@ bool CGeom::IsValid() const
 
 unsigned long CGeom::GetLength(const double& tolerance) const
 {
-	return 2*(m_Rect.Width()+m_Rect.Height());
+	return 2 * (m_Rect.Width() + m_Rect.Height());
 }
 
 double CGeom::GetLength(const CDatainfo& datainfo, const double& tolerance) const
@@ -1891,7 +1904,7 @@ double CGeom::GetArea() const
 {
 	const double a = m_Rect.Width();
 	const double b = m_Rect.Height();
-	return a*b;
+	return a * b;
 }
 
 double CGeom::GetArea(const CDatainfo& datainfo) const
@@ -1909,33 +1922,33 @@ Gdiplus::PointF CGeom::GetTagAnchor(const CViewinfo& viewinfo, HALIGN& hAlign, V
 	hAlign = HALIGN::HA_LEFT;
 	vAlign = VALIGN::VA_CENTER;
 	const Gdiplus::RectF rect = viewinfo.DocToClient<Gdiplus::RectF>(m_Rect);
-	return CTag::GetAnchorPoint<Gdiplus::RectF, Gdiplus::PointF>(rect, m_pTag!=nullptr ? m_pTag->GetAnchor() : ANCHOR_6);
+	return CTag::GetAnchorPoint<Gdiplus::RectF, Gdiplus::PointF>(rect, m_pTag != nullptr ? m_pTag->GetAnchor() : ANCHOR_6);
 }
 
 void CGeom::ChangeAnchor(const unsigned int& nAnchor, const CSize& Δ, const bool& bMatch, Undoredo::CActionStack* pActionstack)
 {
-	if(Δ==CSize(0, 0))
+	if(Δ == CSize(0, 0))
 		return;
-	const unsigned int fAnchor = (nAnchor+2)%4==0 ? 4 : (nAnchor+2)%4;
+	const unsigned int fAnchor = (nAnchor + 2) % 4 == 0 ? 4 : (nAnchor + 2) % 4;
 
-	CPoint local = GetAnchor(nAnchor)+Δ;
+	CPoint local = GetAnchor(nAnchor) + Δ;
 	CPoint face = GetAnchor(fAnchor);
 
 	local.x -= face.x;
 	local.y -= face.y;
 
-	if(bMatch==true)
+	if(bMatch == true)
 	{
-		if(abs(local.x)>abs(local.y))
-			local.y = abs(local.x)*(local.y>=0 ? 1 : -1);
+		if(abs(local.x) > abs(local.y))
+			local.y = abs(local.x) * (local.y >= 0 ? 1 : -1);
 		else
-			local.x = abs(local.y)*(local.x>=0 ? 1 : -1);
+			local.x = abs(local.y) * (local.x >= 0 ? 1 : -1);
 	}
 
-	local = local+face;
+	local = local + face;
 
-	if(::GetKeyState(VK_CONTROL)<0)
-		face = face-(local-GetAnchor(nAnchor));
+	if(::GetKeyState(VK_CONTROL) < 0)
+		face = face - (local - GetAnchor(nAnchor));
 	CRect rect;
 	rect.left = face.x;
 	rect.top = face.y;
@@ -1943,7 +1956,7 @@ void CGeom::ChangeAnchor(const unsigned int& nAnchor, const CSize& Δ, const boo
 	rect.bottom = local.y;
 	rect.NormalizeRect();
 
-	if(pActionstack!=nullptr)
+	if(pActionstack != nullptr)
 	{
 		Undoredo::CModify<CWnd*, CGeom*, CRect>* pModify = new Undoredo::CModify<CWnd*, CGeom*, CRect>(nullptr, this, m_Rect, rect);
 		pModify->undo = Undoredo::Document::LayerTree::Layer::Geomlist::Geom::Undo_Modify_Rect;
@@ -1957,19 +1970,19 @@ void CGeom::ChangeAnchor(const unsigned int& nAnchor, const CSize& Δ, const boo
 
 CRect CGeom::RegulizeRect(CPoint point1, CPoint point2, bool bSquare, bool bCentral)
 {
-	int cx = point2.x-point1.x;
-	int cy = point2.y-point1.y;
+	int cx = point2.x - point1.x;
+	int cy = point2.y - point1.y;
 
-	if(bSquare==true)
+	if(bSquare == true)
 	{
-		if(abs(cx)>abs(cy))
-			cy = abs(cx)*(cy>=0 ? 1 : -1);
+		if(abs(cx) > abs(cy))
+			cy = abs(cx) * (cy >= 0 ? 1 : -1);
 		else
-			cx = abs(cy)*(cx>=0 ? 1 : -1);
+			cx = abs(cy) * (cx >= 0 ? 1 : -1);
 	}
-	point2.x = point1.x+cx;
-	point2.y = point1.y+cy;
-	if(bCentral==true)
+	point2.x = point1.x + cx;
+	point2.y = point1.y + cy;
+	if(bCentral == true)
 	{
 		point1.x -= cx;
 		point1.y -= cy;
@@ -1981,7 +1994,7 @@ CRect CGeom::RegulizeRect(CPoint point1, CPoint point2, bool bSquare, bool bCent
 void CGeom::Move(const int& dx, const int& dy)
 {
 	m_Rect.OffsetRect(dx, dy);
-	if(m_pFill!=nullptr)
+	if(m_pFill != nullptr)
 	{
 		m_pFill->Transform(1, 0, dx, 0, 1, dy);
 	}
@@ -1990,7 +2003,7 @@ void CGeom::Move(const int& dx, const int& dy)
 void CGeom::Move(const CSize& Δ)
 {
 	m_Rect.OffsetRect(Δ);
-	if(m_pFill!=nullptr)
+	if(m_pFill != nullptr)
 	{
 		m_pFill->Transform(1, 0, Δ.cx, 0, 1, Δ.cy);
 	}
@@ -2010,7 +2023,7 @@ void CGeom::MoveAnchor(CDC* pDC, const CViewinfo& viewinfo, const unsigned int& 
 
 BOOL CGeom::operator !=(const CGeom& geom) const
 {
-	return !(*this==geom);
+	return !(*this == geom);
 }
 
 CGeom* CGeom::Clone() const
@@ -2025,7 +2038,7 @@ void CGeom::CopyTo(CGeom* pGeom, bool ignore) const
 {
 	pGeom->m_geoId = m_geoId;
 	pGeom->m_attId = m_attId;
-	if(ignore==false)
+	if(ignore == false)
 	{
 		pGeom->m_Rect = m_Rect;
 	}
@@ -2045,42 +2058,42 @@ void CGeom::CopyTo(CGeom* pGeom, bool ignore) const
 	delete pGeom->m_pHint;
 	pGeom->m_pHint = nullptr;
 
-	if(m_pTag!=nullptr)
+	if(m_pTag != nullptr)
 	{
 		pGeom->m_pTag = m_pTag->Clone(pGeom->m_strName);
 	}
 
-	if(m_pLine!=nullptr)
+	if(m_pLine != nullptr)
 		pGeom->m_pLine = m_pLine->Clone();
-	if(m_pFill!=nullptr)
+	if(m_pFill != nullptr)
 		pGeom->m_pFill = (CFillCompact*)m_pFill->Clone();
-	if(m_pType!=nullptr)
+	if(m_pType != nullptr)
 		pGeom->m_pType = (CType*)m_pType->Clone();
-	if(m_pHint!=nullptr)
+	if(m_pHint != nullptr)
 		pGeom->m_pHint = m_pHint->Clone();
 }
 
 void CGeom::Inherit(CGeom* pGeom) const
 {
 	pGeom->m_geoId = m_geoId;
-	if(pGeom->m_attId==0XFFFFFFFF)
+	if(pGeom->m_attId == 0XFFFFFFFF)
 		pGeom->m_attId = m_attId;
 	pGeom->m_bLocked = m_bLocked;
 	pGeom->m_bActive = m_bActive;
 	if(pGeom->m_strName.IsEmpty())
 		pGeom->m_strName = m_strName;
-	if(pGeom->m_filter==FilterType::None)
+	if(pGeom->m_filter == FilterType::None)
 		pGeom->m_filter = m_filter;
 
-	if(pGeom->m_pTag==nullptr&&m_pTag!=nullptr)
+	if(pGeom->m_pTag == nullptr && m_pTag != nullptr)
 		pGeom->m_pTag = m_pTag->Clone(pGeom->m_strName);
-	if(pGeom->m_pLine==nullptr&&m_pLine!=nullptr)
+	if(pGeom->m_pLine == nullptr && m_pLine != nullptr)
 		pGeom->m_pLine = m_pLine->Clone();
-	if(pGeom->m_pFill==nullptr&&m_pFill!=nullptr)
+	if(pGeom->m_pFill == nullptr && m_pFill != nullptr)
 		pGeom->m_pFill = (CFillCompact*)m_pFill->Clone();
-	if(pGeom->m_pType==nullptr&&m_pType!=nullptr)
+	if(pGeom->m_pType == nullptr && m_pType != nullptr)
 		pGeom->m_pType = (CType*)m_pType->Clone();
-	if(pGeom->m_pHint==nullptr&&m_pHint!=nullptr)
+	if(pGeom->m_pHint == nullptr && m_pHint != nullptr)
 		pGeom->m_pHint = m_pHint->Clone();
 }
 
@@ -2108,8 +2121,8 @@ bool CGeom::Junction(const CPoint& point1, const CPoint& point2)
 
 Gdiplus::RectF CGeom::GetVewBoundary(const CViewinfo& viewinfo, const CLibrary& library, Context& context) const
 {
-	CLine* line = m_pLine!=nullptr ? m_pLine : (CLine*)context.pLine;
-	float inflation = (line==nullptr||line->Gettype()==CLine::LINETYPE::Blank) ? 0 : line->m_nWidth/10.f;
+	CLine* line = m_pLine != nullptr ? m_pLine : (CLine*)context.pLine;
+	float inflation = (line == nullptr || line->Gettype() == CLine::LINETYPE::Blank) ? 0 : line->m_nWidth / 10.f;
 	inflation *= context.ratioLine;
 	Gdiplus::RectF rect = viewinfo.DocToClient<Gdiplus::RectF>(m_Rect);
 	rect.Inflate(inflation, inflation);
@@ -2118,18 +2131,18 @@ Gdiplus::RectF CGeom::GetVewBoundary(const CViewinfo& viewinfo, const CLibrary& 
 
 bool CGeom::CreateName(CWnd* pWnd, const float& fontSize, const float& zoomPointToDoc, CObList& oblist)
 {
-	if(m_strName.IsEmpty()==FALSE)
+	if(m_strName.IsEmpty() == FALSE)
 	{
 		CPoint center;
-		center.x = m_Rect.left+m_Rect.Width()/2;
-		center.y = m_Rect.top+m_Rect.Height()/2;
+		center.x = m_Rect.left + m_Rect.Width() / 2;
+		center.y = m_Rect.top + m_Rect.Height() / 2;
 
 		CText* text = new CText();
 		text->m_strName = m_strName;
 		text->m_geoId = pWnd->SendMessage(WM_APPLYGEOMID, 0, 0);
 		text->CalCorner(nullptr, zoomPointToDoc, 1.f);
-		const int x = m_Rect.left+m_Rect.Width()/2;
-		const int y = m_Rect.top+m_Rect.Height()/2;
+		const int x = m_Rect.left + m_Rect.Width() / 2;
+		const int y = m_Rect.top + m_Rect.Height() / 2;
 		text->Move(CSize(x, y));
 
 		oblist.AddTail(text);
@@ -2142,26 +2155,26 @@ bool CGeom::CreateName(CWnd* pWnd, const float& fontSize, const float& zoomPoint
 
 void CGeom::CreateOptimizedTag(CArray<Gdiplus::RectF, Gdiplus::RectF&>& OccupiedRect, const int& sizeFont)
 {
-	if(m_strName.IsEmpty()==TRUE)
+	if(m_strName.IsEmpty() == TRUE)
 		return;
-	if(m_pTag!=nullptr)
+	if(m_pTag != nullptr)
 		return;
 	const Gdiplus::RectF markRect = Gdiplus::RectF(m_Rect.left, m_Rect.top, m_Rect.Width(), m_Rect.Height());
 	const unsigned short chars = m_strName.GetLength();
 
 	bool bHasEnglish = false;
-	for(int j = 0; j<chars; j++)
+	for(int j = 0; j < chars; j++)
 	{
-		if((sizeof(TCHAR)==1&&(BYTE)m_strName[j]<0X81)||(sizeof(TCHAR)==2&&m_strName[j]<(TCHAR)0X0040))
+		if((sizeof(TCHAR) == 1 && (BYTE)m_strName[j] < 0X81) || (sizeof(TCHAR) == 2 && m_strName[j] < (TCHAR)0X0040))
 		{
 			bHasEnglish = true;
 			break;
 		}
 	}
 
-	const Gdiplus::SizeF textSize(m_strName.GetLength()*sizeFont/2, sizeFont);
+	const Gdiplus::SizeF textSize(m_strName.GetLength() * sizeFont / 2, sizeFont);
 	Gdiplus::RectF maxRect = markRect;
-	if(bHasEnglish==true)
+	if(bHasEnglish == true)
 	{
 		maxRect.Inflate(textSize.Width, textSize.Height);
 	}
@@ -2173,10 +2186,10 @@ void CGeom::CreateOptimizedTag(CArray<Gdiplus::RectF, Gdiplus::RectF&>& Occupied
 
 	CArray<Gdiplus::RectF, Gdiplus::RectF&> rectarray;
 	const int count = OccupiedRect.GetSize();
-	for(int index = 0; index<count; index++)
+	for(int index = 0; index < count; index++)
 	{
 		Gdiplus::RectF rect2 = OccupiedRect.GetAt(index);
-		if(rect2.IntersectsWith(maxRect)==TRUE)
+		if(rect2.IntersectsWith(maxRect) == TRUE)
 			rectarray.Add(rect2);
 	}
 
@@ -2185,7 +2198,7 @@ void CGeom::CreateOptimizedTag(CArray<Gdiplus::RectF, Gdiplus::RectF&>& Occupied
 	Gdiplus::RectF tagRect;
 
 	bHasEnglish = true;
-	for(int index = 0; index<8; index++)
+	for(int index = 0; index < 8; index++)
 	{
 		ANCHOR anchor = PrioritizedAnchors[index];
 		HALIGN hAlign;
@@ -2194,24 +2207,24 @@ void CGeom::CreateOptimizedTag(CArray<Gdiplus::RectF, Gdiplus::RectF&>& Occupied
 		Gdiplus::RectF rect = ::GetTagRect(markRect, textSize, anchor, hAlign, vAlign);
 		const int count = rectarray.GetSize();
 		double area = 0.0f;
-		for(int j = 0; j<count; j++)
+		for(int j = 0; j < count; j++)
 		{
 			Gdiplus::RectF rect2 = rectarray.GetAt(j);
 			rect2.Intersect(rect);
-			if(rect2.IsEmptyArea()==FALSE)
+			if(rect2.IsEmptyArea() == FALSE)
 			{
-				area += (double)rect2.Width*(double)rect2.Height;
+				area += (double)rect2.Width * (double)rect2.Height;
 			}
 		}
 
-		if(area==0.0f)
+		if(area == 0.0f)
 		{
 			Anchor = anchor;
 			tagRect = rect;
 			minArea = 0;
 			break;
 		}
-		else if(area<minArea)
+		else if(area < minArea)
 		{
 			Anchor = anchor;
 			tagRect = rect;
@@ -2226,10 +2239,10 @@ void CGeom::CreateOptimizedTag(CArray<Gdiplus::RectF, Gdiplus::RectF&>& Occupied
 
 void CGeom::CreateTag(const ANCHOR& anchor, const HALIGN& hAlign, const VALIGN& vAlign)
 {
-	if(m_strName.IsEmpty()==TRUE)
+	if(m_strName.IsEmpty() == TRUE)
 		return;
 
-	if(m_pTag!=nullptr)
+	if(m_pTag != nullptr)
 		return;
 
 	m_pTag = new CTag(m_strName, anchor);
@@ -2237,18 +2250,18 @@ void CGeom::CreateTag(const ANCHOR& anchor, const HALIGN& hAlign, const VALIGN& 
 
 void CGeom::SetupTag(const ANCHOR& anchor, const HALIGN& hAlign, const VALIGN& vAlign)
 {
-	if(m_pTag==nullptr)
+	if(m_pTag == nullptr)
 		return;
 
 	m_pTag->SetAnchor(anchor);
 }
 bool CGeom::HasTag() const
 {
-	return m_pTag!=nullptr;
+	return m_pTag != nullptr;
 }
 bool CGeom::Tagable() const
 {
-	return m_strName.IsEmpty()==FALSE;
+	return m_strName.IsEmpty() == FALSE;
 }
 void CGeom::DeleteTag()
 {
@@ -2263,9 +2276,9 @@ void CGeom::Information(CWnd* pWnd, const CViewinfo& viewinfo, const CHint* pHin
 	AfxSetResourceHandle(hInst);
 
 	CTextEditDlg dlg(pWnd, m_strName);
-	if(dlg.DoModal()==IDOK)
+	if(dlg.DoModal() == IDOK)
 	{
-		if(m_pTag!=nullptr&&pHint!=nullptr)
+		if(m_pTag != nullptr && pHint != nullptr)
 		{
 			const Gdiplus::PointF point = m_pTag->GetAnchorPoint<Gdiplus::Rect, Gdiplus::PointF>(viewinfo, m_Rect);
 			m_pTag->Invalidate(pWnd, viewinfo, point, pHint);
@@ -2287,10 +2300,10 @@ void CGeom::Transform(CDC* pDC, const CViewinfo& viewinfo, const double& m11, co
 	const CRect replace = m_Rect;
 	const CPoint point1 = CPoint(m_Rect.left, m_Rect.top);
 	const CPoint point2 = CPoint(m_Rect.right, m_Rect.bottom);
-	const long x1 = point1.x*m11+point1.y*m21+m31;
-	const long y1 = point1.x*m12+point1.y*m22+m32;
-	const long x2 = point2.x*m11+point2.y*m21+m31;
-	const long y2 = point2.x*m12+point2.y*m22+m32;
+	const long x1 = point1.x * m11 + point1.y * m21 + m31;
+	const long y1 = point1.x * m12 + point1.y * m22 + m32;
+	const long x2 = point2.x * m11 + point2.y * m21 + m31;
+	const long y2 = point2.x * m12 + point2.y * m22 + m32;
 
 	m_Rect = CRect(x1, y1, x2, y2);;
 	m_Rect.NormalizeRect();
@@ -2302,13 +2315,13 @@ void CGeom::Transform(CDC* pDC, const CViewinfo& viewinfo, const double& m11, co
 
 void CGeom::Transform(const double& m11, const double& m21, const double& m31, const double& m12, const double& m22, const double& m32)
 {
-	if(m21==0.0f&&m12==0.f)
+	if(m21 == 0.0f && m12 == 0.f)
 	{
 		auto rect = m_Rect;
-		rect.left = round(m_Rect.left*m11+m31);
-		rect.right = round(m_Rect.right*m11+m31);
-		rect.top = round(m_Rect.top*m22+m32);
-		rect.bottom = round(m_Rect.bottom*m22+m32);
+		rect.left = round(m_Rect.left * m11 + m31);
+		rect.right = round(m_Rect.right * m11 + m31);
+		rect.top = round(m_Rect.top * m22 + m32);
+		rect.bottom = round(m_Rect.bottom * m22 + m32);
 		m_Rect = rect;
 		m_Rect.NormalizeRect();
 	}
@@ -2318,43 +2331,43 @@ void CGeom::Transform(const double& m11, const double& m21, const double& m31, c
 
 		CPoint point1;
 		point = CPoint(m_Rect.left, m_Rect.top);
-		point1.x = round(point.x*m11+point.y*m21+m31);
-		point1.y = round(point.x*m12+point.y*m22+m32);
+		point1.x = round(point.x * m11 + point.y * m21 + m31);
+		point1.y = round(point.x * m12 + point.y * m22 + m32);
 
 		CPoint point2;
 		point = CPoint(m_Rect.right, m_Rect.top);
-		point2.x = round(point.x*m11+point.y*m21+m31);
-		point2.y = round(point.x*m12+point.y*m22+m32);
+		point2.x = round(point.x * m11 + point.y * m21 + m31);
+		point2.y = round(point.x * m12 + point.y * m22 + m32);
 
 		CPoint point3;
 		point = CPoint(m_Rect.right, m_Rect.bottom);
-		point3.x = round(point.x*m11+point.y*m21+m31);
-		point3.y = round(point.x*m12+point.y*m22+m32);
+		point3.x = round(point.x * m11 + point.y * m21 + m31);
+		point3.y = round(point.x * m12 + point.y * m22 + m32);
 
 		CPoint point4;
 		point = CPoint(m_Rect.left, m_Rect.bottom);
-		point4.x = round(point.x*m11+point.y*m21+m31);
-		point4.y = round(point.x*m12+point.y*m22+m32);
+		point4.x = round(point.x * m11 + point.y * m21 + m31);
+		point4.y = round(point.x * m12 + point.y * m22 + m32);
 
 		m_Rect.left = min(min(point1.x, point2.x), min(point3.x, point4.x));
 		m_Rect.top = min(min(point1.y, point2.y), min(point3.y, point4.y));
 		m_Rect.right = max(max(point1.x, point2.x), max(point3.x, point4.x));
 		m_Rect.bottom = max(max(point1.y, point2.y), max(point3.y, point4.y));
 	}
-	if(m_pLine!=nullptr)
+	if(m_pLine != nullptr)
 	{
-		const float sx = sqrt(m11*m11+m12*m12);
-		const float sy = sqrt(m21*m21+m22*m22);
+		const float sx = sqrt(m11 * m11 + m12 * m12);
+		const float sy = sqrt(m21 * m21 + m22 * m22);
 
-		m_pLine->Scale((sx+sy)/2.f);
+		m_pLine->Scale((sx + sy) / 2.f);
 	}
-	if(m_pType!=nullptr)
+	if(m_pType != nullptr)
 	{
-		const float sx = sqrt(m11*m11+m12*m12);
-		const float sy = sqrt(m21*m21+m22*m22);
-		m_pType->Scale((sx+sy)/2.f);
+		const float sx = sqrt(m11 * m11 + m12 * m12);
+		const float sy = sqrt(m21 * m21 + m22 * m22);
+		m_pType->Scale((sx + sy) / 2.f);
 	}
-	if(m_pFill!=nullptr)
+	if(m_pFill != nullptr)
 	{
 		m_pFill->Transform(m11, m21, m31, m12, m22, m32);
 	}
@@ -2363,7 +2376,7 @@ void CGeom::Transform(const double& m11, const double& m21, const double& m31, c
 
 void CGeom::Transform(const CViewinfo& viewinfo)
 {
-	if(m_pFill!=nullptr)
+	if(m_pFill != nullptr)
 	{
 		m_pFill->Transform(viewinfo, m_Rect);
 	}
@@ -2448,8 +2461,8 @@ void CGeom::Rectify(CTin& tin)
 #ifdef _DEBUG
 void CGeom::AssertValid() const
 {
-	ASSERT(m_Rect.left<=m_Rect.right);
-	ASSERT(m_Rect.top<=m_Rect.bottom);
+	ASSERT(m_Rect.left <= m_Rect.right);
+	ASSERT(m_Rect.top <= m_Rect.bottom);
 }
 #endif
 
@@ -2517,21 +2530,21 @@ void CGeom::AssertValid() const
 
 std::list<std::tuple<int, int, CGeom*>> CGeom::Swim(bool bStroke, bool bFill, int cxTile, int cyTile, int minRow, int maxRow, int minCol, int maxCol) const
 {
-	int minX = m_Rect.left/cxTile;
-	int maxX = m_Rect.right/cxTile;
-	int minY = m_Rect.top/cyTile;
-	int maxY = m_Rect.bottom/cyTile;
-	maxX = m_Rect.right%cxTile==0 ? maxX-1 : maxX;
-	maxY = m_Rect.bottom%cyTile==0 ? maxY-1 : maxY;
+	int minX = m_Rect.left / cxTile;
+	int maxX = m_Rect.right / cxTile;
+	int minY = m_Rect.top / cyTile;
+	int maxY = m_Rect.bottom / cyTile;
+	maxX = m_Rect.right % cxTile == 0 ? maxX - 1 : maxX;
+	maxY = m_Rect.bottom % cyTile == 0 ? maxY - 1 : maxY;
 
 	std::list<std::tuple<int, int, CGeom*>> cellgeoms;
-	if(maxX<=minX&&maxY<=minY)
+	if(maxX <= minX && maxY <= minY)
 		cellgeoms.push_back(make_tuple(minX, minY, this->Clone()));
 	else
 	{
-		for(int row = minY; row<=maxY; row++)
+		for(int row = minY; row <= maxY; row++)
 		{
-			for(int col = minX; col<=maxX; col++)
+			for(int col = minX; col <= maxX; col++)
 			{
 				CGeom* pGeom = this->Clone();
 				cellgeoms.push_back(make_tuple(col, row, pGeom));
@@ -2543,9 +2556,9 @@ std::list<std::tuple<int, int, CGeom*>> CGeom::Swim(bool bStroke, bool bFill, in
 
 CGeom* CGeom::Clip(const CRect& bound, Clipper2Lib::Paths64& clips, bool in, int tolerance, bool bStroke)
 {
-	if(in==true&&Util::Rect::Intersect(m_Rect, bound)==false)
+	if(in == true && Util::Rect::Intersect(m_Rect, bound) == false)
 		return nullptr;
-	else if(in==false&&Util::Rect::Intersect(m_Rect, bound)==false)
+	else if(in == false && Util::Rect::Intersect(m_Rect, bound) == false)
 		return this;
 	else
 	{
@@ -2567,21 +2580,21 @@ CGeom* CGeom::Clip(const CRect& bound, Clipper2Lib::Paths64& clips, bool in, int
 		clipper.AddClip(clips);
 		clipper.AddSubject(subjects);
 		Paths64 dummy;
-		return (clipper.Execute(in ? ClipType::Intersection : ClipType::Difference, FillRule::NonZero, dummy)&&dummy.size()>0) ? this : nullptr;
+		return (clipper.Execute(in ? ClipType::Intersection : ClipType::Difference, FillRule::NonZero, dummy) && dummy.size() > 0) ? this : nullptr;
 	}
 }
 
 bool CGeom::Query(CString strKey)
 {//22786c++
-	if(strKey==_T('*'))
+	if(strKey == _T('*'))
 		return true;
 
 	CString strId;
 	strId.Format(_T("%d"), m_geoId);
-	if(strId==strKey)
+	if(strId == strKey)
 		return true;
 
-	if(m_strName.IsEmpty()==TRUE)
+	if(m_strName.IsEmpty() == TRUE)
 		return false;
 
 	CString string = m_strName;
@@ -2596,21 +2609,21 @@ bool CGeom::Query(CString strKey)
 
 bool CGeom::QueryRecursion(const CString& string, CString strKey)
 {
-	if(string.IsEmpty()==TRUE)
+	if(string.IsEmpty() == TRUE)
 		return false;
 
 	int pos = strKey.Find(_T('|'));
-	if(pos!=-1)
+	if(pos != -1)
 	{
-		while(pos!=-1)
+		while(pos != -1)
 		{
 			CString strLeft = strKey.Left(pos);
-			CString strRight = strKey.Mid(pos+1);
+			CString strRight = strKey.Mid(pos + 1);
 			strLeft.Trim();
 			strRight.Trim();
-			if(QueryRecursion(string, strLeft)==true)
+			if(QueryRecursion(string, strLeft) == true)
 				return true;
-			if(QueryRecursion(string, strRight)==true)
+			if(QueryRecursion(string, strRight) == true)
 				return true;
 		}
 
@@ -2619,26 +2632,26 @@ bool CGeom::QueryRecursion(const CString& string, CString strKey)
 	else
 	{
 		pos = strKey.FindOneOf(_T("+& "));
-		while(pos!=-1)
+		while(pos != -1)
 		{
 			CString str = strKey.Left(pos);
 			str.Trim();
-			if(string.Find(str)==-1)
+			if(string.Find(str) == -1)
 				return false;
 
-			strKey = strKey.Mid(pos+1);
+			strKey = strKey.Mid(pos + 1);
 			strKey.Trim();
 			pos = strKey.FindOneOf(_T("+& "));
 		}
 
-		return string.Find(strKey)!=-1 ? true : false;
+		return string.Find(strKey) != -1 ? true : false;
 	}
 }
 
 inline float CGeom::GetInflation(const CLine* pLine, const CType* pType, const float& ratioLine, const float& ratioType) const
 {
-	const float fPts = m_pLine!=nullptr ? m_pLine->m_nWidth*0.05 : (pLine!=nullptr ? pLine->m_nWidth*0.05 : 0.f);// /20.f
-	return fPts*ratioLine;
+	const float fPts = m_pLine != nullptr ? m_pLine->m_nWidth * 0.05 : (pLine != nullptr ? pLine->m_nWidth * 0.05 : 0.f);// /20.f
+	return fPts * ratioLine;
 }
 
 void CGeom::RecalRect()
@@ -2657,11 +2670,11 @@ void CGeom::GatherFonts(std::list<CStringA>& fontlist) const
 }
 void CGeom::ExportPlaintext(FILE* file, const Gdiplus::Matrix& matrix) const
 {
-	if(this->IsValid()==false)
+	if(this->IsValid() == false)
 		return;
 
 	_ftprintf(file, _T("Id:%u ATT:%u Type:%d C:%d %s\n"), m_geoId, m_attId, m_bType, m_bClosed, m_strName);
-	if(m_bClosed==true)
+	if(m_bClosed == true)
 		this->ExportPts(file, matrix, _T("EndGeom"));
 	else
 		this->ExportPts(file, matrix, _T("EndGeom"));
@@ -2669,10 +2682,10 @@ void CGeom::ExportPlaintext(FILE* file, const Gdiplus::Matrix& matrix) const
 
 void CGeom::ExportPdfTag(HPDF_Doc pdf, HPDF_Page page, const CViewinfo& viewinfo, const CHint* pHint) const
 {
-	if(this->IsValid()==false)
+	if(this->IsValid() == false)
 		return;
 
-	if(m_pTag!=nullptr&&pHint!=nullptr)
+	if(m_pTag != nullptr && pHint != nullptr)
 	{
 		HALIGN hAlign;
 		VALIGN vAlign;
@@ -2683,7 +2696,7 @@ void CGeom::ExportPdfTag(HPDF_Doc pdf, HPDF_Page page, const CViewinfo& viewinfo
 
 void CGeom::ExportMid(FILE* fileMid) const
 {
-	if(this->IsValid()==false)
+	if(this->IsValid() == false)
 		return;
 
 	CString string = m_strName;
@@ -2696,28 +2709,28 @@ void CGeom::ExportMid(FILE* fileMid) const
 
 double CGeom::Shortcut(const CPoint& point, CPoint& trend) const
 {
-	if(m_Rect.PtInRect(point)==TRUE)
+	if(m_Rect.PtInRect(point) == TRUE)
 	{
 		return 0;
 	}
 	else
 	{
-		if(point.x<m_Rect.left)
+		if(point.x < m_Rect.left)
 		{
 			trend.x = m_Rect.left;
 			trend.y = point.y;
-			if(point.y>m_Rect.bottom)
+			if(point.y > m_Rect.bottom)
 				trend.y = m_Rect.bottom;
-			else if(point.y<m_Rect.top)
+			else if(point.y < m_Rect.top)
 				trend.y = m_Rect.top;
 		}
-		else if(point.x>m_Rect.right)
+		else if(point.x > m_Rect.right)
 		{
 			trend.x = m_Rect.right;
 			trend.y = point.y;
-			if(point.y>m_Rect.bottom)
+			if(point.y > m_Rect.bottom)
 				trend.y = m_Rect.bottom;
-			else if(point.y<m_Rect.top)
+			else if(point.y < m_Rect.top)
 				trend.y = m_Rect.top;
 		}
 
@@ -2727,33 +2740,33 @@ double CGeom::Shortcut(const CPoint& point, CPoint& trend) const
 
 CPoint CGeom::Rotate(const CDatainfo& mapinfo, const float& deltaLng, const float& deltaLat, const float& angle, const CPoint& point)
 {
-	double Δλ = deltaLng*constants::degreeToradian;
-	double Δφ = deltaLat*constants::degreeToradian;
+	double Δλ = deltaLng * constants::degreeToradian;
+	double Δφ = deltaLat * constants::degreeToradian;
 	CPointF mapPoint = mapinfo.DocToMap(point);
-	if(mapinfo.m_pProjection!=nullptr)
+	if(mapinfo.m_pProjection != nullptr)
 	{
 		CPointF geoPoint = mapinfo.m_pProjection->MapToGeo(mapPoint);
 		double λ = geoPoint.x;
 		double ψ = geoPoint.y;
-		if(Δλ!=0.f)
+		if(Δλ != 0.f)
 		{
 			λ += Δλ;
 			Lnglat::Regularizeλ(λ);
 		}
-		if(Δφ!=0)
+		if(Δφ != 0)
 		{
 			const double cosΔφ = cos(Δφ);
 			const double sinΔφ = sin(Δφ);
-			const double cosγ = cos(angle*constants::degreeToradian);
-			const double sinγ = sin(angle*constants::degreeToradian);
+			const double cosγ = cos(angle * constants::degreeToradian);
+			const double sinγ = sin(angle * constants::degreeToradian);
 
 			const double cosψ = cos(ψ);
-			const double x = cos(λ)*cosψ;
-			const double y = sin(λ)*cosψ;
+			const double x = cos(λ) * cosψ;
+			const double y = sin(λ) * cosψ;
 			const double z = sin(ψ);
-			const double k = z*cosΔφ+x*sinΔφ;
-			λ = atan2(y*cosγ-k*sinγ, x*cosΔφ-z*sinΔφ);
-			ψ = asin(k*cosγ+y*sinγ);
+			const double k = z * cosΔφ + x * sinΔφ;
+			λ = atan2(y * cosγ - k * sinγ, x * cosΔφ - z * sinΔφ);
+			ψ = asin(k * cosγ + y * sinγ);
 			Lnglat::Regularizeλ(λ);
 			mapPoint = mapinfo.m_pProjection->GeoToMap(λ, ψ);
 		}
@@ -2775,13 +2788,13 @@ Gdiplus::Rect CGeom::Transform(const Gdiplus::Matrix& matrix, CRect rect)
 	const int maxX = max(point1.X, point2.X);
 	const int maxY = max(point1.Y, point2.Y);
 
-	return Gdiplus::Rect(minX, minY, maxX-minX, maxY-minY);
+	return Gdiplus::Rect(minX, minY, maxX - minX, maxY - minY);
 }
 
 Gdiplus::PointF* CGeom::Transform(const Gdiplus::Matrix& matrix, CPoint* pPoints, int count)
 {
 	Gdiplus::PointF* points = new Gdiplus::PointF[count];
-	for(int index = 0; index<count; index++)
+	for(int index = 0; index < count; index++)
 	{
 		points[index].X = pPoints[index].x;
 		points[index].Y = pPoints[index].y;
@@ -2794,26 +2807,26 @@ void CGeom::Serializelist(CArchive& ar, const DWORD dwVersion, CObList& oblist)
 {
 	if(ar.IsStoring())
 	{
-		ar<<(int)oblist.GetCount();
+		ar << (int)oblist.GetCount();
 		POSITION pos = oblist.GetHeadPosition();
-		while(pos!=nullptr)
+		while(pos != nullptr)
 		{
 			CGeom* pGeom = (CGeom*)oblist.GetNext(pos);
 			const BYTE type = pGeom->Gettype();
-			ar<<type;
+			ar << type;
 			pGeom->Serialize(ar, dwVersion);
 		}
 	}
 	else
 	{
 		int nCount;
-		ar>>nCount;
-		for(int index = 0; index<nCount; index++)
+		ar >> nCount;
+		for(int index = 0; index < nCount; index++)
 		{
 			BYTE type;
-			ar>>type;
+			ar >> type;
 			CGeom* pGeom = CGeom::Apply(type);
-			if(pGeom!=nullptr)
+			if(pGeom != nullptr)
 			{
 				pGeom->Serialize(ar, dwVersion);
 				oblist.AddTail(pGeom);
@@ -2829,7 +2842,7 @@ Gdiplus::PathGradientBrush* CGeom::SetGradientBrush(RadialBrush* radial, const G
 
 Gdiplus::PathGradientBrush* CGeom::SetGradientBrush(RadialBrush* radial, const CViewinfo& viewinfo, Gdiplus::GraphicsPath* path) const//because Gdiplus::PathGradientBrush dosn't support setpath we have to recreate a new one
 {
-	if(radial==nullptr)
+	if(radial == nullptr)
 		return nullptr;
 
 
@@ -2849,11 +2862,11 @@ Gdiplus::PathGradientBrush* CGeom::SetGradientBrush(RadialBrush* radial, const C
 			break;
 		case CFillRadial::CENTERMODE::CenterPercent:
 			{
-				center = viewinfo.DocToClient<Gdiplus::Point>(CPoint(m_Rect.left+m_Rect.Width()*radial->m_cx, m_Rect.top+m_Rect.Height()*radial->m_cy));
+				center = viewinfo.DocToClient<Gdiplus::Point>(CPoint(m_Rect.left + m_Rect.Width() * radial->m_cx, m_Rect.top + m_Rect.Height() * radial->m_cy));
 			}
 			break;
 		case CFillRadial::CENTERMODE::CenterOffset:
-			center = viewinfo.DocToClient<Gdiplus::Point>(CPoint(m_Rect.left+radial->m_cx, m_Rect.top+radial->m_cy));
+			center = viewinfo.DocToClient<Gdiplus::Point>(CPoint(m_Rect.left + radial->m_cx, m_Rect.top + radial->m_cy));
 			break;
 		case CFillRadial::CENTERMODE::CenterCoordinate:
 			center = viewinfo.DocToClient <Gdiplus::Point>(CPoint(radial->m_cx, radial->m_cy));
@@ -2871,10 +2884,10 @@ Gdiplus::PathGradientBrush* CGeom::SetGradientBrush(RadialBrush* radial, const C
 	{
 		case CFillRadial::RADIUSMODE::OUTERELLIPSE:
 			{
-				const int A = ceil(rect.Width/sqrt(2.f));
-				const int B = ceil(rect.Height/sqrt(2.f));
+				const int A = ceil(rect.Width / sqrt(2.f));
+				const int B = ceil(rect.Height / sqrt(2.f));
 
-				const Gdiplus::Rect brushrect(center.X-A, center.Y-B, 2*A, 2*B);
+				const Gdiplus::Rect brushrect(center.X - A, center.Y - B, 2 * A, 2 * B);
 				brushpath.AddEllipse(brushrect);
 				path = &brushpath;
 			}
@@ -2887,11 +2900,11 @@ Gdiplus::PathGradientBrush* CGeom::SetGradientBrush(RadialBrush* radial, const C
 			break;
 		case CFillRadial::RADIUSMODE::OUTERCIRCLE:
 			{
-				const int A = ceil(rect.Width/sqrt(2.f));
-				const int B = ceil(rect.Height/sqrt(2.f));
+				const int A = ceil(rect.Width / sqrt(2.f));
+				const int B = ceil(rect.Height / sqrt(2.f));
 				const int R = max(A, B);
 
-				const Gdiplus::Rect brushrect(center.X-R, center.Y-R, 2*R, 2*R);
+				const Gdiplus::Rect brushrect(center.X - R, center.Y - R, 2 * R, 2 * R);
 				Gdiplus::GraphicsPath brushpath(Gdiplus::FillMode::FillModeAlternate);
 				brushpath.AddEllipse(brushrect);
 				path = &brushpath;
@@ -2899,8 +2912,8 @@ Gdiplus::PathGradientBrush* CGeom::SetGradientBrush(RadialBrush* radial, const C
 			break;
 		case CFillRadial::RADIUSMODE::INNERCIRCLE:
 			{
-				const int R = min(rect.Width/2, rect.Height/2);
-				const Gdiplus::Rect brushrect(center.X-R, center.Y-R, 2*R, 2*R);
+				const int R = min(rect.Width / 2, rect.Height / 2);
+				const Gdiplus::Rect brushrect(center.X - R, center.Y - R, 2 * R, 2 * R);
 
 				Gdiplus::GraphicsPath brushpath(Gdiplus::FillMode::FillModeAlternate);
 				brushpath.AddEllipse(brushrect);
@@ -2909,17 +2922,17 @@ Gdiplus::PathGradientBrush* CGeom::SetGradientBrush(RadialBrush* radial, const C
 			break;
 		case CFillRadial::RADIUSMODE::RadiusPercent:
 			{
-				const int A = rect.Width*radial->m_cr;
-				const int B = rect.Height*radial->m_fr;
+				const int A = rect.Width * radial->m_cr;
+				const int B = rect.Height * radial->m_fr;
 
-				const Gdiplus::Rect brushrect(center.X-A, center.Y-B, 2*A, 2*B);
+				const Gdiplus::Rect brushrect(center.X - A, center.Y - B, 2 * A, 2 * B);
 				brushpath.AddEllipse(brushrect);
 				path = &brushpath;
 			}
 			break;
 		case CFillRadial::RADIUSMODE::RadiusValue:
 			{
-				const CPoint center = CPoint(rect.X+rect.Width/2, rect.Y+rect.Height/2);
+				const CPoint center = CPoint(rect.X + rect.Width / 2, rect.Y + rect.Height / 2);
 				CRect rect(center, center);
 				rect.InflateRect(radial->m_cr, radial->m_fr);
 				const Gdiplus::Rect brushrect = viewinfo.DocToClient <Gdiplus::Rect>(rect);
@@ -2937,12 +2950,12 @@ Gdiplus::PathGradientBrush* CGeom::SetGradientBrush(RadialBrush* radial, const C
 			break;
 		case CFillRadial::FOCUSMODE::FocusPercent:
 			{
-				center.X = rect.X+rect.Width*radial->m_fx;
-				center.Y = rect.Y+rect.Height*radial->m_fy;
+				center.X = rect.X + rect.Width * radial->m_fx;
+				center.Y = rect.Y + rect.Height * radial->m_fy;
 			}
 			break;
 		case CFillRadial::FOCUSMODE::FocusOffset:
-			center = viewinfo.DocToClient <Gdiplus::Point>(CPoint(rect.X+radial->m_fx, rect.Y+radial->m_fy));
+			center = viewinfo.DocToClient <Gdiplus::Point>(CPoint(rect.X + radial->m_fx, rect.Y + radial->m_fy));
 			break;
 		case CFillRadial::FOCUSMODE::FocusCoordinate:
 			center = viewinfo.DocToClient <Gdiplus::Point>(CPoint(radial->m_fx, radial->m_fy));
@@ -2961,16 +2974,16 @@ Gdiplus::PathGradientBrush* CGeom::SetGradientBrush(RadialBrush* radial, const C
 	brush->SetSurroundColors(colors1, &count);
 
 	const int size = radial->m_stops.size();
-	if(size>2)
+	if(size > 2)
 	{
 
 		float* positions = new float[size];
 		Gdiplus::Color* colors2 = new Gdiplus::Color[size];
 		std::map<unsigned int, CColor*>::iterator it = radial->m_stops.begin();
-		for(int index = 0; index<size; index++)
+		for(int index = 0; index < size; index++)
 		{
-			positions[size-index-1] = 1-it->first/100.f;
-			colors2[size-index-1] = it->second->GetColor();
+			positions[size - index - 1] = 1 - it->first / 100.f;
+			colors2[size - index - 1] = it->second->GetColor();
 			++it;
 		}
 		brush->SetInterpolationColors(colors2, positions, size);
@@ -2980,7 +2993,7 @@ Gdiplus::PathGradientBrush* CGeom::SetGradientBrush(RadialBrush* radial, const C
 
 Gdiplus::LinearGradientBrush* CGeom::SetGradientBrush(LinearBrush* linear, const CViewinfo& viewinfo) const
 {
-	if(linear==nullptr)
+	if(linear == nullptr)
 		return nullptr;
 
 	Gdiplus::Rect rect = viewinfo.DocToClient <Gdiplus::Rect>(m_Rect);
@@ -2992,45 +3005,45 @@ Gdiplus::LinearGradientBrush* CGeom::SetGradientBrush(LinearBrush* linear, const
 			{
 				const Gdiplus::Point origin(rect.GetLeft(), rect.GetTop());
 				rect.Offset(-origin.X, -origin.Y);
-				if(linear->m_nAngle>=0&&linear->m_nAngle<90)
+				if(linear->m_nAngle >= 0 && linear->m_nAngle < 90)
 				{
-					const double tg = tan(linear->m_nAngle*M_PI/constants::pi);
+					const double tg = tan(linear->m_nAngle * M_PI / constants::pi);
 					point1 = Gdiplus::Point(0, 0);
-					point2 = Gdiplus::Point(rect.GetRight(), rect.Width*tg);
+					point2 = Gdiplus::Point(rect.GetRight(), rect.Width * tg);
 				}
-				else if(linear->m_nAngle>=90&&linear->m_nAngle<constants::pi)
+				else if(linear->m_nAngle >= 90 && linear->m_nAngle < constants::pi)
 				{
-					const double tg = tan((constants::pi-linear->m_nAngle)*M_PI/constants::pi);
+					const double tg = tan((constants::pi - linear->m_nAngle) * M_PI / constants::pi);
 					point1 = Gdiplus::Point(rect.GetRight(), 0);
-					point2 = Gdiplus::Point(0, rect.Width*tg);
+					point2 = Gdiplus::Point(0, rect.Width * tg);
 				}
-				else if(linear->m_nAngle>=constants::pi&&linear->m_nAngle<270)
+				else if(linear->m_nAngle >= constants::pi && linear->m_nAngle < 270)
 				{
-					const double tg = tan((linear->m_nAngle-constants::pi)*M_PI/constants::pi);
+					const double tg = tan((linear->m_nAngle - constants::pi) * M_PI / constants::pi);
 					point1 = Gdiplus::Point(rect.GetRight(), rect.GetBottom());
-					point2 = Gdiplus::Point(0, rect.Width*tg);
+					point2 = Gdiplus::Point(0, rect.Width * tg);
 				}
-				else if(linear->m_nAngle>=270&&linear->m_nAngle<constants::twopi)
+				else if(linear->m_nAngle >= 270 && linear->m_nAngle < constants::twopi)
 				{
-					const double tg = tan((linear->m_nAngle-constants::pi)*M_PI/constants::pi);
+					const double tg = tan((linear->m_nAngle - constants::pi) * M_PI / constants::pi);
 					point1 = Gdiplus::Point(0, rect.GetBottom());
-					point2 = Gdiplus::Point(rect.GetRight(), rect.Width*tg);
+					point2 = Gdiplus::Point(rect.GetRight(), rect.Width * tg);
 				}
-				point1 = point1+origin;
-				point2 = point2+origin;
+				point1 = point1 + origin;
+				point2 = point2 + origin;
 				rect.Offset(origin.X, origin.Y);
 			}
 			break;
 		case CFillLinear::VALUEMODE::VALUEPercent:
 			{
-				point1 = viewinfo.DocToClient <Gdiplus::Point>(CPoint(m_Rect.left+m_Rect.Width()*linear->m_x1, m_Rect.top+m_Rect.Height()*linear->m_y1));
-				point2 = viewinfo.DocToClient <Gdiplus::Point>(CPoint(m_Rect.left+m_Rect.Width()*linear->m_x2, m_Rect.top+m_Rect.Height()*linear->m_y2));
+				point1 = viewinfo.DocToClient <Gdiplus::Point>(CPoint(m_Rect.left + m_Rect.Width() * linear->m_x1, m_Rect.top + m_Rect.Height() * linear->m_y1));
+				point2 = viewinfo.DocToClient <Gdiplus::Point>(CPoint(m_Rect.left + m_Rect.Width() * linear->m_x2, m_Rect.top + m_Rect.Height() * linear->m_y2));
 			}
 			break;
 		case CFillLinear::VALUEMODE::VALUEOffset:
 			{
-				point1 = viewinfo.DocToClient <Gdiplus::Point>(CPoint(m_Rect.left+linear->m_x1, m_Rect.top+linear->m_y1));
-				point2 = viewinfo.DocToClient <Gdiplus::Point>(CPoint(m_Rect.left+linear->m_x2, m_Rect.top+linear->m_y2));
+				point1 = viewinfo.DocToClient <Gdiplus::Point>(CPoint(m_Rect.left + linear->m_x1, m_Rect.top + linear->m_y1));
+				point2 = viewinfo.DocToClient <Gdiplus::Point>(CPoint(m_Rect.left + linear->m_x2, m_Rect.top + linear->m_y2));
 			}
 			break;
 		case CFillLinear::VALUEMODE::VALUEActual:
@@ -3042,12 +3055,12 @@ Gdiplus::LinearGradientBrush* CGeom::SetGradientBrush(LinearBrush* linear, const
 			break;
 	}
 	CStraightLine<int> straightline(point1.X, point1.Y, point2.X, point2.Y);
-	int angle = straightline.GetAngle()+constants::pi;
-	while(angle>constants::pi)
+	int angle = straightline.GetAngle() + constants::pi;
+	while(angle > constants::pi)
 		angle -= constants::pi;
 	CStraightLine<int>* perpendicularline1 = nullptr;
 	CStraightLine<int>* perpendicularline2 = nullptr;
-	if(angle>=0&&angle<=90)
+	if(angle >= 0 && angle <= 90)
 	{
 		perpendicularline1 = straightline.GetPerpendicular(rect.GetLeft(), rect.GetTop());
 		perpendicularline2 = straightline.GetPerpendicular(rect.GetRight(), rect.GetBottom());
@@ -3079,9 +3092,9 @@ Gdiplus::LinearGradientBrush* CGeom::SetGradientBrush(LinearBrush* linear, const
 	Gdiplus::Color* colors2 = new Gdiplus::Color[count];
 	Gdiplus::REAL* positions = new Gdiplus::REAL[count];
 	int index = 0;
-	for(const auto& pair:linear->m_stops)
+	for(const auto& pair : linear->m_stops)
 	{
-		positions[index] = pair.first/100.f;
+		positions[index] = pair.first / 100.f;
 		colors2[index] = pair.second->GetColor();
 		index++;
 	}

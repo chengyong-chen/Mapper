@@ -87,7 +87,7 @@ public:
 	bool CreateName(CWnd* pWnd, const float& fontSize, const float& zoomPointToDoc, CObList& geomlist) override;
 public:
 	void DrawTag(Gdiplus::Graphics& g, const CViewinfo& viewinfo, const CHint* pHint) const override;
-	void DrawTag(Gdiplus::Graphics& g, const CViewinfo& viewinfo, const CHint* pHint, const bool& bPivot) const override;
+	void DrawTag(Gdiplus::Graphics& g, const CViewinfo& viewinfo, const CHint* pHint, const bool& bPivot, const bool& bOblige) const override;
 	void Flash(CWnd* pWnd, const CViewinfo& viewinfo, const int& nTimes) const override;
 	void DrawPentip(CDC* pDC, const CViewinfo& viewinfo, const unsigned int& nAnchor) const override;	
 	void DrawFATToTAT(Gdiplus::Graphics& g, const CViewinfo& viewinfo, const Gdiplus::Pen* pen, const unsigned int& fAnchor, const double& st, const unsigned int& tAnchor, const double& et) const override;

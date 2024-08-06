@@ -44,12 +44,13 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>..\..\Thirdparty\boost\1.83.0;..\..\ThirdParty\libharu\2.4.4\win32\include;$(IncludePath)</IncludePath>
+    <IncludePath>..\..\ThirdParty\CGAL\5.6.0\include;..\..\Thirdparty\boost\1.83.0;..\..\ThirdParty\libharu\2.4.4\win32\include;$(IncludePath)</IncludePath>
     <LibraryPath>$(LibraryPath)</LibraryPath>
+    <ExecutablePath>$(ExecutablePath)</ExecutablePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>..\..\Thirdparty\boost\1.83.0;..\..\ThirdParty\libharu\2.4.4\win32\include;$(IncludePath)</IncludePath>
+    <IncludePath>..\..\ThirdParty\CGAL\5.6.0\include;..\..\Thirdparty\boost\1.83.0;..\..\ThirdParty\libharu\2.4.4\win32\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Midl>
@@ -133,6 +134,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="BackgroundBar.cpp" />
+    <ClCompile Include="PalettePickerDlg.cpp" />
     <ClCompile Include="GeomMapFile.cpp" />
     <ClCompile Include="GeomMemFile.cpp" />
     <ClCompile Include="GridMapFile.cpp" />
@@ -163,6 +165,7 @@
   <ItemGroup>
     <ClInclude Include="..\..\ThirdParty\tinyxml\tinyxml2\tinyxml2.h" />
     <ClInclude Include="BackgroundBar.h" />
+    <ClInclude Include="PalettePickerDlg.h" />
     <ClInclude Include="GeomMapFile.h" />
     <ClInclude Include="GeomMemFile.h" />
     <ClInclude Include="GridMapFile.h" />

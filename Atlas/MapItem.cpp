@@ -243,13 +243,13 @@ STDMETHODIMP CMapItem::GetData(unsigned int uZoom, CSize docOffset, CRect clippe
 			ar<<(WORD)0X0000;
 			continue;
 		}
-		if(uZoom>layer->m_minLevelObj&&(uZoom>layer->m_minLevelTag||layer->m_bShowTag==false))
+		if(uZoom>layer->m_minLevelObj&&(uZoom>layer->m_minLevelTag||layer->m_bTagShow==false))
 		{
 			ar<<(WORD)0X0000;//for vestige
 			ar<<(WORD)0X0000;//for objcount
 			continue;
 		}
-		if(uZoom<layer->m_maxLevelObj&&(uZoom<layer->m_maxLevelTag||layer->m_bShowTag==false))
+		if(uZoom<layer->m_maxLevelObj&&(uZoom<layer->m_maxLevelTag||layer->m_bTagShow==false))
 		{
 			ar<<(WORD)0X0000;//for vestige
 			ar<<(WORD)0X0000;//for objcount

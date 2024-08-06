@@ -1,5 +1,6 @@
 ﻿#include "stdafx.h"
 #include <array>
+#include <cmath>
 #include "Global.h"
 #include "Layer.h"
 #include "LayerTree.h"
@@ -10,6 +11,7 @@
 #include "Layif.h"
 #include "LayerAttrDlg.h"
 #include "Holder.h"
+#include "PalettePickerDlg.h"
 
 #include "../Public/Global.h"
 #include "../Public/ODBCDatabase.h"
@@ -29,7 +31,7 @@
 #include "../Geometry/Mask.h"
 #include "../Geometry/Tag.h"
 #include "../Geometry/VectorTile.h"
-//
+
 #include "../Style/Spot.h"
 #include "../Style/Type.h"
 #include "../Style/Hint.h"
@@ -39,10 +41,12 @@
 #include "../Style/Fill.h"
 #include "../Style/FillSymbol.h"
 #include "../Style/FillPattern.h"
+#include "../Style/FillAlone.h"
 #include "../Style/SpotSymbol.h"
 #include "../Style/SpotPattern.h"
 #include "../Style/SpotFlash.h"
 #include "../Style/ColorSpot.h"
+
 
 #include "../Dataview/Global.h"
 //
@@ -62,6 +66,7 @@
 #include "../Action/Document/LayerTree/Layerlist/Geomlist/Collection.h"
 #include "../Action/Document/LayerTree/Layerlist/Geomlist/Poly.h"
 #include "../Utility/array.hpp"
+#include "../Utility/Simplify.hpp"
 
 #include "../../ThirdParty/clipper/2.0/CPP/Clipper2Lib/include/clipper2/clipper.h"
 
@@ -290,6 +295,92 @@ void CLayer::CleanOrphan()
 		}
 	}
 }
+void CLayer::AutoColoring(unsigned int tolerance)
+{
+	std::vector<CPoly*> polygons;
+	POSITION pos = m_geomlist.GetHeadPosition();
+	while(pos != nullptr)
+	{
+		CGeom* pGeom = m_geomlist.GetNext(pos);
+		if(pGeom->m_bClosed == false)
+			continue;
+		if(pGeom->IsKindOf(RUNTIME_CLASS(CPoly)) == FALSE)
+			continue;
+
+		CPoly* pPoly = (CPoly*)pGeom;
+		polygons.push_back(pPoly);
+	}
+	int size = polygons.size();
+	if(size == 0)
+		return;
+
+	CPalettePickerDlg dlg(nullptr, "fill.txt");
+	if(dlg.DoModal() == IDOK)
+	{
+		std::vector<std::vector<bool>> matrix(size, std::vector<bool>(size, false));
+		for(int row = 0; row < size; row++) {
+			CPoly* pPolygon1 = polygons.at(row);
+			for(int col = row + 1; col < size; col++)
+			{
+				CPoly* pPolygon2 = polygons.at(col);
+				CRect inter;
+				inter.IntersectRect(pPolygon1->m_Rect, pPolygon1->m_Rect);
+				if(inter.IsRectEmpty())
+					continue;
+
+				for(int anchor = 1; anchor <= pPolygon2->GetAnchors(); anchor++)
+				{
+					CPoint point = pPolygon2->GetAnchor(anchor);
+					if(pPolygon1->PickOn(point, tolerance))
+					{
+						matrix[row][col] = true;
+						matrix[col][row] = true;
+						break;
+					}
+				}
+			}
+		}
+		std::vector<int> result(size, -1);
+		result[0] = 0;
+		for(int row = 1; row < size; ++row)
+		{
+			std::vector<bool> colors(size, true);// Reset available colors	
+			for(int col = 0; col < size; ++col) // Check colors of adjacent polygons and mark them as unavailable
+			{
+				if(matrix[row][col] && result[col] != -1)
+				{
+					colors[result[col]] = false;
+				}
+			}
+
+			// Find the first available color		
+			for(int index = 0; index < size; index++)
+			{
+				if(colors[index])
+				{
+					result[row] = index;
+					break;
+				}
+				else if(index == size - 1)
+				{
+					result[row] = index;
+				}
+			}
+		}
+		const std::vector<COLORREF>& palette = dlg.m_selectedColors;
+		for(int index = 0; index < size; index++)
+		{
+			COLORREF color = palette[min(result[index], palette.size() - 1)];
+			CPoly* pPoly = polygons[index];
+			if(pPoly->m_pFill != nullptr)
+			{
+				delete pPoly->m_pFill;
+			}
+			pPoly->m_pFill = new CFillAlone(color);
+		}
+	}
+}
+
 void CLayer::Wipeout()
 {
 	delete m_attDatasource;
@@ -1288,12 +1379,13 @@ void CLayer::CopyTo(CLayer* pLayer) const
 	pLayer->m_maxLevelObj = m_maxLevelObj;
 	pLayer->m_minLevelTag = m_minLevelTag;
 	pLayer->m_maxLevelTag = m_maxLevelTag;
-
-	pLayer->m_bShowTag = m_bShowTag;
+		
 	pLayer->m_bLocked = m_bLocked;
 	pLayer->m_bDetour = m_bDetour;
 	pLayer->m_bHide = m_bHide;
-	pLayer->m_bPivot = m_bPivot;
+	pLayer->m_bTagShow = m_bTagShow;
+	pLayer->m_bTagPivot = m_bTagPivot;
+	pLayer->m_bTagOblige = m_bTagOblige;
 	pLayer->m_bKeyQuery = m_bKeyQuery;
 	pLayer->m_attDatasource = m_attDatasource == nullptr ? nullptr : (CATTDatasource*)m_attDatasource->Clone();
 	pLayer->m_bAttribute = m_bAttribute;
@@ -1349,11 +1441,12 @@ void CLayer::Migrate(CLayer* layer)
 	layer->m_minLevelTag = m_minLevelTag;
 	layer->m_maxLevelTag = m_maxLevelTag;
 
-	layer->m_bShowTag = m_bShowTag;
 	layer->m_bLocked = m_bLocked;
 	layer->m_bDetour = m_bDetour;
 	layer->m_bHide = m_bHide;
-	layer->m_bPivot = m_bPivot;
+	layer->m_bTagShow = m_bTagShow;
+	layer->m_bTagPivot = m_bTagPivot;
+	layer->m_bTagOblige = m_bTagOblige;
 	layer->m_bKeyQuery = m_bKeyQuery;
 	layer->m_bAttribute = m_bAttribute;
 	layer->m_bCentroid = m_bCentroid;
@@ -1413,7 +1506,7 @@ void CLayer::Migrate(CLayer* layer)
 	}
 }
 
-bool CLayer::CopyGeomTo(CLayer* pLayer, function<void(CString)> dbcopied) const
+bool CLayer::CopyGeomTo(CLayer* pLayer, std::function<void(CString)> dbcopied) const
 {
 	POSITION pos = m_geomlist.GetHeadPosition();
 	while(pos != nullptr)
@@ -1436,12 +1529,13 @@ bool CLayer::CopyGeomTo(CLayer* pLayer, function<void(CString)> dbcopied) const
 	pLayer->m_maxLevelObj = m_maxLevelObj;
 	pLayer->m_minLevelTag = m_minLevelTag;
 	pLayer->m_maxLevelTag = m_maxLevelTag;
-
-	pLayer->m_bShowTag = m_bShowTag;
+		
 	pLayer->m_bLocked = m_bLocked;
 	pLayer->m_bDetour = m_bDetour;
 	pLayer->m_bHide = m_bHide;
-	pLayer->m_bPivot = m_bPivot;
+	pLayer->m_bTagShow = m_bTagShow;
+	pLayer->m_bTagPivot = m_bTagPivot;
+	pLayer->m_bTagOblige = m_bTagOblige;
 	pLayer->m_bKeyQuery = m_bKeyQuery;
 	pLayer->m_attDatasource = m_attDatasource == nullptr ? nullptr : (CATTDatasource*)m_attDatasource->Clone();
 	pLayer->m_bAttribute = m_bAttribute;
@@ -3393,8 +3487,10 @@ void CLayer::Serialize(CArchive& ar, const DWORD& dwVersion, bool bIgnoreGeoms)
 {
 	DWORD reserved1 = 0B00000000000000000000000100000000;
 	if(ar.IsStoring())
-	{
-		reserved1 |= (m_bCentroid ? 0B00000000000000000000000010000000 : 0B00000000000000000000000000000000);
+	{		                             
+		reserved1 |= (m_bCentroid ?  0B00000000000000000000000010000000 : 0B00000000000000000000000000000000);
+		reserved1 |= (m_bTagOblige ? 0B00000000000000000000001000000000 : 0B00000000000000000000000000000000);
+
 		ar << reserved1;
 		ar << m_wId;
 		ar << m_strName;
@@ -3408,14 +3504,14 @@ void CLayer::Serialize(CArchive& ar, const DWORD& dwVersion, bool bIgnoreGeoms)
 		ar << m_maxLevelTag;
 
 		ar << m_bVisible;
-		ar << m_bShowTag;
+		ar << m_bTagShow;
 		ar << m_bKeyQuery;
 		ar << m_bLocked;
 		ar << m_bDetour;
 		ar << m_bHide;
-		ar << m_bPivot;
+		ar << m_bTagPivot;
 		ar << m_bAttribute;
-		ar << ​m_bTagResistance;
+		ar << ​m_bTagResistant;
 		const CLine::LINETYPE linetype = m_pLine == nullptr ? CLine::LINETYPE::Inherit : m_pLine->Gettype();
 		const CFill::FILLTYPE filltype = m_pFill == nullptr ? CFill::FILLTYPE::Inherit : m_pFill->Gettype();
 		const BYTE spottype = m_pSpot == nullptr ? 0XFF : m_pSpot->Gettype();
@@ -3439,7 +3535,8 @@ void CLayer::Serialize(CArchive& ar, const DWORD& dwVersion, bool bIgnoreGeoms)
 		delete m_pHint;
 
 		ar >> reserved1;
-		m_bCentroid = (reserved1 & 0B00000000000000000000000010000000) == 0B00000000000000000000000010000000;
+		m_bCentroid =  (reserved1 & 0B00000000000000000000000010000000) == 0B00000000000000000000000010000000;
+		m_bTagOblige = (reserved1 & 0B00000000000000000000001000000000) == 0B00000000000000000000001000000000;
 		ar >> m_wId;
 		ar >> m_strName;
 		ar >> m_bViewLevel;
@@ -3451,19 +3548,19 @@ void CLayer::Serialize(CArchive& ar, const DWORD& dwVersion, bool bIgnoreGeoms)
 		ar >> m_minLevelTag;
 		ar >> m_maxLevelTag;
 		ar >> m_bVisible;
-		ar >> m_bShowTag;
+		ar >> m_bTagShow;
 		ar >> m_bKeyQuery;
 		ar >> m_bLocked;
 		ar >> m_bDetour;
 		ar >> m_bHide;
-		ar >> m_bPivot;
+		ar >> m_bTagPivot;
 		if(dwVersion >= 2)
 		{
 			ar >> m_bAttribute;
 		}
 		if(dwVersion >= 4)
 		{
-			ar >> ​m_bTagResistance;
+			ar >> ​m_bTagResistant;
 		}
 		BYTE lineindex = -1;
 		BYTE fillindex = -1;
@@ -3584,10 +3681,10 @@ void CLayer::ReleaseCE(CArchive& ar) const
 	ar << m_bDynamic;
 
 	ar << m_bVisible;
-	ar << m_bShowTag;
+	ar << m_bTagShow;
 	ar << m_bKeyQuery;
 	ar << m_bHide;
-	ar << m_bPivot;
+	ar << m_bTagPivot;
 
 	ar << (BYTE)(m_pLine == nullptr ? CLine::LINETYPE::Inherit : m_pLine->Gettype());
 	ar << (BYTE)(m_pFill == nullptr ? CFill::FILLTYPE::Inherit : m_pFill->Gettype());
@@ -3653,12 +3750,12 @@ void CLayer::ReleaseDCOM(CArchive& ar)
 
 		WORD wSwitch = 0;
 		if(m_bVisible == true) wSwitch |= 0X0001;
-		if(m_bShowTag == true) wSwitch |= 0X0002;
+		if(m_bTagShow == true) wSwitch |= 0X0002;
 		if(m_bKeyQuery == true) wSwitch |= 0X0004;
 		if(m_bLocked == true) wSwitch |= 0X0008;
 		if(m_bDetour == true) wSwitch |= 0X0010;
 		if(m_bHide == true) wSwitch |= 0X0020;
-		if(m_bPivot == true) wSwitch |= 0X0040;
+		if(m_bTagPivot == true) wSwitch |= 0X0040;
 		if(m_bAttribute == true) wSwitch |= 0X0080;
 
 		if(m_pLine != nullptr) wSwitch |= 0X0100;
@@ -3703,12 +3800,12 @@ void CLayer::ReleaseDCOM(CArchive& ar)
 		ar >> wSwitch;
 
 		m_bVisible = (wSwitch & 0X0001) == 0X0001;
-		m_bShowTag = (wSwitch & 0X0002) == 0X0002;
+		m_bTagShow = (wSwitch & 0X0002) == 0X0002;
 		m_bKeyQuery = (wSwitch & 0X0004) == 0X0004;
 		m_bLocked = (wSwitch & 0X0008) == 0X0008;
 		m_bDetour = (wSwitch & 0X0010) == 0X0010;
 		m_bHide = (wSwitch & 0X0020) == 0X0020;
-		m_bPivot = (wSwitch & 0X0040) == 0X0040;
+		m_bTagPivot = (wSwitch & 0X0040) == 0X0040;
 		m_bAttribute = (wSwitch & 0X0080) == 0X0080;
 
 		char lineindex = -1;
@@ -3817,12 +3914,12 @@ void CLayer::ReleaseCap(CFile& file, const CDatainfo& datainfo) const
 
 	WORD wSwitch = 0;
 	wSwitch |= m_bVisible ? 0X0001 : 0X0000;
-	wSwitch |= m_bShowTag ? 0X0002 : 0X0000;
+	wSwitch |= m_bTagShow ? 0X0002 : 0X0000;
 	wSwitch |= m_bKeyQuery ? 0X0004 : 0X0000;
 	wSwitch |= m_bLocked ? 0X0008 : 0X0000;
 	wSwitch |= m_bDetour ? 0X0010 : 0X0000;
 	wSwitch |= m_bHide ? 0X0020 : 0X0000;
-	wSwitch |= m_bPivot ? 0X0040 : 0X0000;
+	wSwitch |= m_bTagPivot ? 0X0040 : 0X0000;
 	wSwitch |= m_bAttribute ? 0X0080 : 0X0000;
 
 	CSpot* pSpot = this->GetSpot();
@@ -3897,12 +3994,12 @@ void CLayer::ReleaseCap(BinaryStream& stream, const CDatainfo& datainfo) const
 
 	WORD wSwitch = 0;
 	wSwitch |= m_bVisible ? 0X0001 : 0X0000;
-	wSwitch |= m_bShowTag ? 0X0002 : 0X0000;
+	wSwitch |= m_bTagShow ? 0X0002 : 0X0000;
 	wSwitch |= m_bKeyQuery ? 0X0004 : 0X0000;
 	wSwitch |= m_bLocked ? 0X0008 : 0X0000;
 	wSwitch |= m_bDetour ? 0X0010 : 0X0000;
 	wSwitch |= m_bHide ? 0X0020 : 0X0000;
-	wSwitch |= m_bPivot ? 0X0040 : 0X0000;
+	wSwitch |= m_bTagPivot ? 0X0040 : 0X0000;
 	wSwitch |= m_bAttribute ? 0X0080 : 0X0000;
 
 	CSpot* pSpot = this->GetSpot();
@@ -3973,12 +4070,12 @@ void CLayer::ReleaseCap(boost::json::object& json, const CDatainfo& datainfo, co
 
 		WORD wSwitch = 0;
 		wSwitch |= m_bVisible ? 0X0001 : 0X0000;
-		wSwitch |= m_bShowTag ? 0X0002 : 0X0000;
+		wSwitch |= m_bTagShow ? 0X0002 : 0X0000;
 		wSwitch |= m_bKeyQuery ? 0X0004 : 0X0000;
 		wSwitch |= m_bLocked ? 0X0008 : 0X0000;
 		wSwitch |= m_bDetour ? 0X0010 : 0X0000;
 		wSwitch |= m_bHide ? 0X0020 : 0X0000;
-		wSwitch |= m_bPivot ? 0X0040 : 0X0000;
+		wSwitch |= m_bTagPivot ? 0X0040 : 0X0000;
 		wSwitch |= m_bAttribute ? 0X0080 : 0X0000;
 
 		CSpot* pSpot = this->GetSpot();
@@ -4062,12 +4159,12 @@ void CLayer::ReleaseCap(pbf::writer& writer, const CDatainfo& datainfo, const BY
 
 		WORD wSwitch = 0;
 		wSwitch |= m_bVisible ? 0X0001 : 0X0000;
-		wSwitch |= m_bShowTag ? 0X0002 : 0X0000;
+		wSwitch |= m_bTagShow ? 0X0002 : 0X0000;
 		wSwitch |= m_bKeyQuery ? 0X0004 : 0X0000;
 		wSwitch |= m_bLocked ? 0X0008 : 0X0000;
 		wSwitch |= m_bDetour ? 0X0010 : 0X0000;
 		wSwitch |= m_bHide ? 0X0020 : 0X0000;
-		wSwitch |= m_bPivot ? 0X0040 : 0X0000;
+		wSwitch |= m_bTagPivot ? 0X0040 : 0X0000;
 		wSwitch |= m_bAttribute ? 0X0080 : 0X0000;
 
 		CSpot* pSpot = this->GetSpot();
@@ -4195,7 +4292,7 @@ void CLayer::Tilize(CVectorTile** matrixTiles, int minRow, int maxRow, int minCo
 	if(m_bVisible == false)
 		return;
 	const bool bDrawGeom = (m_bShowGeom == false || viewinfo.m_levelCurrent < m_minLevelObj || viewinfo.m_levelCurrent >= m_maxLevelObj) ? false : true;
-	const bool bDrawTag = (m_bShowTag == false || viewinfo.m_levelCurrent < m_minLevelTag || viewinfo.m_levelCurrent >= m_maxLevelTag) ? false : true;
+	const bool bDrawTag = (m_bTagShow == false || viewinfo.m_levelCurrent < m_minLevelTag || viewinfo.m_levelCurrent >= m_maxLevelTag) ? false : true;
 	if(bDrawGeom == false && bDrawTag == false)
 		return;
 
@@ -4779,7 +4876,7 @@ void CLayer::DeleteTag(CWnd* pWnd, const CViewinfo& viewinfo)
 
 void CLayer::SetAttribute(CDocument& document)
 {
-	CLayerAttrDlg dlg(nullptr, m_wId, m_bViewLevel, m_minLevelObj, m_maxLevelObj, m_minLevelTag, m_maxLevelTag, m_bKeyQuery, m_bLocked, m_bHide, m_bShowTag, m_bDynamic, m_bDetour, m_bPivot, m_bCentroid, m_strGeoCatogery, ​m_bTagResistance == 0XFF);
+	CLayerAttrDlg dlg(nullptr, m_wId, m_bViewLevel, m_minLevelObj, m_maxLevelObj, m_minLevelTag, m_maxLevelTag, m_bKeyQuery, m_bLocked, m_bHide, m_bTagShow, m_bDynamic, m_bDetour, m_bTagPivot, m_bTagOblige, m_bCentroid, m_strGeoCatogery, ​m_bTagResistant == 0XFF);
 	if(dlg.DoModal() == IDOK)
 	{
 		m_strGeoCatogery = dlg.m_strGeoCatogery;
@@ -4791,12 +4888,13 @@ void CLayer::SetAttribute(CDocument& document)
 		m_bKeyQuery = dlg.m_bKeyQuery == TRUE;
 		m_bLocked = dlg.m_bLocked == TRUE;
 		m_bHide = dlg.m_bHide == TRUE;
-		m_bShowTag = dlg.m_bShowTag == TRUE;
+		m_bTagShow = dlg.m_bTagShow == TRUE;
 		m_bDetour = dlg.m_bDetour == TRUE;
-		m_bPivot = dlg.m_bPivot == TRUE;
+		m_bTagPivot = dlg.m_bTagPivot == TRUE;
+		m_bTagOblige = dlg.m_bTagOblige == TRUE;
 		m_bCentroid = dlg.m_bCentroid == TRUE;
 		m_bCentroid = dlg.m_bCentroid == TRUE;
-		​m_bTagResistance = dlg.m_bTagResistance ? 0XFF : 0X00;
+		​m_bTagResistant = dlg.m_bTagResistant ? 0XFF : 0X00;
 
 		m_bDynamic = 0X00;
 		m_bDynamic |= dlg.m_bSpotDynamic == true ? SpotDynamic : 0X00;
@@ -5079,7 +5177,7 @@ void CLayer::Draw(Gdiplus::Graphics& g, const CViewinfo& viewinfo, const CRect& 
 		return;
 
 	const bool bDrawGeom = (m_bShowGeom == false || viewinfo.m_levelCurrent < m_minLevelObj || viewinfo.m_levelCurrent >= m_maxLevelObj) ? false : true;
-	const bool bDrawTag = (m_bShowTag == false || viewinfo.m_levelCurrent < m_minLevelTag || viewinfo.m_levelCurrent >= m_maxLevelTag) ? false : true;
+	const bool bDrawTag = (m_bTagShow == false || viewinfo.m_levelCurrent < m_minLevelTag || viewinfo.m_levelCurrent >= m_maxLevelTag) ? false : true;
 	if(bDrawGeom == false && bDrawTag == false)
 		return;
 
@@ -5254,7 +5352,7 @@ void CLayer::DrawTag(Gdiplus::Graphics& g, const CViewinfo& viewinfo, const CRec
 {
 	if(m_bVisible == false)
 		return;
-	else if(m_bShowTag == false)
+	else if(m_bTagShow == false)
 		return;
 	else if(viewinfo.m_levelCurrent < m_minLevelTag)
 		return;
@@ -5273,7 +5371,7 @@ void CLayer::DrawTag(Gdiplus::Graphics& g, const CViewinfo& viewinfo, const CRec
 			CGroupTag* pTag = m_groupTaglist.GetPrev(pos1);
 			if(pTag != nullptr)
 			{
-				pTag->Draw(g, viewinfo, pHint, m_bPivot);
+				pTag->Draw(g, viewinfo, pHint, m_bTagPivot, m_bTagOblige);
 				delete pTag;
 				pTag = nullptr;
 			}
@@ -5355,7 +5453,7 @@ void CLayer::DrawTag(Gdiplus::Graphics& g, const CViewinfo& viewinfo, const CRec
 			else if(showDynamic == false)
 				continue;
 			else
-				pGeom->DrawTag(g, viewinfo, pHint, false);
+				pGeom->DrawTag(g, viewinfo, pHint, m_bTagPivot, m_bTagOblige);
 		}
 	}
 }
@@ -5490,7 +5588,7 @@ void CLayer::Preoccupy(Gdiplus::Graphics& g, const CViewinfo& viewinfo, const CR
 {
 	if(m_bVisible == false)
 		return;
-	if(​m_bTagResistance == 0X00)
+	if(​m_bTagResistant == 0X00)
 		return;
 
 	const bool bDrawGeom = (m_bShowGeom == false || viewinfo.m_levelCurrent < m_minLevelObj || viewinfo.m_levelCurrent >= m_maxLevelObj) ? false : true;

@@ -58,7 +58,7 @@ public:
 	static void Draw(Gdiplus::Graphics& g, const CViewinfo& viewinfo, Gdiplus::Font* font, Gdiplus::Brush* textBrush, Gdiplus::Pen* rimPen, Gdiplus::Brush* rimBrush, bool roundRect)
 	{
 	}
-	void DrawTag(Gdiplus::Graphics& g, const CViewinfo& viewinfo, const CHint* pHint, const bool& bPivot) const override
+	void DrawTag(Gdiplus::Graphics& g, const CViewinfo& viewinfo, const CHint* pHint, const bool& bPivot, const bool& bOblige) const override
 	{
 	}
 	void Flash(CWnd* pWnd, const CViewinfo& viewinfo, const int& nTimes) const override;

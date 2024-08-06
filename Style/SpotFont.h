@@ -30,7 +30,7 @@ public:
 public:
 	CStringA m_strFontReal;
 	CString m_strFontFace;
-	CString m_strFontFamily;
+//	CString m_strFontFamily;
 	unsigned short m_nSize;
 	CColor* m_pColor;
 public:

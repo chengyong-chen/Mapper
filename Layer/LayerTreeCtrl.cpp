@@ -165,7 +165,7 @@ void CLayerTreeCtrl::AddNode(HTREEITEM hitemParent, HTREEITEM hitemAfter, CLayer
 	{
 		AddNode(hItem, TVI_LAST, pLayer);
 		pLayer = pLayer->Nextsibling();
-	}	
+	}
 }
 
 void CLayerTreeCtrl::MoveItem(HTREEITEM hitemBeMoved, HTREEITEM hitemInsertIn, HTREEITEM hitemInsertAfter)
@@ -428,12 +428,12 @@ void CLayerTreeCtrl::OnBegindrag(NMHDR* pNMHDR, LRESULT* pResult)
 
 void CLayerTreeCtrl::OnMouseMove(UINT nFlags, CPoint point)
 {
-	HTREEITEM hitem;
 	UINT flags;
 
 	if(m_bDragging)
 	{
-		if((hitem = HitTest(point, &flags)) != nullptr)
+		HTREEITEM hitem = HitTest(point, &flags);
+		if(hitem != nullptr)
 		{
 			if(m_pDragImage != nullptr)
 			{
@@ -476,7 +476,10 @@ void CLayerTreeCtrl::OnLButtonUp(UINT nFlags, CPoint point)
 			if(::GetKeyState(VK_CONTROL) < 0)
 			{
 				const HTREEITEM hParentItem = this->GetParentItem(m_hitemDrop);
-				MoveItem(m_hitemDrag, hParentItem, m_hitemDrop);
+				if(hParentItem != nullptr)
+				{
+					MoveItem(m_hitemDrag, hParentItem, m_hitemDrop);
+				}
 			}
 			else if(GetParentItem(m_hitemDrag) != m_hitemDrop)
 			{
@@ -746,7 +749,7 @@ void CLayerTreeCtrl::OnNewBefore()
 	CLayer* pNewlayer = nullptr;
 	if(pSlectlayer->Gettype() == 10)
 	{
-		pNewlayer = new CLayif(m_layertree, (CLaylg*)pParentlayer, pParentlayer->m_minLevelObj, pParentlayer->m_maxLevelObj, pParentlayer->m_minLevelTag, pParentlayer->m_maxLevelTag);	
+		pNewlayer = new CLayif(m_layertree, (CLaylg*)pParentlayer, pParentlayer->m_minLevelObj, pParentlayer->m_maxLevelObj, pParentlayer->m_minLevelTag, pParentlayer->m_maxLevelTag);
 	}
 	else if(strcmp(m_document.GetRuntimeClass()->m_lpszClassName, "CGeoDoc") == 0)
 	{
@@ -1473,7 +1476,7 @@ void CLayerTreeCtrl::OnATTDatabase()
 	CLayer* layer = (CLayer*)this->GetItemData(hItem);
 	if(layer == nullptr)
 		return;
-	if(layer->Gettype()==10)
+	if(layer->Gettype() == 10)
 		return;
 
 	const bool bSupport = layer->m_bAttribute;
@@ -1879,7 +1882,7 @@ void CLayerTreeCtrl::OnSetIf()
 	CLayer* pSlectlayer = (CLayer*)GetItemData(hSelectItem);
 	if(pSlectlayer == nullptr)
 		return;
-	if(pSlectlayer->Gettype()!=10)
+	if(pSlectlayer->Gettype() != 10)
 		return;
 	CLayif* pLayif = (CLayif*)pSlectlayer;
 
@@ -1890,7 +1893,7 @@ void CLayerTreeCtrl::OnSetIf()
 	CSetIfDlg dlg(nullptr, (CString)pLayif->m_strIf);
 	if(dlg.DoModal() == IDOK)
 	{
-		pLayif->m_strIf = dlg.m_strIf;		
+		pLayif->m_strIf = dlg.m_strIf;
 		m_document.SetModifiedFlag(TRUE);
 
 		AfxSetResourceHandle(hInstOld);
@@ -1930,7 +1933,7 @@ void CLayerTreeCtrl::OnRematch()
 	CLayer* pSlectlayer = (CLayer*)GetItemData(hSelectItem);
 	if(pSlectlayer == nullptr)
 		return;
-	if(pSlectlayer->Gettype()!=9)
+	if(pSlectlayer->Gettype() != 9)
 		return;
 
 	CLaylg* pLaylg = (CLaylg*)pSlectlayer;

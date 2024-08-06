@@ -136,7 +136,7 @@ public:
 	virtual void Draw(Gdiplus::Graphics& g, const CViewinfo& viewinfo, const float& ratio) const = 0;
 	virtual void Draw(Gdiplus::Graphics& g, const CViewinfo& viewinfo, const CLibrary& library, Context& context) const = 0;
 	virtual void Mono(Gdiplus::Graphics& g, const Gdiplus::Matrix& matrix, Context& context, const CSize& dpi) const;
-	virtual void DrawTag(Gdiplus::Graphics& g, const CViewinfo& viewinfo, const CHint* pHint, const bool& bPivot) const;
+	virtual void DrawTag(Gdiplus::Graphics& g, const CViewinfo& viewinfo, const CHint* pHint, const bool& bPivot, const bool& bOblige) const;
 	virtual void DrawTag(Gdiplus::Graphics& g, const CViewinfo& viewinfo, const CHint* pHint) const;
 	virtual void DrawHatch(Gdiplus::Graphics& g, const CViewinfo& viewinfo, const int& width) const;
 	virtual void DrawPath(CDC* pDC, const CViewinfo& viewinfo) const;

@@ -65,6 +65,7 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="PalettePickerDlg.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\ThirdParty\tinyxml\tinyxml2\tinyxml2.h" />
@@ -137,6 +138,7 @@
     <ClInclude Include="SetIfDlg.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="PalettePickerDlg.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />

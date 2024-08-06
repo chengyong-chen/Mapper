@@ -68,8 +68,8 @@ public:
 	virtual void ReleaseWeb(boost::json::object& json) const;
 	virtual void ReleaseWeb(pbf::writer& writer) const;
 public:
-	static std::map<std::string, std::wstring> m_RealToFace;  //one to one
-	static std::map<std::string, std::wstring> m_RealToFamily;//multiple to one
+	static CMap<CStringA, const CStringA&, CString, const CString&> m_RealToFace;  //one to one
+	static CMap<CStringA, const CStringA&, CString, const CString&> m_RealToFamily;//multiple to one
 
 public:
 	static void LoadFontNames();

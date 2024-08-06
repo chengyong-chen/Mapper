@@ -17,6 +17,8 @@ protected:
 	DECLARE_SERIAL(CFillAlone);
 	CFillAlone();
 	CFillAlone(CColor* pColor);
+	CFillAlone(COLORREF color);
+	
 public:
 	~CFillAlone() override;
 

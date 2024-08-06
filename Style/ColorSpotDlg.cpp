@@ -62,7 +62,7 @@ BOOL CColorSpotDlg::OnInitDialog()
 	pSB->SetScrollRange(0, 255);
 
 	CScrollBar* pSA = (CScrollBar*)GetDlgItem(IDC_SCROLLA);
-	pSA->SetScrollRange(0, 100);
+	pSA->SetScrollRange(0, 255);
 
 	OnSetRGB(d_pColor->ToRGB());
 
