@@ -94,7 +94,7 @@ void CType::Serialize(CArchive& ar, const DWORD& dwVersion)
 
 void CType::ReleaseCE(CArchive& ar) const
 {
-	SerializeStrCE(ar, m_fontdesc.GetRealName());
+	SerializeStrCE(ar, m_fontdesc.GetReal());
 	ar<<m_fSize;
 	ar<<m_filter;
 	ar<<m_frame;
@@ -180,7 +180,7 @@ void CType::ReleaseWeb(pbf::writer& writer) const
 }
 void CType::ExportPs3(FILE* file, CPsboard& aiKey) const
 {
-	const CStringA strFont = m_fontdesc.GetRealName();
+	const CStringA strFont = m_fontdesc.GetReal();
 	if(m_pColor!=nullptr)
 	{
 		m_pColor->ExportAIBrush(file, aiKey);

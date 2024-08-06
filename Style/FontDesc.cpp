@@ -40,21 +40,18 @@ CMap<CStringA, const CStringA&, CString, const CString&> CFontDesc::m_RealToFami
 
 CFontDesc::CFontDesc()
 {
-	m_strFamilyName = _T("Arial");
-	m_strRealName = "ArialMT";
+	m_strReal = "ArialMT";
 	m_style = Gdiplus::FontStyle::FontStyleRegular;
 }
 
-CFontDesc::CFontDesc(LPCTSTR lpszFaceName)
+CFontDesc::CFontDesc(LPCTSTR lpszFace)
 {
-	m_strRealName = CFontDesc::GetRealByFace(lpszFaceName);
-	m_strFamilyName = CFontDesc::GetFamilyByReal(m_strRealName);
+	m_strReal = CFontDesc::GetRealByFace(lpszFace);
 	m_style = Gdiplus::FontStyle::FontStyleRegular;
 }
 void CFontDesc::Sha1(boost::uuids::detail::sha1& sha1) const
 {
-	cstr::sha1(m_strRealName, sha1);
-	cstr::sha1(m_strFamilyName, sha1);
+	cstr::sha1(m_strReal, sha1);
 
 	sha1.process_byte(m_style);
 }
@@ -62,8 +59,8 @@ const CFontDesc& CFontDesc::operator =(const CFontDesc& descSrc)
 {
 	if(&descSrc != this)
 	{
-		m_strRealName = descSrc.m_strRealName;
-		m_strFamilyName = CFontDesc::GetFamilyByReal(m_strRealName);
+		m_strReal = descSrc.m_strReal;
+		m_strFamily = CFontDesc::GetFamilyByReal(m_strReal);
 		m_style = descSrc.m_style;
 	}
 	return *this;
@@ -71,11 +68,9 @@ const CFontDesc& CFontDesc::operator =(const CFontDesc& descSrc)
 
 const BOOL CFontDesc::operator==(const CFontDesc& descSrc) const
 {
-	if(m_strFamilyName != descSrc.m_strFamilyName)
+	if(m_style != descSrc.m_style)
 		return FALSE;
-	else if(m_style != descSrc.m_style)
-		return FALSE;
-	else if(m_strRealName != descSrc.m_strRealName)
+	else if(m_strReal != descSrc.m_strReal)
 		return FALSE;
 
 	return TRUE;
@@ -119,19 +114,19 @@ const BOOL CFontDesc::operator !=(const CFontDesc& descSrc) const
 {
 	return !(*this == descSrc);
 }
-CString CFontDesc::GetFaceName() const
+CString CFontDesc::GetFace() const
 {
-	return CFontDesc::GetFaceByReal(m_strRealName);
+	return CFontDesc::GetFaceByReal(m_strReal);
 };
-void CFontDesc::SetByFaceName(CString strFaceName)
+void CFontDesc::SetByFace(CString strFace)
 {
-	m_strRealName = CFontDesc::GetRealByFace(strFaceName);
-	m_strFamilyName = CFontDesc::GetFamilyByReal(m_strRealName);
+	m_strReal = CFontDesc::GetRealByFace(strFace);
+	m_strFamily = CFontDesc::GetFamilyByReal(m_strReal);
 }
-void CFontDesc::SetRealName(CStringA strRealName)
+void CFontDesc::SetReal(CStringA strReal)
 {
-	m_strRealName = strRealName;
-	m_strFamilyName = CFontDesc::GetFamilyByReal(m_strRealName);
+	m_strReal = strReal;
+	m_strFamily = CFontDesc::GetFamilyByReal(m_strReal);
 }
 void CFontDesc::SetStyle(Gdiplus::FontStyle style)
 {
@@ -143,35 +138,35 @@ void CFontDesc::Serialize(CArchive& ar, const DWORD& dwVersion)
 	CString strScript = _T("");
 	if(ar.IsStoring())
 	{
-		ar << m_strRealName;
+		ar << m_strReal;
 		ar << strScript;
 		ar << (BYTE)m_style;
 	}
 	else
 	{
 		BYTE style;
-		ar >> m_strRealName;
+		ar >> m_strReal;
 		ar >> strScript;
 		ar >> style;
-		if(FontRealNameExists(m_strRealName) == FALSE)
+		if(FontRealNameExists(m_strReal) == FALSE)
 		{
-			const _bstr_t btrFont(m_strRealName);
+			const _bstr_t btrFont(m_strReal);
 			const Gdiplus::FontFamily fontFamily(btrFont);
 			if(fontFamily.IsAvailable() == TRUE)
 			{
 				TCHAR family[512];
 				fontFamily.GetFamilyName(family);
-				m_strFamilyName = family;
-				m_strRealName = CFontDesc::GetRealByFamily(m_strFamilyName, (Gdiplus::FontStyle)style);
+				m_strFamily = family;
+				m_strReal = CFontDesc::GetRealByFamily(m_strFamily, (Gdiplus::FontStyle)style);
 			}
 			else
 			{
-				m_strFamilyName = m_strRealName;
+				m_strFamily = m_strReal;
 			}
 		}
 		else
 		{
-			m_strFamilyName = CFontDesc::GetFamilyByReal(m_strRealName);		
+			m_strFamily = CFontDesc::GetFamilyByReal(m_strReal);		
 		}
 		m_style = (Gdiplus::FontStyle)style;
 	}
@@ -181,7 +176,7 @@ DWORD CFontDesc::PackPC(CFile* pFile, BYTE*& bytes)
 {
 	if(pFile != nullptr)
 	{
-		DWORD size = PackStrPC(m_strRealName, pFile);
+		DWORD size = PackStrPC(m_strReal, pFile);
 		size += sizeof(BYTE);
 		size += sizeof(BYTE);
 		size += sizeof(DWORD);
@@ -198,7 +193,7 @@ DWORD CFontDesc::PackPC(CFile* pFile, BYTE*& bytes)
 
 void CFontDesc::ReleaseWeb(CFile& file) const
 {
-	SaveAsUTF8(file, m_strRealName);
+	SaveAsUTF8(file, m_strReal);
 
 	const LANGID nCharSet = GetUserDefaultUILanguage();
 	file.Write(&nCharSet, sizeof(BYTE));
@@ -206,19 +201,22 @@ void CFontDesc::ReleaseWeb(CFile& file) const
 }
 void CFontDesc::ReleaseWeb(BinaryStream& stream) const
 {
-	SaveAsUTF8(stream, m_strRealName);
+	SaveAsUTF8(stream, m_strReal);
 }
 void CFontDesc::ReleaseWeb(boost::json::object& json) const
 {
-	SaveAsEscapedASCII(json, "Family", m_strFamilyName);
+	SaveAsEscapedASCII(json, "Family", m_strFamily);
 	json["style"] = (int)m_style;
 }
 void CFontDesc::ReleaseWeb(pbf::writer& writer) const
-{
-	writer.add_string(EscapedASCII(m_strFamilyName));
+{	
+	CString strFace = this->GetFaceByReal(m_strReal);
+	writer.add_string(EscapedASCII(strFace));
+	writer.add_string(EscapedASCII(m_strFamily));
+
 	writer.add_byte(m_style);
 }
-void CFontDesc::LoadFontNames()
+void CFontDesc::LoadFonts()
 {
 	CFontDesc::m_RealToFace.RemoveAll();
 	CFontDesc::m_RealToFamily.RemoveAll();

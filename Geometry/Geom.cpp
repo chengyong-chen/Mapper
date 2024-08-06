@@ -2661,7 +2661,7 @@ void CGeom::GatherFonts(std::list<CStringA>& fontlist) const
 {
 	if(m_pHint != nullptr)
 	{
-		const CStringA strFont = m_pHint->m_fontdesc.GetRealName();
+		const CStringA strFont = m_pHint->m_fontdesc.GetReal();
 		if(strFont.IsEmpty() == FALSE && std::find(fontlist.begin(), fontlist.end(), strFont) == fontlist.end())
 		{
 			fontlist.push_back(strFont);

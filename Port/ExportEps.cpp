@@ -230,8 +230,8 @@ void GatherAllFonts(CTree<CLayer>& layertree, std::list<CStringA>& fontlist)
 {
 	fontlist.clear();
 
-	AddFont(CType::Default()->m_fontdesc.GetRealName(), fontlist);
-	AddFont(CHint::Default()->m_fontdesc.GetRealName(), fontlist);
+	AddFont(CType::Default()->m_fontdesc.GetReal(), fontlist);
+	AddFont(CHint::Default()->m_fontdesc.GetReal(), fontlist);
 
 	for(CTree<CLayer>::forwiterator it = layertree.forwbegin(); it != layertree.forwend(); ++it)
 	{
@@ -244,12 +244,12 @@ void GatherAllFonts(CTree<CLayer>& layertree, std::list<CStringA>& fontlist)
 		CType* pType = layer->m_pType;
 		if(pType != nullptr)
 		{
-			AddFont(pType->m_fontdesc.GetRealName(), fontlist);
+			AddFont(pType->m_fontdesc.GetReal(), fontlist);
 		}
 		CHint* pHint = layer->m_pHint;
 		if(pHint != nullptr)
 		{
-			AddFont(pHint->m_fontdesc.GetRealName(), fontlist);
+			AddFont(pHint->m_fontdesc.GetReal(), fontlist);
 		}
 
 		for(POSITION pos = layer->m_geomlist.GetHeadPosition(); pos != nullptr; layer->m_geomlist.GetNext(pos))
@@ -265,13 +265,13 @@ void GatherAllFonts(CTree<CLayer>& layertree, std::list<CStringA>& fontlist)
 				const CTextPoly* pText = (CTextPoly*)pGeom;
 				if(pText->m_pType != nullptr)
 				{
-					AddFont(pText->m_pType->m_fontdesc.GetRealName(), fontlist);
+					AddFont(pText->m_pType->m_fontdesc.GetReal(), fontlist);
 				}
 			}
 
 			if(pGeom->m_pHint != nullptr)
 			{
-				AddFont(pGeom->m_pHint->m_fontdesc.GetRealName(), fontlist);
+				AddFont(pGeom->m_pHint->m_fontdesc.GetReal(), fontlist);
 			}
 		}
 	}

@@ -416,8 +416,8 @@ void CSpotFontDlg::OnOK()
 		CFontDesc* pDesc = m_fontcombo.GetCurSelDesc();
 		if(pDesc != nullptr)
 		{
-			d_pSpot->m_strFontReal = pDesc->GetRealName();
-			d_pSpot->m_strFontFace = pDesc->GetFaceName();
+			d_pSpot->m_strFontReal = pDesc->GetReal();
+			d_pSpot->m_strFontFace = pDesc->GetFace();
 			d_pSpot->m_wId = (unsigned short)(0X20 + m_nSelected);
 			d_pSpot->m_nSize = m_nSize * 10;
 		}
@@ -459,7 +459,7 @@ void CSpotFontDlg::OnSelchangeFontcombo()
 	if(pDesc == nullptr)
 		return;
 
-	d_pSpot->m_strFontReal = pDesc->GetRealName();
+	d_pSpot->m_strFontReal = pDesc->GetReal();
 	d_pSpot->m_strFontFace = CFontDesc::GetFaceByReal(d_pSpot->m_strFontReal);
 
 	memset(&m_logFont, 0, sizeof(LOGFONT));

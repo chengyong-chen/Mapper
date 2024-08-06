@@ -546,7 +546,7 @@ void CSVGHandler::onSimpleText(const char* text,double x, double y)
 
 	CType* pType = new CType();
 	pType->m_fSize = FontState.size*mscale;
-	pType->m_fontdesc.SetRealName(strReal);
+	pType->m_fontdesc.SetReal(strReal);
 	pType->m_fontdesc.SetStyle(FontState.style);
 	pType->m_pColor = CurrentState.fill_color==nullptr ? nullptr : CurrentState.fill_color->Clone();
 	CText* pText = new CText(CPoint(0, 0));

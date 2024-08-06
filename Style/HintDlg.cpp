@@ -168,8 +168,8 @@ void CHintDlg::OnChangeFont()
 	if (pFontDesc != nullptr)
 	{
 		m_hint.m_fontdesc = *pFontDesc;
-		const CStringA strReal = CFontDesc::GetRealByFace(pFontDesc->GetFaceName());
-		m_hint.m_fontdesc.SetRealName(strReal);
+		const CStringA strReal = CFontDesc::GetRealByFace(pFontDesc->GetFace());
+		m_hint.m_fontdesc.SetReal(strReal);
 		OnContextChanged();
 	}
 }

@@ -105,7 +105,7 @@ void CHint::CopyTo(CHint* pHint) const
 
 Gdiplus::Font* CHint::GetFont(const float& fZoom, const CSize& dpi) const
 {
-	const CString strFont = m_fontdesc.GetFamilyName();
+	const CString strFont = m_fontdesc.GetFamily();
 	const _bstr_t btrFont(strFont);
 	const Gdiplus::FontFamily fontFamily(btrFont);
 	::SysFreeString(btrFont);
@@ -249,7 +249,7 @@ Gdiplus::RectF CHint::DrawString(Gdiplus::Graphics& g, const CViewinfo& viewinfo
 			break;
 	}
 
-	const CString strFontFamily = m_fontdesc.GetFamilyName();
+	const CString strFontFamily = m_fontdesc.GetFamily();
 	const _bstr_t btrFontFamily(strFontFamily);
 	const Gdiplus::FontFamily fontFamily(btrFontFamily);
 	::SysFreeString(btrFontFamily);
@@ -530,7 +530,7 @@ void CHint::ReleaseWeb(pbf::writer& writer) const
 }
 void CHint::ExportPs3(FILE* file, CPsboard& aiKey) const
 {
-	const CStringA strFont = m_fontdesc.GetRealName();
+	const CStringA strFont = m_fontdesc.GetReal();
 	if(m_pColor != nullptr)
 	{
 		m_pColor->ExportAIBrush(file, aiKey);
@@ -569,18 +569,18 @@ void CHint::ExportPs3(FILE* file, CPsboard& aiKey) const
 
 void CHint::ExportPdf(HPDF_Doc pdf, HPDF_Page page) const
 {
-	const CStringA strFont = m_fontdesc.GetRealName();
+	const CStringA strFont = m_fontdesc.GetReal();
 
 	HPDF_Font font = nullptr;
 	if(CFontDesc::FontRealNameExists(strFont) == false)
-		font = HPDF_GetFont(pdf, m_default.m_fontdesc.GetRealName(), "UTF-8");
+		font = HPDF_GetFont(pdf, m_default.m_fontdesc.GetReal(), "UTF-8");
 	else
 	{
 		const HPDF_FontDef fontdef = HPDF_GetFontDef(pdf, strFont);//there is a problem here, when the fond style is bold or other, can't find the fonddef from its name
 		if(fontdef == nullptr)
 		{
 			HPDF_ResetError(pdf);
-			font = HPDF_GetFont(pdf, m_default.m_fontdesc.GetRealName(), "UTF-8");
+			font = HPDF_GetFont(pdf, m_default.m_fontdesc.GetReal(), "UTF-8");
 		}
 		else
 		{
@@ -611,7 +611,7 @@ void CHint::ExportTag(FILE* file, const CViewinfo& viewinfo, const CPsboard& aiK
 	const Gdiplus::SizeF textSize = CHint::MeasureText<Gdiplus::SizeF>(viewinfo, string, 0);
 	const Gdiplus::RectF textRect = ::GetTagRect(origin, textSize, hAlign, vAlign);
 			
-	const CString strFontFamily = m_fontdesc.GetFamilyName();
+	const CString strFontFamily = m_fontdesc.GetFamily();
 	const _bstr_t btrFontFamily(strFontFamily);
 	const Gdiplus::FontFamily fontFamily(btrFontFamily);
 	::SysFreeString(btrFontFamily);
@@ -795,7 +795,7 @@ void CHint::ExportTag(HPDF_Doc pdf, HPDF_Page page, const CViewinfo& viewinfo, c
 	CHint::ExportStyle(pdf, page, textRect);
 
 	CHint::ExportPdf(pdf, page);
-	const CString strFontFamily = m_fontdesc.GetFamilyName();
+	const CString strFontFamily = m_fontdesc.GetFamily();
 	const _bstr_t btrFontFamily(strFontFamily);
 	const Gdiplus::FontFamily fontFamily(btrFontFamily);
 	::SysFreeString(btrFontFamily);

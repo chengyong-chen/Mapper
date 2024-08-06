@@ -898,7 +898,7 @@ void CTextPoly::GatherFonts(std::list<CStringA>& fontlist) const
 {
 	if(m_pType != nullptr)
 	{
-		const CStringA strFont=m_pType->m_fontdesc.GetRealName();
+		const CStringA strFont=m_pType->m_fontdesc.GetReal();
 		if(strFont.IsEmpty() == FALSE && std::find(fontlist.begin(), fontlist.end(), strFont) == fontlist.end())
 		{
 			fontlist.push_back(strFont);

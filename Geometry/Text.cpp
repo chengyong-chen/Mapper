@@ -236,7 +236,7 @@ Gdiplus::RectF CText::GetVewBoundary(const CViewinfo& viewinfo, const CLibrary& 
 	CType* pType = m_pType != nullptr ? m_pType : (CType*)context.pType;
 	if(pType == nullptr)
 		return Gdiplus::RectF(origin.X, origin.Y, 0, 0);
-	const CString strFontFamily = pType->m_fontdesc.GetFamilyName();
+	const CString strFontFamily = pType->m_fontdesc.GetFamily();
 	float fontSize = pType->m_fSize * context.ratioType * viewinfo.m_sizeDPI.cx / 72.f;
 	const _bstr_t btrFontFamily(strFontFamily);
 	const Gdiplus::FontFamily fontFamily(btrFontFamily);
@@ -360,7 +360,7 @@ void CText::GatherFonts(std::list<CStringA>& fontlist) const
 {
 	if(m_pType != nullptr)
 	{
-		const CStringA strFont = m_pType->m_fontdesc.GetRealName();
+		const CStringA strFont = m_pType->m_fontdesc.GetReal();
 		if(strFont.IsEmpty()==FALSE && std::find(fontlist.begin(), fontlist.end(), strFont) == fontlist.end())
 		{
 			fontlist.push_back(strFont);

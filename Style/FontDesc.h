@@ -25,26 +25,27 @@ class EXIMPORT CFontDesc
 {
 public:
 	CFontDesc();
-	CFontDesc(LPCTSTR lpszFaceName);
+	CFontDesc(LPCTSTR lpszFace);
 
 private:
-	CString m_strFamilyName;
+	CStringA m_strReal;
+	CString m_strFamily;
 	Gdiplus::FontStyle m_style;
-	CStringA m_strRealName;
+
 public:
 	virtual void Sha1(boost::uuids::detail::sha1& sha1) const;
 public:
-	void SetByFaceName(CString strFaceName);
-	void SetRealName(CStringA strRealName);
+	void SetByFace(CString strFace);
+	void SetReal(CStringA strReal);
 	void SetStyle(Gdiplus::FontStyle style);
-	CString GetFaceName() const;
-	CStringA GetRealName() const
+	CString GetFace() const;
+	CStringA GetReal() const
 	{
-		return m_strRealName;
+		return m_strReal;
 	};
-	CString GetFamilyName() const
+	CString GetFamily() const
 	{
-		return m_strFamilyName;
+		return m_strFamily;
 	};
 	Gdiplus::FontStyle GetStyle() const
 	{
@@ -72,7 +73,7 @@ public:
 	static CMap<CStringA, const CStringA&, CString, const CString&> m_RealToFamily;//multiple to one
 
 public:
-	static void LoadFontNames();
+	static void LoadFonts();
 	static bool FontRealNameExists(CStringA strReal);
 	static CString GetFaceByReal(CStringA strReal);
 	static CStringA GetRealByFace(CString strFace);

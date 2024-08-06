@@ -104,7 +104,7 @@ int CALLBACK CFontComboBox::EnumFontFamExProc(ENUMLOGFONTEX* pelf, NEWTEXTMETRIC
 // find a font with the face name and charset
 bool CFontComboBox::MatchFont(CFontDesc* fontdesac)
 {
-	CString face = fontdesac->GetFaceName();
+	CString face = fontdesac->GetFace();
 	const int nIndex = FindStringExact(-1, face);
 	if(nIndex != -1)
 	{
