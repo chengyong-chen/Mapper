@@ -1,7 +1,19 @@
-echo "# Mapper" >> README.md
-git init
-git add README.md
-git commit -m "first commit"
-git branch -M main
-git remote add origin https://github.com/chengyong-chen/Mapper.git
-git push -u origin main
+
+## Tutorial
+
+1. Clone the repository / Download zip file
+    
+    `git clone https://github.com/Diwatu/Mapper.git`
+
+    OR
+    
+    [Download Zip File](https://github.com/Diwatu/Mapper/archive/refs/heads/main.zip)
+    
+
+2. Unzip it to somewhere on your machine
+
+3. Double click Mapper.exe
+
+
+
+![image](https://user-images.githubusercontent.com/57012871/201461942-b3f3cb00-ef0e-4857-9b08-a6269ea946ca.png)
